@@ -316,13 +316,7 @@ QGCCameraParamIO::_valueFromMessage(const char* value, uint8_t param_type)
             var = QVariant(static_cast<qulonglong>(u.param_int64));
             break;
         case MAV_PARAM_EXT_TYPE_CUSTOM:
-        {
-            // This will null terminate the name string
-            char strValueWithNull[MAVLINK_MSG_PARAM_EXT_SET_FIELD_PARAM_VALUE_LEN + 1] = {};
-            (void) strncpy(strValueWithNull, value, MAVLINK_MSG_PARAM_EXT_SET_FIELD_PARAM_VALUE_LEN);
-            const QString strValue(strValueWithNull);
-            var = QVariant(strValue);
-        }
+            var = QVariant(QByteArray(value, MAVLINK_MSG_PARAM_EXT_SET_FIELD_PARAM_VALUE_LEN));
             break;
         default:
             var = QVariant(0);

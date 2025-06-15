@@ -135,14 +135,14 @@ Rectangle {
                         }
                         QGCButton {
                             text:               qsTr("Start Logging")
-                            width:              (_valueWidth * 0.5) - (ScreenTools.defaultFontPixelWidth * 0.5)
+                            width:              (_valueWidth * 0.6) - (ScreenTools.defaultFontPixelWidth * 0.5)
                             enabled:            !_mavlinkLogManager.logRunning && _mavlinkLogManager.canStartLog && !_disableDataPersistence
                             onClicked:          _mavlinkLogManager.startLogging()
                             anchors.verticalCenter: parent.verticalCenter
                         }
                         QGCButton {
                             text:               qsTr("Stop Logging")
-                            width:              (_valueWidth * 0.5) - (ScreenTools.defaultFontPixelWidth * 0.5)
+                            width:              (_valueWidth * 0.6) - (ScreenTools.defaultFontPixelWidth * 0.5)
                             enabled:            _mavlinkLogManager.logRunning && !_disableDataPersistence
                             onClicked:          _mavlinkLogManager.stopLogging()
                             anchors.verticalCenter: parent.verticalCenter

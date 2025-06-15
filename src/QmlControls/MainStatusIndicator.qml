@@ -42,13 +42,13 @@ RowLayout {
         text:               mainStatusText()
         font.pointSize:     ScreenTools.largeFontPointSize
 
-        property string _commLostText:      qsTr("Comms Lost")
-        property string _readyToFlyText:    qsTr("Ready To Fly")
-        property string _notReadyToFlyText: qsTr("Not Ready")
-        property string _disconnectedText:  qsTr("Disconnected - Click to manually connect")
-        property string _armedText:         qsTr("Armed")
-        property string _flyingText:        qsTr("Flying")
-        property string _landingText:       qsTr("Landing")
+        property string _commLostText:      qsTr("Mất kết nối")
+        property string _readyToFlyText:    qsTr("Sẵn sàng bay")
+        property string _notReadyToFlyText: qsTr("Chưa sẵn sàng bay")
+        property string _disconnectedText:  qsTr("Ngắt kết nối - Nhấn để kết nối thủ công")
+        property string _armedText:         qsTr("Đã kích hoạt")
+        property string _flyingText:        qsTr("Đang bay")
+        property string _landingText:       qsTr("Đang hạ cánh")
 
         function mainStatusText() {
             var statusText

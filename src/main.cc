@@ -20,6 +20,10 @@
 #include "SettingsManager.h"
 #include "MavlinkSettings.h"
 
+// #if defined(QGC_CUSTOM_BUILD)
+//     #include "CustomPlugin.h"
+// #endif
+
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     #include <QtWidgets/QMessageBox>
     #include "RunGuard.h"
@@ -180,6 +184,10 @@ int main(int argc, char *argv[])
     }
 #endif // Q_OS_WIN
 #endif // QT_DEBUG
+
+// #if defined(QGC_CUSTOM_BUILD)
+//     QGCCorePlugin::setPluginInstance(new CustomPlugin());
+// #endif
 
     QGCApplication app(argc, argv, runUnitTests, simpleBootTest);
 

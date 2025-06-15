@@ -27,19 +27,29 @@ import QGroundControl.UTMSP
 /// All properties defined here are visible to all QML pages.
 ApplicationWindow {
     id:             mainWindow
+    flags: Qt.Window
+         | Qt.FramelessWindowHint
+         | Qt.WindowSystemMenuHint
+         | Qt.WindowMinimizeButtonHint
+         | Qt.WindowMaximizeButtonHint
+    minimumWidth:   ScreenTools.isMobile ? ScreenTools.screenWidth  : Math.min(ScreenTools.defaultFontPixelWidth * 100, Screen.width)
+    minimumHeight:  ScreenTools.isMobile ? ScreenTools.screenHeight : Math.min(ScreenTools.defaultFontPixelWidth * 50, Screen.height)
     visible:        true
 
     property bool   _utmspSendActTrigger
     property bool   _utmspStartTelemetry
 
     Component.onCompleted: {
+        //-- Full screen on mobile or tiny screens
+        if (!ScreenTools.isFakeMobile && (ScreenTools.isMobile || Screen.height / ScreenTools.realPixelDensity < 120)) {
+            mainWindow.showFullScreen()
+        } else {
+            width   = ScreenTools.isMobile ? ScreenTools.screenWidth  : Math.min(250 * Screen.pixelDensity, Screen.width)
+            height  = ScreenTools.isMobile ? ScreenTools.screenHeight : Math.min(150 * Screen.pixelDensity, Screen.height)
+        }
+
         // Start the sequence of first run prompt(s)
         firstRunPromptManager.nextPrompt()
-    }
-
-    /// Saves main window position and size and re-opens it in the same position and size next time
-    MainWindowSavedState {
-        window: mainWindow
     }
 
     QtObject {
@@ -118,6 +128,7 @@ ApplicationWindow {
     function showPlanView() {
         flyView.visible = false
         planView.visible = true
+        viewer3DWindow.close()
     }
 
     function showFlyView() {
@@ -155,7 +166,7 @@ ApplicationWindow {
     }
 
     function showSettingsTool(settingsPage = "") {
-        showTool(qsTr("Application Settings"), "qrc:/qml/QGroundControl/Controls/AppSettings.qml", "/res/QGCLogoWhite")
+        showTool(qsTr("Application Settings"), "qrc:/qml/QGroundControl/Controls/AppSettings.qml", "/res/WhiteQGCLogo")
         if (settingsPage !== "") {
             toolDrawerLoader.item.showSettingsPage(settingsPage)
         }
@@ -178,6 +189,11 @@ ApplicationWindow {
 
         QGCSimpleMessageDialog {
         }
+    }
+
+    /// Saves main window position and size
+    MainWindowSavedState {
+        window: mainWindow
     }
 
     property bool _forceClose: false
@@ -383,7 +399,7 @@ ApplicationWindow {
                             height:             toolSelectDialog._toolButtonHeight
                             Layout.fillWidth:   true
                             text:               qsTr("Application Settings")
-                            imageResource:      "/res/QGCLogoFull.svg"
+                            imageResource:      "/res/CT-UAV.svg"
                             imageColor:         "transparent"
                             visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
                             onClicked: {
@@ -462,23 +478,26 @@ ApplicationWindow {
         }
     }
 
-    Rectangle {
+    Drawer {
         id:             toolDrawer
-        anchors.fill:   parent
+        width:          mainWindow.width
+        height:         mainWindow.height
+        edge:           Qt.LeftEdge
+        dragMargin:     0
+        closePolicy:    Drawer.NoAutoClose
+        interactive:    false
         visible:        false
-        color:          qgcPal.window
 
         property var backIcon
         property string toolTitle
         property alias toolSource:  toolDrawerLoader.source
         property var toolIcon
 
-        onVisibleChanged: {
-            if (!toolDrawer.visible) {
-                toolDrawerLoader.source = ""
-            }
+        // Unload the loader only after closed, otherwise we will see a "blank" loader in the meantime
+        onClosed: {
+            toolDrawer.toolSource = ""
         }
-
+        
         Rectangle {
             id:             toolDrawerToolbar
             anchors.left:   parent.left
@@ -502,7 +521,7 @@ ApplicationWindow {
 
                 QGCLabel {
                     id:             toolbarDrawerText
-                    text:           qsTr("Exit") + " " + toolDrawer.toolTitle
+                    text:           qsTr("Exit") + "                                                                                                                                                      " + toolDrawer.toolTitle
                     font.pointSize: ScreenTools.largeFontPointSize
                 }
             }

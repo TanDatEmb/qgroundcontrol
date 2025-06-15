@@ -52,11 +52,8 @@ void QGCMapPolygonTest::cleanup(void)
 {
     UnitTest::cleanup();
     delete _mapPolygon;
-    _mapPolygon = nullptr;
     delete _multiSpyPolygon;
-    _multiSpyPolygon = nullptr;
     delete _multiSpyModel;
-    _multiSpyModel = nullptr;
 }
 
 void QGCMapPolygonTest::_testDirty(void)
@@ -131,7 +128,6 @@ void QGCMapPolygonTest::_testVertexManipulation(void)
         QCOMPARE(_mapPolygon->count(), i);
 
         _mapPolygon->appendVertex(_polyPoints[i]);
-        QTest::qWait(100); // Let event loop process so queued signals flow through
         if (i >= 2) {
             // Center is no recalculated until there are 3 points or more
             QVERIFY(_multiSpyPolygon->checkOnlySignalByMask(pathChangedMask | polygonDirtyChangedMask | polygonCountChangedMask | centerChangedMask));
@@ -166,7 +162,6 @@ void QGCMapPolygonTest::_testVertexManipulation(void)
     QSignalSpy coordDirtySpy(geoCoord, SIGNAL(dirtyChanged(bool)));
     QGeoCoordinate adjustCoord(_polyPoints[1].latitude() + 1, _polyPoints[1].longitude() + 1);
     _mapPolygon->adjustVertex(1, adjustCoord);
-    QTest::qWait(100); // Let event loop process so queued signals flow through
     QVERIFY(_multiSpyPolygon->checkOnlySignalByMask(pathChangedMask | polygonDirtyChangedMask | centerChangedMask));
     QVERIFY(_multiSpyModel->checkOnlySignalByMask(modelDirtyChangedMask));
     QCOMPARE(coordSpy.count(), 1);

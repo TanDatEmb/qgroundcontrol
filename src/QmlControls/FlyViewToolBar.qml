@@ -23,11 +23,11 @@ Rectangle {
     id:     _root
     width:  parent.width
     height: ScreenTools.toolbarHeight
-    color:  qgcPal.toolbarBackground
+    color:  "#cfe2f3"
 
     property var    _activeVehicle:     QGroundControl.multiVehicleManager.activeVehicle
     property bool   _communicationLost: _activeVehicle ? _activeVehicle.vehicleLinkManager.communicationLost : false
-    property color  _mainStatusBGColor: qgcPal.brandingPurple
+    property color  _mainStatusBGColor: "#cfe2f3"
 
     function dropMainStatusIndicatorTool() {
         mainStatusIndicator.dropMainStatusIndicator();
@@ -50,9 +50,9 @@ Rectangle {
         
         gradient: Gradient {
             orientation: Gradient.Horizontal
-            GradientStop { position: 0;                                     color: _mainStatusBGColor }
-            GradientStop { position: currentButton.x + currentButton.width; color: _mainStatusBGColor }
-            GradientStop { position: 1;                                     color: _root.color }
+            GradientStop { position: 0;                                     color: "#7ec9f3" }
+            GradientStop { position: currentButton.x + currentButton.width; color: "#9fc5e8" }
+            GradientStop { position: 1;                                     color: "#cfe2f3" }
         }
     }
 
@@ -66,7 +66,7 @@ Rectangle {
         QGCToolBarButton {
             id:                     currentButton
             Layout.preferredHeight: viewButtonRow.height
-            icon.source:            "/res/QGCLogoFull.svg"
+            icon.source:            "/res/CT-UAV.svg"
             logo:                   true
             onClicked:              mainWindow.showToolSelectDialog()
         }

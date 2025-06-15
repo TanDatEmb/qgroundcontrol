@@ -20,6 +20,8 @@ set(CMAKE_POLICY_VERSION_MINIMUM 3.15)
 
 include(CustomOptions)
 
+include(CustomOptions)
+
 if(IS_DIRECTORY ${CMAKE_SOURCE_DIR}/custom)
     message(STATUS "Enabling custom build")
     set(QGC_CUSTOM_BUILD ON)
