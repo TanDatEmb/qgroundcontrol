@@ -43,13 +43,14 @@ Button {
         }
         Image {
             id:                     _icon
+            color:                 "blue"
             height:                 _rootButton.height * 0.75
             width:                  height
             smooth:                 true
             mipmap:                 true
             antialiasing:           true
             fillMode:               Image.PreserveAspectFit
-            source:                 qgcPal.globalTheme === QGCPalette.Light ? "/res/CT-UAV.svg" : "/res/QGCLogoWhite.svg"
+            source:                 qgcPal.globalTheme === QGCPalette.Light ? "/res/CT-UAV-White.svg" : "/res/CT-UAV-Black.svg"
             sourceSize.height:      height
             anchors.left:           _edge.right
             anchors.leftMargin:     ScreenTools.defaultFontPixelWidth

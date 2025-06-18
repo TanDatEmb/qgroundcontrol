@@ -6646,7 +6646,7 @@ Click Ok to start the auto-tuning process.
     <message>
         <source>Use a loiter to altitude item for final appoach. Otherwise use a regular waypoint.</source>
         <extracomment>.QGC.MetaData.Facts[UseLoiterToAlt].shortDesc, </extracomment>
-        <translation type="vanished">Sử dụng một mục LOITER cho độ cao cho ứng dụng cuối cùng.Nếu không hãy sử dụng một điểm tham chiếu thường xuyên.</translation>
+        <translation type="vanished">Sử dụng một mục LOITER cho độ cao cho ứng dụng cuối cùng.Nếu không hãy sử dụng một điểm Waypoint thường xuyên.</translation>
     </message>
     <message>
         <source>Stop taking photos</source>
@@ -11667,7 +11667,7 @@ Click Ok to start the auto-tuning process.
     <message>
         <source>Waypoint</source>
         <extracomment>.mavCmdInfo[MAV_CMD_NAV_WAYPOINT].friendlyName, </extracomment>
-        <translation type="vanished">Điểm tham chiếu</translation>
+        <translation type="vanished">Waypoint</translation>
     </message>
     <message>
         <source>Travel to a position in 3D space.</source>
@@ -12347,7 +12347,7 @@ Click Ok to start the auto-tuning process.
     <message>
         <source>Sets the region of interest to point towards the next waypoint with optional offsets.</source>
         <extracomment>.mavCmdInfo[MAV_CMD_DO_SET_ROI_WPNEXT_OFFSET].description, </extracomment>
-        <translation type="vanished">Đặt khu vực quan tâm để hướng tới điểm tham chiếu tiếp theo với các độ lệch tùy chọn.</translation>
+        <translation type="vanished">Đặt khu vực quan tâm để hướng tới Waypoint tiếp theo với các độ lệch tùy chọn.</translation>
     </message>
     <message>
         <source>Pitch offset</source>
@@ -15946,7 +15946,7 @@ Click &apos;Ok&apos; to upload the Plan anyway.</source>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="598"/>
         <source>Waypoint</source>
-        <translation>Điểm tham chiếu</translation>
+        <translation>Waypoint</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="605"/>
@@ -20663,7 +20663,7 @@ ROTATION_NONE indicates component points in direction of flight.</source>
     <message>
         <source>Additional waypoints within the transect will be added if the terrain altitude difference grows larger than this tolerance.</source>
         <extracomment>.QGC.MetaData.Facts[TerrainAdjustTolerance].shortDesc, </extracomment>
-        <translation type="vanished">Các điểm tham chiếu bổ sung trong mặt cắt sẽ được thêm vào nếu chênh lệch độ cao địa hình phát triển lớn hơn khả năng chịu đựng này.</translation>
+        <translation type="vanished">Các Waypoint bổ sung trong mặt cắt sẽ được thêm vào nếu chênh lệch độ cao địa hình phát triển lớn hơn khả năng chịu đựng này.</translation>
     </message>
     <message>
         <source>The maximum climb rate from one waypoint to another when adjusting for terrain. Set to 0 for no max.</source>
@@ -21381,7 +21381,7 @@ ROTATION_NONE indicates component points in direction of flight.</source>
     <message>
         <source>Use a loiter to altitude item for final appoach. Otherwise use a regular waypoint.</source>
         <extracomment>.QGC.MetaData.Facts[UseLoiterToAlt].shortDesc, </extracomment>
-        <translation type="vanished">Sử dụng một mục LOITER cho độ cao cho ứng dụng cuối cùng.Nếu không hãy sử dụng một điểm tham chiếu thường xuyên.</translation>
+        <translation type="vanished">Sử dụng một mục LOITER cho độ cao cho ứng dụng cuối cùng.Nếu không hãy sử dụng một Waypoint thường xuyên.</translation>
     </message>
     <message>
         <source>Stop taking photos</source>

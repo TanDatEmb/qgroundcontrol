@@ -66,7 +66,7 @@ Item {
         topEdgeRightInset:      parentToolInsets.topEdgeRightInset
         bottomEdgeLeftInset:    parentToolInsets.bottomEdgeLeftInset
         bottomEdgeCenterInset:  parentToolInsets.bottomEdgeCenterInset
-        bottomEdgeRightInset:   parent.height - attitudeIndicator.y
+        //bottomEdgeRightInset:   parent.height - attitudeIndicator.y
     }
 
     // This is an example of how you can use parent tool insets to position an element on the custom fly view layer
@@ -161,13 +161,15 @@ Item {
 
     Rectangle {
         id:                     compassBackground
-        anchors.bottom:         attitudeIndicator.bottom
+        anchors.top:         attitudeIndicator.top
         anchors.right:          attitudeIndicator.left
         anchors.rightMargin:    -attitudeIndicator.width / 2
         width:                  -anchors.rightMargin + compassBezel.width + (_toolsMargin * 2)
-        height:                 attitudeIndicator.height * 0.75
+        height:                 attitudeIndicator.height * 1
         radius:                 2
-        color:                  qgcPal.window
+        color: Qt.rgba(1, 1, 1, 0.6)
+        border.color: Qt.rgba(1, 1, 1, 0.8)
+        border.width: 5
 
         Rectangle {
             id:                     compassBezel
@@ -177,8 +179,8 @@ Item {
             width:                  height
             height:                 parent.height - (northLabelBackground.height / 2) - (headingLabelBackground.height / 2)
             radius:                 height / 2
-            border.color:           qgcPal.text
-            border.width:           1
+            border.color:           Qt.rgba(0,0,0,0.8)
+            border.width:           3
             color:                  Qt.rgba(0,0,0,0)
         }
 
@@ -204,7 +206,7 @@ Item {
         Image {
             id:                 headingNeedle
             anchors.centerIn:   compassBezel
-            height:             compassBezel.height * 0.75
+            height:             compassBezel.height * 0.4
             width:              height
             source:             "/custom/img/compass_needle.svg"
             fillMode:           Image.PreserveAspectFit
@@ -239,9 +241,9 @@ Item {
 
     Rectangle {
         id:                     attitudeIndicator
-        anchors.bottomMargin:   _toolsMargin + parentToolInsets.bottomEdgeRightInset
+        anchors.topMargin:   _toolsMargin //+ parentToolInsets.bottomEdgeRightInset
         anchors.rightMargin:    _toolsMargin
-        anchors.bottom:         parent.bottom
+        anchors.top:         parent.top
         anchors.right:          parent.right
         height:                 ScreenTools.defaultFontPixelHeight * 6
         width:                  height

@@ -43,6 +43,11 @@
         <file alias="Drone.svg">resources/Drone.svg</file>
         <file alias="CT-UAV.svg">resources/CT-UAV.svg</file>
         <file alias="CT-UAV.ico">resources/CT-UAV.ico</file>
+        <file alias="CT-UAV-Black.svg">resources/CT-UAV-Black.svg</file>
+        <file alias="CT-UAV-White.svg">resources/CT-UAV-White.svg</file>
+        <file alias="DroneLists.svg">resources/DroneLists.svg</file>
+        <file alias="DroneLists-Black.svg">resources/DroneLists-Black.svg</file>
+        <file alias="DroneLists-White.svg">resources/DroneLists-White.svg</file>
         
         <file alias="QGCLogoWhite.svg">resources/QGCLogoWhite.svg</file>
         <file alias="QGCLogoArrow.svg">resources/QGCLogoArrow.svg</file>
@@ -118,5 +123,9 @@
         <file alias="gcscontrol_device.svg">resources/gcscontrolIndicator/gcscontrol_device.svg</file>
         <file alias="gcscontrol_gcs.svg">resources/gcscontrolIndicator/gcscontrol_gcs.svg</file>
         <file alias="gcscontrol_line.svg">resources/gcscontrolIndicator/gcscontrol_line.svg</file>
+    </qresource>
+    <qresource prefix="/lists/Quadcopter">
+        <file alias="Quad1.jpeg">resources/lists/Quadcopter/Quad1.jpeg</file>
+        <file alias="Quad1.png">resources/lists/Quadcopter/Quad1.png</file>
     </qresource>
 </RCC>

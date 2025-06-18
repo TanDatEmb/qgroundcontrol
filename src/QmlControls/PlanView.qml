@@ -35,10 +35,10 @@ Item {
 
     readonly property int   _decimalPlaces:             8
     readonly property real  _margin:                    ScreenTools.defaultFontPixelHeight * 0.5
-    readonly property real  _toolsMargin:               ScreenTools.defaultFontPixelWidth * 0.75
-    readonly property real  _radius:                    ScreenTools.defaultFontPixelWidth  * 0.5
-    readonly property real  _rightPanelWidth:           Math.min(width / 3, ScreenTools.defaultFontPixelWidth * 30)
-    readonly property var   _defaultVehicleCoordinate:  QtPositioning.coordinate(37.803784, -122.462276)
+    readonly property real  _toolsMargin:               ScreenTools.defaultFontPixelWidth * 0.95
+    readonly property real  _radius:                    ScreenTools.defaultFontPixelWidth * 0.5
+    readonly property real  _rightPanelWidth:           Math.min(width / 2.5, ScreenTools.defaultFontPixelWidth * 45)
+    readonly property var   _defaultVehicleCoordinate:  QtPositioning.coordinate(37.803784, -122.462276) //?
     readonly property bool  _waypointsOnlyMode:         QGroundControl.corePlugin.options.missionWaypointsOnly
 
     property var    _planMasterController:              planMasterController
@@ -552,12 +552,12 @@ Item {
         // Left tool strip
         ToolStrip {
             id:                 toolStrip
+            width:              ScreenTools.defaultFontPixelWidth * 9
             anchors.margins:    _toolsMargin
             anchors.left:       parent.left
             anchors.top:        parent.top
             z:                  QGroundControl.zOrderWidgets
             maxHeight:          parent.height - toolStrip.y
-
             readonly property int fileButtonIndex:      0
             readonly property int takeoffButtonIndex:   1
             readonly property int waypointButtonIndex:  2
@@ -671,7 +671,7 @@ Item {
             height:             parent.height
             width:{
                  if(_utmspEnabled){
-                     _rightPanelWidth + ScreenTools.defaultFontPixelWidth * 21.667
+                     _rightPanelWidth + ScreenTools.defaultFontPixelWidth * 36 //21.667
                  }
                  else{
                      _rightPanelWidth
@@ -833,7 +833,7 @@ Item {
             visible:                    terrainStatus.visible && _licenseString !== ""
             anchors.bottom:             terrainStatus.top
             anchors.horizontalCenter:   terrainStatus.horizontalCenter
-            anchors.bottomMargin:       ScreenTools.defaultFontPixelWidth * 0.5
+            anchors.bottomMargin:       ScreenTools.defaultFontPixelWidth * 0.8
             font.pointSize:             ScreenTools.smallFontPointSize
             text:                       qsTr("Powered by %1").arg(_licenseString)
         }
@@ -928,7 +928,7 @@ Item {
         id: patternDropPanel
 
         ColumnLayout {
-            spacing:    ScreenTools.defaultFontPixelWidth * 0.5
+            spacing:    ScreenTools.defaultFontPixelWidth * 0.8
 
             QGCLabel { text: qsTr("Create complex pattern:") }
 

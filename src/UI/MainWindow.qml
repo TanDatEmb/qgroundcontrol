@@ -27,11 +27,11 @@ import QGroundControl.UTMSP
 /// All properties defined here are visible to all QML pages.
 ApplicationWindow {
     id:             mainWindow
-    flags: Qt.Window
-         | Qt.FramelessWindowHint
-         | Qt.WindowSystemMenuHint
-         | Qt.WindowMinimizeButtonHint
-         | Qt.WindowMaximizeButtonHint
+   // flags: Qt.Window
+   //      | Qt.FramelessWindowHint
+   //      | Qt.WindowSystemMenuHint
+   //      | Qt.WindowMinimizeButtonHint
+   //      | Qt.WindowMaximizeButtonHint
     minimumWidth:   ScreenTools.isMobile ? ScreenTools.screenWidth  : Math.min(ScreenTools.defaultFontPixelWidth * 100, Screen.width)
     minimumHeight:  ScreenTools.isMobile ? ScreenTools.screenHeight : Math.min(ScreenTools.defaultFontPixelWidth * 50, Screen.height)
     visible:        true
@@ -166,10 +166,13 @@ ApplicationWindow {
     }
 
     function showSettingsTool(settingsPage = "") {
-        showTool(qsTr("Application Settings"), "qrc:/qml/QGroundControl/Controls/AppSettings.qml", "/res/WhiteQGCLogo")
+        showTool(qsTr("Application Settings"), "qrc:/qml/QGroundControl/Controls/AppSettings.qml", "/res/CT-UAV-White.svg")
         if (settingsPage !== "") {
             toolDrawerLoader.item.showSettingsPage(settingsPage)
         }
+    }
+    function showDroneList() {
+        showTool(qsTr("Drone Lists"), "qrc:/qml/QGroundControl/DroneList/DroneList.qml", "/res/DroneLists-White.svg")
     }
 
     //-------------------------------------------------------------------------
@@ -399,7 +402,7 @@ ApplicationWindow {
                             height:             toolSelectDialog._toolButtonHeight
                             Layout.fillWidth:   true
                             text:               qsTr("Application Settings")
-                            imageResource:      "/res/CT-UAV.svg"
+                            imageResource:      qgcPal.globalTheme === QGCPalette.Light ? "/res/CT-UAV-Black.svg" : "/res/CT-UAV-White.svg"
                             imageColor:         "transparent"
                             visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
                             onClicked: {
@@ -409,6 +412,22 @@ ApplicationWindow {
                                 }
                             }
                         }
+
+                        SubMenuButton {
+                            id:                 droneListButton
+                            height:             toolSelectDialog._toolButtonHeight
+                            Layout.fillWidth:   true
+                            text:               qsTr("Drone Lists")
+                            imageResource:      qgcPal.globalTheme === QGCPalette.Light ? "/res/DroneLists-Black.svg" : "/res/DroneLists-White.svg"
+                            imageColor:         "transparent"
+                            visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
+                            onClicked: {
+                                if (mainWindow.allowViewSwitch()) {
+                                    mainWindow.closeIndicatorDrawer()
+                                    mainWindow.showDroneList()
+                                }
+                            }
+                        }                        
 
                         SubMenuButton {
                             id:                 closeButton
@@ -431,7 +450,7 @@ ApplicationWindow {
 
                             QGCLabel {
                                 id:                     versionLabel
-                                text:                   qsTr("%1 Version").arg(QGroundControl.appName)
+                                text:                   qsTr("%1").arg(QGroundControl.appName)
                                 font.pointSize:         ScreenTools.smallFontPointSize
                                 wrapMode:               QGCLabel.WordWrap
                                 Layout.maximumWidth:    parent.width

@@ -41,10 +41,10 @@ Item {
         CustomArtificialHorizon {
             rollAngle:          _rollAngle
             pitchAngle:         _pitchAngle
-            skyColor1:          "#0a2e50"
-            skyColor2:          "#2f85d4"
-            groundColor1:       "#897459"
-            groundColor2:       "#4b3820"
+            skyColor1:          "#6B92C2"
+            skyColor2:          "#4b7cb8"
+            groundColor1:       "#825B3B"
+            groundColor2:       "#84522a"
             anchors.fill:       parent
         }
         //----------------------------------------------------
@@ -91,9 +91,10 @@ Item {
         Image {
             id:                 crossHair
             anchors.centerIn:   parent
-            source:             "/custom/img/attitude_crosshair.svg"
+            anchors.verticalCenterOffset: -6
+            source:             "/custom/img/Newcrosshair.svg"
             mipmap:             true
-            width:              size * 0.75
+            width:              size * 0.9
             sourceSize.width:   width
             fillMode:           Image.PreserveAspectFit
         }
@@ -123,8 +124,8 @@ Item {
     }
 
     QGCLabel {
-        anchors.bottomMargin:       Math.round(ScreenTools.defaultFontPixelHeight * 0.5)
-        anchors.bottom:             parent.bottom
+        anchors.topMargin:       Math.round(ScreenTools.defaultFontPixelHeight * 0.5)
+        anchors.top:             parent.top
         anchors.horizontalCenter:   parent.horizontalCenter
         text:                       _headingString3
         color:                      "white"

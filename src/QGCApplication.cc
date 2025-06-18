@@ -147,7 +147,7 @@ QGCApplication::QGCApplication(int &argc, char *argv[], bool unitTesting, bool s
     setApplicationName(applicationName);
     setOrganizationName(QGC_ORG_NAME);
     setOrganizationDomain(QGC_ORG_DOMAIN);
-    setApplicationVersion(QString(QGC_APP_VERSION_STR));
+    setApplicationVersion(QString("Version 1.0")); // setApplicationVersion(QString(QGC_APP_VERSION_STR));
 #ifdef Q_OS_LINUX
     setWindowIcon(QIcon(":/res/CT-UAV.ico"));
 #endif

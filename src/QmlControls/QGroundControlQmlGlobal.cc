@@ -316,14 +316,14 @@ void QGroundControlQmlGlobal::setFlightMapZoom(double zoom)
 QString QGroundControlQmlGlobal::qgcVersion(void)
 {
     QString versionStr = QCoreApplication::applicationVersion();
-    if(QSysInfo::buildAbi().contains("32"))
-    {
-        versionStr += QStringLiteral(" %1").arg(tr("32 bit"));
-    }
-    else if(QSysInfo::buildAbi().contains("64"))
-    {
-        versionStr += QStringLiteral(" %1").arg(tr("64 bit"));
-    }
+    // if(QSysInfo::buildAbi().contains("32"))
+    // {
+    //     versionStr += QStringLiteral(" %1").arg(tr("32 bit"));
+    // }
+    // else if(QSysInfo::buildAbi().contains("64"))
+    // {
+    //     versionStr += QStringLiteral(" %1").arg(tr("64 bit"));
+    // }
     return versionStr;
 }
 
