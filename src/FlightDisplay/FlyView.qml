@@ -155,7 +155,7 @@ Item {
             anchors.right:          guidedValueSlider.visible ? guidedValueSlider.left : parent.right
             z:                      widgetLayer.z + 1
             insetsToView:           widgetLayer.totalToolInsets
-            visible:                false
+            visible:                true
         }
 
         GuidedActionsController {

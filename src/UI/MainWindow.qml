@@ -27,11 +27,11 @@ import QGroundControl.UTMSP
 /// All properties defined here are visible to all QML pages.
 ApplicationWindow {
     id:             mainWindow
-   // flags: Qt.Window
-   //      | Qt.FramelessWindowHint
-   //      | Qt.WindowSystemMenuHint
-   //      | Qt.WindowMinimizeButtonHint
-   //      | Qt.WindowMaximizeButtonHint
+   flags: Qt.Window
+        | Qt.FramelessWindowHint
+        | Qt.WindowSystemMenuHint
+        | Qt.WindowMinimizeButtonHint
+        | Qt.WindowMaximizeButtonHint
     minimumWidth:   ScreenTools.isMobile ? ScreenTools.screenWidth  : Math.min(ScreenTools.defaultFontPixelWidth * 100, Screen.width)
     minimumHeight:  ScreenTools.isMobile ? ScreenTools.screenHeight : Math.min(ScreenTools.defaultFontPixelWidth * 50, Screen.height)
     visible:        true

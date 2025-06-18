@@ -124,8 +124,12 @@
         <file alias="gcscontrol_gcs.svg">resources/gcscontrolIndicator/gcscontrol_gcs.svg</file>
         <file alias="gcscontrol_line.svg">resources/gcscontrolIndicator/gcscontrol_line.svg</file>
     </qresource>
-    <qresource prefix="/lists/Quadcopter">
-        <file alias="Quad1.jpeg">resources/lists/Quadcopter/Quad1.jpeg</file>
-        <file alias="Quad1.png">resources/lists/Quadcopter/Quad1.png</file>
+    <qresource prefix="/lists">
+        <file alias="4-axis-5kg.png">resources/lists/4-axis-5kg.png</file>
+        <file alias="4-axis-12kg.png">resources/lists/4-axis-12kg.png</file>
+        <file alias="4-axis-UAV.png">resources/lists/4-axis-UAV.png</file>
+        <file alias="6-axis-UAV.png">resources/lists/6-axis-UAV.png</file>
+        <file alias="Firefighting.png">resources/lists/Firefighting.png</file>
+        <file alias="Lightshow.png">resources/lists/Lightshow.png</file>
     </qresource>
 </RCC>
