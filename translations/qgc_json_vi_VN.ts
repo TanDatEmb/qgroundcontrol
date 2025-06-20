@@ -11157,109 +11157,109 @@ Click Ok to start the auto-tuning process.
     <name>MainStatusIndicator</name>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="45"/>
-        <source>Mất kết nối</source>
-        <translation></translation>
+        <source>Comms Lost</source>
+        <translation>Comms bị mất</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="46"/>
-        <source>Sẵn sàng bay</source>
-        <translation></translation>
+        <source>Ready To Fly</source>
+        <translation>Sẵn sàng để bay</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="47"/>
-        <source>Chưa sẵn sàng bay</source>
-        <translation></translation>
+        <source>Not Ready</source>
+        <translation>Chưa sẵn sàng</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="48"/>
-        <source>Ngắt kết nối - Nhấn để kết nối thủ công</source>
-        <translation></translation>
+        <source>Disconnected - Click to manually connect</source>
+        <translation>Ngắt kết nối - Nhấp để kết nối thủ công</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="49"/>
-        <source>Đã kích hoạt</source>
-        <translation></translation>
+        <source>Armed</source>
+        <translation>Vũ trang</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="50"/>
-        <source>Đang bay</source>
-        <translation></translation>
+        <source>Flying</source>
+        <translation>Bay</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="51"/>
-        <source>Đang hạ cánh</source>
-        <translation></translation>
+        <source>Landing</source>
+        <translation>Hạ cánh</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="153"/>
         <source>FW(vtol)</source>
-        <translation></translation>
+        <translation>FW (VTOL)</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="153"/>
         <source>MR(vtol)</source>
-        <translation></translation>
+        <translation>Mr (VTOL)</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="194"/>
         <source>Disarm</source>
-        <translation></translation>
+        <translation>Giải giáp</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="194"/>
         <source>Force Arm</source>
-        <translation></translation>
+        <translation>Lực lượng cánh tay</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="194"/>
         <source>Arm</source>
-        <translation></translation>
+        <translation>Cánh tay</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="218"/>
         <source>Vehicle Messages</source>
-        <translation></translation>
+        <translation>Tin nhắn xe</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="228"/>
         <source>Sensor Status</source>
-        <translation></translation>
+        <translation>Trạng thái cảm biến</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="251"/>
         <source>Overall Status</source>
-        <translation></translation>
+        <translation>Tình trạng tổng thể</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="326"/>
         <source>Edit Parameter</source>
-        <translation></translation>
+        <translation>Chỉnh sửa tham số</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="360"/>
         <source>Vehicle Parameters</source>
-        <translation></translation>
+        <translation>Thông số xe</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="362"/>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="371"/>
         <source>Configure</source>
-        <translation></translation>
+        <translation>Cấu hình</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="369"/>
         <source>Vehicle Configuration</source>
-        <translation></translation>
+        <translation>Cấu hình xe</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="388"/>
         <source>Transition to Multi-Rotor</source>
-        <translation></translation>
+        <translation>Chuyển đổi sang đa cánh quạt</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="388"/>
         <source>Transition to Fixed Wing</source>
-        <translation></translation>
+        <translation>Chuyển sang cánh cố định</translation>
     </message>
 </context>
 <context>

@@ -22,12 +22,13 @@ import QGroundControl.Controllers
 Rectangle {
     id:     _root
     width:  parent.width
-    height: ScreenTools.toolbarHeight
-    color:  "#cfe2f3"
+    height: ScreenTools.toolbarHeight + 18
+    anchors.top: parent.top
+    color:  "transparent"
 
     property var    _activeVehicle:     QGroundControl.multiVehicleManager.activeVehicle
     property bool   _communicationLost: _activeVehicle ? _activeVehicle.vehicleLinkManager.communicationLost : false
-    property color  _mainStatusBGColor: "#cfe2f3"
+    property color  _mainStatusBGColor: "transparent"
 
     function dropMainStatusIndicatorTool() {
         mainStatusIndicator.dropMainStatusIndicator();
@@ -41,7 +42,7 @@ Rectangle {
         anchors.right:  parent.right
         anchors.bottom: parent.bottom
         height:         1
-        color:          "black"
+        color:          "transparent"
         visible:        qgcPal.globalTheme === QGCPalette.Light
     }
 
@@ -50,17 +51,41 @@ Rectangle {
         
         gradient: Gradient {
             orientation: Gradient.Horizontal
-            GradientStop { position: 0;                                     color: "#7ec9f3" }
-            GradientStop { position: currentButton.x + currentButton.width; color: "#9fc5e8" }
-            GradientStop { position: 1;                                     color: "#cfe2f3" }
+            GradientStop { position: 0;                                     color: "transparent" }
+            GradientStop { position: currentButton.x + currentButton.width; color: "transparent" }
+            GradientStop { position: 1;                                     color: "transparent" }
         }
     }
 
+    Item {
+        anchors.top: _root.top
+        anchors.left: _root.left
+        anchors.right: _root.right
+
+        z:2
+        QGCLabel {
+            id: mainStatusLabel
+            topPadding: 36
+            horizontalAlignment: Text.AlignHCenter
+            anchors.centerIn: parent
+            verticalAlignment: Text.AlignVCenter
+            text: mainStatusIndicator.mainStatusText()
+            font.bold: true
+            font.pointSize: ScreenTools.largeFontPointSize * 1.1
+
+            QGCMouseArea {
+                anchors.fill: parent
+                onClicked: mainStatusIndicator.dropMainStatusIndicator()
+            }
+        }
+    }
     RowLayout {
         id:                     viewButtonRow
-        anchors.bottomMargin:   1
-        anchors.top:            parent.top
-        anchors.bottom:         parent.bottom
+        anchors {
+            top:           parent.top
+            bottom:        parent.bottom
+            bottomMargin:  20
+        }
         spacing:                ScreenTools.defaultFontPixelWidth / 2
 
         QGCToolBarButton {
@@ -105,7 +130,7 @@ Rectangle {
         anchors.right:          parent.right
         anchors.top:            parent.top
         anchors.bottom:         parent.bottom
-        anchors.margins:        ScreenTools.defaultFontPixelHeight * 0.66
+        anchors.margins:        ScreenTools.defaultFontPixelHeight * 0.88
         visible:                _activeVehicle && !_communicationLost && x > (toolsFlickable.x + toolsFlickable.contentWidth + ScreenTools.defaultFontPixelWidth)
         fillMode:               Image.PreserveAspectFit
         source:                 _outdoorPalette ? _brandImageOutdoor : _brandImageIndoor
@@ -155,7 +180,7 @@ Rectangle {
 
     // Small parameter download progress bar
     Rectangle {
-        anchors.bottom: parent.bottom
+        anchors.top: parent.top
         height:         _root.height * 0.05
         width:          _activeVehicle ? _activeVehicle.loadProgress * parent.width : 0
         color:          qgcPal.colorGreen

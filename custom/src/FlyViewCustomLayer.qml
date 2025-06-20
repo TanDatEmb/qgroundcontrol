@@ -154,7 +154,7 @@ Item {
         source:                     "/custom/img/compass_pointer.svg"
         fillMode:                   Image.PreserveAspectFit
         sourceSize.height:          height
-        anchors.top:                compassBar.bottom
+        anchors.bottom:                compassBar.bottom
         anchors.topMargin:          -height / 2
         anchors.horizontalCenter:   parent.horizontalCenter
     }
@@ -167,8 +167,8 @@ Item {
         width:                  -anchors.rightMargin + compassBezel.width + (_toolsMargin * 2)
         height:                 attitudeIndicator.height * 1
         radius:                 2
-        color: Qt.rgba(1, 1, 1, 0.6)
-        border.color: Qt.rgba(1, 1, 1, 0.8)
+        color:                  "transparent" //color: Qt.rgba(1, 1, 1, 0.6)
+        border.color:           "transparent" //border.color: Qt.rgba(1, 1, 1, 0.8)
         border.width: 5
 
         Rectangle {
@@ -179,9 +179,9 @@ Item {
             width:                  height
             height:                 parent.height - (northLabelBackground.height / 2) - (headingLabelBackground.height / 2)
             radius:                 height / 2
-            border.color:           Qt.rgba(0,0,0,0.8)
+            border.color:           Qt.rgba(0,0,0,0.6)
             border.width:           3
-            color:                  Qt.rgba(0,0,0,0)
+            color:                  Qt.rgba(1, 1, 1, 0.6) //Qt.rgba(0,0,0,0)
         }
 
         Rectangle {
@@ -199,7 +199,7 @@ Item {
                 anchors.centerIn:   parent
                 text:               "N"
                 color:              qgcPal.text
-                font.pointSize:     ScreenTools.smallFontPointSize
+                font.pointSize:     ScreenTools.smallFontPointSize * 1.1
             }
         }
 
@@ -234,16 +234,16 @@ Item {
                 anchors.centerIn:   parent
                 text:               _heading
                 color:              qgcPal.text
-                font.pointSize:     ScreenTools.smallFontPointSize
+                font.pointSize:     ScreenTools.smallFontPointSize * 1.1
             }
         }
     }
 
     Rectangle {
         id:                     attitudeIndicator
-        anchors.topMargin:   _toolsMargin //+ parentToolInsets.bottomEdgeRightInset
+        anchors.bottomMargin:   _toolsMargin + parentToolInsets.bottomEdgeRightInset * 1.25
         anchors.rightMargin:    _toolsMargin
-        anchors.top:         parent.top
+        anchors.bottom:         parent.bottom
         anchors.right:          parent.right
         height:                 ScreenTools.defaultFontPixelHeight * 6
         width:                  height

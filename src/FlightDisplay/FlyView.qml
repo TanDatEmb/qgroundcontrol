@@ -86,10 +86,11 @@ Item {
 
     Item {
         id:                 mapHolder
-        anchors.top:        toolbar.bottom
+        anchors.top:        parent.top
         anchors.bottom:     parent.bottom
         anchors.left:       parent.left
         anchors.right:      parent.right
+        z:                  -1
 
         FlyViewMap {
             id:                     mapControl
@@ -125,6 +126,7 @@ Item {
 
         FlyViewWidgetLayer {
             id:                     widgetLayer
+            anchors.topMargin:      60
             anchors.top:            parent.top
             anchors.bottom:         parent.bottom
             anchors.left:           parent.left
@@ -155,7 +157,7 @@ Item {
             anchors.right:          guidedValueSlider.visible ? guidedValueSlider.left : parent.right
             z:                      widgetLayer.z + 1
             insetsToView:           widgetLayer.totalToolInsets
-            visible:                true
+            visible:                false
         }
 
         GuidedActionsController {

@@ -27,7 +27,7 @@ import QGroundControl.UTMSP
 /// All properties defined here are visible to all QML pages.
 ApplicationWindow {
     id:             mainWindow
-   flags: Qt.Window
+    flags: Qt.Window
         | Qt.FramelessWindowHint
         | Qt.WindowSystemMenuHint
         | Qt.WindowMinimizeButtonHint
@@ -292,6 +292,36 @@ ApplicationWindow {
         id:             planView
         anchors.fill:   parent
         visible:        false
+    }
+
+     Rectangle {
+        id: _root
+        anchors.fill: parent
+        height: ScreenTools.screenHeight
+        width: ScreenTools.screenWidth
+        color: "transparent"
+        z: 0
+
+        Image {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: 69
+            opacity: 0.8
+            source: "qrc:/res/Header.png"
+            fillMode: Image.PreserveAspectCrop
+        }
+
+        Image {
+            id: backgroundImageBottom
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: 89 // hoặc tùy ý
+            opacity: 0.8
+            source: "qrc:/res/Footer.png"
+            fillMode: Image.PreserveAspectCrop
+        }
     }
 
     footer: LogReplayStatusBar {

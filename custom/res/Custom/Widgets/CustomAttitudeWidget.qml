@@ -104,7 +104,7 @@ Item {
         id:             mask
         anchors.fill:   instrument
         radius:         width / 2
-        color:          "black"
+        color:          "white"
         visible:        false
     }
 
@@ -118,9 +118,9 @@ Item {
         id:             borderRect
         anchors.fill:   parent
         radius:         width / 2
-        color:          Qt.rgba(0,0,0,0)
-        border.color:   "#000"
-        border.width:   1
+        border.color:           Qt.rgba(1, 1, 1, 0.8)
+        border.width:           3
+        color:                  "transparent"
     }
 
     QGCLabel {

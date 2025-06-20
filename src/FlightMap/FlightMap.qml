@@ -216,7 +216,7 @@ Map {
             mipmap:         true
             antialiasing:   true
             fillMode:       Image.PreserveAspectFit
-            height:         ScreenTools.defaultFontPixelHeight * (isNaN(gcsHeading) ? 1.75 : 2.5 )
+            height:         ScreenTools.defaultFontPixelHeight * (isNaN(gcsHeading) ? 2.6 : 2.6 )
             sourceSize.height: height
             transform: Rotation {
                 origin.x:       mapItemImage.width  / 2

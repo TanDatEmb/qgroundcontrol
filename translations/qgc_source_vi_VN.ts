@@ -9557,67 +9557,39 @@ Nhấn OK để bắt đầu quá trình điều chỉnh tự động.</translat
 <context>
     <name>MainStatusIndicator</name>
     <message>
-        <source>Comms Lost</source>
-        <translation type="vanished">Comms bị mất</translation>
-    </message>
-    <message>
-        <source>Ready To Fly</source>
-        <translation type="vanished">Sẵn sàng để bay</translation>
-    </message>
-    <message>
-        <source>Not Ready</source>
-        <translation type="vanished">Chưa sẵn sàng</translation>
-    </message>
-    <message>
-        <source>Disconnected - Click to manually connect</source>
-        <translation type="vanished">Ngắt kết nối - Nhấp để kết nối thủ công</translation>
-    </message>
-    <message>
-        <source>Armed</source>
-        <translation type="vanished">Vũ trang</translation>
-    </message>
-    <message>
-        <source>Flying</source>
-        <translation type="vanished">Bay</translation>
-    </message>
-    <message>
-        <source>Landing</source>
-        <translation type="vanished">Hạ cánh</translation>
-    </message>
-    <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="45"/>
-        <source>Mất kết nối</source>
-        <translation></translation>
+        <source>Comms Lost</source>
+        <translation>Comms bị mất</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="46"/>
-        <source>Sẵn sàng bay</source>
-        <translation></translation>
+        <source>Ready To Fly</source>
+        <translation>Sẵn sàng để bay</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="47"/>
-        <source>Chưa sẵn sàng bay</source>
-        <translation></translation>
+        <source>Not Ready</source>
+        <translation>Chưa sẵn sàng</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="48"/>
-        <source>Ngắt kết nối - Nhấn để kết nối thủ công</source>
-        <translation></translation>
+        <source>Disconnected - Click to manually connect</source>
+        <translation>Ngắt kết nối - Nhấp để kết nối thủ công</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="49"/>
-        <source>Đã kích hoạt</source>
-        <translation></translation>
+        <source>Armed</source>
+        <translation>Vũ trang</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="50"/>
-        <source>Đang bay</source>
-        <translation></translation>
+        <source>Flying</source>
+        <translation>Bay</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="51"/>
-        <source>Đang hạ cánh</source>
-        <translation></translation>
+        <source>Landing</source>
+        <translation>Hạ cánh</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="153"/>
@@ -9678,7 +9650,7 @@ Nhấn OK để bắt đầu quá trình điều chỉnh tự động.</translat
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="369"/>
         <source>Vehicle Configuration</source>
-        <translation>Cấu hình phương tiện</translation>
+        <translation>Cấu hình xe</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="388"/>

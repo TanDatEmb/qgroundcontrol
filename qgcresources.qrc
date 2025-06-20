@@ -48,6 +48,10 @@
         <file alias="DroneLists.svg">resources/DroneLists.svg</file>
         <file alias="DroneLists-Black.svg">resources/DroneLists-Black.svg</file>
         <file alias="DroneLists-White.svg">resources/DroneLists-White.svg</file>
+        <file alias="Header.png">resources/Header.png</file>
+        <file alias="Footer.png">resources/Footer.png</file>
+        <file alias="dot-small.svg">resources/dot-small.svg</file>
+        <file alias="NewBackGround.png">resources/NewBackGround.png</file>
         
         <file alias="QGCLogoWhite.svg">resources/QGCLogoWhite.svg</file>
         <file alias="QGCLogoArrow.svg">resources/QGCLogoArrow.svg</file>

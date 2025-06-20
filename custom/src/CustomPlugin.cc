@@ -130,12 +130,14 @@ QGCOptions* CustomPlugin::options()
 
 QString CustomPlugin::brandImageIndoor(void) const
 {
-    return QStringLiteral("/custom/img/Technology.svg");
+    // return QStringLiteral("/custom/img/Technology.svg");
+    return QStringLiteral("/res/dot-small.svg");
 }
 
 QString CustomPlugin::brandImageOutdoor(void) const
 {
-    return QStringLiteral("/custom/img/Technology.svg");
+    // return QStringLiteral("/custom/img/Technology.svg");
+    return QStringLiteral("/res/dot-small.svg");
 }
 
 bool CustomPlugin::overrideSettingsGroupVisibility(const QString &name)
