@@ -110,9 +110,10 @@ Item {
 
         PipView {
             id:                     _pipView
-            anchors.left:           parent.left
-            anchors.bottom:         parent.bottom
+            anchors.right:           parent.right
+            anchors.top:            parent.top
             anchors.margins:        _toolsMargin
+            anchors.topMargin:      69
             item1IsFullSettingsKey: "MainFlyWindowIsMap"
             item1:                  mapControl
             item2:                  QGroundControl.videoManager.hasVideo ? videoControl : null

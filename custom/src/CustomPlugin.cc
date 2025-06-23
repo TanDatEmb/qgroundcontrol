@@ -78,7 +78,7 @@ CustomPlugin::CustomPlugin(QObject *parent)
     : QGCCorePlugin(parent)
     , _options(new CustomOptions(this, this))
 {
-    _showAdvancedUI = false;
+    _showAdvancedUI = true;
     connect(this, &QGCCorePlugin::showAdvancedUIChanged, this, &CustomPlugin::_advancedChanged);
 }
 

@@ -18397,4 +18397,20 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
         <translation>vô giá trị</translation>
     </message>
 </context>
+<context>
+    <name>PipView</name>
+    <message>
+        <location filename="../src/QmlControls/PipView.qml" line="247"/>
+        <source>Map</source>
+        <translation>Bản đồ</translation>
+    </message>
+</context>
+<context>
+    <name>DroneList</name>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="514"/>
+        <source>Done</source>
+        <translation>Xác nhận</translation>
+    </message>
+</context>
 </TS>
