@@ -1,8 +1,6 @@
 if(NOT DEFINED GStreamer_FIND_VERSION)
     if(LINUX)
         set(GStreamer_FIND_VERSION 1.20)
-    # elseif(ANDROID)
-        # set(GStreamer_FIND_VERSION 1.26.2)
     else()
         set(GStreamer_FIND_VERSION 1.22.12)
     endif()
