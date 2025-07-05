@@ -7077,7 +7077,7 @@ Nhấn OK để bắt đầu quá trình điều chỉnh tự động.</translat
     <message>
         <location filename="../src/QmlControls/GPSIndicatorPage.qml" line="166"/>
         <source>Save</source>
-        <translation>Cứu</translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/GPSIndicatorPage.qml" line="166"/>
@@ -12268,7 +12268,7 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/QmlControls/ParameterEditorDialog.qml" line="221"/>
         <source>Warning: Modifying values while vehicle is in flight can lead to vehicle instability and possible vehicle loss. </source>
-        <translation>CẢNH BÁO: Sửa đổi giá trị trong khi xe đang ở trong chuyến bay có thể dẫn đến mất ổn định xe và mất xe.</translation>
+        <translation>CẢNH BÁO: Việc thay đổi thông số khi thiết bị đang bay có thể gây mất ổn định, dẫn đến nguy cơ hỏng hóc hoặc mất hoàn toàn thiết bị.</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/ParameterEditorDialog.qml" line="222"/>
@@ -14075,7 +14075,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/QGCPopupDialog.qml" line="137"/>
         <source>Save</source>
-        <translation>Cứu</translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/QGCPopupDialog.qml" line="140"/>
