@@ -19,6 +19,8 @@
 #include "SettingsManager.h"
 #include "Vehicle.h"
 
+#include "A_Firebase/FirebaseUploader.h"
+
 #include <QtCore/qapplicationstatic.h>
 #include <QtCore/QTimer>
 
@@ -279,8 +281,20 @@ void LogDownloadController::_logData(uint32_t ofs, uint16_t id, uint8_t count, c
 
             _timer->start(kTimeOutMs);
             if (_logComplete()) {
-                _downloadData->entry->setStatus(tr("Downloaded"));
-                _receivedAllData();
+                // =======================================================
+                // === BẮT ĐẦU PHẦN CHỈNH SỬA =============================
+                // =======================================================
+                _downloadData->entry->setStatus(tr("Downloaded, queueing for upload..."));
+
+                QString completedLogPath = _downloadData->file.fileName();
+                qCDebug(LogDownloadControllerLog) << "Log download complete. Starting Firebase upload for:" << completedLogPath;
+
+                FirebaseUploader* uploader = new FirebaseUploader(completedLogPath);
+                uploader->startUpload();
+                 _receivedAllData();
+                // =======================================================
+                // === KẾT THÚC PHẦN CHỈNH SỬA ============================
+                // =======================================================
             } else if (_chunkComplete()) {
                 _downloadData->advanceChunk();
                 _requestLogData(_downloadData->ID,

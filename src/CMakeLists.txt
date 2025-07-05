@@ -55,6 +55,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         VehicleModule
         VehicleSetupModule
         DroneListModule
+        FirebaseModule
 )
 
 if(NOT QGC_DISABLE_APM_PLUGIN AND NOT QGC_DISABLE_APM_PLUGIN_FACTORY)
@@ -102,5 +103,6 @@ add_subdirectory(Vehicle)
 add_subdirectory(VideoManager)
 add_subdirectory(Viewer3D)
 add_subdirectory(DroneList)
+add_subdirectory(A_Firebase)
 
 add_subdirectory(QtLocationPlugin)
