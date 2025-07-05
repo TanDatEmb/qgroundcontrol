@@ -143,7 +143,7 @@ Item {
     Rectangle {
         id:                         compassBar
         height:                     ScreenTools.defaultFontPixelHeight * 1.5
-        width:                      ScreenTools.defaultFontPixelWidth  * 50
+        width:                      ScreenTools.defaultFontPixelWidth  * 40
         anchors.bottom: parent.bottom
         anchors.bottomMargin: -2
         color:                      "#bb303030"
@@ -164,7 +164,7 @@ Item {
                 x:              visible ? ((modelData * (compassBar.width / 360)) - (width * 0.5)) : 0
                 visible:        _angle % 45 == 0
                 color:          "#dcf3ff"
-                font.pointSize: ScreenTools.smallFontPointSize
+                font.pointSize: ScreenTools.smallFontPointSize *0.8
                 text: {
                     switch(_angle) {
                     case 0:     return "N"
@@ -183,8 +183,8 @@ Item {
     }
     Rectangle {
         id:                         headingIndicator
-        height:                     ScreenTools.defaultFontPixelHeight
-        width:                      ScreenTools.defaultFontPixelWidth * 4
+        height:                     ScreenTools.defaultFontPixelHeight * 0.8
+        width:                      ScreenTools.defaultFontPixelWidth * 3.2
         color:                      qgcPal.windowShadeDark
         radius:                     ScreenTools.defaultFontPixelWidth * 0.5
         anchors.top:                compassBar.top
@@ -193,7 +193,7 @@ Item {
         QGCLabel {
             text:                   _heading
             color:                  qgcPal.text
-            font.pointSize:         ScreenTools.smallFontPointSize
+            font.pointSize:         ScreenTools.smallFontPointSize * 0.8
             anchors.centerIn:       parent
         }
     }
@@ -210,90 +210,90 @@ Item {
     }
 
     // la bàn bên trái
-    Rectangle {
-        id:                     compassBackground
-        anchors.bottom:         attitudeIndicator.bottom
-        anchors.right:          attitudeIndicator.left
-        anchors.rightMargin:    -attitudeIndicator.width / 2
-        anchors.leftMargin:     20
-        width:                  -anchors.rightMargin + compassBezel.width + (_toolsMargin * 2)
-        height:                 attitudeIndicator.height * 0.75
-        radius:                 10
-        color:                  "#ca282828"
+    // Rectangle {
+    //     id:                     compassBackground
+    //     anchors.bottom:         attitudeIndicator.bottom
+    //     anchors.right:          attitudeIndicator.left
+    //     anchors.rightMargin:    -attitudeIndicator.width / 2
+    //     anchors.leftMargin:     20
+    //     width:                  -anchors.rightMargin + compassBezel.width + (_toolsMargin * 2)
+    //     height:                 attitudeIndicator.height * 0.75
+    //     radius:                 10
+    //     color:                  "#ca282828"
 
-        Rectangle {
-            id:                     compassBezel
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.leftMargin:     _toolsMargin
-            anchors.left:           parent.left
-            width:                  height
-            height:                 parent.height - (northLabelBackground.height / 2) - (headingLabelBackground.height / 2)
-            radius:                 height / 2
-            border.color:           qgcPal.text
-            border.width:           1
-            color:                  Qt.rgba(0,0,0,0)
-        }
+    //     Rectangle {
+    //         id:                     compassBezel
+    //         anchors.verticalCenter: parent.verticalCenter
+    //         anchors.leftMargin:     _toolsMargin
+    //         anchors.left:           parent.left
+    //         width:                  height
+    //         height:                 parent.height - (northLabelBackground.height / 2) - (headingLabelBackground.height / 2)
+    //         radius:                 height / 2
+    //         border.color:           qgcPal.text
+    //         border.width:           1
+    //         color:                  Qt.rgba(0,0,0,0)
+    //     }
 
-        Rectangle {
-            id:                         northLabelBackground
-            anchors.top:                compassBezel.top
-            anchors.topMargin:          -height / 2
-            anchors.horizontalCenter:   compassBezel.horizontalCenter
-            width:                      northLabel.contentWidth * 1.5
-            height:                     northLabel.contentHeight * 1.5
-            radius:                     ScreenTools.defaultFontPixelWidth  * 0.25
-            color:                      qgcPal.windowShade
+    //     Rectangle {
+    //         id:                         northLabelBackground
+    //         anchors.top:                compassBezel.top
+    //         anchors.topMargin:          -height / 2
+    //         anchors.horizontalCenter:   compassBezel.horizontalCenter
+    //         width:                      northLabel.contentWidth * 1.5
+    //         height:                     northLabel.contentHeight * 1.5
+    //         radius:                     ScreenTools.defaultFontPixelWidth  * 0.25
+    //         color:                      qgcPal.windowShade
 
-            QGCLabel {
-                id:                 northLabel
-                anchors.centerIn:   parent
-                text:               "N"
-                color:              qgcPal.text
-                font.pointSize:     ScreenTools.smallFontPointSize
-            }
-        }
+    //         QGCLabel {
+    //             id:                 northLabel
+    //             anchors.centerIn:   parent
+    //             text:               "N"
+    //             color:              qgcPal.text
+    //             font.pointSize:     ScreenTools.smallFontPointSize
+    //         }
+    //     }
 
-        Image {
-            id:                 headingNeedle
-            anchors.centerIn:   compassBezel
-            height:             compassBezel.height * 0.75
-            width:              height
-            source:             "/custom/img/compass_needle.svg"
-            fillMode:           Image.PreserveAspectFit
-            sourceSize.height:  height
-            transform: [
-                Rotation {
-                    origin.x:   headingNeedle.width  / 2
-                    origin.y:   headingNeedle.height / 2
-                    angle:      _heading
-                }]
-        }
+    //     Image {
+    //         id:                 headingNeedle
+    //         anchors.centerIn:   compassBezel
+    //         height:             compassBezel.height * 0.75
+    //         width:              height
+    //         source:             "/custom/img/compass_needle.svg"
+    //         fillMode:           Image.PreserveAspectFit
+    //         sourceSize.height:  height
+    //         transform: [
+    //             Rotation {
+    //                 origin.x:   headingNeedle.width  / 2
+    //                 origin.y:   headingNeedle.height / 2
+    //                 angle:      _heading
+    //             }]
+    //     }
 
-            // la bàn bên dưới
-        Rectangle {
-            id:                         headingLabelBackground
-            anchors.top:                compassBezel.bottom
-            anchors.topMargin:          -height / 2
-            anchors.horizontalCenter:   compassBezel.horizontalCenter
-            width:                      headingLabel.contentWidth * 1.5
-            height:                     headingLabel.contentHeight * 1.5
-            radius:                     ScreenTools.defaultFontPixelWidth  * 0.25
-            color:                      qgcPal.windowShade
+    //         // la bàn bên dưới
+    //     Rectangle {
+    //         id:                         headingLabelBackground
+    //         anchors.top:                compassBezel.bottom
+    //         anchors.topMargin:          -height / 2
+    //         anchors.horizontalCenter:   compassBezel.horizontalCenter
+    //         width:                      headingLabel.contentWidth * 1.5
+    //         height:                     headingLabel.contentHeight * 1.5
+    //         radius:                     ScreenTools.defaultFontPixelWidth  * 0.25
+    //         color:                      qgcPal.windowShade
 
-            QGCLabel {
-                id:                 headingLabel
-                anchors.centerIn:   parent
-                text:               _heading
-                color:              qgcPal.text
-                font.pointSize:     ScreenTools.smallFontPointSize
-            }
-        }
-    }
+    //         QGCLabel {
+    //             id:                 headingLabel
+    //             anchors.centerIn:   parent
+    //             text:               _heading
+    //             color:              qgcPal.text
+    //             font.pointSize:     ScreenTools.smallFontPointSize
+    //         }
+    //     }
+    // }
 
 // la bàn bên phải
     Rectangle {
         id:                     attitudeIndicator
-        anchors.bottomMargin:   _toolsMargin + parentToolInsets.bottomEdgeRightInset
+        anchors.bottomMargin:   _toolsMargin + parentToolInsets.bottomEdgeRightInset + 6
         anchors.rightMargin:    _toolsMargin
         anchors.bottom:         parent.bottom
         anchors.right:          parent.right
