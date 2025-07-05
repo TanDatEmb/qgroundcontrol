@@ -96,45 +96,32 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif()
 
 if(QGC_USE_CACHE)
-    if(WIN32)
+    if(CMAKE_HOST_UNIX)
+        find_program(CCACHE_PROGRAM ccache)
+        if(CCACHE_PROGRAM)
+            set(CCACHE_CMD
+                CCACHE_BASEDIR=${CMAKE_BINARY_DIR}
+                CCACHE_COMPRESSLEVEL=6
+                CCACHE_SLOPPINESS=pch_defines,time_macros,include_file_mtime,include_file_ctime
+                ${CCACHE_PROGRAM}
+            )
+            message(STATUS "QGC: Using ccache cmd - ${CCACHE_CMD}")
+            set(CMAKE_C_COMPILER_LAUNCHER "${CCACHE_CMD}")
+            set(CMAKE_C_LINKER_LAUNCHER "${CCACHE_CMD}")
+            set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_CMD}")
+            set(CMAKE_CXX_LINKER_LAUNCHER "${CCACHE_CMD}")
+            if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+                add_compile_options(-Xclang -fno-pch-timestamp)
+            endif()
+        endif()
+    elseif(CMAKE_HOST_WIN32)
         find_program(SCCACHE_PROGRAM sccache)
         if(SCCACHE_PROGRAM)
             message(STATUS "QGC: Using sccache ${SCCACHE_PROGRAM}")
-
-            set(CMAKE_C_COMPILER_LAUNCHER "${SCCACHE_PROGRAM}" CACHE STRING "C compiler launcher")
-            set(CMAKE_CXX_COMPILER_LAUNCHER "${SCCACHE_PROGRAM}" CACHE STRING "CXX compiler launcher")
-            # set(CMAKE_C_LINKER_LAUNCHER "${SCCACHE_PROGRAM}" CACHE STRING "C linker cache used")
-            # set(CMAKE_CXX_LINKER_LAUNCHER "${SCCACHE_PROGRAM}" CACHE STRING "CXX linker cache used")
-        endif()
-    else()
-        find_program(CCACHE_PROGRAM ccache)
-        if(CCACHE_PROGRAM)
-            execute_process(
-                COMMAND "${CCACHE_PROGRAM}" --version
-                RESULT_VARIABLE CCACHE_OK
-                OUTPUT_QUIET
-                ERROR_QUIET
-            )
-            if(CCACHE_OK EQUAL 0)
-                message(STATUS "QGC: Found ccache at ${CCACHE_PROGRAM}")
-
-                set(CCACHE_ENV
-                    CCACHE_BASEDIR=${CMAKE_BINARY_DIR}
-                    CCACHE_COMPRESSLEVEL=6
-                    CCACHE_SLOPPINESS=pch_defines,time_macros,include_file_mtime,include_file_ctime
-                )
-
-                set(CMAKE_C_COMPILER_LAUNCHER ${CMAKE_COMMAND} -E env ${CCACHE_ENV} ${CCACHE_PROGRAM} CACHE STRING "C compiler launcher")
-                set(CMAKE_CXX_COMPILER_LAUNCHER ${CMAKE_COMMAND} -E env ${CCACHE_ENV} ${CCACHE_PROGRAM} CACHE STRING "CXX compiler launcher")
-                set(CMAKE_C_LINKER_LAUNCHER ${CMAKE_COMMAND} -E env ${CCACHE_ENV} ${CCACHE_PROGRAM} CACHE STRING "C linker cache used")
-                set(CMAKE_CXX_LINKER_LAUNCHER ${CMAKE_COMMAND} -E env ${CCACHE_ENV} ${CCACHE_PROGRAM} CACHE STRING "CXX linker cache used")
-
-                if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-                    add_compile_options(-Xclang -fno-pch-timestamp)
-                elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-                    # add_compile_options(-fpch-preprocess)
-                endif()
-            endif()
+            set(CMAKE_C_COMPILER_LAUNCHER "${SCCACHE_PROGRAM}")
+            # set(CMAKE_C_LINKER_LAUNCHER "${SCCACHE_PROGRAM}")
+            set(CMAKE_CXX_COMPILER_LAUNCHER "${SCCACHE_PROGRAM}")
+            # set(CMAKE_CXX_LINKER_LAUNCHER "${SCCACHE_PROGRAM}")
         endif()
     endif()
 endif()
@@ -553,7 +540,6 @@ qt_add_resources(${CMAKE_PROJECT_NAME} "qgcresources_cmake"
     FILES
         resources/qtquickcontrols2.conf
         ${SDL_GAMECONTROLLERDB_PATH}
-        ${QGC_GSTREAMER_SHADER_RESOURCES}
 )
 
 # cmake_print_variables(QT_ALL_PLUGIN_TYPES_FOUND_VIA_FIND_PACKAGE)
@@ -563,6 +549,41 @@ qt_import_plugins(${CMAKE_PROJECT_NAME}
     INCLUDE_BY_TYPE sqldrivers Qt6::QSQLiteDriverPlugin
     # INCLUDE_BY_TYPE styles Qt6::qtquickcontrols2basicstyleplugin Qt6::qtquickcontrols2basicstyleimplplugin
 )
+
+#phải ghi đè lên cái đường dẫn mới chạy được
+
+# if(${CMAKE_ANDROID_ARCH_ABI} STREQUAL "arm64-v8a")
+#     set(GST_ANDROID_LIB_DIR "C:/gstreamer/1.0/android/arm64/lib")
+# elseif(${CMAKE_ANDROID_ARCH_ABI} STREQUAL "x86_64")
+#     set(GST_ANDROID_LIB_DIR "C:/gstreamer/1.0/android/x86_64/lib")
+# endif()
+
+set(GST_ANDROID_LIB_DIR "C:/gstreamer/1.0/android/arm64/lib")
+
+target_link_libraries(${CMAKE_PROJECT_NAME}
+    PRIVATE
+        ${GST_ANDROID_LIB_DIR}/libgstreamer-1.0.a
+        ${GST_ANDROID_LIB_DIR}/libgstbase-1.0.a
+        ${GST_ANDROID_LIB_DIR}/libgstcontroller-1.0.a           # 🔥 Thêm cái này
+        ${GST_ANDROID_LIB_DIR}/libgstgl-1.0.a                   # 🔥 Và cái này
+        ${GST_ANDROID_LIB_DIR}/libgstvideo-1.0.a 
+        ${GST_ANDROID_LIB_DIR}/libgstopengl.a
+        ${GST_ANDROID_LIB_DIR}/libjpeg.a
+        ${GST_ANDROID_LIB_DIR}/libpng16.a
+        ${GST_ANDROID_LIB_DIR}/libgraphene-1.0.a
+
+        -lz -lm -llog -landroid -lEGL -lGLESv2
+)
+
+list(APPEND QML_IMPORT_PATH
+    ${CMAKE_SOURCE_DIR}/src/QmlControls/QGroundControl/UTMSP
+    ${CMAKE_SOURCE_DIR}/src/QmlControls/Viewer3D
+    ${CMAKE_SOURCE_DIR}/src/QmlControls/Viewer3D/Models3D
+    ${CMAKE_SOURCE_DIR}/src/QmlControls/Viewer3D/Models3D/Drones
+)
+
+set(CMAKE_QML_IMPORT_PATH "${QML_IMPORT_PATH}")
+
 
 include(Install)
 
