@@ -12350,7 +12350,7 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/FlightMap/Widgets/PhotoVideoControl.qml" line="246"/>
         <source>Battery: </source>
-        <translation>Ắc quy:</translation>
+        <translation>Pin:</translation>
     </message>
     <message>
         <location filename="../src/FlightMap/Widgets/PhotoVideoControl.qml" line="290"/>
