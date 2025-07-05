@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QUrl>
+#include <QUrlQuery>
 #include <fstream>
 #include <vector>
 #include <map>
@@ -45,6 +46,7 @@ void FirebaseUploader::startUpload()
 void FirebaseUploader::fetchLatestCount()
 {
     qDebug() << "Fetching latest count from collection:" << _droneTypeString;
+
     QJsonObject structuredQuery;
     QJsonObject from;
     from["collectionId"] = _droneTypeString;
@@ -74,34 +76,48 @@ void FirebaseUploader::fetchLatestCount()
 
 void FirebaseUploader::onCountFetchFinished(QNetworkReply* reply)
 {
+    int latestCount = 0;
     if (reply->error() == QNetworkReply::NoError)
     {
         QByteArray responseData = reply->readAll();
         QJsonDocument jsonResponse = QJsonDocument::fromJson(responseData);
+        
         if (jsonResponse.isArray())
         {
             QJsonArray documents = jsonResponse.array();
+            qDebug() << "DOCUMENT MESSAGE:" << documents.at(0);
             if (!documents.isEmpty())
             {
-                QJsonObject docObject = documents.at(0).toObject();
-                if (docObject.contains("document"))
+                QJsonValue firstDocValue = documents.at(0);
+                if (firstDocValue.isObject() && firstDocValue.toObject().contains("document"))
                 {
-                    QJsonObject fields = docObject["document"].toObject()["fields"].toObject();
-                    if (fields.contains("count"))
-                        _newCount = fields["count"].toObject()["integerValue"].toString().toInt() + 1;
+                    QJsonObject docObject = firstDocValue.toObject()["document"].toObject();
+                    QJsonValue fieldsValue = docObject.value("fields");
+                    if (fieldsValue.isObject())
+                    {
+                        QJsonObject fields = fieldsValue.toObject();
+                        QJsonValue countValue = fields.value("count");
+                        if (countValue.isObject())
+                        {
+                            QJsonValue val = countValue.toObject().value("doubleValue");
+                            if (val.isDouble())
+                                latestCount = static_cast<int>(val.toDouble());
+                        }
+                    }
                 }
             }
         }
     }
     else
     {
-        qWarning() << "Could not fetch latest count, assuming count is 1. Error:" << reply->errorString();
-        _newCount = 1;
+        qWarning() << "Could not fetch latest count. Error:" << reply->errorString();
+        qWarning() << "Response:" << reply->readAll();
     }
+    
+    _newCount = latestCount + 1;
     reply->deleteLater();
 
-    qDebug() << "Latest count fetched. New count will be:" << _newCount;
-
+    qDebug() << "Latest count is:" << latestCount << ". New count will be:" << _newCount;
     uploadLogToStorage();
 }
 
@@ -196,11 +212,11 @@ bool FirebaseUploader::parseUlogFile()
                         else if (msg_name == "vehicle_gps_position")
                         {
                             QJsonObject gps_point;
-                            gps_point["lat"] = (*(reinterpret_cast<const int32_t*>(payload.data() + 18))) / 1.0e8;
-                            gps_point["lon"] = (*(reinterpret_cast<const int32_t*>(payload.data() + 22))) / 1.0e8;
+                            gps_point["latitude"] = (*(reinterpret_cast<const int32_t*>(payload.data() + 18))) / 1.0e8;
+                            gps_point["longitude"] = (*(reinterpret_cast<const int32_t*>(payload.data() + 22))) / 1.0e8;
                             data_map[msg_name].push_back(gps_point);
-                            qDebug() << "gps_point(lat):" << gps_point["lat"];
-                            qDebug() << "gps_point(lon):" << gps_point["lon"];
+                            qDebug() << "gps_point[latitude]:" << gps_point["latitude"];
+                            qDebug() << "gps_point[longitude]:" << gps_point["longitude"];
                         }
                     }
                     break;
@@ -214,7 +230,11 @@ bool FirebaseUploader::parseUlogFile()
             _flightMetadata["end_gps"] = data_map["vehicle_gps_position"].back();
         }
 
-        _flightMetadata["log_file"] = QFileInfo(_logFilePath).fileName();
+        QString originalFileName = QFileInfo(_logFilePath).fileName();
+        QRegularExpression re("log_\\d+_");
+        QString newFileName = QString(originalFileName).replace(re, "log_");
+        _flightMetadata["log_file"] = newFileName;
+
         _flightMetadata["start_timestamp"] = QFileInfo(_logFilePath).birthTime().toString("yyyy-MM-dd hh:mm:ss");
 
     } catch (const std::exception& e) {
@@ -241,8 +261,14 @@ void FirebaseUploader::uploadLogToStorage()
     QByteArray fileData = logFile.readAll();
     logFile.close();
 
-    QString fileName = QFileInfo(_logFilePath).fileName();
-    QString storagePath = QString("FlightLogs/%1/%2").arg(_droneTypeString, fileName);
+    QString originalFileName = QFileInfo(_logFilePath).fileName();
+    QRegularExpression re("log_\\d+_");
+    QString newFileName = QString(originalFileName).replace(re, "log_");
+
+    qDebug() << "Original filename:" << originalFileName;
+    qDebug() << "New filename for upload:" << newFileName;
+
+    QString storagePath = QString("FlightLogs/%1/%2").arg(_droneTypeString, newFileName);
     
     QString url_string = QString("https://firebasestorage.googleapis.com/v0/b/%1/o?name=%2")
                       .arg(FIREBASE_STORAGE_BUCKET, QUrl::toPercentEncoding(storagePath));
@@ -250,7 +276,7 @@ void FirebaseUploader::uploadLogToStorage()
     QNetworkRequest request{QUrl{url_string}};
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/octet-stream");
 
-    qDebug() << "Uploading to Firebase Storage..." << fileName;
+    qDebug() << "Uploading to Firebase Storage..." << newFileName;
     QNetworkReply* reply = _networkManager->post(request, fileData);
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
         onStorageUploadFinished(reply);
@@ -312,14 +338,19 @@ void FirebaseUploader::uploadMetadataToFirestore()
     QJsonDocument doc(firestoreDocument);
     QByteArray jsonData = doc.toJson();
 
-    QString url_string = QString("https://firestore.googleapis.com/v1/projects/%1/databases/(default)/documents/%2?key=%3")
-                      .arg(FIREBASE_PROJECT_ID, _droneTypeString, FIREBASE_API_KEY);
+    QString dateString = QFileInfo(_logFilePath).birthTime().toString("yyMMdd");
+    QString customDocId = QString::number(_newCount) + dateString;
+
+    qDebug() << "Using custom document ID:" << customDocId;
+
+    QString url_string = QString("https://firestore.googleapis.com/v1/projects/%1/databases/(default)/documents/%2/%3?key=%4")
+                      .arg(FIREBASE_PROJECT_ID, _droneTypeString, customDocId, FIREBASE_API_KEY);
 
     QNetworkRequest request{QUrl{url_string}};
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-    qDebug() << "Uploading to Firestore...";
-    QNetworkReply* reply = _networkManager->post(request, jsonData);
+    qDebug() << "Uploading to Firestore with custom ID...";
+    QNetworkReply* reply = _networkManager->sendCustomRequest(request, "PATCH", jsonData);
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
         onFirestoreUploadFinished(reply);
     });
