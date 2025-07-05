@@ -19,8 +19,8 @@ import QGroundControl.Palette
 ColumnLayout {
     property var    instrumentValueData:        null
 
-    property var    _rgFontSizes:               [ ScreenTools.defaultFontPointSize, ScreenTools.smallFontPointSize, ScreenTools.mediumFontPointSize, ScreenTools.largeFontPointSize ]
-    property var    _rgFontSizeRatios:          [ 1, ScreenTools.smallFontPointRatio, ScreenTools.mediumFontPointRatio, ScreenTools.largeFontPointRatio ]
+    property var    _rgFontSizes:               [ ScreenTools.defaultFontPointSize * 0.8, ScreenTools.smallFontPointSize * 0.8, ScreenTools.mediumFontPointSize * 0.8, ScreenTools.largeFontPointSize * 0.8 ]
+    property var    _rgFontSizeRatios:          [ 1, ScreenTools.smallFontPointRatio * 0.8, ScreenTools.mediumFontPointRatio * 0.8, ScreenTools.largeFontPointRatio* 0.8 ]
     property real   _doubleDescent:             ScreenTools.defaultFontDescent * 2
     property real   _tightDefaultFontHeight:    ScreenTools.defaultFontPixelHeight - _doubleDescent
     property var    _rgFontSizeTightHeights:    [ _tightDefaultFontHeight * _rgFontSizeRatios[0] + 2, _tightDefaultFontHeight * _rgFontSizeRatios[1] + 2, _tightDefaultFontHeight * _rgFontSizeRatios[2] + 2, _tightDefaultFontHeight * _rgFontSizeRatios[3] + 2 ]

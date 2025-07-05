@@ -21,8 +21,8 @@ ColumnLayout {
     property bool   settingsUnlocked:               false
     property alias  contentWidth:                   label.contentWidth
 
-    property var    _rgFontSizes:                   [ ScreenTools.defaultFontPointSize, ScreenTools.smallFontPointSize, ScreenTools.mediumFontPointSize, ScreenTools.largeFontPointSize ]
-    property var    _rgFontSizeRatios:              [ 1, ScreenTools.smallFontPointRatio, ScreenTools.mediumFontPointRatio, ScreenTools.largeFontPointRatio ]
+    property var    _rgFontSizes:                   [ ScreenTools.defaultFontPointSize * 0.6, ScreenTools.smallFontPointSize * 0.6, ScreenTools.mediumFontPointSize * 0.6, ScreenTools.largeFontPointSize * 0.6]
+    property var    _rgFontSizeRatios:              [ 1, ScreenTools.smallFontPointRatio * 0.6, ScreenTools.mediumFontPointRatio * 0.6, ScreenTools.largeFontPointRatio * 0.6]
     property real   _doubleDescent:                 ScreenTools.defaultFontDescent * 2
     property real   _tightDefaultFontHeight:        ScreenTools.defaultFontPixelHeight - _doubleDescent
     property var    _rgFontSizeTightHeights:        [ _tightDefaultFontHeight * _rgFontSizeRatios[0] + 2, _tightDefaultFontHeight * _rgFontSizeRatios[1] + 2, _tightDefaultFontHeight * _rgFontSizeRatios[2] + 2, _tightDefaultFontHeight * _rgFontSizeRatios[3] + 2 ]

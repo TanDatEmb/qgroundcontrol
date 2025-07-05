@@ -35,7 +35,7 @@ Item {
     property bool   _currentItemIsVTOLTakeoff:  _currentMissionItemValid && _currentMissionItem.command == 84
     property bool   _missionValid:              missionItems !== undefined
 
-    property real   _dataFontSize:              ScreenTools.defaultFontPointSize
+    property real   _dataFontSize:              ScreenTools.defaultFontPointSize 
     property real   _largeValueWidth:           ScreenTools.defaultFontPixelWidth * 8
     property real   _mediumValueWidth:          ScreenTools.defaultFontPixelWidth * 4
     property real   _smallValueWidth:           ScreenTools.defaultFontPixelWidth * 3

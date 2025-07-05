@@ -38,7 +38,7 @@ private:
 
     enum {
         finalApproachCoordinateChangedIndex = 0,
-        slopeStartCoordinateChangedIndex,
+        loiterTangentCoordinateChangedIndex,
         landingCoordinateChangedIndex,
         landingCoordSetChangedIndex,
         altitudesAreRelativeChangedIndex,
@@ -48,7 +48,7 @@ private:
 
     enum {
         finalApproachCoordinateChangedMask      = 1 << finalApproachCoordinateChangedIndex,
-        slopeStartCoordinateChangedMask         = 1 << slopeStartCoordinateChangedIndex,
+        loiterTangentCoordinateChangedMask      = 1 << loiterTangentCoordinateChangedIndex,
         landingCoordinateChangedMask            = 1 << landingCoordinateChangedIndex,
         landingCoordSetChangedMask              = 1 << landingCoordSetChangedIndex,
         altitudesAreRelativeChangedMask         = 1 << altitudesAreRelativeChangedIndex,

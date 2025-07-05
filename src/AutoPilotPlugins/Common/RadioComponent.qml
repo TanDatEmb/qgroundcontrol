@@ -349,10 +349,12 @@ SetupPage {
 
                 QGCLabel { text: qsTr("Additional Radio setup:") }
 
-                ColumnLayout {
+                GridLayout {
                     id:                 switchSettingsGrid
                     anchors.left:       parent.left
                     anchors.right:      parent.right
+                    columns:            2
+                    columnSpacing:      ScreenTools.defaultFontPixelWidth
 
                     Repeater {
                         model: QGroundControl.multiVehicleManager.activeVehicle.px4Firmware ?
@@ -361,10 +363,20 @@ SetupPage {
                                         [ "RC_MAP_FLAPS", "RC_MAP_AUX1", "RC_MAP_AUX2", "RC_MAP_PARAM1", "RC_MAP_PARAM2", "RC_MAP_PARAM3"]) :
                                    0
 
-                        LabelledFactComboBox {
-                            label:               fact.shortDescription
-                            fact:                controller.getParameterFact(-1, modelData)
-                            indexModel:          false
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            property Fact fact: controller.getParameterFact(-1, modelData)
+
+                            QGCLabel {
+                                Layout.fillWidth:   true
+                                text:               fact.shortDescription
+                            }
+                            FactComboBox {
+                                width:      ScreenTools.defaultFontPixelWidth * 15
+                                fact:       parent.fact
+                                indexModel: false
+                            }
                         }
                     }
                 }

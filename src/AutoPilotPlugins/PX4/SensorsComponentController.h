@@ -93,7 +93,7 @@ signals:
     void magCalComplete(void);
 
 private slots:
-    void _handleUASTextMessage(int uasId, int compId, int severity, QString text, const QString &description);
+    void _handleUASTextMessage(int uasId, int compId, int severity, QString text);
     void _handleParametersReset(bool success);
     
 private:

@@ -23,6 +23,7 @@ QGCMapPolygon::QGCMapPolygon(QObject* parent)
     , _centerDrag           (false)
     , _ignoreCenterUpdates  (false)
     , _interactive          (false)
+    , _resetActive          (false)
 {
     _init();
 }
@@ -33,6 +34,7 @@ QGCMapPolygon::QGCMapPolygon(const QGCMapPolygon& other, QObject* parent)
     , _centerDrag           (false)
     , _ignoreCenterUpdates  (false)
     , _interactive          (false)
+    , _resetActive          (false)
 {
     *this = other;
 
@@ -43,10 +45,6 @@ void QGCMapPolygon::_init(void)
 {
     connect(&_polygonModel, &QmlObjectListModel::dirtyChanged, this, &QGCMapPolygon::_polygonModelDirtyChanged);
     connect(&_polygonModel, &QmlObjectListModel::countChanged, this, &QGCMapPolygon::_polygonModelCountChanged);
-    connect(&_polygonModel, &QmlObjectListModel::modelReset, this, [this]() {
-        emit pathChanged();
-        emit centerChanged(_center);
-    });
 
     connect(this, &QGCMapPolygon::pathChanged,  this, &QGCMapPolygon::_updateCenter);
     connect(this, &QGCMapPolygon::countChanged, this, &QGCMapPolygon::isValidChanged);
@@ -269,13 +267,13 @@ void QGCMapPolygon::appendVertices(const QList<QGeoCoordinate>& coordinates)
 {
     QList<QObject*> objects;
 
-    beginReset();
+    _beginResetIfNotActive();
     for (const QGeoCoordinate& coordinate: coordinates) {
         objects.append(new QGCQGeoCoordinate(coordinate, this));
         _polygonPath.append(QVariant::fromValue(coordinate));
     }
     _polygonModel.append(objects);
-    endReset();
+    _endResetIfNotActive();
 
     emit pathChanged();
 }
@@ -470,10 +468,10 @@ void QGCMapPolygon::offset(double distance)
     }
 
     // Update internals
-    beginReset();
+    _beginResetIfNotActive();
     clear();
     appendVertices(rgNewPolygon);
-    endReset();
+    _endResetIfNotActive();
 }
 
 bool QGCMapPolygon::loadKMLOrSHPFile(const QString& file)
@@ -485,10 +483,10 @@ bool QGCMapPolygon::loadKMLOrSHPFile(const QString& file)
         return false;
     }
 
-    beginReset();
+    _beginResetIfNotActive();
     clear();
     appendVertices(rgCoords);
-    endReset();
+    _endResetIfNotActive();
 
     return true;
 }
@@ -535,21 +533,39 @@ void QGCMapPolygon::verifyClockwiseWinding(void)
             rgReversed.prepend(varCoord.value<QGeoCoordinate>());
         }
 
-        beginReset();
+        _beginResetIfNotActive();
         clear();
         appendVertices(rgReversed);
-        endReset();
+        _endResetIfNotActive();
     }
 }
 
 void QGCMapPolygon::beginReset(void)
 {
-    _polygonModel.beginResetModel();
+    _resetActive = true;
+    _polygonModel.beginReset();
 }
 
 void QGCMapPolygon::endReset(void)
 {
-    _polygonModel.endResetModel();
+    _resetActive = false;
+    _polygonModel.endReset();
+    emit pathChanged();
+    emit centerChanged(_center);
+}
+
+void QGCMapPolygon::_beginResetIfNotActive(void)
+{
+    if (!_resetActive) {
+        beginReset();
+    }
+}
+
+void QGCMapPolygon::_endResetIfNotActive(void)
+{
+    if (!_resetActive) {
+        endReset();
+    }
 }
 
 QDomElement QGCMapPolygon::kmlPolygonElement(KMLDomDocument& domDocument)

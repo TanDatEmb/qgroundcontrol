@@ -27,8 +27,11 @@ import QGroundControl.UTMSP
 /// All properties defined here are visible to all QML pages.
 ApplicationWindow {
     id:             mainWindow
-    // visibility: "FullScreen"
+    
     visible: true
+    visibility: "FullScreen"
+    // flags: Qt.FramelessWindowHint
+    // visibility: "FullScreen"
     // flags: Qt.Window | Qt.FramelessWindowHint
         minimumWidth: ScreenTools.isMobile ? ScreenTools.screenWidth  : Math.min(ScreenTools.defaultFontPixelWidth * 100, Screen.width)
         minimumHeight: ScreenTools.isMobile ? ScreenTools.screenHeight : Math.min(ScreenTools.defaultFontPixelWidth * 50, Screen.height)
@@ -293,39 +296,42 @@ FontLoader {
         visible:        false
     }
 
+// mai sửa lại giao diện
     Rectangle {
         id: _root
         visible: !planView.visible
         anchors.fill: parent
-        height: ScreenTools.screenHeight
         width: ScreenTools.screenWidth
+        height: ScreenTools.screenHeight
         color: "transparent"
         z: 0
-        
-        // Ảnh nền trên cùng
+
+        // Header Image (fit theo chiều rộng)
         Image {
             anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: 80
+            anchors.topMargin: 5
+            anchors.horizontalCenter: parent.horizontalCenter 
+            width: parent.width * 1.45
+            height: parent.height * 0.120  
             source: "qrc:/res/header.png"
-            opacity: 0.6 // Độ mờ của ảnh nền
-            fillMode: Image.PreserveAspectCrop
+            opacity: 0.8
+            fillMode: Image.Stretch  // Cắt để phủ đầy
         }
 
-        // Ảnh bên dưới ảnh đầu (gắn ngay dưới ảnh trên)
+        // Footer Image (fit theo chiều rộng)
         Image {
             id: backgroundImageBottom
+            anchors.topMargin: 5
             anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: 80 // hoặc tùy ý
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width * 1.45
+            height: parent.height * 0.120
             source: "qrc:/res/footer.png"
-            opacity: 0.6 // Độ mờ của ảnh nền
-            fillMode: Image.PreserveAspectCrop
+            opacity: 0.8
+            fillMode: Image.Stretch // Cắt để phủ đầy
         }
-
     }
+
 
 
     footer: LogReplayStatusBar {
@@ -436,7 +442,7 @@ FontLoader {
                             Layout.fillWidth:   true
                             text:               qsTr("Application Settings")
                             imageResource:      "/res/settings_while.svg"
-                            imageColor:         "transparent"
+                            // imageColor:         "transparent"
                             visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
                             onClicked: {
                                 if (mainWindow.allowViewSwitch()) {
@@ -452,7 +458,7 @@ FontLoader {
                             Layout.fillWidth:   true
                             text:               qsTr("Drone List")
                             imageResource:      "/res/menu_while.svg"
-                            imageColor:         "transparent"
+                            // imageColor:         "transparent"
                             visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
                             onClicked: {
                                 if (mainWindow.allowViewSwitch()) {

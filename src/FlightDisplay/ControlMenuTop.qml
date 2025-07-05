@@ -5,11 +5,11 @@ import QGroundControl.Controls
 
 Rectangle {
     id: _root
-    width: 512
-    height: 80
+    width: 200
+    height: 24
     color: "transparent"
+    // color: "#ff0000"
 
-    // Tab hiện tại đang chọn
     property string currentTab: "POWERLINE"
 
     function switchTab(tabId) {
@@ -17,22 +17,26 @@ Rectangle {
         console.log("🔁 Switched to tab:", tabId)
     }
 
-    Column {
-        spacing: 10
-        anchors.centerIn: parent
+    // Cấu hình tỷ lệ chung để auto scale
+    property real buttonWidth: 90
+    property real buttonHeight: 22
+    property int fontSize: 1
 
+    Column {
+        spacing: 6
+        anchors.centerIn: parent
         Row {
-            spacing: 10
+            spacing: 6
 
             ItemButton {
                 id: btnPOWERLINE
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
-                width: 100
-                height: 30
+                width: buttonWidth
+                height: buttonHeight
                 radius: 6
                 bold: true
-                fontSize: 14
+                fontSize: fontSize
                 label: "POWERLINE"
                 isActive: currentTab === "POWERLINE"
                 onClicked: switchTab("POWERLINE")
@@ -42,11 +46,11 @@ Rectangle {
                 id: btnCONSTRUCTION
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
-                width: 140
-                height: 30
+                width: buttonWidth + 20
+                height: buttonHeight
                 radius: 6
                 bold: true
-                fontSize: 14
+                fontSize: fontSize
                 label: "CONSTRUCTION"
                 isActive: currentTab === "CONSTRUCTION"
                 onClicked: switchTab("CONSTRUCTION")
@@ -56,23 +60,15 @@ Rectangle {
                 id: btnTOURISM
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
-                width: 100
-                height: 30
+                width: buttonWidth - 10
+                height: buttonHeight
                 radius: 6
                 bold: true
-                fontSize: 14
+                fontSize: fontSize
                 label: "TOURISM"
                 isActive: currentTab === "TOURISM"
                 onClicked: switchTab("TOURISM")
             }
         }
-
-        // Hiển thị trạng thái tab hiện tại (để bạn debug)
-        // Text {
-        //     text: "Current Tab: " + currentTab
-        //     color: "white"
-        //     font.pixelSize: 14
-        //     anchors.horizontalCenter: parent.horizontalCenter
-        // }
     }
 }

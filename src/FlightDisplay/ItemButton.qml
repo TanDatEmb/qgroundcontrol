@@ -36,9 +36,9 @@ Rectangle {
 
             Image {
                 source: iconSource
-                width: 24
-                height: 24
-                fillMode: Image.PreserveAspectFit
+                width: 14
+                height: width
+                fillMode: Image.PreserveAspectCrop
                 smooth: true
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -46,7 +46,7 @@ Rectangle {
             Text {
                 id: labelText
                 text: "1"
-                font.pixelSize: button.fontSize     // ← phải có
+                font.pixelSize: button.fontSize * 0.7    // ← phải có
                 font.bold: button.bold              // ← phải có
                 font.family: aldrichFont.name
                 color: "white"

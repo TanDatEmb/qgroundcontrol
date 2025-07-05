@@ -115,9 +115,9 @@ void QGCMAVLinkSystem::append(QGCMAVLinkMessage *message)
     _messages->append(message);
 
     if (_messages->count() > 0) {
-        _messages->beginResetModel();
+        _messages->beginReset();
         std::sort(_messages->objectList()->begin(), _messages->objectList()->end(), messages_sort);
-        _messages->endResetModel();
+        _messages->endReset();
         _checkCompID(message);
     }
 

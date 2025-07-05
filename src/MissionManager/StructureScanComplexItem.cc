@@ -674,7 +674,7 @@ void StructureScanComplexItem::_updateFlightPathSegmentsDontCallDirectly(void)
         _structurePolygon.setShowAltColor(false);
     }
 
-    _flightPathSegments.beginResetModel();
+    _flightPathSegments.beginReset();
     _flightPathSegments.clearAndDeleteContents();
 
     if (_flightPolygon.count() > 2) {
@@ -728,7 +728,7 @@ void StructureScanComplexItem::_updateFlightPathSegmentsDontCallDirectly(void)
         _appendFlightPathSegment(FlightPathSegment::SegmentTypeGeneric, layerEntranceCoord, prevLayerAltitude, layerEntranceCoord, entranceAlt);
     }
 
-    _flightPathSegments.endResetModel();
+    _flightPathSegments.endReset();
 
     if (_cTerrainCollisionSegments != 0) {
         emit terrainCollisionChanged(true);

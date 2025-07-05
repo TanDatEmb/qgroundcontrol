@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import QtQuick3D
 import Qt5Compat.GraphicalEffects
 
+
 Rectangle {
     id: detailPage
     // anchors.fill: parent

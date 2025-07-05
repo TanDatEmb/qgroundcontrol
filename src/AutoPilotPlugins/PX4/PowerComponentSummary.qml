@@ -23,37 +23,29 @@ import QGroundControl.Palette
 Item {
     anchors.fill:   parent
 
-    property string _naString: qsTr("N/A")
-
+    QGCPalette { id: qgcPal; colorGroupEnabled: enabled }
     FactPanelController { id: controller; }
 
-    BatteryParams {
-        id:             battParams
-        controller:     controller
-        batteryIndex:   1
-    }
+    property Fact batVChargedFact:  controller.getParameterFact(-1, "BAT1_V_CHARGED")
+    property Fact batVEmptyFact:    controller.getParameterFact(-1, "BAT1_V_EMPTY")
+    property Fact batCellsFact:     controller.getParameterFact(-1, "BAT1_N_CELLS")
 
     Column {
         anchors.fill:       parent
 
         VehicleSummaryRow {
-            labelText: qsTr("Battery Source")
-            valueText: battParams.battSource.enumStringValue
-        }
-
-        VehicleSummaryRow {
             labelText: qsTr("Battery Full")
-            valueText: battParams.battHighVoltAvailable ? battParams.battHighVolt.valueString + " " + battParams.battHighVolt.units : _naString
+            valueText: batVChargedFact ? batVChargedFact.valueString + " " + batVChargedFact.units : ""
         }
 
         VehicleSummaryRow {
             labelText: qsTr("Battery Empty")
-            valueText: battParams.battLowVoltAvailable ? battParams.battLowVolt.valueString + " " + battParams.battLowVolt.units : _naString
+            valueText: batVEmptyFact ? batVEmptyFact.valueString + " " + batVEmptyFact.units : ""
         }
 
         VehicleSummaryRow {
             labelText: qsTr("Number of Cells")
-            valueText: battParams.battNumCellsAvailable ? battParams.battNumCells.valueString : _naString
+            valueText: batCellsFact ? batCellsFact.valueString : ""
         }
     }
 }

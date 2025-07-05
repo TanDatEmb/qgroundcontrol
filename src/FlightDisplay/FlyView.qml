@@ -115,7 +115,7 @@ Item {
                 anchors.right:          parent.right
                 anchors.top:            parent.top
                 anchors.margins:        _toolsMargin
-                anchors.topMargin:      80
+                anchors.topMargin:      60
                 item1IsFullSettingsKey: "MainFlyWindowIsMap"
                 item1:                  mapControl
                 item2:                  QGroundControl.videoManager.hasVideo ? videoControl : null
@@ -132,7 +132,7 @@ Item {
         FlyViewWidgetLayer {
             id:                     widgetLayer
             anchors.top:            parent.top
-            anchors.topMargin:      70    // Thêm khoảng cách 25px từ trên
+            anchors.topMargin:      70   
             anchors.bottom:         parent.bottom
             anchors.left:           parent.left
             anchors.right:          guidedValueSlider.visible ? guidedValueSlider.left : parent.right
@@ -193,10 +193,10 @@ Item {
             anchors.bottom:         parent.bottom
             anchors.left:           parent.left
             anchors.right:          parent.right
-            anchors.bottomMargin:  65
+            anchors.bottomMargin:  30
             anchors.margins:        _margins
             width: parent.width * 0.8
-            height: 100
+            height: 80
             z:                      10
         }
 
@@ -205,10 +205,9 @@ Item {
             anchors.top:         parent.top
             anchors.left:           parent.left
             anchors.right:          parent.right
-            anchors.topMargin:  28
-            anchors.margins:        _margins
+            anchors.topMargin:  40
             width: parent.width * 0.8
-            height: 100
+            height: 24
             z:                      10
         }
 

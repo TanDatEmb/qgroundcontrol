@@ -24,7 +24,7 @@ import QGroundControl.FactControls
 
 Rectangle {
     width:      mainLayout.width + (_margins * 2)
-    height:     mainLayout.height + (_margins * 2)
+    height:     mainLayout.height + (_margins * 2) 
     color:      Qt.rgba(qgcPal.window.r, qgcPal.window.g, qgcPal.window.b, 0.5)
     radius:     _margins
     visible:    _camera.capturesVideo || _camera.capturesPhotos
@@ -76,7 +76,7 @@ Rectangle {
         }
         
         ColumnLayout {
-            spacing: _margins * 2
+            spacing: _margins
 
             ColumnLayout {
                 spacing: _margins
@@ -91,7 +91,7 @@ Rectangle {
                 // Photo/Video Mode Selector
                 Rectangle {
                     Layout.alignment:   Qt.AlignHCenter
-                    width:              ScreenTools.defaultFontPixelWidth * 10
+                    width:              ScreenTools.defaultFontPixelWidth * 8
                     height:             width / 2
                     color:              qgcPal.windowShadeLight
                     radius:             height * 0.5
@@ -158,7 +158,7 @@ Rectangle {
                 Rectangle {
                     Layout.alignment:   Qt.AlignHCenter
                     color:              Qt.rgba(0,0,0,0)
-                    width:              ScreenTools.defaultFontPixelWidth * 6
+                    width:              ScreenTools.defaultFontPixelWidth * 4
                     height:             width
                     radius:             width * 0.5
                     border.color:       qgcPal.buttonText
@@ -213,7 +213,7 @@ Rectangle {
                         anchors.left:       parent.left
                         anchors.top:        parent.top
                         text:               _videoCaptureIdle ? "00:00:00" : _camera.recordTimeStr
-                        font.pointSize:     ScreenTools.largeFontPointSize
+                        font.pointSize:     ScreenTools.largeFontPointSize * 0.6
                         visible:            _cameraInVideoMode
                     }
 
@@ -224,7 +224,7 @@ Rectangle {
                         anchors.left:       parent.left
                         anchors.top:        parent.top
                         text:               _activeVehicle ? ('00000' + _activeVehicle.cameraTriggerPoints.count).slice(-5) : "00000"
-                        font.pointSize:     ScreenTools.largeFontPointSize
+                        font.pointSize:     ScreenTools.largeFontPointSize * 0.6
                         visible:            _cameraInPhotoMode
                     }
                 }
@@ -297,7 +297,7 @@ Rectangle {
                 Layout.alignment:       Qt.AlignHCenter
                 source:                 "/res/gear-black.svg"
                 mipmap:                 true
-                Layout.preferredHeight: ScreenTools.defaultFontPixelHeight * 1.5
+                Layout.preferredHeight: ScreenTools.defaultFontPixelHeight * 1.2
                 Layout.preferredWidth:  Layout.preferredHeight
                 sourceSize.height:      Layout.preferredHeight
                 color:                  qgcPal.text

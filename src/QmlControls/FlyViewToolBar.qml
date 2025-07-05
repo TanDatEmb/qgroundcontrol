@@ -53,7 +53,7 @@ Rectangle {
 
     Rectangle {
                 width: parent.width
-                height: parent.height * 1.2                    // Mỏng lại, ví dụ 10px
+                height: parent.height                   // Mỏng lại, ví dụ 10px
                 anchors.top: parent.top        // Gắn vào phía trên
                 gradient: Gradient {
                     orientation: Gradient.Vertical

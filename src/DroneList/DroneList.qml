@@ -2,9 +2,11 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import Qt5Compat.GraphicalEffects
-
-
+import QGroundControl
+import QGroundControl.Controls
+import QGroundControl.Controllers
 import QGroundControl.Palette
+
 
 
 Rectangle {
@@ -15,7 +17,8 @@ Rectangle {
     property var droneTypes: ["Quadcopter Type", "Hexacopter Type", "Lightshow", "Firefighting"]
     property var droneMap: {
         "Quadcopter Type": [
-            {
+            {   
+                "id": 1,
                 "name": "Quad N1",
                 "image": "qrc:/lists/4_axis_UAV_5kg.png",
                 "structure_type": "Folded structure",
@@ -42,6 +45,7 @@ Rectangle {
                 "link": "https://ctuav.vn/vi/ct-uav/"
             },
             {
+                "id": 2,
                 "name": "Quad N2",
                 "image": "qrc:/lists/4_axis_UAV_12kg.png",
                 "structure_type": "Folded structure",
@@ -68,6 +72,7 @@ Rectangle {
                 "link": "https://ctuav.vn/vi/ct-uav/"
             },
             {
+                "id": 3,
                 "name": "Quad S1",
                 "image": "qrc:/lists/4-axis_UAV_parameter.png",
                 "structure_type": "Folded structure",
@@ -96,6 +101,7 @@ Rectangle {
         ],
         "Hexacopter Type": [
             {
+                "id": 4,
                 "name": "CT-HV-25D-6",
                 "image": "qrc:/lists/6-CT-HV-25D-6.png",
                 "structure_type": "Folded structure",
@@ -124,6 +130,7 @@ Rectangle {
         ],
         "Lightshow": [
             {
+                "id": 5,
                 "name": "S3-PRO",
                 "image": "qrc:/lists/lightshow-S3-PRO.png",
                 "size": "500×500×210 mm (Customized on demand)",
@@ -154,6 +161,7 @@ Rectangle {
         ],
         "Firefighting": [
             {
+                "id": 6,
                 "name": "Firefighting UAV",
                 "image": "qrc:/lists/Fire_fighting_UAV_parameters.png",
                 "structure_type": "Folded structure",
@@ -182,7 +190,8 @@ Rectangle {
         ],
     }
 
-
+    property int fontSize: 8
+    
     property string selectedType: droneTypes[0]
     property bool isMobile: Screen.width <= 600
 
@@ -205,12 +214,45 @@ Rectangle {
     //         item.onBack = () => detailPageLoader.active = false
     //     }
     // }
+    
+    function readParameter(key) {
+        console.log("🔍 [DEBUG] Đọc parameter:", key)
 
+        var vehicle = QGroundControl.multiVehicleManager.activeVehicle
+        if (!vehicle || !vehicle.parameterManager) {
+            console.log("❌ Không có vehicle hoặc parameterManager.")
+            return
+        }
+
+        var fact = vehicle.parameterManager.getParameter(-1, key)
+        if (fact && fact.value !== undefined) {
+            console.log("✅ Parameter:", key)
+            console.log("   ➤ Giá trị hiện tại :", fact.value)
+            console.log("   ➤ Giá trị mặc định:", fact.defaultValue)
+            console.log("   ➤ Đơn vị           :", fact.units)
+            console.log("   ➤ Mô tả            :", fact.shortDescription)
+        } else {
+            console.log("⚠️ Không tìm thấy hoặc chưa có giá trị cho parameter:", key)
+        }
+    }
+
+    Timer {
+        interval: 3000
+        running: true
+        repeat: false
+        onTriggered: {
+            readParameter("MAV_SYS_ID")
+            readParameter("BAT_CAPACITY")
+            readParameter("CAL_ACC0_XOFF")
+        }
+    }
 
 
     Item {
         anchors.fill: parent
-        visible: !detailPageLoader.active
+        visible: true
+
+        // visible: !detailPageLoader.active
 
         // Row với 3 phần
         Row {
@@ -220,7 +262,7 @@ Rectangle {
 
             // Cột 1 - Danh sách loại drone (1 phần)
             Item {
-                width: parent.width * 0.1 // Tỉ lệ 1
+                width: parent.width * 0.15 // Tỉ lệ 1
                 height: parent.height
 
                 ListView {
@@ -257,6 +299,7 @@ Rectangle {
                                 anchors.centerIn: parent
                                 text: modelData
                                 color: qgcPal.text
+                                font.pixelSize: fontSize * 1.2
                                 font.bold: true
                             }
                         }
@@ -266,12 +309,12 @@ Rectangle {
 
             // Cột 2 - Danh sách drone theo loại (3 phần)
             Item {
-                width: parent.width * 0.9 // Tỉ lệ 3
+                width: parent.width * 0.85 // Tỉ lệ 3
                 height: parent.height
 
                 GridView {
                     anchors.fill: parent
-                    cellWidth: isMobile ? (width / 3) : (width / 6)
+                    cellWidth: isMobile ? (width / 3) : (width / 5)
                     cellHeight: cellWidth + 60
                     model: droneMap[selectedType]
 
@@ -281,7 +324,7 @@ Rectangle {
                         spacing: 4
 
                         Item {
-                            width: parent.width * 0.8
+                            width: parent.width * 0.6
                             height: width
                             anchors.horizontalCenter: parent.horizontalCenter
 
@@ -315,7 +358,7 @@ Rectangle {
                                     horizontalAlignment: Text.AlignHCenter
                                     wrapMode: Text.WordWrap
                                     text: modelData.name
-                                    font.pointSize: isMobile ? 12 : 16
+                                    font.pixelSize: fontSize * 1.2
                                     color: qgcPal.text
                                 }
                             }
@@ -365,7 +408,7 @@ Rectangle {
             }
             Rectangle {
                 id: detailPanel
-                width: parent.width * 0.4
+                width: parent.width * 0.5
                 height: parent.height
                 color: qgcPal.window
                 border.color: "#3b3b3b"
@@ -417,7 +460,7 @@ Rectangle {
 
                                     Text {
                                         text: selectedDrone ? selectedDrone.name : ""
-                                        font.pixelSize: 18
+                                        font.pixelSize: fontSize * 2
                                         font.bold: true
                                         color: qgcPal.text
                                         wrapMode: Text.WordWrap
@@ -425,7 +468,7 @@ Rectangle {
 
                                     Text {
                                         text: selectedDrone ? "Mã: " + selectedDrone.code : ""
-                                        font.pixelSize: 16
+                                        font.pixelSize: fontSize * 1.2
                                         color: qgcPal.text
                                         wrapMode: Text.WordWrap
                                     }
@@ -438,13 +481,13 @@ Rectangle {
                                     text: "Mô tả:"
                                     font.bold: true
                                     color: qgcPal.text
-                                    font.pixelSize: 16
+                                    font.pixelSize: fontSize * 1.2
                                 }
 
                                 Text {
                                     text: selectedDrone ? selectedDrone.description : "Không có mô tả"
                                     wrapMode: Text.WordWrap
-                                    font.pixelSize: 15
+                                    font.pixelSize: fontSize
                                     color: qgcPal.text
 
                                 }
@@ -486,13 +529,15 @@ Rectangle {
                                 Text {
                                     text: modelData.label + ":"
                                     font.bold: true
-                                    width: 180
+                                    font.pixelSize: fontSize
+                                    width: 80
                                     wrapMode: Text.WordWrap
                                     color: qgcPal.text
                                 }
                                 Text {
                                     text: modelData.value
-                                    width: detailPanel.width - 260
+                                    width: detailPanel.width - 170
+                                    font.pixelSize: fontSize
                                     wrapMode: Text.WordWrap
                                     color: qgcPal.text
                                 }
@@ -506,19 +551,19 @@ Rectangle {
                     spacing: 8
 
                     Item {
-                        width: 140
-                        height: 40
+                        width: 80
+                        height: 30
 
                         Rectangle {
                             anchors.fill: parent
-                            radius: 12
+                            radius: 4
                             color:mouseArea2.pressed ? "#0061a2" : "#0070ba"
 
                             Text {
                                 anchors.centerIn: parent
                                 text: "Thông tin liên hệ"
                                 color: "white"
-                                font.pixelSize: 14
+                                font.pixelSize: fontSize
                             }
 
                             MouseArea {
@@ -535,19 +580,19 @@ Rectangle {
                     }
 
                     Item {
-                        width: 100
-                        height: 40
+                        width: 80
+                        height: 30
 
                         Rectangle {
                             anchors.fill: parent
-                            radius: 12
+                            radius: 4
                             color: mouseArea2.pressed ? "#0061a2" : "#0070ba"
 
                             Text {
                                 anchors.centerIn: parent
                                 text: "Xác nhận"
                                 color: "white"
-                                font.pixelSize: 14
+                                font.pixelSize: fontSize
                             }
 
                             MouseArea {

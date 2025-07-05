@@ -43,7 +43,7 @@ T.HorizontalFactValueGrid {
             spacing: parent.spacing
             RowLayout {
                 id:         labelValueColumnLayout
-                spacing:    ScreenTools.defaultFontPixelWidth * 1.25
+                spacing:    ScreenTools.defaultFontPixelWidth * 0.5
 
                 Repeater {
                     model: _root.columns
@@ -52,7 +52,7 @@ T.HorizontalFactValueGrid {
                         rows:           object.count
                         columns:        2
                         rowSpacing:     0
-                        columnSpacing:  ScreenTools.defaultFontPixelWidth / 4
+                        columnSpacing:  ScreenTools.defaultFontPixelWidth / 2
                         flow:           GridLayout.TopToBottom
 
                         Repeater {

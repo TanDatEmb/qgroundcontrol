@@ -70,7 +70,7 @@ void GstVideoReceiver::start(uint32_t timeout)
     _timeout = timeout;
     _buffer = lowLatency() ? -1 : 0;
 
-    qCDebug(GstVideoReceiverLog) << "Starting" << _uri << ", lowLatency" << lowLatency() << ", timeout" << _timeout;
+    qCDebug(GstVideoReceiverLog) << "Starting" << _uri << ", buffer" << _buffer;
 
     _endOfStream = false;
 
@@ -242,7 +242,7 @@ void GstVideoReceiver::stop()
         GstPad *sinkpad = gst_element_get_static_pad(_tee, "sink");
         if (sinkpad) {
             gst_pad_remove_probe(sinkpad, _teeProbeId);
-            gst_clear_object(&sinkpad);
+            sinkpad = nullptr;
         }
         _teeProbeId = 0;
     }
@@ -1176,12 +1176,10 @@ void GstVideoReceiver::_dispatchSignal(Task emitter)
     _signalDepth -= 1;
 }
 
-gboolean GstVideoReceiver::_onBusMessage(GstBus * /* bus */, GstMessage *msg, gpointer data)
+gboolean GstVideoReceiver::_onBusMessage(GstBus *bus, GstMessage *msg, gpointer data)
 {
-    if (!msg || !data) {
-        qCCritical(GstVideoReceiverLog) << "Invalid parameters in _onBusMessage: msg=" << msg << "data=" << data;
-        return TRUE;
-    }
+    Q_UNUSED(bus)
+    Q_ASSERT(msg); Q_ASSERT(data);
 
     GstVideoReceiver *pThis = static_cast<GstVideoReceiver*>(data);
 

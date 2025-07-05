@@ -4,13 +4,13 @@ import QGroundControl
 import QGroundControl.Controls
 
 Rectangle {
+    // dev tiếp cái này
     id: _root
-    width: 512
+    width: 360
     height: 80
     color: "transparent"
-
+    // color:"red"
     visible: QGroundControl.multiVehicleManager.activeVehicle !== null
-
 
     function sendCustomMavCommand(btn_id, mavCmdId, param1 = 1) {
         let vehicle = QGroundControl.multiVehicleManager.activeVehicle
@@ -29,22 +29,28 @@ Rectangle {
     }
 
     Column {
-        spacing: 10
+        spacing: 6
         anchors.centerIn: parent
 
         Row {
-            spacing: 10
+            spacing: 6
 
             ItemButton {
                 id: btnStartMission
-                width: 170
+                width: 110
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "Start Mission"
-                onClicked: sendCustomMavCommand(btnStartMission, 30000) 
+                onClicked: sendCustomMavCommand(btnStartMission, 30000)
             }
 
             ItemButton {
                 id: btnCoiBao
-                width: 110
+                width: 80
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "Còi báo"
                 iconSource: "/icons/campaign_while.svg"
                 onClicked: btnCoiBao.isActive ? sendCustomMavCommand(btnCoiBao, 30009) : sendCustomMavCommand(btnCoiBao, 30001)
@@ -52,6 +58,10 @@ Rectangle {
 
             ItemButton {
                 id: btn7
+                width: 32
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "7"
                 iconSource: "/icons/rocket_while.svg"
                 onClicked: sendCustomMavCommand(btn7, 30007)
@@ -59,10 +69,14 @@ Rectangle {
         }
 
         Row {
-            spacing: 10
+            spacing: 6
 
             ItemButton {
                 id: btn1
+                width: 32
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "1"
                 iconSource: "/icons/rocket_while.svg"
                 onClicked: sendCustomMavCommand(btn1, 30001)
@@ -70,6 +84,10 @@ Rectangle {
 
             ItemButton {
                 id: btn2
+                width: 32
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "2"
                 iconSource: "/icons/rocket_while.svg"
                 onClicked: sendCustomMavCommand(btn2, 30002)
@@ -77,6 +95,10 @@ Rectangle {
 
             ItemButton {
                 id: btn3
+                width: 32
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "3"
                 iconSource: "/icons/rocket_while.svg"
                 onClicked: sendCustomMavCommand(btn3, 30003)
@@ -84,6 +106,10 @@ Rectangle {
 
             ItemButton {
                 id: btn4
+                width: 32
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "4"
                 iconSource: "/icons/rocket_while.svg"
                 onClicked: sendCustomMavCommand(btn4, 30004)
@@ -91,6 +117,10 @@ Rectangle {
 
             ItemButton {
                 id: btn5
+                width: 32
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "5"
                 iconSource: "/icons/rocket_while.svg"
                 onClicked: sendCustomMavCommand(btn5, 30005)
@@ -98,6 +128,10 @@ Rectangle {
 
             ItemButton {
                 id: btn6
+                width: 32
+                height: 28
+                radius: 4
+                fontSize: 10
                 label: "6"
                 iconSource: "/icons/rocket_while.svg"
                 onClicked: sendCustomMavCommand(btn6, 30006)

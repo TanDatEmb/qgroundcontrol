@@ -483,7 +483,7 @@ void TransectStyleComplexItem::_updateFlightPathSegmentsDontCallDirectly(void)
         _surveyAreaPolygon.setShowAltColor(false);
     }
 
-    _flightPathSegments.beginResetModel();
+    _flightPathSegments.beginReset();
     _flightPathSegments.clearAndDeleteContents();
 
     switch (_cameraCalc.distanceMode()) {
@@ -539,7 +539,7 @@ void TransectStyleComplexItem::_updateFlightPathSegmentsDontCallDirectly(void)
         break;
     }
 
-    _flightPathSegments.endResetModel();
+    _flightPathSegments.endReset();
 
     if (_cTerrainCollisionSegments != 0) {
         emit terrainCollisionChanged(true);
