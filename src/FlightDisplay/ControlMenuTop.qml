@@ -10,17 +10,20 @@ Rectangle {
     color: "transparent"
     // color: "#ff0000"
 
-    property string currentTab: "POWERLINE"
+    visible: QGroundControl.multiVehicleManager.activeVehicle !== null
 
-    function switchTab(tabId) {
-        currentTab = tabId
-        console.log("🔁 Switched to tab:", tabId)
+    property string currentTab: ""
+    
+    signal tabChanged(string newTab)
+
+    Component.onCompleted: {
+        tabChanged(btnDEFAULT.tabId) // Optional: nếu bạn muốn phát ra sự kiện khi load lần đầu
     }
 
     // Cấu hình tỷ lệ chung để auto scale
     property real buttonWidth: 90
     property real buttonHeight: 22
-    property int fontSize: 1
+    property int fontSize: 7
 
     Column {
         spacing: 6
@@ -29,7 +32,8 @@ Rectangle {
             spacing: 6
 
             ItemButton {
-                id: btnPOWERLINE
+                id: btnDEFAULT
+                property string tabId: "DEFAULT"
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
                 width: buttonWidth
@@ -37,13 +41,14 @@ Rectangle {
                 radius: 6
                 bold: true
                 fontSize: fontSize
-                label: "POWERLINE"
-                isActive: currentTab === "POWERLINE"
-                onClicked: switchTab("POWERLINE")
+                label: qsTr("DEFAULT")
+                isActive: currentTab === tabId
+                onClicked: tabChanged(tabId)
             }
 
             ItemButton {
-                id: btnCONSTRUCTION
+                id: btnFIREFIGHTING
+                property string tabId: "FIRE FIGHTING"
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
                 width: buttonWidth + 20
@@ -51,13 +56,14 @@ Rectangle {
                 radius: 6
                 bold: true
                 fontSize: fontSize
-                label: "CONSTRUCTION"
-                isActive: currentTab === "CONSTRUCTION"
-                onClicked: switchTab("CONSTRUCTION")
+                label: qsTr("FIRE FIGHTING")
+                isActive: currentTab === tabId
+                onClicked: tabChanged(tabId)
             }
 
             ItemButton {
-                id: btnTOURISM
+                id: btnBOMBING
+                property string tabId: "BOMBING"
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
                 width: buttonWidth - 10
@@ -65,9 +71,9 @@ Rectangle {
                 radius: 6
                 bold: true
                 fontSize: fontSize
-                label: "TOURISM"
-                isActive: currentTab === "TOURISM"
-                onClicked: switchTab("TOURISM")
+                label: qsTr("BOMBING")
+                isActive: currentTab === tabId
+                onClicked: tabChanged(tabId)
             }
         }
     }

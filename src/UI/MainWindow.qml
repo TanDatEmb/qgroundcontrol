@@ -530,7 +530,7 @@ FontLoader {
 
                     QGCLabel {
                         id:             toolbarDrawerText
-                        text:           qsTr("Exit") + " " + toolDrawer.toolTitle
+                        text:           qsTr("Exit")    // + " " + toolDrawer.toolTitle
                         font.pointSize: ScreenTools.largeFontPointSize
                     }
                 }
@@ -542,6 +542,31 @@ FontLoader {
                             toolDrawer.visible = false
                         }
                     }
+                }
+            }
+
+            Rectangle {
+                anchors.left:   parent.left
+                anchors.right:  parent.right
+                anchors.top:    toolDrawerToolbar.bottom
+                height:         ScreenTools.defaultFontPixelHeight * 2
+                color:          qgcPal.toolbarBackground
+
+                RowLayout {
+                    anchors.fill:   parent
+                    spacing:        ScreenTools.defaultFontPixelWidth
+
+                    QGCLabel {
+                        text:           toolDrawer.toolTitle
+                        font.pointSize: ScreenTools.largeFontPointSize
+                        Layout.fillWidth: true
+                    }
+
+                    // Image {
+                    //     source:         toolDrawer.toolIcon
+                    //     width:          ScreenTools.defaultFontPixelHeight * 1.5
+                    //     height:         width
+                    // }
                 }
             }
 

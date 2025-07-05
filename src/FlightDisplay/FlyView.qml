@@ -37,6 +37,9 @@ Item {
     property var planController:    _planController
     property var guidedController:  _guidedController
 
+    property string currentTab: ""
+
+
     // Properties of UTM adapter
     property bool utmspSendActTrigger: false
 
@@ -198,6 +201,8 @@ Item {
             width: parent.width * 0.8
             height: 80
             z:                      10
+
+            currentTab: _root.currentTab
         }
 
         ControlMenuTop{
@@ -209,6 +214,12 @@ Item {
             width: parent.width * 0.8
             height: 24
             z:                      10
+
+            currentTab: _root.currentTab
+
+            onTabChanged: {
+                _root.currentTab = newTab
+            }
         }
 
         // Rectangle {

@@ -27,7 +27,7 @@
     <message>
       <location filename="../src/AutoPilotPlugins/APM/APMAirframeComponent.qml" line="75"/>
       <source> To change this configuration, select the desired frame class below and then reboot the vehicle.</source>
-      <translation> 要更改此配置，请在下方选择所需的帧类，然后重启载具。</translation>
+      <translation type="unfinished"> To change this configuration, select the desired frame class below and then reboot the vehicle.</translation>
     </message>
     <message>
       <location filename="../src/AutoPilotPlugins/APM/APMAirframeComponent.qml" line="166"/>

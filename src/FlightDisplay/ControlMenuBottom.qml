@@ -4,13 +4,13 @@ import QGroundControl
 import QGroundControl.Controls
 
 Rectangle {
-    // dev tiếp cái này
     id: _root
     width: 360
     height: 80
     color: "transparent"
-    // color:"red"
     visible: QGroundControl.multiVehicleManager.activeVehicle !== null
+
+    property string currentTab: ""
 
     function sendCustomMavCommand(btn_id, mavCmdId, param1 = 1) {
         let vehicle = QGroundControl.multiVehicleManager.activeVehicle
@@ -28,113 +28,104 @@ Rectangle {
         }
     }
 
-    Column {
-        spacing: 6
+    Loader {
+        id: tabContentLoader
         anchors.centerIn: parent
+        sourceComponent: {
+            if (currentTab === "FIRE FIGHTING"){ _root.height = 80; return fireFightingUI;}
+            else if (currentTab === "BOMBING") {_root.height = 42; return bombingUI; }
+            else return null
+        }
+    }
 
-        Row {
+    // -------- FIRE FIGHTING --------
+    Component {
+        id: fireFightingUI
+
+        Column {
             spacing: 6
 
-            ItemButton {
-                id: btnStartMission
-                width: 110
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "Start Mission"
-                onClicked: sendCustomMavCommand(btnStartMission, 30000)
+            Row {
+                spacing: 6
+
+                ItemButton {
+                    id: fireBtnStart
+                    width: 108
+                    height: 28
+                    radius: 4
+                    fontSize: 10
+                    label: "Start Mission"
+                    onClicked: sendCustomMavCommand(fireBtnStart, 30000)
+                }
+
+                ItemButton {
+                    id: fireBtnCoiBao
+                    width: 70
+                    height: 28
+                    radius: 4
+                    fontSize: 10
+                    label: "Siren"
+                    iconSource: "/icons/campaign_while.svg"
+                    onClicked: fireBtnCoiBao.isActive
+                        ? sendCustomMavCommand(fireBtnCoiBao, 30009)
+                        : sendCustomMavCommand(fireBtnCoiBao, 30001)
+                }
+
+                ItemButton {
+                    id: fireBtn7
+                    width: 32
+                    height: 28
+                    radius: 4
+                    fontSize: 10
+                    label: "7"
+                    iconSource: "/icons/rocket_while.svg"
+                    onClicked: sendCustomMavCommand(fireBtn7, 30007)
+                }
             }
 
-            ItemButton {
-                id: btnCoiBao
-                width: 80
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "Còi báo"
-                iconSource: "/icons/campaign_while.svg"
-                onClicked: btnCoiBao.isActive ? sendCustomMavCommand(btnCoiBao, 30009) : sendCustomMavCommand(btnCoiBao, 30001)
-            }
+            Row {
+                spacing: 6
 
-            ItemButton {
-                id: btn7
-                width: 32
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "7"
-                iconSource: "/icons/rocket_while.svg"
-                onClicked: sendCustomMavCommand(btn7, 30007)
+                Repeater {
+                    model: 6
+                    delegate: ItemButton {
+                        id: fireBtn
+                        width: 32
+                        height: 28
+                        radius: 4
+                        fontSize: 10
+                        label: (index + 1).toString()
+                        iconSource: "/icons/rocket_while.svg"
+                        onClicked: sendCustomMavCommand(fireBtn, 30021 + index)
+                    }
+                }
             }
         }
+    }
 
-        Row {
-            spacing: 6
+    // -------- BOMBING --------
+    Component {
+        id: bombingUI
 
-            ItemButton {
-                id: btn1
-                width: 32
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "1"
-                iconSource: "/icons/rocket_while.svg"
-                onClicked: sendCustomMavCommand(btn1, 30001)
-            }
+        Column {
+            // spacing: 6
+            spacing: 0
+            Row {
+                spacing: 6
 
-            ItemButton {
-                id: btn2
-                width: 32
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "2"
-                iconSource: "/icons/rocket_while.svg"
-                onClicked: sendCustomMavCommand(btn2, 30002)
-            }
-
-            ItemButton {
-                id: btn3
-                width: 32
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "3"
-                iconSource: "/icons/rocket_while.svg"
-                onClicked: sendCustomMavCommand(btn3, 30003)
-            }
-
-            ItemButton {
-                id: btn4
-                width: 32
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "4"
-                iconSource: "/icons/rocket_while.svg"
-                onClicked: sendCustomMavCommand(btn4, 30004)
-            }
-
-            ItemButton {
-                id: btn5
-                width: 32
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "5"
-                iconSource: "/icons/rocket_while.svg"
-                onClicked: sendCustomMavCommand(btn5, 30005)
-            }
-
-            ItemButton {
-                id: btn6
-                width: 32
-                height: 28
-                radius: 4
-                fontSize: 10
-                label: "6"
-                iconSource: "/icons/rocket_while.svg"
-                onClicked: sendCustomMavCommand(btn6, 30006)
+                Repeater {
+                    model: 6
+                    delegate: ItemButton {
+                        id: bombBtn
+                        width: 32
+                        height: 28
+                        radius: 4
+                        fontSize: 10
+                        label: (index + 1).toString()
+                        iconSource: "/icons/rocket_while.svg"
+                        onClicked: sendCustomMavCommand(bombBtn, 31001 + index)
+                    }
+                }
             }
         }
     }
