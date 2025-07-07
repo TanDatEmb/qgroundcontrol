@@ -88,6 +88,17 @@ Map {
         }
     }
 
+Component.onCompleted: {
+    if (gcsPosition.isValid) {
+         console.log("✅ New GCS Position:")
+            console.log("  🧭 Latitude:", gcsPosition.latitude)
+            console.log("  🧭 Longitude:", gcsPosition.longitude)
+            console.log("  ⬆️ Altitude:", gcsPosition.altitude)
+        // gcsPosition = QtPositioning.coordinate(10.762622, 106.660172)
+        // console.log("🧪 Fake GCS Position:", gcsPosition)
+    }
+}
+
     function updateActiveMapType() {
         var settings =  QGroundControl.settingsManager.flightMapSettings
         var fullMapName = settings.mapProvider.value + " " + settings.mapType.value

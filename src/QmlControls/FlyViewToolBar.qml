@@ -25,6 +25,7 @@ Rectangle {
     height: ScreenTools.toolbarHeight
     anchors.top: parent.top
     color: "transparent"
+    // color: "red"
 
     property var _activeVehicle: QGroundControl.multiVehicleManager.activeVehicle
     property bool _communicationLost: _activeVehicle ? _activeVehicle.vehicleLinkManager.communicationLost : false
@@ -146,6 +147,8 @@ Rectangle {
         }
     }
 
+    // toàn bộ thanh công cụ
+    // Cụm nút bấm bên phải
     QGCFlickable {
         id: toolsFlickable
         anchors.leftMargin: ScreenTools.defaultFontPixelWidth * ScreenTools.largeFontPointRatio * 1.5
@@ -155,6 +158,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.right: parent.right
+        //width: Screen.width
         contentWidth: toolIndicators.width
         flickableDirection: Flickable.HorizontalFlick
 
@@ -165,12 +169,13 @@ Rectangle {
 
     //-------------------------------------------------------------------------
     //-- Branding Logo
+    // ẩn hình ảnh thương hiệu
     Image {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.margins: ScreenTools.defaultFontPixelHeight * 0.66
-        visible: _activeVehicle && !_communicationLost && x > (toolsFlickable.x + toolsFlickable.contentWidth + ScreenTools.defaultFontPixelWidth)
+        visible: false //_activeVehicle && !_communicationLost && x > (toolsFlickable.x + toolsFlickable.contentWidth + ScreenTools.defaultFontPixelWidth)
         fillMode: Image.PreserveAspectFit
         source: _outdoorPalette ? _brandImageOutdoor : _brandImageIndoor
         mipmap: true

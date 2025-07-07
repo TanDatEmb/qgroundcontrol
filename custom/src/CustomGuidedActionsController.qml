@@ -26,10 +26,10 @@ QtObject {
             confirmDialog.message = customButtonMessage
             break
         default:
-            return false // false = action not handled here
+            return false 
         }
 
-        return true // true = action handled here
+        return true 
     }
 
     function customExecuteAction(actionCode, actionData, sliderOutputValue, optionCheckedode) {
@@ -38,9 +38,9 @@ QtObject {
             mainWindow.showMessageDialog("Custom Action", "Custom action executed.")
             break
         default:
-            return false // false = action not handled here
+            return false 
         }
 
-        return true // true = action handled here
+        return true 
     }
 }

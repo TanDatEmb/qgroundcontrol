@@ -39,7 +39,6 @@ Row {
     Repeater {
         id:     toolIndicatorsRepeater
         model:  _activeVehicle ? _activeVehicle.toolIndicators : []
-
         Loader {
             anchors.top:        parent.top
             anchors.bottom:     parent.bottom

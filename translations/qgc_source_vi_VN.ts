@@ -18389,13 +18389,54 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
         <source>null</source>
         <translation>vô giá trị</translation>
     </message>
-</context>
-<context>
-    <name>PipView</name>
-    <message>
-        <location filename="../src/QmlControls/PipView.qml" line="247"/>
-        <source>Map</source>
-        <translation>Bản đồ</translation>
-    </message>
-</context>
+    </context>
+    <context>
+        <name>PipView</name>
+        <message>
+            <location filename="../src/QmlControls/PipView.qml" line="247"/>
+            <source>Map</source>
+            <translation>Bản đồ</translation>
+        </message>
+    </context>
+    <context>
+        <name>ControlMenuTop</name>
+        <message>
+            <location filename="../src/FlightDisplay/ControlMenuTop.qml" line="44"/>
+            <source>DEFAULT</source>
+            <translation>MẶC ĐỊNH</translation>
+        </message>
+        <message>
+            <location filename="../src/FlightDisplay/ControlMenuTop.qml" line="59"/>
+            <source>FIRE FIGHTING</source>
+            <translation>CHỮA CHÁY</translation>
+        </message>
+        <message>
+            <location filename="../src/FlightDisplay/ControlMenuTop.qml" line="74"/>
+            <source>BOMBING</source>
+            <translation>ĐÁNH BOM</translation>
+        </message>
+    </context>
+    <context>
+        <name>ControlMenuBottom</name>
+        <message>
+            <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="57"/>
+            <source>Start Mission</source>
+            <translation>Bắt Đầu Nhiệm Vụ</translation>
+        </message>
+        <message>
+            <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="67"/>
+            <source>Siren</source>
+            <translation>Còi Báo</translation>
+        </message>
+        <message>
+            <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="122"/>
+            <source>Tracking Mod</source>
+            <translation>Chế độ theo dõi</translation>
+        </message>
+        <message>
+            <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="133"/>
+            <source>Attack</source>
+            <translation>Tấn công</translation>
+        </message>
+    </context>
 </TS>

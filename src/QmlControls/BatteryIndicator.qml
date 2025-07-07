@@ -22,6 +22,7 @@ import MAVLink
 
 //-------------------------------------------------------------------------
 //-- Battery Indicator
+
 Item {
     id:             control
     anchors.top:    parent.top
@@ -163,8 +164,8 @@ Item {
             QGCColoredImage {
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
-                width:              height
-                sourceSize.width:   width
+                width:              height * 0.8
+                sourceSize.width:   width * 0.8
                 source:             getBatterySvgSource()
                 fillMode:           Image.PreserveAspectFit
                 color:              getBatteryColor()
@@ -181,13 +182,13 @@ Item {
                     verticalAlignment:      Text.AlignVCenter
                     color:                  qgcPal.text
                     text:                   getBatteryPercentageText()
-                    font.pointSize:         _showBoth ? ScreenTools.defaultFontPointSize : ScreenTools.mediumFontPointSize
+                    font.pointSize:         _showBoth ? ScreenTools.defaultFontPointSize * 0.8 : ScreenTools.mediumFontPointSize * 0.8
                     visible:                _showBoth || _showPercentage
                 }
 
                 QGCLabel {
                     Layout.alignment:       Qt.AlignHCenter
-                    font.pointSize:         _showBoth ? ScreenTools.defaultFontPointSize : ScreenTools.mediumFontPointSize
+                    font.pointSize:         _showBoth ? ScreenTools.defaultFontPointSize * 0.8 : ScreenTools.mediumFontPointSize * 0.8
                     color:                  qgcPal.text
                     text:                   getBatteryVoltageText()
                     visible:                _showBoth || _showVoltage

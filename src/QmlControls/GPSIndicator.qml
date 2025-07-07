@@ -20,7 +20,7 @@ import QGroundControl.Palette
 
 Item {
     id:             control
-    width:          gpsIndicatorRow.width
+    width:          gpsIndicatorRow.width //340 
     anchors.top:    parent.top
     anchors.bottom: parent.bottom
 
@@ -49,12 +49,12 @@ Item {
 
             QGCColoredImage {
                 id:                 gpsIcon
-                width:              height
+                width:              height * 0.8
                 anchors.top:        parent.top
                 anchors.bottom:     parent.bottom
                 source:             "/qmlimages/Gps.svg"
                 fillMode:           Image.PreserveAspectFit
-                sourceSize.height:  height
+                sourceSize.height:  height * 0.8
                 opacity:            (_activeVehicle && _activeVehicle.gps.count.value >= 0) ? 1 : 0.5
                 color:              qgcPal.buttonText
             }

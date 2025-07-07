@@ -98,18 +98,18 @@ Item {
 
     QGCColoredImage {
         id:                 remoteIDIcon
-        width:              height
+        width:              height * 0.8
         anchors.top:        parent.top
         anchors.bottom:     parent.bottom
         source:             "/qmlimages/RidIconMan.svg"
         color:              getRidColor()
         fillMode:           Image.PreserveAspectFit
-        sourceSize.height:  height
+        sourceSize.height:  height * 0.8
 
         QGCColoredImage {
-            width:              height
+            width:              height * 0.8
             anchors.fill:       parent
-            sourceSize.height:  height
+            sourceSize.height:  height * 0.8
             source:             "/qmlimages/RidIconText.svg"
             fillMode:           Image.PreserveAspectFit
             color:              qgcPal.text

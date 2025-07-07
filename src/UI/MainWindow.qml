@@ -296,7 +296,7 @@ FontLoader {
         visible:        false
     }
 
-// mai sửa lại giao diện
+    // mai sửa lại giao diện
     Rectangle {
         id: _root
         visible: !planView.visible

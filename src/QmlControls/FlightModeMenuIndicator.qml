@@ -57,7 +57,7 @@ RowLayout {
 
         QGCLabel {
             text:               activeVehicle ? activeVehicle.flightMode : qsTr("N/A", "No data to display")
-            font.pointSize:     fontPointSize
+            font.pointSize:     fontPointSize * 0.8
             Layout.alignment:   Qt.AlignCenter
 
             MouseArea {

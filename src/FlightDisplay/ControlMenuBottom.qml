@@ -16,12 +16,12 @@ Rectangle {
         let vehicle = QGroundControl.multiVehicleManager.activeVehicle
         if (vehicle) {
             btn_id.isActive = !btn_id.isActive
-            vehicle.sendCommand(
-                vehicle.id,
-                mavCmdId,
-                true,
-                param1, 0, 0, 0, 0, 0, 0
-            )
+            // vehicle.sendCommand(
+            //     vehicle.id,
+            //     mavCmdId,
+            //     true,
+            //     param1, 0, 0, 0, 0, 0, 0
+            // )
             console.log("📡 Send MAV_CMD " + mavCmdId)
         } else {
             console.warn("🚫 error")
@@ -54,7 +54,7 @@ Rectangle {
                     height: 28
                     radius: 4
                     fontSize: 10
-                    label: "Start Mission"
+                    label: qsTr("Start Mission")
                     onClicked: sendCustomMavCommand(fireBtnStart, 30000)
                 }
 
@@ -64,7 +64,7 @@ Rectangle {
                     height: 28
                     radius: 4
                     fontSize: 10
-                    label: "Siren"
+                    label: qsTr("Siren")
                     iconSource: "/icons/campaign_while.svg"
                     onClicked: fireBtnCoiBao.isActive
                         ? sendCustomMavCommand(fireBtnCoiBao, 30009)
@@ -113,8 +113,32 @@ Rectangle {
             Row {
                 spacing: 6
 
+                ItemButton {
+                    id: bomBtnTracking
+                    width: 108
+                    height: 28
+                    radius: 4
+                    fontSize: 10
+                    label: qsTr("Tracking Mod")
+                    // iconSource: "/icons/rocket_while.svg"
+                    onClicked: sendCustomMavCommand(bomBtnTracking, 31007)
+                }
+
+                ItemButton {
+                    id: bomBtnAttack
+                    width: 70
+                    height: 28
+                    radius: 4
+                    fontSize: 10
+                    label: qsTr("Attack")
+                    // iconSource: "/icons/campaign_while.svg"
+                    onClicked: bomBtnAttack.isActive
+                        ? sendCustomMavCommand(bomBtnAttack, 31009)
+                        : sendCustomMavCommand(bomBtnAttack, 31001)
+                }
+
                 Repeater {
-                    model: 6
+                    model: 1
                     delegate: ItemButton {
                         id: bombBtn
                         width: 32

@@ -89,7 +89,6 @@ RowLayout {
             property var    hiddenFlightModesList:    [] 
 
             Component.onCompleted: {
-                // Hidden flight modes are classified by firmware and vehicle class
                 var hiddenFlightModesPropPrefix
                 if (activeVehicle.px4Firmware) {
                     hiddenFlightModesPropPrefix = "px4HiddenFlightModes"
@@ -102,7 +101,6 @@ RowLayout {
                     var hiddenFlightModesProp = hiddenFlightModesPropPrefix + activeVehicle.vehicleClassInternalName()
                     if (flightModeSettings.hasOwnProperty(hiddenFlightModesProp)) {
                         hiddenFlightModesFact = flightModeSettings[hiddenFlightModesProp]
-                        // Split string into list of flight modes
                         if (hiddenFlightModesFact && hiddenFlightModesFact.value !== "") {
                             hiddenFlightModesList = hiddenFlightModesFact.value.split(",")
                         }

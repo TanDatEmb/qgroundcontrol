@@ -113,7 +113,7 @@ RowLayout {
 
         verticalAlignment: Text.AlignVCenter
         text: _vtolInFWDFlight ? qsTr("FW(vtol)") : qsTr("MR(vtol)")
-        font.pointSize: _vehicleInAir ? ScreenTools.largeFontPointSize : ScreenTools.defaultFontPointSize
+        font.pointSize: _vehicleInAir ? ScreenTools.largeFontPointSize *0.8 : ScreenTools.defaultFontPointSize*0.8
         visible: _activeVehicle && _activeVehicle.vtol
 
         QGCMouseArea {
