@@ -95,53 +95,19 @@ Rectangle {
         }
     }
 
-    // Mô hình 3D
-
-    View3D {
-        anchors.centerIn: parent
-        width: parent.width
-        height: parent.height
-        camera: camera
-
-        Node {
-            id: sceneRoot
-
-            PerspectiveCamera {
-                id: camera
-                position: Qt.vector3d(0, 0, 600)
-            }
-
-            DirectionalLight {
-                eulerRotation: Qt.vector3d(45, 45, 0)
-            }
-
-            Model {
-                id: model3d
-                source: "#Sphere"
-                scale: Qt.vector3d(100, 100, 100)
-                eulerRotation: Qt.vector3d(detailPage.dragY, detailPage.dragX, 0)
-                materials: DefaultMaterial {
-                    diffuseColor: "orange"
-                }
-            }
-        }
-
-        MouseArea {
-            anchors.fill: parent
-            property real lastX
-            property real lastY
-
-            onPressed: {
-                lastX = mouse.x
-                lastY = mouse.y
-            }
-
-            onPositionChanged: {
-                detailPage.dragX += (mouse.x - lastX)
-                detailPage.dragY += (mouse.y - lastY)
-                lastX = mouse.x
-                lastY = mouse.y
-            }
+    Rectangle {
+        anchors.fill: parent
+        width: 220
+        height: 220
+        radius: 16
+        color: "#1aeeb2"
+        
+        // Placeholder for 3D model, replace with actual model loading logic
+        Text {
+            anchors.centerIn: parent
+            text: "3D Model Placeholder"
+            font.pointSize: 14
+            color: "#888888"
         }
     }
 
@@ -152,11 +118,6 @@ Rectangle {
         spacing: 12
         anchors.bottomMargin: 16
         anchors.rightMargin: 16
-
-        Button {
-            text: "Thông tin liên hệ"
-            onClicked: Qt.openUrlExternally(uavData.link)
-        }
         Button {
             text: "Xác nhận"
             onClicked: console.log("Xác nhận UAV:", uavData.name)

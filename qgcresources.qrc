@@ -7,6 +7,14 @@
         <file alias="Fire_fighting_UAV_parameters.png">resources/lists/6-Fire_fighting_UAV_parameters.png</file>
         <file alias="lightshow-S3-PRO.png">resources/lists/lightshow-S3-PRO.png</file>
     </qresource>
+    <qresource prefix="/lists/4_axis_UAV_5kg">
+        <file alias="1.png">resources/lists/4_axis_UAV_5kg/1.png</file>
+        <file alias="2.png">resources/lists/4_axis_UAV_5kg/2.png</file>
+        <file alias="3.png">resources/lists/4_axis_UAV_5kg/3.png</file>
+        <file alias="4.png">resources/lists/4_axis_UAV_5kg/4.png</file>
+        <file alias="5.png">resources/lists/4_axis_UAV_5kg/5.png</file>
+        <file alias="6.png">resources/lists/4_axis_UAV_5kg/6.png</file>
+    </qresource>
     <qresource prefix="/fonts">
         <file alias="Aldrich-Regular">resources/fonts/Aldrich-Regular.ttf</file>
         <file alias="opensans">resources/fonts/OpenSans-Regular.ttf</file>

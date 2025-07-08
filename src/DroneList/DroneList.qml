@@ -42,7 +42,13 @@ Rectangle {
                 "propeller": "22×70",
                 "camera": "4K HD 6x hybrid zoom (Customized on demand)",
                 "code": "CT-HV-5D-4",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/images/drone1_1.jpg",
+                    "qrc:/images/drone1_2.jpg",
+                    "qrc:/images/drone1_3.jpg"
+                ]
+
             },
             {
                 "id": 2,
@@ -198,57 +204,17 @@ Rectangle {
     property var selectedDrone: null
     property bool showDetailOverlay: false
 
+    property bool showImageGallery: false
+
+
     function onDroneItemClicked(drone) {
         selectedDrone = drone
         // detailPageLoader.active = true
         showDetailOverlay = true
     }
 
-    // Loader {
-    //     id: detailPageLoader
-    //     active: false
-    //     source: "qrc:/qml/QGroundControl/DroneList/DroneDetail.qml"
-    //     anchors.fill: parent
-    //     onLoaded: {
-    //         item.uavData = selectedDrone
-    //         item.onBack = () => detailPageLoader.active = false
-    //     }
-    // }
-    
-    function readParameter(key) {
-        console.log("🔍 [DEBUG] Đọc parameter:", key)
-
-        var vehicle = QGroundControl.multiVehicleManager.activeVehicle
-        if (!vehicle || !vehicle.parameterManager) {
-            console.log("❌ Không có vehicle hoặc parameterManager.")
-            return
-        }
-
-        var fact = vehicle.parameterManager.getParameter(-1, key)
-        if (fact && fact.value !== undefined) {
-            console.log("✅ Parameter:", key)
-            console.log("   ➤ Giá trị hiện tại :", fact.value)
-            console.log("   ➤ Giá trị mặc định:", fact.defaultValue)
-            console.log("   ➤ Đơn vị           :", fact.units)
-            console.log("   ➤ Mô tả            :", fact.shortDescription)
-        } else {
-            console.log("⚠️ Không tìm thấy hoặc chưa có giá trị cho parameter:", key)
-        }
-    }
-
-    Timer {
-        interval: 3000
-        running: true
-        repeat: false
-        onTriggered: {
-            readParameter("MAV_SYS_ID")
-            readParameter("BAT_CAPACITY")
-            readParameter("CAL_ACC0_XOFF")
-        }
-    }
-
-
     Item {
+        id: droneListWrapper
         anchors.fill: parent
         visible: true
 
@@ -314,7 +280,7 @@ Rectangle {
 
                 GridView {
                     anchors.fill: parent
-                    cellWidth: isMobile ? (width / 3) : (width / 5)
+                    cellWidth: isMobile ? (width / 3.2) : (width / 5)
                     cellHeight: cellWidth + 60
                     model: droneMap[selectedType]
 
@@ -324,7 +290,7 @@ Rectangle {
                         spacing: 4
 
                         Item {
-                            width: parent.width * 0.6
+                            width: parent.width * 0.8
                             height: width
                             anchors.horizontalCenter: parent.horizontalCenter
 
@@ -443,7 +409,7 @@ Rectangle {
                             Row {
                                 spacing: 12
                                 Rectangle {
-                                    width: detailPanel.width * 0.35
+                                    width: detailPanel.width * 0.4
                                     height: width
                                     color: qgcPal.window
                                     radius: 6
@@ -485,7 +451,7 @@ Rectangle {
                                 }
 
                                 Text {
-                                    text: selectedDrone ? selectedDrone.description : "Không có mô tả"
+                                    text: selectedDrone.description ? selectedDrone.description : "Không có mô tả"
                                     wrapMode: Text.WordWrap
                                     font.pixelSize: fontSize
                                     color: qgcPal.text
@@ -561,7 +527,7 @@ Rectangle {
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "Thông tin liên hệ"
+                                text: "Xem thêm ảnh"
                                 color: "white"
                                 font.pixelSize: fontSize
                             }
@@ -570,8 +536,9 @@ Rectangle {
                                 id: mouseArea1
                                 anchors.fill: parent
                                 onClicked: {
-                                    if (selectedDrone && selectedDrone.link)
-                                        Qt.openUrlExternally(selectedDrone.link)
+                                    showImageGallery = true
+                                    // if (selectedDrone && selectedDrone.link)
+                                    //     Qt.openUrlExternally(selectedDrone.link)
                                 }
                                 hoverEnabled: true
                                 cursorShape: Qt.PointingHandCursor
@@ -615,6 +582,82 @@ Rectangle {
             }
 
         }
+
+        Rectangle {
+            id: imageGalleryOverlay
+            anchors.fill: parent
+            color: "#b0000000"
+            visible: showImageGallery
+            z: 99
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: showImageGallery = false
+            }
+
+            Rectangle {
+                width: parent.width * 0.7
+                height: parent.height * 0.5
+                anchors.centerIn: parent
+                color: qgcPal.window
+                radius: 10
+                border.color: "#3d81c2"
+                border.width: 1
+                clip: true
+
+                Column {
+                    anchors.fill: parent
+                    anchors.margins: 12
+                    spacing: 8
+
+                    Text {
+                        text: "Thư viện ảnh"
+                        font.pixelSize: fontSize * 1.5
+                        font.bold: true
+                        color: qgcPal.text
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    Flickable {
+                        id: galleryFlick
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        height: parent.height - 60
+                        contentWidth: rowContent.width
+                        clip: true
+                        interactive: true
+                        flickableDirection: Flickable.HorizontalFlick
+
+                        Row {
+                            id: rowContent
+                            spacing: 10
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            Repeater {
+                                model: selectedDrone && selectedDrone.gallery ? selectedDrone.gallery : []
+                                delegate: Rectangle {
+                                    width: 200
+                                    height: 150
+                                    radius: 6
+                                    color: "#222222"
+                                    border.color: "#555"
+                                    border.width: 1
+
+                                    Image {
+                                        anchors.fill: parent
+                                        anchors.margins: 4
+                                        source: modelData
+                                        fillMode: Image.PreserveAspectFit
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
     }
 

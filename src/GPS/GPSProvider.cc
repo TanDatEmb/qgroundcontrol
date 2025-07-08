@@ -77,13 +77,22 @@ int GPSProvider::callback(GPSCallbackType type, void *data1, int data2)
 {
     switch (type) {
     case GPSCallbackType::readDeviceData:
-        if (_serial->bytesAvailable() == 0) {
-            const int timeout = *(reinterpret_cast<int*>(data1));
-            if (!_serial->waitForReadyRead(timeout)) {
-                return 0;
+        {
+            if (_serial->bytesAvailable() == 0) {
+                const int timeout = *(reinterpret_cast<int*>(data1));
+                if (!_serial->waitForReadyRead(timeout)) {
+                    return 0;
+                }
             }
+
+            const int bytesRead = _serial->read(reinterpret_cast<char*>(data1), data2);
+            if (bytesRead > 0) {
+                QByteArray rawData(reinterpret_cast<const char*>(data1), bytesRead);
+                qCDebug(GPSDriversLog) << "Raw GPS Data:" << rawData.toHex(' ').toUpper();
+            }
+            return bytesRead;
         }
-        return _serial->read(reinterpret_cast<char*>(data1), data2);
+
     case GPSCallbackType::writeDeviceData:
         if (_serial->write(reinterpret_cast<char*>(data1), data2) >= 0) {
             if (_serial->waitForBytesWritten(-1)) {

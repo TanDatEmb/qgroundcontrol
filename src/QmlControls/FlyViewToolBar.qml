@@ -42,16 +42,6 @@ Rectangle {
         id: qgcPal
     }
 
-    /// Bottom single pixel divider
-    Rectangle {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        height: 1
-        color: "black"
-        visible: qgcPal.globalTheme === QGCPalette.Light
-    }
-
     Rectangle {
                 width: parent.width
                 height: parent.height                   // Mỏng lại, ví dụ 10px
@@ -68,10 +58,11 @@ Rectangle {
                     } // Trong suốt
                 }
             } 
-
+    // Main status indicator
     Item {
         id: mainStatusIndicatorItem
         anchors.fill: parent
+        visible: !_activeVehicle
         z:2
         QGCLabel {
             id: mainStatusLabel
@@ -79,8 +70,9 @@ Rectangle {
             anchors.centerIn: parent 
             verticalAlignment: Text.AlignVCenter
             text: mainStatusIndicator.mainStatusText()
-            
-            font.pointSize: ScreenTools.largeFontPointSize
+            color: "#ffffff" 
+
+            font.pointSize: ScreenTools.largeFontPointSize * 0.8
 
             QGCMouseArea {
                 id: mainStatusMouseArea
@@ -88,11 +80,18 @@ Rectangle {
                 onClicked: mainStatusIndicator.dropMainStatusIndicator()
             }
         }
-        // rectangle {
+         QGCButton {
+            id: disconnectButton
+            text: qsTr("Disconnect")
+            onClicked: _activeVehicle.closeVehicle()
+            visible: _activeVehicle && _communicationLost
+        }
+        // cái này để test
+        // Rectangle {
         //     anchors.fill: parent
-        //     color: mainStatusIndicator._mainStatusBGColor
+        //     color: "#c02626"
         //     opacity: 0.5
-        //     visible: mainStatusIndicator.showMainStatusIndicator()
+        //     visible: true
         // }
     }
     //  Cụm nút bấm bên trái và giữa
@@ -133,17 +132,9 @@ Rectangle {
             }
         }
 
-
-
         MainStatusIndicator {
             id: mainStatusIndicator
             Layout.preferredHeight: viewButtonRow.height
-        }
-        QGCButton {
-            id: disconnectButton
-            text: qsTr("Disconnect")
-            onClicked: _activeVehicle.closeVehicle()
-            visible: _activeVehicle && _communicationLost
         }
     }
 

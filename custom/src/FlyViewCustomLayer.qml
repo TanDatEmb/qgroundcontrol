@@ -146,7 +146,7 @@ Item {
         width:                      ScreenTools.defaultFontPixelWidth  * 40
         anchors.bottom: parent.bottom
         anchors.bottomMargin: -2
-        color:                      "#bb303030"
+        color:                       qgcPal.globalTheme === QGCPalette.Light ? "#bbffffff" :"#bb303030" 
         radius: Math.min(height, width) / 2
         clip:                       true
         anchors.horizontalCenter:   parent.horizontalCenter
@@ -163,7 +163,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 x:              visible ? ((modelData * (compassBar.width / 360)) - (width * 0.5)) : 0
                 visible:        _angle % 45 == 0
-                color:          "#dcf3ff"
+                color:            qgcPal.globalTheme === QGCPalette.Light ?  "#1a1a1a" : "#dcf3ff"
                 font.pointSize: ScreenTools.smallFontPointSize *0.8
                 text: {
                     switch(_angle) {
@@ -290,14 +290,14 @@ Item {
     //     }
     // }
 
-// la bàn bên phải
+    // la bàn bên phải
     Rectangle {
         id:                     attitudeIndicator
         anchors.bottomMargin:   _toolsMargin + parentToolInsets.bottomEdgeRightInset + 6
         anchors.rightMargin:    _toolsMargin
         anchors.bottom:         parent.bottom
         anchors.right:          parent.right
-        height:                 ScreenTools.defaultFontPixelHeight * 6
+        height:                 ScreenTools.defaultFontPixelHeight * 5
         width:                  height
         radius:                 height * 0.5
         color:                  qgcPal.windowShade
