@@ -44,9 +44,14 @@ Rectangle {
                 "code": "CT-HV-5D-4",
                 "link": "https://ctuav.vn/vi/ct-uav/",
                 "gallery": [
-                    "qrc:/images/drone1_1.jpg",
-                    "qrc:/images/drone1_2.jpg",
-                    "qrc:/images/drone1_3.jpg"
+                    "qrc:/lists/4_axis_UAV_5kg.png",
+                    "qrc:/lists/4_axis_UAV_5kg/1.png",
+                    "qrc:/lists/4_axis_UAV_5kg/2.png",
+                    "qrc:/lists/4_axis_UAV_5kg/3.png",
+                    "qrc:/lists/4_axis_UAV_5kg/4.png",
+                    "qrc:/lists/4_axis_UAV_5kg/5.png",
+                    "qrc:/lists/4_axis_UAV_5kg/6.png",
+                    "qrc:/lists/4_axis_UAV_5kg/7.png",
                 ]
 
             },
@@ -75,7 +80,17 @@ Rectangle {
                 "propeller": "36 inches",
                 "camera": "4K HD 6x hybrid zoom (Customized on demand)",
                 "code": "CT-HV-12D-4",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/4_axis_UAV_12kg.png",
+                    "qrc:/lists/4_axis_UAV_12kg/1.png",
+                    "qrc:/lists/4_axis_UAV_12kg/2.png",
+                    "qrc:/lists/4_axis_UAV_12kg/3.png",
+                    "qrc:/lists/4_axis_UAV_12kg/4.png",
+                    "qrc:/lists/4_axis_UAV_12kg/5.png",
+                    "qrc:/lists/4_axis_UAV_12kg/6.png",
+                    "qrc:/lists/4_axis_UAV_12kg/7.png",
+                ]   
             },
             {
                 "id": 3,
@@ -102,7 +117,17 @@ Rectangle {
                 "propeller": "56 inches",
                 "camera": "2K HD 30x hybrid zoom (Customized on demand)",
                 "code": "CT-HV-25D-4",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/4-axis_UAV_parameter.png",
+                    "qrc:/lists/4-axis_UAV_parameter/1.png",
+                    "qrc:/lists/4-axis_UAV_parameter/2.png",
+                    "qrc:/lists/4-axis_UAV_parameter/3.png",
+                    "qrc:/lists/4-axis_UAV_parameter/4.png",
+                    "qrc:/lists/4-axis_UAV_parameter/5.png",
+                    "qrc:/lists/4-axis_UAV_parameter/6.png",
+                    "qrc:/lists/4-axis_UAV_parameter/7.png"
+                ] 
             }
         ],
         "Hexacopter Type": [
@@ -131,7 +156,19 @@ Rectangle {
                 "propeller": "36 inches",
                 "camera": "2K HD 30x hybrid zoom (Customized on demand)",
                 "code": "CT-HV-25D-6",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/6-CT-HV-25D-6.png",
+                    "qrc:/lists/6-CT-HV-25D-6/1.png",
+                    "qrc:/lists/6-CT-HV-25D-6/2.png",
+                    "qrc:/lists/6-CT-HV-25D-6/3.png",
+                    "qrc:/lists/6-CT-HV-25D-6/4.png",
+                    "qrc:/lists/6-CT-HV-25D-6/5.png",
+                    "qrc:/lists/6-CT-HV-25D-6/6.png",
+                    "qrc:/lists/6-CT-HV-25D-6/7.png",
+                    "qrc:/lists/6-CT-HV-25D-6/8.png",
+                    "qrc:/lists/6-CT-HV-25D-6/9.png",
+                ] 
             }
         ],
         "Lightshow": [
@@ -162,14 +199,23 @@ Rectangle {
                 "LED_power": "0~24W",
                 "working_mode": "Offline mode",
                 "code": "S3-PRO",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/lightshow-S3-PRO.png",
+                    "qrc:/lists/lightshow-S3-PRO/1.png",
+                    "qrc:/lists/lightshow-S3-PRO/2.png",
+                    "qrc:/lists/lightshow-S3-PRO/3.png",
+                    "qrc:/lists/lightshow-S3-PRO/4.png",
+                    "qrc:/lists/lightshow-S3-PRO/5.png",
+                    "qrc:/lists/lightshow-S3-PRO/6.png",
+                ]  
             }
         ],
         "Firefighting": [
             {
                 "id": 6,
                 "name": "Firefighting UAV",
-                "image": "qrc:/lists/Fire_fighting_UAV_parameters.png",
+                "image": "qrc:/lists/6-Fire_fighting_UAV_parameters.png",
                 "structure_type": "Folded structure",
                 "material": "Carbon fiber, ABS, Aluminum alloy",
                 "size": "Folded: 1000×1000×800 mm, Unfolded: 2000×2000×800 mm",
@@ -191,7 +237,18 @@ Rectangle {
                 "propeller": "36 inches",
                 "camera": "4K AI 180× hybrid zoom (Customized on demand)",
                 "code": "CT-HV-25D-6-F",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/1.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/2.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/3.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/4.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/5.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/6.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/7.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/8.png",
+                ]  
             }
         ],
     }
@@ -438,6 +495,37 @@ Rectangle {
                                         color: qgcPal.text
                                         wrapMode: Text.WordWrap
                                     }
+                                    Item {
+                                        width: 66
+                                        height: 24
+
+                                        Rectangle {
+                                            anchors.fill: parent
+                                            radius: 4
+                                            color: mouseArea1.pressed ? "#444" : (mouseArea1.containsMouse ? "#333" : "#222")
+                                            border.color: "#666"
+                                            border.width: 1
+
+                                            Text {
+                                                anchors.centerIn: parent
+                                                text: "Xem thêm ảnh"
+                                                color: "white"
+                                                font.pixelSize: fontSize
+                                            }
+
+                                            MouseArea {
+                                                id: mouseArea1
+                                                anchors.fill: parent
+                                                onClicked: {
+                                                    showImageGallery = true
+                                                    // if (selectedDrone && selectedDrone.link)
+                                                    //     Qt.openUrlExternally(selectedDrone.link)
+                                                }
+                                                hoverEnabled: true
+                                                cursorShape: Qt.PointingHandCursor
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             Column {
@@ -523,36 +611,6 @@ Rectangle {
                         Rectangle {
                             anchors.fill: parent
                             radius: 4
-                            color:mouseArea2.pressed ? "#0061a2" : "#0070ba"
-
-                            Text {
-                                anchors.centerIn: parent
-                                text: "Xem thêm ảnh"
-                                color: "white"
-                                font.pixelSize: fontSize
-                            }
-
-                            MouseArea {
-                                id: mouseArea1
-                                anchors.fill: parent
-                                onClicked: {
-                                    showImageGallery = true
-                                    // if (selectedDrone && selectedDrone.link)
-                                    //     Qt.openUrlExternally(selectedDrone.link)
-                                }
-                                hoverEnabled: true
-                                cursorShape: Qt.PointingHandCursor
-                            }
-                        }
-                    }
-
-                    Item {
-                        width: 80
-                        height: 30
-
-                        Rectangle {
-                            anchors.fill: parent
-                            radius: 4
                             color: mouseArea2.pressed ? "#0061a2" : "#0070ba"
 
                             Text {
@@ -583,10 +641,10 @@ Rectangle {
 
         }
 
-        Rectangle {
+       Rectangle {
             id: imageGalleryOverlay
             anchors.fill: parent
-            color: "#b0000000"
+            color: "#80000000" // nền trong suốt nhẹ
             visible: showImageGallery
             z: 99
 
@@ -596,67 +654,103 @@ Rectangle {
             }
 
             Rectangle {
-                width: parent.width * 0.7
-                height: parent.height * 0.5
-                anchors.centerIn: parent
-                color: qgcPal.window
-                radius: 10
-                border.color: "#3d81c2"
-                border.width: 1
+                anchors.fill: parent
+                color: "transparent"
                 clip: true
+
+                // Nút đóng
+                Rectangle {
+                    id: closeButton
+                    width: 26
+                    height: 26
+                    radius: 18
+                    color: "#3d3d3d"
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.margins: 12
+
+                   QGCColoredImage {
+                        anchors.margins:    parent.height / 4
+                        anchors.fill:       parent
+                        source:             "/res/XDelete.svg"
+                        fillMode:           Image.PreserveAspectFit
+                        color:              qgcPal.text
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: showImageGallery = false
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                    }
+                }
 
                 Column {
                     anchors.fill: parent
-                    anchors.margins: 12
-                    spacing: 8
+                    anchors.leftMargin: 24
+                    anchors.rightMargin: 24
+                    spacing: 12
 
-                    Text {
-                        text: "Thư viện ảnh"
-                        font.pixelSize: fontSize * 1.5
-                        font.bold: true
-                        color: qgcPal.text
-                        horizontalAlignment: Text.AlignHCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-
-                    Flickable {
-                        id: galleryFlick
+                    ListView {
+                        id: galleryListView
+                        orientation: ListView.Horizontal
+                        height: 320
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        height: parent.height - 60
-                        contentWidth: rowContent.width
-                        clip: true
+                        anchors.top: parent.top
+                        anchors.topMargin: 42   // Hạ xuống từ trên 80px
+                        spacing: 24
+                        clip: false  // Cho phép phóng to vượt ra ngoài
+                        model: selectedDrone && selectedDrone.gallery ? selectedDrone.gallery : []
+                        snapMode: ListView.SnapToItem
+                        preferredHighlightBegin: (width - 400) / 2
+                        preferredHighlightEnd: (width - 400) / 2
+                        highlightRangeMode: ListView.StrictlyEnforceRange
                         interactive: true
-                        flickableDirection: Flickable.HorizontalFlick
 
-                        Row {
-                            id: rowContent
-                            spacing: 10
-                            anchors.verticalCenter: parent.verticalCenter
+                        delegate: Item {
+                            width: 400
+                            height: 240
+                            property real centerPos: galleryListView.contentX + galleryListView.width / 2
+                            property real itemCenter: x + width / 2
+                            property real dist: Math.abs(itemCenter - centerPos)
+                            property real scaleFactor: Math.max(0.8, 1.2 - dist / 400)
 
-                            Repeater {
-                                model: selectedDrone && selectedDrone.gallery ? selectedDrone.gallery : []
-                                delegate: Rectangle {
-                                    width: 200
-                                    height: 150
-                                    radius: 6
-                                    color: "#222222"
-                                    border.color: "#555"
-                                    border.width: 1
+                            opacity: dist < 20 ? 1.0 : 0.5
 
-                                    Image {
-                                        anchors.fill: parent
-                                        anchors.margins: 4
-                                        source: modelData
-                                        fillMode: Image.PreserveAspectFit
-                                    }
+                            Behavior on opacity {
+                                NumberAnimation { duration: 150 }
+                            }
+
+                            transform: Scale {
+                                origin.x: width / 2
+                                origin.y: height / 2
+                                xScale: scaleFactor
+                                yScale: scaleFactor
+                            }
+
+                            Rectangle {
+                                anchors.fill: parent
+                                radius: 12
+                                border.color: "#555"
+                                color: "#333"
+
+                                Image {
+                                    anchors.fill: parent
+                                    anchors.margins: 8
+                                    source: modelData
+                                    fillMode: Image.PreserveAspectFit
                                 }
                             }
                         }
                     }
+
                 }
+
             }
         }
+
+
 
 
     }

@@ -4,7 +4,7 @@
         <file alias="4_axis_UAV_12kg.png">resources/lists/4_axis_UAV_12kg.png</file>
         <file alias="4-axis_UAV_parameter.png">resources/lists/4-axis_UAV_parameter.png</file>
         <file alias="6-CT-HV-25D-6.png">resources/lists/6-CT-HV-25D-6.png</file>
-        <file alias="Fire_fighting_UAV_parameters.png">resources/lists/6-Fire_fighting_UAV_parameters.png</file>
+        <file alias="6-Fire_fighting_UAV_parameters.png">resources/lists/6-Fire_fighting_UAV_parameters.png</file>
         <file alias="lightshow-S3-PRO.png">resources/lists/lightshow-S3-PRO.png</file>
     </qresource>
     <qresource prefix="/lists/4_axis_UAV_5kg">
@@ -14,7 +14,56 @@
         <file alias="4.png">resources/lists/4_axis_UAV_5kg/4.png</file>
         <file alias="5.png">resources/lists/4_axis_UAV_5kg/5.png</file>
         <file alias="6.png">resources/lists/4_axis_UAV_5kg/6.png</file>
+        <file alias="7.png">resources/lists/4_axis_UAV_5kg/7.png</file>
     </qresource>
+     <qresource prefix="/lists/4_axis_UAV_12kg">
+        <file alias="1.png">resources/lists/4_axis_UAV_12kg/1.png</file>
+        <file alias="2.png">resources/lists/4_axis_UAV_12kg/2.png</file>
+        <file alias="3.png">resources/lists/4_axis_UAV_12kg/3.png</file>
+        <file alias="4.png">resources/lists/4_axis_UAV_12kg/4.png</file>
+        <file alias="5.png">resources/lists/4_axis_UAV_12kg/5.png</file>
+        <file alias="6.png">resources/lists/4_axis_UAV_12kg/6.png</file>
+        <file alias="7.png">resources/lists/4_axis_UAV_12kg/7.png</file>
+    </qresource>
+    <qresource prefix="/lists/6-CT-HV-25D-6">
+        <file alias="1.png">resources/lists/6-CT-HV-25D-6/1.png</file>
+        <file alias="2.png">resources/lists/6-CT-HV-25D-6/2.png</file>
+        <file alias="3.png">resources/lists/6-CT-HV-25D-6/3.png</file>
+        <file alias="4.png">resources/lists/6-CT-HV-25D-6/4.png</file>
+        <file alias="5.png">resources/lists/6-CT-HV-25D-6/5.png</file>
+        <file alias="6.png">resources/lists/6-CT-HV-25D-6/6.png</file>
+        <file alias="7.png">resources/lists/6-CT-HV-25D-6/7.png</file>
+        <file alias="8.png">resources/lists/6-CT-HV-25D-6/8.png</file>
+        <file alias="9.png">resources/lists/6-CT-HV-25D-6/9.png</file>
+    </qresource>
+    <qresource prefix="/lists/lightshow-S3-PRO">
+        <file alias="1.png">resources/lists/lightshow-S3-PRO/1.png</file>
+        <file alias="2.png">resources/lists/lightshow-S3-PRO/2.png</file>
+        <file alias="3.png">resources/lists/lightshow-S3-PRO/3.png</file>
+        <file alias="4.png">resources/lists/lightshow-S3-PRO/4.png</file>
+        <file alias="5.png">resources/lists/lightshow-S3-PRO/5.png</file>
+        <file alias="6.png">resources/lists/lightshow-S3-PRO/6.png</file>
+    </qresource>
+    <qresource prefix="/lists/4-axis_UAV_parameter">
+        <file alias="1.png">resources/lists/4-axis_UAV_parameter/1.png</file>
+        <file alias="2.png">resources/lists/4-axis_UAV_parameter/2.png</file>
+        <file alias="3.png">resources/lists/4-axis_UAV_parameter/3.png</file>
+        <file alias="4.png">resources/lists/4-axis_UAV_parameter/4.png</file>
+        <file alias="5.png">resources/lists/4-axis_UAV_parameter/5.png</file>
+        <file alias="6.png">resources/lists/4-axis_UAV_parameter/6.png</file>
+        <file alias="7.png">resources/lists/4-axis_UAV_parameter/7.png</file>
+    </qresource>
+    <qresource prefix="/lists/6-Fire_fighting_UAV_parameters">
+        <file alias="1.png">resources/lists/6-Fire_fighting_UAV_parameters/1.png</file>
+        <file alias="2.png">resources/lists/6-Fire_fighting_UAV_parameters/2.png</file>
+        <file alias="3.png">resources/lists/6-Fire_fighting_UAV_parameters/3.png</file>
+        <file alias="4.png">resources/lists/6-Fire_fighting_UAV_parameters/4.png</file>
+        <file alias="5.png">resources/lists/6-Fire_fighting_UAV_parameters/5.png</file>
+        <file alias="6.png">resources/lists/6-Fire_fighting_UAV_parameters/6.png</file>
+        <file alias="7.png">resources/lists/6-Fire_fighting_UAV_parameters/7.png</file>
+        <file alias="7.png">resources/lists/6-Fire_fighting_UAV_parameters/8.png</file>
+    </qresource>
+
     <qresource prefix="/fonts">
         <file alias="Aldrich-Regular">resources/fonts/Aldrich-Regular.ttf</file>
         <file alias="opensans">resources/fonts/OpenSans-Regular.ttf</file>
@@ -153,9 +202,9 @@
         <file alias="gcscontrol_gcs.svg">resources/gcscontrolIndicator/gcscontrol_gcs.svg</file>
         <file alias="gcscontrol_line.svg">resources/gcscontrolIndicator/gcscontrol_line.svg</file>
     </qresource>
-    <qresource prefix="/res/model3d">
+    <!-- <qresource prefix="/res/model3d">
         <file alias="scene.gltf">resources/model3d/scene.gltf</file>
-    </qresource>
+    </qresource> -->
     <qresource prefix="/icons">
         <file alias="rocket_while.svg">resources/rocket_while.svg</file>
         <!-- <file alias="rocket_black.svg">resources/rocket_black.svg</file> -->
