@@ -12,10 +12,12 @@ Rectangle {
     color: qgcPal.window
     // color: detailPageLoader.active ? "transparent" : qgcPal.window
 
+    
     property var droneTypes: ["Quadcopter Type", "Hexacopter Type", "Lightshow", "Firefighting"]
     property var droneMap: {
         "Quadcopter Type": [
-            {
+            {   
+                "id": 1,
                 "name": "Quad N1",
                 "image": "qrc:/lists/4_axis_UAV_5kg.png",
                 "structure_type": "Folded structure",
@@ -39,9 +41,21 @@ Rectangle {
                 "propeller": "22×70",
                 "camera": "4K HD 6x hybrid zoom (Customized on demand)",
                 "code": "CT-HV-5D-4",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/4_axis_UAV_5kg.png",
+                    "qrc:/lists/4_axis_UAV_5kg/1.png",
+                    "qrc:/lists/4_axis_UAV_5kg/2.png",
+                    "qrc:/lists/4_axis_UAV_5kg/3.png",
+                    "qrc:/lists/4_axis_UAV_5kg/4.png",
+                    "qrc:/lists/4_axis_UAV_5kg/5.png",
+                    "qrc:/lists/4_axis_UAV_5kg/6.png",
+                    "qrc:/lists/4_axis_UAV_5kg/7.png",
+                ]
+
             },
             {
+                "id": 2,
                 "name": "Quad N2",
                 "image": "qrc:/lists/4_axis_UAV_12kg.png",
                 "structure_type": "Folded structure",
@@ -65,9 +79,20 @@ Rectangle {
                 "propeller": "36 inches",
                 "camera": "4K HD 6x hybrid zoom (Customized on demand)",
                 "code": "CT-HV-12D-4",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/4_axis_UAV_12kg.png",
+                    "qrc:/lists/4_axis_UAV_12kg/1.png",
+                    "qrc:/lists/4_axis_UAV_12kg/2.png",
+                    "qrc:/lists/4_axis_UAV_12kg/3.png",
+                    "qrc:/lists/4_axis_UAV_12kg/4.png",
+                    "qrc:/lists/4_axis_UAV_12kg/5.png",
+                    "qrc:/lists/4_axis_UAV_12kg/6.png",
+                    "qrc:/lists/4_axis_UAV_12kg/7.png",
+                ]   
             },
             {
+                "id": 3,
                 "name": "Quad S1",
                 "image": "qrc:/lists/4-axis_UAV_parameter.png",
                 "structure_type": "Folded structure",
@@ -91,11 +116,22 @@ Rectangle {
                 "propeller": "56 inches",
                 "camera": "2K HD 30x hybrid zoom (Customized on demand)",
                 "code": "CT-HV-25D-4",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/4-axis_UAV_parameter.png",
+                    "qrc:/lists/4-axis_UAV_parameter/1.png",
+                    "qrc:/lists/4-axis_UAV_parameter/2.png",
+                    "qrc:/lists/4-axis_UAV_parameter/3.png",
+                    "qrc:/lists/4-axis_UAV_parameter/4.png",
+                    "qrc:/lists/4-axis_UAV_parameter/5.png",
+                    "qrc:/lists/4-axis_UAV_parameter/6.png",
+                    "qrc:/lists/4-axis_UAV_parameter/7.png"
+                ] 
             }
         ],
         "Hexacopter Type": [
             {
+                "id": 4,
                 "name": "CT-HV-25D-6",
                 "image": "qrc:/lists/6-CT-HV-25D-6.png",
                 "structure_type": "Folded structure",
@@ -119,11 +155,24 @@ Rectangle {
                 "propeller": "36 inches",
                 "camera": "2K HD 30x hybrid zoom (Customized on demand)",
                 "code": "CT-HV-25D-6",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/6-CT-HV-25D-6.png",
+                    "qrc:/lists/6-CT-HV-25D-6/1.png",
+                    "qrc:/lists/6-CT-HV-25D-6/2.png",
+                    "qrc:/lists/6-CT-HV-25D-6/3.png",
+                    "qrc:/lists/6-CT-HV-25D-6/4.png",
+                    "qrc:/lists/6-CT-HV-25D-6/5.png",
+                    "qrc:/lists/6-CT-HV-25D-6/6.png",
+                    "qrc:/lists/6-CT-HV-25D-6/7.png",
+                    "qrc:/lists/6-CT-HV-25D-6/8.png",
+                    "qrc:/lists/6-CT-HV-25D-6/9.png",
+                ] 
             }
         ],
         "Lightshow": [
             {
+                "id": 5,
                 "name": "S3-PRO",
                 "image": "qrc:/lists/lightshow-S3-PRO.png",
                 "size": "500×500×210 mm (Customized on demand)",
@@ -149,13 +198,23 @@ Rectangle {
                 "LED_power": "0~24W",
                 "working_mode": "Offline mode",
                 "code": "S3-PRO",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/lightshow-S3-PRO.png",
+                    "qrc:/lists/lightshow-S3-PRO/1.png",
+                    "qrc:/lists/lightshow-S3-PRO/2.png",
+                    "qrc:/lists/lightshow-S3-PRO/3.png",
+                    "qrc:/lists/lightshow-S3-PRO/4.png",
+                    "qrc:/lists/lightshow-S3-PRO/5.png",
+                    "qrc:/lists/lightshow-S3-PRO/6.png",
+                ]  
             }
         ],
         "Firefighting": [
             {
+                "id": 6,
                 "name": "Firefighting UAV",
-                "image": "qrc:/lists/Fire_fighting_UAV_parameters.png",
+                "image": "qrc:/lists/6-Fire_fighting_UAV_parameters.png",
                 "structure_type": "Folded structure",
                 "material": "Carbon fiber, ABS, Aluminum alloy",
                 "size": "Folded: 1000×1000×800 mm, Unfolded: 2000×2000×800 mm",
@@ -177,7 +236,18 @@ Rectangle {
                 "propeller": "36 inches",
                 "camera": "4K AI 180× hybrid zoom (Customized on demand)",
                 "code": "CT-HV-25D-6-F",
-                "link": "https://ctuav.vn/vi/ct-uav/"
+                "link": "https://ctuav.vn/vi/ct-uav/",
+                "gallery": [
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/1.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/2.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/3.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/4.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/5.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/6.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/7.png",
+                    "qrc:/lists/6-Fire_fighting_UAV_parameters/8.png",
+                ]  
             }
         ],
     }
@@ -188,6 +258,8 @@ Rectangle {
 
     property var selectedDrone: null
     property bool showDetailOverlay: false
+
+    property bool showImageGallery: false
 
     function onDroneItemClicked(drone) {
         selectedDrone = drone
@@ -448,6 +520,37 @@ Rectangle {
                                     color: qgcPal.text
 
                                 }
+                                Item {
+                                        width: 66
+                                        height: 24
+
+                                        Rectangle {
+                                            anchors.fill: parent
+                                            radius: 4
+                                            color: mouseArea1.pressed ? "#444" : (mouseArea1.containsMouse ? "#333" : "#222")
+                                            border.color: "#666"
+                                            border.width: 1
+
+                                            Text {
+                                                anchors.centerIn: parent
+                                                text: "Xem thêm ảnh"
+                                                color: "white"
+                                                font.pixelSize: fontSize
+                                            }
+
+                                            MouseArea {
+                                                id: mouseArea1
+                                                anchors.fill: parent
+                                                onClicked: {
+                                                    showImageGallery = true
+                                                    // if (selectedDrone && selectedDrone.link)
+                                                    //     Qt.openUrlExternally(selectedDrone.link)
+                                                }
+                                                hoverEnabled: true
+                                                cursorShape: Qt.PointingHandCursor
+                                            }
+                                        }
+                                    }
                             }
                         }
 
@@ -505,34 +608,34 @@ Rectangle {
                     Layout.alignment: Qt.AlignRight
                     spacing: 8
 
-                    Item {
-                        width: 140
-                        height: 40
+                    // Item {
+                    //     width: 140
+                    //     height: 40
 
-                        Rectangle {
-                            anchors.fill: parent
-                            radius: 12
-                            color:mouseArea2.pressed ? "#0061a2" : "#0070ba"
+                    //     Rectangle {
+                    //         anchors.fill: parent
+                    //         radius: 12
+                    //         color:mouseArea2.pressed ? "#0061a2" : "#0070ba"
 
-                            Text {
-                                anchors.centerIn: parent
-                                text: "Thông tin liên hệ"
-                                color: "white"
-                                font.pixelSize: 14
-                            }
+                    //         Text {
+                    //             anchors.centerIn: parent
+                    //             text: "Thông tin liên hệ"
+                    //             color: "white"
+                    //             font.pixelSize: 14
+                    //         }
 
-                            MouseArea {
-                                id: mouseArea1
-                                anchors.fill: parent
-                                onClicked: {
-                                    if (selectedDrone && selectedDrone.link)
-                                        Qt.openUrlExternally(selectedDrone.link)
-                                }
-                                hoverEnabled: true
-                                cursorShape: Qt.PointingHandCursor
-                            }
-                        }
-                    }
+                    //         MouseArea {
+                    //             id: mouseArea1
+                    //             anchors.fill: parent
+                    //             onClicked: {
+                    //                 if (selectedDrone && selectedDrone.link)
+                    //                     Qt.openUrlExternally(selectedDrone.link)
+                    //             }
+                    //             hoverEnabled: true
+                    //             cursorShape: Qt.PointingHandCursor
+                    //         }
+                    //     }
+                    // }
 
                     Item {
                         width: 100
@@ -569,6 +672,115 @@ Rectangle {
 
             }
 
+        }
+
+        Rectangle {
+            id: imageGalleryOverlay
+            anchors.fill: parent
+            color: "#80000000" // nền trong suốt nhẹ
+            visible: showImageGallery
+            z: 99
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: showImageGallery = false
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                color: "transparent"
+                clip: true
+
+                // Nút đóng
+                Rectangle {
+                    id: closeButton
+                    width: 26
+                    height: 26
+                    radius: 18
+                    color: "#3d3d3d"
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.margins: 12
+
+                   QGCColoredImage {
+                        anchors.margins:    parent.height / 4
+                        anchors.fill:       parent
+                        source:             "/res/XDelete.svg"
+                        fillMode:           Image.PreserveAspectFit
+                        color:              qgcPal.text
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: showImageGallery = false
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                    }
+                }
+
+                Column {
+                    anchors.fill: parent
+                    anchors.leftMargin: 24
+                    anchors.rightMargin: 24
+                    spacing: 12
+
+                    ListView {
+                        id: galleryListView
+                        orientation: ListView.Horizontal
+                        height: 320
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.topMargin: 42   // Hạ xuống từ trên 80px
+                        spacing: 24
+                        clip: false  // Cho phép phóng to vượt ra ngoài
+                        model: selectedDrone && selectedDrone.gallery ? selectedDrone.gallery : []
+                        snapMode: ListView.SnapToItem
+                        preferredHighlightBegin: (width - 400) / 2
+                        preferredHighlightEnd: (width - 400) / 2
+                        highlightRangeMode: ListView.StrictlyEnforceRange
+                        interactive: true
+
+                        delegate: Item {
+                            width: 400
+                            height: 240
+                            property real centerPos: galleryListView.contentX + galleryListView.width / 2
+                            property real itemCenter: x + width / 2
+                            property real dist: Math.abs(itemCenter - centerPos)
+                            property real scaleFactor: Math.max(0.8, 1.2 - dist / 400)
+
+                            opacity: dist < 20 ? 1.0 : 0.5
+
+                            Behavior on opacity {
+                                NumberAnimation { duration: 150 }
+                            }
+
+                            transform: Scale {
+                                origin.x: width / 2
+                                origin.y: height / 2
+                                xScale: scaleFactor
+                                yScale: scaleFactor
+                            }
+
+                            Rectangle {
+                                anchors.fill: parent
+                                radius: 12
+                                border.color: "#555"
+                                color: "#333"
+
+                                Image {
+                                    anchors.fill: parent
+                                    anchors.margins: 8
+                                    source: modelData
+                                    fillMode: Image.PreserveAspectFit
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+            }
         }
 
     }
