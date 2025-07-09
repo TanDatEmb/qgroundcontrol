@@ -18439,4 +18439,171 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
         <translation>Tấn công</translation>
     </message>
 </context>
+<context>
+    <name>DroneList</name>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="493"/>
+        <source>Code: </source>
+        <translation>Mã: </translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="511"/>
+        <source>See more photos</source>
+        <translation>Xem thêm ảnh</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="511"/>
+        <source>Describe:</source>
+        <translation>Mô tả:</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="542"/>
+        <source>No description available</source>
+        <translation>Không có mô tả</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="553"/>
+        <source>Structure</source>
+        <translation>Cấu trúc</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="554"/>
+        <source>Material</source>
+        <translation>Chất liệu</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="555"/>
+        <source>Size</source>
+        <translation>Kích thước</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="556"/>
+        <source>Number of Axes</source>
+        <translation>Số trục</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="557"/>
+        <source>Wheelbase</source>
+        <translation>Chiều dài trục</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="558"/>
+        <source>Weight</source>
+        <translation>Trọng lượng</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="559"/>
+        <source>Payload</source>
+        <translation>Tải trọng</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="560"/>
+        <source>Flight Speed</source>
+        <translation>Tốc độ bay</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="561"/>
+        <source>Max Altitude</source>
+        <translation>Chiều cao tối đa</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="562"/>
+        <source>Control Range</source>
+        <translation>Tầm điều khiển</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="563"/>
+        <source>Power Mode</source>
+        <translation>Chế độ nguồn</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="564"/>
+        <source>Operating Temperature</source>
+        <translation>Nhiệt độ hoạt động</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="565"/>
+        <source>Max Tilt Angle</source>
+        <translation>Góc nghiêng tối đa</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="566"/>
+        <source>Ascending Speed</source>
+        <translation>Tốc độ lên</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="567"/>
+        <source>Descending Speed</source>
+        <translation>Tốc độ xuống</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="568"/>
+        <source>Wind Resistance</source>
+        <translation>Chống gió</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="569"/>
+        <source>Flight Time</source>
+        <translation>Thời gian bay</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="570"/>
+        <source>Battery</source>
+        <translation>Pin</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="571"/>
+        <source>Propeller</source>
+        <translation>Cánh quạt</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="572"/>
+        <source>Camera</source>
+        <translation>Camera</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="573"/>
+        <source>LED Color</source>
+        <translation>Màu LED</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="574"/>
+        <source>LED Power</source>
+        <translation>Công suất LED</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="575"/>
+        <source>Load Type</source>
+        <translation>Loại tải</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="576"/>
+        <source>Communication Mode</source>
+        <translation>Giao tiếp</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="577"/>
+        <source>Working Mode</source>
+        <translation>Chế độ hoạt động</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="578"/>
+        <source>Location Mode</source>
+        <translation>Định vị</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="578"/>
+        <source>Location Mode</source>
+        <translation>Định vị</translation>
+    </message>
+
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="618"/>
+        <source>Confirm</source>
+        <translation>Xác nhận</translation>
+    </message>
+
+
+
+</context>
 </TS>

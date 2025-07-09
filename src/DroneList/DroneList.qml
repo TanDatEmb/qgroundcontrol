@@ -321,7 +321,7 @@ Rectangle {
                             Text {
                                 anchors.centerIn: parent
                                 text: modelData
-                                color: qgcPal.text
+                                color: qgcPal.globalTheme === QGCPalette.Light ? selectedType === modelData ? "#fff" : qgcPal.text : qgcPal.text
                                 font.pixelSize: fontSize * 1.2
                                 font.bold: true
                             }
@@ -434,7 +434,7 @@ Rectangle {
                 width: parent.width * 0.5
                 height: parent.height
                 color: qgcPal.window
-                border.color: "#3b3b3b"
+                border.color:  "#3b3b3b"
                 border.width: 1
                 radius: 8
                 z: 2
@@ -490,7 +490,7 @@ Rectangle {
                                     }
 
                                     Text {
-                                        text: selectedDrone ? "Mã: " + selectedDrone.code : ""
+                                        text: selectedDrone ? qsTr("Code: ") + selectedDrone.code : ""
                                         font.pixelSize: fontSize * 1.2
                                         color: qgcPal.text
                                         wrapMode: Text.WordWrap
@@ -502,13 +502,13 @@ Rectangle {
                                         Rectangle {
                                             anchors.fill: parent
                                             radius: 4
-                                            color: mouseArea1.pressed ? "#444" : (mouseArea1.containsMouse ? "#333" : "#222")
+                                            color: mouseArea1.pressed ? "#444" : (mouseArea1.containsMouse ? "#333" : "#111")
                                             border.color: "#666"
                                             border.width: 1
 
                                             Text {
                                                 anchors.centerIn: parent
-                                                text: "Xem thêm ảnh"
+                                                text: qsTr("See more photos")
                                                 color: "white"
                                                 font.pixelSize: fontSize
                                             }
@@ -532,14 +532,14 @@ Rectangle {
                                 spacing: 4
 
                                 Text {
-                                    text: "Mô tả:"
+                                    text: qsTr("Describe:")
                                     font.bold: true
                                     color: qgcPal.text
                                     font.pixelSize: fontSize * 1.2
                                 }
 
                                 Text {
-                                    text: selectedDrone.description ? selectedDrone.description : "Không có mô tả"
+                                    text: selectedDrone.description ? selectedDrone.description : qsTr("No description available")
                                     wrapMode: Text.WordWrap
                                     font.pixelSize: fontSize
                                     color: qgcPal.text
@@ -550,32 +550,32 @@ Rectangle {
 
                         Repeater {
                             model: selectedDrone ? [
-                                { label: "Cấu trúc", value: selectedDrone.structure_type },
-                                { label: "Chất liệu", value: selectedDrone.material },
-                                { label: "Kích thước", value: selectedDrone.size },
-                                { label: "Số trục", value: selectedDrone.number_of_axes },
-                                { label: "Chiều dài trục", value: selectedDrone.wheelbase },
-                                { label: "Trọng lượng", value: selectedDrone.weight },
-                                { label: "Tải trọng", value: selectedDrone.loading },
-                                { label: "Tốc độ bay", value: selectedDrone.flightspeed },
-                                { label: "Chiều cao tối đa", value: selectedDrone.Height },
-                                { label: "Tầm điều khiển", value: selectedDrone.max_remote_control },
-                                { label: "Chế độ nguồn", value: selectedDrone.power_mode },
-                                { label: "Nhiệt độ hoạt động", value: selectedDrone.operating_temp },
-                                { label: "Góc nghiêng tối đa", value: selectedDrone.max_tilt_angle },
-                                { label: "Tốc độ lên", value: selectedDrone.max_rising_speed },
-                                { label: "Tốc độ xuống", value: selectedDrone.max_down_speed },
-                                { label: "Chống gió", value: selectedDrone.max_resist_wind_speed },
-                                { label: "Thời gian bay", value: selectedDrone.overing_time },
-                                { label: "Pin", value: selectedDrone.battery },
-                                { label: "Cánh quạt", value: selectedDrone.propeller },
-                                { label: "Camera", value: selectedDrone.camera },
-                                { label: "Màu LED", value: selectedDrone.LED_color },
-                                { label: "Công suất LED", value: selectedDrone.LED_power },
-                                { label: "Loại tải", value: selectedDrone.load_type },
-                                { label: "Giao tiếp", value: selectedDrone.communication_mode },
-                                { label: "Chế độ hoạt động", value: selectedDrone.working_mode },
-                                { label: "Định vị", value: selectedDrone.location_mode }
+                                { label: qsTr("Structure"), value: selectedDrone.structure_type },
+                                { label: qsTr("Material"), value: selectedDrone.material },
+                                { label: qsTr("Size"), value: selectedDrone.size },
+                                { label: qsTr("Number of Axes"), value: selectedDrone.number_of_axes },
+                                { label: qsTr("Wheelbase"), value: selectedDrone.wheelbase },
+                                { label: qsTr("Weight"), value: selectedDrone.weight },
+                                { label: qsTr("Payload"), value: selectedDrone.loading },
+                                { label: qsTr("Flight Speed"), value: selectedDrone.flightspeed },
+                                { label: qsTr("Max Altitude"), value: selectedDrone.Height },
+                                { label: qsTr("Control Range"), value: selectedDrone.max_remote_control },
+                                { label: qsTr("Power Mode"), value: selectedDrone.power_mode },
+                                { label: qsTr("Operating Temperature"), value: selectedDrone.operating_temp },
+                                { label: qsTr("Max Tilt Angle"), value: selectedDrone.max_tilt_angle },
+                                { label: qsTr("Ascending Speed"), value: selectedDrone.max_rising_speed },
+                                { label: qsTr("Descending Speed"), value: selectedDrone.max_down_speed },
+                                { label: qsTr("Wind Resistance"), value: selectedDrone.max_resist_wind_speed },
+                                { label: qsTr("Flight Time"), value: selectedDrone.overing_time },
+                                { label: qsTr("Battery"), value: selectedDrone.battery },
+                                { label: qsTr("Propeller"), value: selectedDrone.propeller },
+                                { label: qsTr("Camera"), value: selectedDrone.camera },
+                                { label: qsTr("LED Color"), value: selectedDrone.LED_color },
+                                { label: qsTr("LED Power"), value: selectedDrone.LED_power },
+                                { label: qsTr("Load Type"), value: selectedDrone.load_type },
+                                { label: qsTr("Communication Mode"), value: selectedDrone.communication_mode },
+                                { label: qsTr("Working Mode"), value: selectedDrone.working_mode },
+                                { label: qsTr("Location Mode"), value: selectedDrone.location_mode }
                             ].filter(entry => entry.value !== undefined) : []
 
                             delegate: Row {
@@ -611,11 +611,11 @@ Rectangle {
                         Rectangle {
                             anchors.fill: parent
                             radius: 4
-                            color: mouseArea2.pressed ? "#0061a2" : "#0070ba"
+                            color: qgcPal.globalTheme === QGCPalette.Light ?  mouseArea2.pressed ? "#333" : "#222" : mouseArea2.pressed ? "#0061a2" : "#0070ba"
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "Xác nhận"
+                                text: qsTr("Confirm")
                                 color: "white"
                                 font.pixelSize: fontSize
                             }
@@ -644,7 +644,7 @@ Rectangle {
        Rectangle {
             id: imageGalleryOverlay
             anchors.fill: parent
-            color: "#80000000" // nền trong suốt nhẹ
+            color:  "#80000000" 
             visible: showImageGallery
             z: 99
 
@@ -664,7 +664,7 @@ Rectangle {
                     width: 26
                     height: 26
                     radius: 18
-                    color: "#3d3d3d"
+                    color: qgcPal.globalTheme === QGCPalette.Light ? "#d3d3d3" : "#3d3d3d"
                     anchors.top: parent.top
                     anchors.right: parent.right
                     anchors.margins: 12
@@ -732,8 +732,8 @@ Rectangle {
                             Rectangle {
                                 anchors.fill: parent
                                 radius: 12
-                                border.color: "#555"
-                                color: "#333"
+                                border.color: qgcPal.globalTheme === QGCPalette.Light ? "#ccc" : "#555"
+                                color: qgcPal.globalTheme === QGCPalette.Light ? "#ddd": "#333"
 
                                 Image {
                                     anchors.fill: parent
@@ -749,10 +749,6 @@ Rectangle {
 
             }
         }
-
-
-
-
     }
 
 }
