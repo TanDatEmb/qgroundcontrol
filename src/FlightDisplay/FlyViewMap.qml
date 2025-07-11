@@ -22,6 +22,7 @@ import QGroundControl.FlightMap
 import QGroundControl.Palette
 import QGroundControl.ScreenTools
 import QGroundControl.Vehicle
+import QGroundControl.Fire 
 
 FlightMap {
     id:                         _root
@@ -51,6 +52,9 @@ FlightMap {
     property bool   _disableVehicleTracking:    false
     property bool   _keepVehicleCentered:       pipMode ? true : false
     property bool   _saveZoomLevelSetting:      true
+
+    property FireZoneManager fireManager
+
 
     function _adjustMapZoomForPipMode() {
         _saveZoomLevelSetting = false
@@ -283,6 +287,9 @@ FlightMap {
             z:              QGroundControl.zOrderVehicles
         }
     }
+
+
+
     // Add distance sensor view
     MapItemView{
         model: QGroundControl.multiVehicleManager.vehicles
@@ -782,5 +789,18 @@ FlightMap {
 
         property real centerInset: visible ? parent.height - y : 0
     }
+
+    // demo vùng cháy
+    //Map view Fire
+    MapItemView {
+        model: fireManager.fireZones
+        delegate: FireZone {
+            object: modelData
+            parentMap: _root
+            z: QGroundControl.zOrderTopMost
+        }
+    }
+
+
 
 }

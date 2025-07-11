@@ -26,6 +26,7 @@ import QGroundControl.FlightMap
 import QGroundControl.Palette
 import QGroundControl.ScreenTools
 import QGroundControl.Vehicle
+import QGroundControl.Fire 
 // 3D Viewer modules
 import Viewer3D
 
@@ -46,6 +47,9 @@ Item {
         id:                     _planController
         flyView:                true
         Component.onCompleted:  start()
+    }
+    FireZoneManager {
+        id: fireManager  // Khởi tạo ở cấp cao nhất
     }
 
     property bool   _mainWindowIsMap:       mapControl.pipState.state === mapControl.pipState.fullState
@@ -73,6 +77,41 @@ Item {
 
     function dropMainStatusIndicatorTool() {
         toolbar.dropMainStatusIndicatorTool();
+    }
+
+    Row {
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.margins: 10
+        spacing: 10
+        z: 100
+
+        QGCButton {
+            text: "Tạo vùng cháy"
+            onClicked: {
+                if (_activeVehicle && _activeVehicle.coordinate.isValid) {
+                    const coord = fireManager.generateRandomFireZone(_activeVehicle.coordinate, 20, 50)
+                    fireManager.createFireZone(
+                        coord,
+                        50,
+                        "Khu vực Tây Nguyên",
+                        "Đang cháy",
+                        5,
+                        "https://hocviendrone.vn/wp-content/uploads/2021/07/Drone-tren-cao.jpg",
+                        new Date(2025, 6, 11, 8, 30, 0)
+                    )
+                    console.log("🔥 Tạo vùng cháy tại: " + coord.latitude + ", " + coord.longitude)
+                }
+            }
+        }
+
+        QGCButton {
+            text: "Xóa toàn bộ"
+            onClicked: {
+                fireManager.clearAllFireZones()
+                console.log("🧹 Đã xoá toàn bộ vùng cháy.")
+            }
+        }
     }
 
     QGCToolInsets {
@@ -104,6 +143,8 @@ Item {
             toolInsets:             customOverlay.totalToolInsets
             mapName:                "FlightDisplayView"
             enabled:                !viewer3DWindow.isOpen
+
+            fireManager: fireManager
         }
 
         FlyViewVideo {

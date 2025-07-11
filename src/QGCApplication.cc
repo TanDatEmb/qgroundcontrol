@@ -35,6 +35,7 @@
 #include <QtCore/private/qthread_p.h>
 
 #include "QGCLogging.h"
+#include "FireZoneManager.h"
 #include "AudioOutput.h"
 #include "AutoPilotPlugin.h"
 #include "CmdLineOptParser.h"
@@ -292,6 +293,8 @@ void QGCApplication::init()
     qmlRegisterType<GeoTagController>("QGroundControl.Controllers", 1, 0, "GeoTagController");
     qmlRegisterType<LogDownloadController>("QGroundControl.Controllers", 1, 0, "LogDownloadController");
     qmlRegisterType<MAVLinkConsoleController>("QGroundControl.Controllers", 1, 0, "MAVLinkConsoleController");
+    qmlRegisterType<FireZoneManager>("QGroundControl.Fire", 1, 0, "FireZoneManager");
+
 
 
     qmlRegisterUncreatableType<AutoPilotPlugin>("QGroundControl.AutoPilotPlugin", 1, 0, "AutoPilotPlugin", "Reference only");
