@@ -728,7 +728,7 @@ def generate_interactive_plot_html(ylabel, plot_data, plot_config):
 
             if "Setpoint" in series_name:
                 if setpoint_style == 'marker':
-                    fig.add_trace(go.Scatter(x=timestamps, y=values, mode='markers', name=series_name, marker=dict(size=5)))
+                    fig.add_trace(go.Scatter(x=timestamps, y=values, mode='markers', name=series_name, marker=dict(size=3)))
                 elif setpoint_style == 'step':
                     fig.add_trace(go.Scatter(x=timestamps, y=values, mode='lines', name=series_name, line_shape='hv'))
                 else:
@@ -781,9 +781,9 @@ def main():
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <style>
             body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; margin: 2em; color: #333; }}
-            h1 {{ color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;}}
+            h1 {{ color: #2c3e50; padding-bottom: 10px;}}
             h2 {{ color: #2c3e50; margin-bottom: 20px;}}
-            h3 {{ color: #34495e; margin-top: 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;}}
+            h3 {{ color: #34495e; margin-top: 0; padding-bottom: 5px;}}
             .report-container {{ max-width: 95%; margin: auto; }}
             .plot-section {{ border-top: 3px solid #3498db; padding-top: 25px; margin-top: 40px; }}
             .flex-container {{ display: flex; flex-direction: row; align-items: flex-start; gap: 30px; flex-wrap: wrap; }}
