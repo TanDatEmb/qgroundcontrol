@@ -800,7 +800,6 @@ def main():
     <body>
         <div class="report-container">
             <h1>Interactive Flight Log Analysis Report</h1>
-            # <p><strong>Log File:</strong> {log_basename}</p>
     """]
 
     for plot_key, plot_data in all_data.items():
