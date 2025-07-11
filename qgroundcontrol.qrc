@@ -128,4 +128,7 @@
     <qresource prefix="/ShaderFragment">
         <file alias="earthMaterial.frag">src/Viewer3D/Shaders/earthMaterial.frag</file>
     </qresource>
+    <qresource prefix="/scripts">
+        <file alias="flight_review.py">src/A_Firebase/flight_review.py</file>
+    </qresource>
 </RCC>

@@ -1,19 +1,22 @@
 #include "FirebaseUploader.h"
 
+#include <QDateTime>
+#include <QDebug>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QJsonArray>
-#include <QNetworkRequest>
 #include <QNetworkReply>
-#include <QDebug>
-#include <QDateTime>
+#include <QNetworkRequest>
+#include <QProcess>
+#include <QTemporaryDir>
 #include <QUrl>
 #include <QUrlQuery>
 #include <fstream>
-#include <vector>
 #include <map>
+#include <vector>
 
 #pragma pack(push, 1)
 struct ULogMessageHeader {
@@ -26,10 +29,18 @@ const QString FIREBASE_PROJECT_ID      = "turtlebot3-waiter";
 const QString FIREBASE_STORAGE_BUCKET  = "turtlebot3-waiter.firebasestorage.app";
 const QString FIREBASE_API_KEY         = "AIzaSyDJiq1NF1cESp82H3vBZO2kv6RnElqTX4c";
 
-FirebaseUploader::FirebaseUploader(const QString& logFilePath, QObject *parent)
-    : QObject(parent), _logFilePath(logFilePath), _newCount(1)
+FirebaseUploader::FirebaseUploader(const QString& logFilePath, const QString& uniqueKey, QObject *parent)
+    : QObject(parent)
+    , _logFilePath(logFilePath)
+    , _uniqueKey(uniqueKey)
+    , _newCount(1)
 {
     _networkManager = new QNetworkAccessManager(this);
+    _pythonProcess = new QProcess(this);
+    connect(_pythonProcess, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this,
+            &FirebaseUploader::onPythonScriptFinished);
+
+    _tempDir = new QTemporaryDir();
 }
 
 void FirebaseUploader::startUpload()
@@ -39,6 +50,7 @@ void FirebaseUploader::startUpload()
     else
     {
         qWarning() << "Could not parse ULog file, aborting upload:" << _logFilePath;
+        emit uploadFinished(_uniqueKey, tr("Parse Failed"));
         this->deleteLater();
     }
 }
@@ -241,7 +253,13 @@ bool FirebaseUploader::parseUlogFile()
         qWarning() << "Error parsing ULog file:" << e.what();
         return false;
     }
-    
+
+    if (_droneTypeString.isEmpty())
+    {
+        qWarning() << "Could not determine drone type from ULog. Using default collection 'DefaultLogs'.";
+        _droneTypeString = "";
+    }
+
     qDebug() << "--- Final Parsed Data (before sending) ---";
     qDebug() << QJsonDocument(_flightMetadata).toJson(QJsonDocument::Indented);
 
@@ -296,15 +314,131 @@ void FirebaseUploader::onStorageUploadFinished(QNetworkReply* reply)
                                   .arg(FIREBASE_STORAGE_BUCKET, QUrl::toPercentEncoding(objectName), downloadToken);
 
         qDebug() << "Storage upload successful. URL:" << _storageDownloadUrl;
-        uploadMetadataToFirestore();
+        runFlightReviewScript();
     }
     else
     {
         qWarning() << "Storage upload failed:" << reply->errorString();
         qWarning() << "Response:" << reply->readAll();
+        emit uploadFinished(_uniqueKey, tr("Upload Failed"));
         this->deleteLater();
     }
     reply->deleteLater();
+}
+
+void FirebaseUploader::runFlightReviewScript()
+{
+    if (!_tempDir->isValid())
+    {
+        qWarning() << "Could not create or access temporary directory.";
+        uploadMetadataToFirestore();
+        return;
+    }
+
+    QString resourcePath = ":/scripts/flight_review.py";
+    QString tempScriptPath = _tempDir->path() + QDir::separator() + "flight_review.py";
+
+    if (QFile::exists(tempScriptPath))
+        QFile::remove(tempScriptPath);
+
+    if (!QFile::copy(resourcePath, tempScriptPath))
+    {
+        qWarning() << "Failed to copy python script from resources:" << resourcePath;
+        uploadMetadataToFirestore();
+        return;
+    }
+
+    qDebug() << "Running flight_review.py from temporary path:" << tempScriptPath;
+
+    QString program = "python";
+    QStringList arguments;
+    arguments << tempScriptPath << _logFilePath;
+
+    _pythonProcess->start(program, arguments);
+}
+
+void FirebaseUploader::onPythonScriptFinished(int exitCode, QProcess::ExitStatus exitStatus)
+{
+    if (exitStatus == QProcess::NormalExit && exitCode == 0)
+    {
+        qDebug() << "Python script finished successfully.";
+        QFileInfo logFileInfo(_logFilePath);
+        
+        QString originalBaseName = logFileInfo.completeBaseName();
+        QRegularExpression re("log_\\d+_");
+        QString cleanedBaseName = QString(originalBaseName).replace(re, "log_");
+
+        QString htmlFilePath = logFileInfo.path() + "/" + cleanedBaseName + ".html";
+
+        if (QFile::exists(htmlFilePath))
+        {
+            qDebug() << "HTML report found at:" << htmlFilePath;
+            uploadHtmlReport(htmlFilePath);
+        }
+        else
+        {
+            qWarning() << "HTML report file not found at expected path:" << htmlFilePath;
+            uploadMetadataToFirestore();
+        }
+    }
+    else
+    {
+        qWarning() << "Python script failed to run. Exit code:" << exitCode;
+        qWarning() << "Error output:" << _pythonProcess->readAllStandardError();
+        uploadMetadataToFirestore();
+    }
+}
+
+void FirebaseUploader::uploadHtmlReport(const QString& htmlFilePath)
+{
+    QFile htmlFile(htmlFilePath);
+    if (!htmlFile.open(QIODevice::ReadOnly))
+    {
+        qWarning() << "Failed to open HTML report file for upload:" << htmlFilePath;
+        uploadMetadataToFirestore();
+        return;
+    }
+
+    QByteArray fileData = htmlFile.readAll();
+    htmlFile.close();
+
+    QString htmlFileName = QFileInfo(htmlFilePath).fileName();
+    QString storagePath = QString("FlightLogs/%1/%2").arg(_droneTypeString, htmlFileName);
+
+    QString url_string = QString("https://firebasestorage.googleapis.com/v0/b/%1/o?name=%2")
+                             .arg(FIREBASE_STORAGE_BUCKET, QUrl::toPercentEncoding(storagePath));
+
+    QNetworkRequest request{QUrl{url_string}};
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "text/html");
+
+    qDebug() << "Uploading HTML report to Firebase Storage..." << htmlFileName;
+    QNetworkReply* reply = _networkManager->post(request, fileData);
+    connect(reply, &QNetworkReply::finished, this, [this, reply]() { onHtmlUploadFinished(reply); });
+}
+
+void FirebaseUploader::onHtmlUploadFinished(QNetworkReply* reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        QByteArray responseData = reply->readAll();
+        QJsonDocument jsonResponse = QJsonDocument::fromJson(responseData);
+        QString downloadToken = jsonResponse.object()["downloadTokens"].toString();
+        QString objectName = jsonResponse.object()["name"].toString();
+
+        _htmlReportUrl = QString("https://firebasestorage.googleapis.com/v0/b/%1/o/%2?alt=media&token=%3")
+                             .arg(FIREBASE_STORAGE_BUCKET, QUrl::toPercentEncoding(objectName), downloadToken);
+
+        qDebug() << "HTML report upload successful. URL:" << _htmlReportUrl;
+        _flightMetadata["reportURL"] = _htmlReportUrl;
+    }
+    else
+    {
+        qWarning() << "HTML report upload failed:" << reply->errorString();
+        qWarning() << "Response:" << reply->readAll();
+    }
+    reply->deleteLater();
+
+    uploadMetadataToFirestore();
 }
 
 void FirebaseUploader::uploadMetadataToFirestore()
@@ -358,13 +492,19 @@ void FirebaseUploader::uploadMetadataToFirestore()
 
 void FirebaseUploader::onFirestoreUploadFinished(QNetworkReply* reply)
 {
+    QString finalStatus = tr("Upload Failed");
     if (reply->error() == QNetworkReply::NoError)
+    {
         qDebug() << "Firestore upload successful!";
+        finalStatus = tr("Uploaded");
+    }
     else
     {
         qWarning() << "Firestore upload failed:" << reply->errorString();
         qWarning() << "Response:" << reply->readAll();
     }
+    
     reply->deleteLater();
+    emit uploadFinished(_uniqueKey, finalStatus);
     this->deleteLater();
 }

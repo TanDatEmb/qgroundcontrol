@@ -33,6 +33,7 @@ class LogDownloadController : public QObject
     Q_PROPERTY(QmlObjectListModel *model          READ _getModel            CONSTANT)
     Q_PROPERTY(bool               requestingList  READ _getRequestingList   NOTIFY requestingListChanged)
     Q_PROPERTY(bool               downloadingLogs READ _getDownloadingLogs  NOTIFY downloadingLogsChanged)
+    Q_PROPERTY(bool               uploadingLogs   READ uploadingLogs        NOTIFY uploadingLogsChanged)
 
     friend class LogDownloadTest;
 
@@ -44,12 +45,14 @@ public:
 
     Q_INVOKABLE void refresh();
     Q_INVOKABLE void download(const QString &path = QString());
+    Q_INVOKABLE void uploadSelectedLogs();
     Q_INVOKABLE void eraseAll();
     Q_INVOKABLE void cancel();
 
 signals:
     void requestingListChanged();
     void downloadingLogsChanged();
+    void uploadingLogsChanged();
     void selectionChanged();
 
 private slots:
@@ -57,11 +60,13 @@ private slots:
     void _logEntry(uint32_t time_utc, uint32_t size, uint16_t id, uint16_t num_logs, uint16_t last_log_num);
     void _logData(uint32_t ofs, uint16_t id, uint8_t count, const uint8_t *data);
     void _processDownload();
+    void _onUploadFinished(const QString &uniqueKey, const QString &finalStatus);
 
-private:
+   private:
     QmlObjectListModel *_getModel() const { return _logEntriesModel; }
     bool _getRequestingList() const { return _requestingLogEntries; }
     bool _getDownloadingLogs() const { return _downloadingLogs; }
+    bool uploadingLogs() const { return _uploadingLogs; }
 
     bool _chunkComplete() const;
     bool _entriesComplete() const;
@@ -77,6 +82,7 @@ private:
     void _requestLogEnd();
     void _resetSelection(bool canceled = false);
     void _setDownloading(bool active);
+    void _setUploading(bool active);
     void _setListing(bool active);
     void _updateDataRate();
 
@@ -86,10 +92,13 @@ private:
     QmlObjectListModel *_logEntriesModel = nullptr;
 
     bool _downloadingLogs = false;
+    bool _uploadingLogs = false;
+    int _uploadsInProgress = 0;
     bool _requestingLogEntries = false;
     int _apmOffset = 0;
     int _retries = 0;
     std::unique_ptr<LogDownloadData> _downloadData;
+    QMap<QString, QString> _downloadedLogPaths;
     QString _downloadPath;
     Vehicle *_vehicle = nullptr;
 

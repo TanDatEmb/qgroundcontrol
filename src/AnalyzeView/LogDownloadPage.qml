@@ -167,6 +167,26 @@ AnalyzePage {
 
                 QGCButton {
                     Layout.fillWidth: true
+                    enabled: !logDownloadController.requestingList && !logDownloadController.downloadingLogs && !logDownloadController.uploadingLogs
+                    text: qsTr("Upload")
+                    onClicked: {
+                        var logsSelected = false
+                        for (var i = 0; i < logDownloadController.model.count; i++) {
+                            if (logDownloadController.model.get(i).selected) {
+                                logsSelected = true
+                                break
+                            }
+                        }
+                        if (!logsSelected) {
+                            mainWindow.showMessageDialog(qsTr("Log Upload"), qsTr("You must select at least one log file to upload."))
+                            return
+                        }
+                        logDownloadController.uploadSelectedLogs()
+                    }
+                }
+
+                QGCButton {
+                    Layout.fillWidth: true
                     enabled: !logDownloadController.requestingList && !logDownloadController.downloadingLogs && (logDownloadController.model.count > 0)
                     text: qsTr("Erase All")
                     onClicked: mainWindow.showMessageDialog(

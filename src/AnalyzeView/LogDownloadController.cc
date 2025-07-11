@@ -8,6 +8,13 @@
  ****************************************************************************/
 
 #include "LogDownloadController.h"
+
+#include <QtCore/qapplicationstatic.h>
+
+#include <QSettings>
+#include <QtCore/QTimer>
+
+#include "A_Firebase/FirebaseUploader.h"
 #include "AppSettings.h"
 #include "LogEntry.h"
 #include "MAVLinkProtocol.h"
@@ -18,11 +25,6 @@
 #include "QmlObjectListModel.h"
 #include "SettingsManager.h"
 #include "Vehicle.h"
-
-#include "A_Firebase/FirebaseUploader.h"
-
-#include <QtCore/qapplicationstatic.h>
-#include <QtCore/QTimer>
 
 QGC_LOGGING_CATEGORY(LogDownloadControllerLog, "qgc.analyzeview.logdownloadcontroller")
 
@@ -39,6 +41,16 @@ LogDownloadController::LogDownloadController(QObject *parent)
     (void) connect(_timer, &QTimer::timeout, this, &LogDownloadController::_processDownload);
 
     _timer->setSingleShot(false);
+
+    QSettings settings;
+    settings.beginGroup("DownloadedLogs");
+    const QStringList uniqueKeys = settings.childKeys();
+
+    for (const QString &key : uniqueKeys)
+        _downloadedLogPaths[key] = settings.value(key).toString();
+
+    settings.endGroup();
+    qCDebug(LogDownloadControllerLog) << "Loaded" << _downloadedLogPaths.count() << "saved log paths.";
 
     _setActiveVehicle(MultiVehicleManager::instance()->activeVehicle());
 }
@@ -282,18 +294,20 @@ void LogDownloadController::_logData(uint32_t ofs, uint16_t id, uint8_t count, c
             _timer->start(kTimeOutMs);
             if (_logComplete()) {
                 // =======================================================
-                // === BẮT ĐẦU PHẦN CHỈNH SỬA =============================
-                // =======================================================
-                _downloadData->entry->setStatus(tr("Downloaded, queueing for upload..."));
-
                 QString completedLogPath = _downloadData->file.fileName();
-                qCDebug(LogDownloadControllerLog) << "Log download complete. Starting Firebase upload for:" << completedLogPath;
+                QGCLogEntry *entry = _downloadData->entry;
 
-                FirebaseUploader* uploader = new FirebaseUploader(completedLogPath);
-                uploader->startUpload();
-                 _receivedAllData();
-                // =======================================================
-                // === KẾT THÚC PHẦN CHỈNH SỬA ============================
+                QString uniqueKey = QString("%1-%2").arg(entry->id()).arg(entry->time().toSecsSinceEpoch());
+
+                _downloadedLogPaths[uniqueKey] = completedLogPath;
+                QSettings settings;
+                settings.beginGroup("DownloadedLogs");
+                settings.setValue(uniqueKey, completedLogPath);
+                settings.endGroup();
+
+                qCDebug(LogDownloadControllerLog) << "Log" << uniqueKey << "downloaded to:" << completedLogPath;
+                entry->setStatus(tr("Downloaded"));
+                _receivedAllData();
                 // =======================================================
             } else if (_chunkComplete()) {
                 _downloadData->advanceChunk();
@@ -360,8 +374,9 @@ void LogDownloadController::_updateDataRate()
     _downloadData->rate_avg = (_downloadData->rate_avg * 0.95) + (rate * 0.05);
     _downloadData->rate_bytes = 0;
 
-    const QString status = QStringLiteral("%1 (%2/s)").arg(qgcApp()->bigSizeToString(_downloadData->written),
-                                                           qgcApp()->bigSizeToString(_downloadData->rate_avg));
+    const QString status =
+        QStringLiteral("Downloading: %1 (%2/s)")
+            .arg(qgcApp()->bigSizeToString(_downloadData->written), qgcApp()->bigSizeToString(_downloadData->rate_avg));
 
     _downloadData->entry->setStatus(status);
     _downloadData->elapsed.start();
@@ -658,5 +673,61 @@ void LogDownloadController::_setListing(bool active)
         _requestingLogEntries = active;
         _vehicle->vehicleLinkManager()->setCommunicationLostEnabled(!active);
         emit requestingListChanged();
+    }
+}
+
+void LogDownloadController::_setUploading(bool active)
+{
+    if (_uploadingLogs != active)
+    {
+        _uploadingLogs = active;
+        emit uploadingLogsChanged();
+    }
+}
+
+void LogDownloadController::uploadSelectedLogs()
+{
+    bool uploadStarted = false;
+    for (int i = 0; i < _logEntriesModel->count(); i++)
+    {
+        QGCLogEntry *entry = _logEntriesModel->value<QGCLogEntry *>(i);
+        if (entry && entry->selected())
+        {
+            QString uniqueKey = QString("%1-%2").arg(entry->id()).arg(entry->time().toSecsSinceEpoch());
+            if (_downloadedLogPaths.contains(uniqueKey))
+            {
+                QString path = _downloadedLogPaths.value(uniqueKey);
+                entry->setStatus(tr("Uploading..."));
+
+                FirebaseUploader *uploader = new FirebaseUploader(path, uniqueKey);
+                connect(uploader, &FirebaseUploader::uploadFinished, this, &LogDownloadController::_onUploadFinished);
+                uploader->startUpload();
+                _uploadsInProgress++;
+                uploadStarted = true;
+            }
+            else
+                entry->setStatus(tr("Need to download first"));
+        }
+    }
+    if (uploadStarted)
+        _setUploading(true);
+}
+
+void LogDownloadController::_onUploadFinished(const QString &uniqueKey, const QString &finalStatus) {
+    qCDebug(LogDownloadControllerLog) << "Upload finished for log" << uniqueKey << "with status:" << finalStatus;
+    for (int i = 0; i < _logEntriesModel->count(); i++)
+    {
+        QGCLogEntry *entry = _logEntriesModel->value<QGCLogEntry *>(i);
+        if (entry && QString("%1-%2").arg(entry->id()).arg(entry->time().toSecsSinceEpoch()) == uniqueKey)
+        {
+            entry->setStatus(finalStatus);
+            break;
+        }
+    }
+    _uploadsInProgress--;
+    if (_uploadsInProgress <= 0)
+    {
+        _uploadsInProgress = 0;
+        _setUploading(false);
     }
 }
