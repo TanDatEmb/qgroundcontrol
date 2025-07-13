@@ -14,6 +14,7 @@
 #include <QtCore/QTimer>
 #include <QtPositioning/QGeoCoordinate>
 
+#include "GPSManager.h"
 #include "QmlUnitsConversion.h"
 
 Q_DECLARE_LOGGING_CATEGORY(GuidedActionsControllerLog)
@@ -53,10 +54,13 @@ Q_MOC_INCLUDE("AirLinkManager.h")
 class QGroundControlQmlGlobal : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(GPSManager* gpsManager      READ gpsManager      CONSTANT)
 
 public:
     QGroundControlQmlGlobal(QObject *parent = nullptr);
     ~QGroundControlQmlGlobal();
+
+    GPSManager* gpsManager() { return GPSManager::instance(); }
 
     static void registerQmlTypes();
 

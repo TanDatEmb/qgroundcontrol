@@ -40,7 +40,7 @@ Item {
 
             QGCLabel {
                 id:                     gpsLabel
-                rotation:               90
+                rotation:               0
                 text:                   qsTr("RTK")
                 color:                  qgcPal.buttonText
                 anchors.verticalCenter: parent.verticalCenter

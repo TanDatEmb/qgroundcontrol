@@ -49,6 +49,71 @@ SettingsPage {
         }
     }
 
+    // ====================================
+    SettingsGroupLayout {
+        RowLayout {
+            Layout.fillWidth: true
+            QGCLabel {
+                text: qsTr("Manual RTK")
+                Layout.fillWidth: true 
+            }
+
+            QGCButton {
+                property bool isRtkConnected: QGroundControl.gpsManager.gpsRtk.gpsRtkFactGroup.connected.value
+                text: isRtkConnected ? qsTr("Disabled") : qsTr("Connect")
+
+                onClicked: {
+                    if (isRtkConnected)
+                        QGroundControl.gpsManager.gpsRtk.disconnectGPS()
+                    else
+                        rtkManualConnectDialogComponent.createObject(mainWindow).open()
+                }
+            }
+        }
+    }
+
+    Component {
+        id: rtkManualConnectDialogComponent
+
+        QGCPopupDialog {
+            id:         rtkManualConnectDialog
+            title:      qsTr("Manual RTK Connection")
+            buttons:    Dialog.Ok | Dialog.Cancel
+            acceptButtonEnabled: serialPortCombo.currentIndex > 0 
+
+            property string selectedPort: ""
+            property int    selectedBaud: 38400 
+
+            onAccepted: {
+                var systemPortName = QGroundControl.linkManager.serialPorts[serialPortCombo.currentIndex]
+                QGroundControl.linkManager.connectManualRTK(systemPortName, selectedBaud)
+            }
+
+            ColumnLayout {
+                spacing: ScreenTools.defaultFontPixelHeight
+
+                LabelledComboBox {
+                    id:             serialPortCombo
+                    label:          qsTr("COM Port")
+                    model:          QGroundControl.linkManager.serialPortStrings
+                    currentIndex:   0
+
+                    onCurrentTextChanged: selectedPort = currentText
+                }
+
+                LabelledComboBox {
+                    id:             baudRateCombo
+                    label:          qsTr("Baud Rate")
+                    model:          QGroundControl.linkManager.serialBaudRates
+                    Component.onCompleted: currentIndex = comboBox.find("38400")
+
+                    onCurrentTextChanged: selectedBaud = parseInt(currentText)
+                }
+            }
+        }
+    }
+    // ======================================
+
     SettingsGroupLayout {
         heading: qsTr("NMEA GPS")
         visible: QGroundControl.settingsManager.autoConnectSettings.autoConnectNmeaPort.visible && QGroundControl.settingsManager.autoConnectSettings.autoConnectNmeaBaud.visible

@@ -69,6 +69,9 @@ public:
     Q_INVOKABLE void shutdown();
     Q_INVOKABLE LogReplayLink *startLogReplay(const QString &logFile);
 
+    // Connect Manual RTK
+    Q_INVOKABLE void connectManualRTK(const QString &portName, int baudRate);
+
     QList<SharedLinkInterfacePtr> links() { return _rgLinks; }
     QStringList linkTypeStrings() const;
     bool mavlinkSupportForwardingEnabled() const { return _mavlinkSupportForwardingEnabled; }

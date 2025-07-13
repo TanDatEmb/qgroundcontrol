@@ -49,7 +49,8 @@ public:
         float fixedBaseAccuracyMeters = 0.f;
     };
 
-    GPSProvider(const QString &device, GPSType type, const rtk_data_s &rtkData, const std::atomic_bool &requestStop, QObject *parent = nullptr);
+    GPSProvider(const QString &device, GPSType type, int baudRate, const rtk_data_s &rtkData,
+                const std::atomic_bool &requestStop, QObject *parent = nullptr);
     ~GPSProvider();
 
     int callback(GPSCallbackType type, void *data1, int data2);
@@ -75,6 +76,7 @@ private:
 
     static int _callbackEntry(GPSCallbackType type, void *data1, int data2, void *user);
 
+    int _baudRate = 0;
     QString _device;
     GPSType _type;
     const std::atomic_bool &_requestStop;
