@@ -1,264 +1,301 @@
 import os
-import re
 import sys
 import glob
 import pandas as pd
 import numpy as np
 from pyulog import ULog
 import plotly.graph_objects as go
+from scipy.fft import rfft, rfftfreq
+from scipy import signal
 
 PLOTS_CONFIG = {
-    # "Altitude_Estimate": {
-    #     "title": "Altitude Estimate Analysis",
-    #     "ylabel": "(m)",
-    #     "setpoint_style": "marker",
-    #     "series": {
-    #         "GPS Altitude (MSL)": ("vehicle_gps_position", "altitude_msl_m"),
-    #         "Barometer Altitude": ("vehicle_air_data", "baro_alt_meter"),
-    #         "Fused Altitude Estimation": ("vehicle_global_position", "alt"),
-    #         "Altitude Setpoint": ("position_setpoint_triplet", "current.alt")
-    #     }
-    # },
-    # "Roll_Angle": {
-    #     "title": "Roll Angle",
-    #     "ylabel": "(deg)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Roll Estimated": ("vehicle_attitude", "roll"),
-    #         "Roll Setpoint": ("vehicle_attitude_setpoint", "roll_d")
-    #     }
-    # },
-    # "Roll_Angular_Rate": {
-    #     "title": "Roll Angular Rate",
-    #     "ylabel": "(deg/s)",
-    #     "convert_rad_to_deg": True,
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Roll Rate Estimated": ("vehicle_angular_velocity", "xyz[0]"),
-    #         "Roll Rate Setpoint": ("vehicle_rates_setpoint", "roll"),
-    #         "Roll Rate Integral": ("rate_ctrl_status", "rollspeed_integ")
-    #     }
-    # },
-    # "Pitch_Angle": {
-    #     "title": "Pitch Angle",
-    #     "ylabel": "(deg)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Pitch Estimated": ("vehicle_attitude", "pitch"),
-    #         "Pitch Setpoint": ("vehicle_attitude_setpoint", "pitch_d")
-    #     }
-    # },
-    # "Pitch_Angular_Rate": {
-    #     "title": "Pitch Angular Rate",
-    #     "ylabel": "(deg/s)",
-    #     "convert_rad_to_deg": True,
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Pitch Rate Estimated": ("vehicle_angular_velocity", "xyz[1]"),
-    #         "Pitch Rate Setpoint": ("vehicle_rates_setpoint", "pitch"),
-    #         "Pitch Rate Integral": ("rate_ctrl_status", "pitchspeed_integ")
-    #     }
-    # },
-    # "Yaw_Angle": {
-    #     "title": "Yaw Angle",
-    #     "ylabel": "(deg)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Yaw Estimated": ("vehicle_attitude", "yaw"),
-    #         "Yaw Setpoint": ("vehicle_attitude_setpoint", "yaw_d")
-    #     }
-    # },
-    # "Yaw_Angular_Rate": {
-    #     "title": "Yaw Angular Rate",
-    #     "ylabel": "(deg/s)",
-    #     "convert_rad_to_deg": True,
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Yaw Rate Estimated": ("vehicle_angular_velocity", "xyz[2]"),
-    #         "Yaw Rate Setpoint": ("vehicle_rates_setpoint", "yaw"),
-    #         "Yaw Rate Integral": ("rate_ctrl_status", "yawspeed_integ")
-    #     }
-    # },
-    # "Local_Position_X": {
-    #     "title": "Local Position X",
-    #     "ylabel": "(m)",
-    #     "setpoint_style": "marker",
-    #     "series": {
-    #         "X Estimated": ("vehicle_local_position", "x"),
-    #         "X Setpoint": ("vehicle_local_position_setpoint", "x")
-    #     }
-    # },
-    # "Local_Position_Y": {
-    #     "title": "Local Position Y",
-    #     "ylabel": "(m)",
-    #     "setpoint_style": "marker",
-    #     "series": {
-    #         "Y Estimated": ("vehicle_local_position", "y"),
-    #         "Y Setpoint": ("vehicle_local_position_setpoint", "y")
-    #     }
-    # },
-    # "Local_Position_Z": {
-    #     "title": "Local Position Z",
-    #     "ylabel": "(m)",
-    #     "setpoint_style": "marker",
-    #     "series": {
-    #         "Z Estimated": ("vehicle_local_position", "z"),
-    #         "Z Setpoint": ("vehicle_local_position_setpoint", "z")
-    #     }
-    # },
-    # "Velocity": {
-    #     "title": "Velocity",
-    #     "ylabel": "(m/s)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "X": ("vehicle_local_position", "vx"),
-    #         "Y": ("vehicle_local_position", "vy"),
-    #         "Z": ("vehicle_local_position", "vz"),
-    #         "X Setpoint": ("vehicle_local_position_setpoint", "vx"),
-    #         "Y Setpoint": ("vehicle_local_position_setpoint", "vy"),
-    #         "Z Setpoint": ("vehicle_local_position_setpoint", "vz")
-    #     }
-    # },
-    # "Manual Control Inputs (Radio or Joystick)": {
-    #     "title": "Velocity",
-    #     "ylabel": "",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Y / Roll": ("manual_control_setpoint", "roll"),
-    #         "X / Pitch": ("manual_control_setpoint", "pitch"),
-    #         "Z / Yaw": ("manual_control_setpoint", "yaw"),
-    #         "Throttle [-1, 1]": ("manual_control_setpoint", "throttle"),
-    #         "Aux 1": ("manual_control_setpoint", "aux1"),
-    #         "Aux 2": ("manual_control_setpoint", "aux2"),
-    #         "Flight Mode": ("manual_control_switches", "mode_slot"),
-    #         "Kill Switch": ("manual_control_switches", "kill_switch")
-    #     }
-    # },
-    # "Actuator_Controls": {
-    #     "title": "Actuator Controls",
-    #     "ylabel": "",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Roll": ("actuator_outputs", "roll_calc"),
-    #         "Pitch": ("actuator_outputs", "pitch_calc"),
-    #         "Yaw": ("actuator_outputs", "yaw_calc"),
-    #         "Thrust (up)": ("actuator_outputs", "thrust_up_calc"),
-    #         "Thrust (forward)": ("actuator_outputs", "thrust_forward")
-    #     }
-    # },
-    # "Motor_Outputs": {
-    #     "title": "Motor Outputs",
-    #     "ylabel": "",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Motor 1": ("actuator_outputs", "m0_norm"),
-    #         "Motor 2": ("actuator_outputs", "m1_norm"),
-    #         "Motor 3": ("actuator_outputs", "m2_norm"),
-    #         "Motor 4": ("actuator_outputs", "m3_norm")
-    #     }
-    # },
-    # "Raw_Acceleration": {
-    #     "title": "Raw Acceleration",
-    #     "ylabel": "(m/s^2)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "X": ("sensor_combined", "accelerometer_m_s2[0]"),
-    #         "Y": ("sensor_combined", "accelerometer_m_s2[1]"),
-    #         "Z": ("sensor_combined", "accelerometer_m_s2[2]")
-    #     }
-    # },
-    # "Vibration_Metrics": {
-    #     "title": "Vibration Metrics",
-    #     "ylabel": "",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Accel 0 Vibration Level (m/s^2)": ("vehicle_imu_status", "accel0_vibration"),
-    #         "Accel 1 Vibration Level (m/s^2)": ("vehicle_imu_status", "accel1_vibration"),
-    #         "Accel 2 Vibration Level (m/s^2)": ("vehicle_imu_status", "accel2_vibration")
-    #     }
-    # },
-    # "Raw_Angular_Speed_(Gyroscope)": {
-    #     "title": "Raw Angular Speed (Gyroscope)",
-    #     "ylabel": "(deg/s)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "X": ("sensor_combined", "gyro_rad[0]"),
-    #         "Y": ("sensor_combined", "gyro_rad[1]"),
-    #         "Z": ("sensor_combined", "gyro_rad[2]")
-    #     }
-    # },
-    # "Raw_Magnetic_Field_Strength": {
-    #     "title": "Raw Magnetic Field Strength",
-    #     "ylabel": "(gauss)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "X": ("vehicle_magnetometer", "magnetometer_ga[0]"),
-    #         "Y": ("vehicle_magnetometer", "magnetometer_ga[1]"),
-    #         "Z": ("vehicle_magnetometer", "magnetometer_ga[2]")
-    #     }
-    # },
-    # "Distance_Sensor": {
-    #     "title": "Distance Sensor",
-    #     "ylabel": "(m)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Estimated Distance Bottom": ("vehicle_local_position", "dist_bottom"),
-    #         "Dist Bottom Valid": ("vehicle_local_position", "dist_bottom_valid")
-    #     }
-    # },
-    # "GPS_Uncertainty": {
-    #     "title": "GPS Uncertainty",
-    #     "ylabel": "",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Horizontal position accuracy (m)": ("vehicle_gps_position", "eph"),
-    #         "Vertical position accuracy (m)": ("vehicle_gps_position", "epv"),
-    #         "Horizontal dilution of precision": ("vehicle_gps_position", "hdop"),
-    #         "Vertical dilution of precision": ("vehicle_gps_position", "vdop"),
-    #         "Speed accuracy (m/s)": ("vehicle_gps_position", "s_variance_m_s"),
-    #         "Num Satellites used": ("vehicle_gps_position", "satellites_used"),
-    #         "GPS Fix": ("vehicle_gps_position", "fix_type")
-    #     }
-    # },
-    # "GPS_Noise_&_Jamming": {
-    #     "title": "GPS Noise & Jamming",
-    #     "ylabel": "",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Noise per ms": ("sensor_gps", "noise_per_ms"),
-    #         "Jamming Indicator": ("sensor_gps", "jamming_indicator")
-    #     }
-    # },
-    # "Thrust_and_Magnetic_Feild": {
-    #     "title": "Thrust and Magnetic Feild",
-    #     "ylabel": "",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Normal of Magnetic Field": ("vehicle_magnetometer", "norm_magnetometer"),
-    #         "Thrust": ("actuator_outputs", "thrust_up_calc")
-    #     }
-    # },
-    # "Power": {
-    #     "title": "Power",
-    #     "ylabel": "",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Battery Voltage (V)": ("battery_status", "voltage_v"),
-    #         "Battery Current (A)": ("battery_status", "current_a"),
-    #         "Discharged Amount (mAh / 100)": ("battery_status", "discharged_mah"),
-    #         "Battery remaining (0=empty, 10=full)": ("battery_status", "remaining"),
-    #         "5 V": ("system_power", "voltage5v_v")
-    #     }
-    # },
-    # "Temperature": {
-    #     "title": "Temperature",
-    #     "ylabel": "(C)",
-    #     "setpoint_style": "step",
-    #     "series": {
-    #         "Accel temperature": ("sensor_accel", "mean_temperature"),
-    #         "Battery temperature": ("battery_status", "temperature")
-    #     }
-    # },
+    "Altitude_Estimate": {
+        "title": "Altitude Estimate Analysis",
+        "ylabel": "(m)",
+        "setpoint_style": "marker",
+        "series": {
+            "GPS Altitude (MSL)": ("vehicle_gps_position", "altitude_msl_m"),
+            "Barometer Altitude": ("vehicle_air_data", "baro_alt_meter"),
+            "Fused Altitude Estimation": ("vehicle_global_position", "alt"),
+            "Altitude Setpoint": ("position_setpoint_triplet", "current.alt")
+        }
+    },
+    "Roll_Angle": {
+        "title": "Roll Angle",
+        "ylabel": "(deg)",
+        "setpoint_style": "step",
+        "series": {
+            "Roll Estimated": ("vehicle_attitude", "roll"),
+            "Roll Setpoint": ("vehicle_attitude_setpoint", "roll_d")
+        }
+    },
+    "Roll_Angular_Rate": {
+        "title": "Roll Angular Rate",
+        "ylabel": "(deg/s)",
+        "convert_rad_to_deg": True,
+        "setpoint_style": "step",
+        "series": {
+            "Roll Rate Estimated": ("vehicle_angular_velocity", "xyz[0]"),
+            "Roll Rate Setpoint": ("vehicle_rates_setpoint", "roll"),
+            "Roll Rate Integral": ("rate_ctrl_status", "rollspeed_integ")
+        }
+    },
+    "Pitch_Angle": {
+        "title": "Pitch Angle",
+        "ylabel": "(deg)",
+        "setpoint_style": "step",
+        "series": {
+            "Pitch Estimated": ("vehicle_attitude", "pitch"),
+            "Pitch Setpoint": ("vehicle_attitude_setpoint", "pitch_d")
+        }
+    },
+    "Pitch_Angular_Rate": {
+        "title": "Pitch Angular Rate",
+        "ylabel": "(deg/s)",
+        "convert_rad_to_deg": True,
+        "setpoint_style": "step",
+        "series": {
+            "Pitch Rate Estimated": ("vehicle_angular_velocity", "xyz[1]"),
+            "Pitch Rate Setpoint": ("vehicle_rates_setpoint", "pitch"),
+            "Pitch Rate Integral": ("rate_ctrl_status", "pitchspeed_integ")
+        }
+    },
+    "Yaw_Angle": {
+        "title": "Yaw Angle",
+        "ylabel": "(deg)",
+        "setpoint_style": "step",
+        "series": {
+            "Yaw Estimated": ("vehicle_attitude", "yaw"),
+            "Yaw Setpoint": ("vehicle_attitude_setpoint", "yaw_d")
+        }
+    },
+    "Yaw_Angular_Rate": {
+        "title": "Yaw Angular Rate",
+        "ylabel": "(deg/s)",
+        "convert_rad_to_deg": True,
+        "setpoint_style": "step",
+        "series": {
+            "Yaw Rate Estimated": ("vehicle_angular_velocity", "xyz[2]"),
+            "Yaw Rate Setpoint": ("vehicle_rates_setpoint", "yaw"),
+            "Yaw Rate Integral": ("rate_ctrl_status", "yawspeed_integ")
+        }
+    },
+    "Local_Position_X": {
+        "title": "Local Position X",
+        "ylabel": "(m)",
+        "setpoint_style": "marker",
+        "series": {
+            "X Estimated": ("vehicle_local_position", "x"),
+            "X Setpoint": ("vehicle_local_position_setpoint", "x")
+        }
+    },
+    "Local_Position_Y": {
+        "title": "Local Position Y",
+        "ylabel": "(m)",
+        "setpoint_style": "marker",
+        "series": {
+            "Y Estimated": ("vehicle_local_position", "y"),
+            "Y Setpoint": ("vehicle_local_position_setpoint", "y")
+        }
+    },
+    "Local_Position_Z": {
+        "title": "Local Position Z",
+        "ylabel": "(m)",
+        "setpoint_style": "marker",
+        "series": {
+            "Z Estimated": ("vehicle_local_position", "z"),
+            "Z Setpoint": ("vehicle_local_position_setpoint", "z")
+        }
+    },
+    "Velocity": {
+        "title": "Velocity",
+        "ylabel": "(m/s)",
+        "setpoint_style": "step",
+        "series": {
+            "X": ("vehicle_local_position", "vx"),
+            "Y": ("vehicle_local_position", "vy"),
+            "Z": ("vehicle_local_position", "vz"),
+            "X Setpoint": ("vehicle_local_position_setpoint", "vx"),
+            "Y Setpoint": ("vehicle_local_position_setpoint", "vy"),
+            "Z Setpoint": ("vehicle_local_position_setpoint", "vz")
+        }
+    },
+    "Manual Control Inputs (Radio or Joystick)": {
+        "title": "Velocity",
+        "ylabel": "",
+        "setpoint_style": "step",
+        "series": {
+            "Y / Roll": ("manual_control_setpoint", "roll"),
+            "X / Pitch": ("manual_control_setpoint", "pitch"),
+            "Z / Yaw": ("manual_control_setpoint", "yaw"),
+            "Throttle [-1, 1]": ("manual_control_setpoint", "throttle"),
+            "Aux 1": ("manual_control_setpoint", "aux1"),
+            "Aux 2": ("manual_control_setpoint", "aux2"),
+            "Flight Mode": ("manual_control_switches", "mode_slot"),
+            "Kill Switch": ("manual_control_switches", "kill_switch")
+        }
+    },
+    "Actuator_Controls": {
+        "title": "Actuator Controls",
+        "ylabel": "",
+        "setpoint_style": "step",
+        "series": {
+            "Roll": ("actuator_outputs", "roll_calc"),
+            "Pitch": ("actuator_outputs", "pitch_calc"),
+            "Yaw": ("actuator_outputs", "yaw_calc"),
+            "Thrust (up)": ("actuator_outputs", "thrust_up_calc"),
+            "Thrust (forward)": ("actuator_outputs", "thrust_forward")
+        }
+    },
+    "Actuator_Controls_FFT": {
+        "title": "Actuator Controls FFT",
+        "setpoint_style": "fft",
+        "series": {
+            "Roll": ("actuator_outputs", "roll_fft"),
+            "Pitch": ("actuator_outputs", "pitch_fft"),
+            "Yaw": ("actuator_outputs", "yaw_fft"),
+        }
+    },
+    "Angular_Velocity_FFT": {
+        "title": "Angular Velocity FFT",
+        "setpoint_style": "fft",
+        "series": {
+            "Rollspeed": ("vehicle_angular_velocity", "rollrate_fft"),
+            "Pitchspeed": ("vehicle_angular_velocity", "pitchrate_fft"),
+            "Yawspeed": ("vehicle_angular_velocity", "yawrate_fft"),
+        }
+    },
+    "Motor_Outputs": {
+        "title": "Motor Outputs",
+        "ylabel": "",
+        "setpoint_style": "step",
+        "series": {
+            "Motor 1": ("actuator_outputs", "m0_norm"),
+            "Motor 2": ("actuator_outputs", "m1_norm"),
+            "Motor 3": ("actuator_outputs", "m2_norm"),
+            "Motor 4": ("actuator_outputs", "m3_norm")
+        }
+    },
+    "Raw_Acceleration": {
+        "title": "Raw Acceleration",
+        "ylabel": "(m/s^2)",
+        "setpoint_style": "step",
+        "series": {
+            "X": ("sensor_combined", "accelerometer_m_s2[0]"),
+            "Y": ("sensor_combined", "accelerometer_m_s2[1]"),
+            "Z": ("sensor_combined", "accelerometer_m_s2[2]")
+        }
+    },
+    "Vibration_Metrics": {
+        "title": "Vibration Metrics",
+        "ylabel": "",
+        "setpoint_style": "step",
+        "series": {
+            "Accel 0 Vibration Level (m/s^2)": ("vehicle_imu_status", "accel0_vibration"),
+            "Accel 1 Vibration Level (m/s^2)": ("vehicle_imu_status", "accel1_vibration"),
+            "Accel 2 Vibration Level (m/s^2)": ("vehicle_imu_status", "accel2_vibration")
+        }
+    },
+    "Acceleration_Power_Spectral_Density": {
+        "title": "Acceleration Power Spectral Density",
+        "setpoint_style": "psd",
+        "series": {
+            "X": ("sensor_combined", "accelerometer_m_s2[0]"),
+            "Y": ("sensor_combined", "accelerometer_m_s2[1]"),
+            "Z": ("sensor_combined", "accelerometer_m_s2[2]")
+        }
+    },
+    "Angular_Velocity_Power_Spectral_Density": {
+        "title": "Angular Velocity Power Spectral Density",
+        "setpoint_style": "psd",
+        "series": {
+            "Roll": ("vehicle_angular_velocity", "xyz[0]"),
+            "Pitch": ("vehicle_angular_velocity", "xyz[1]"),
+            "Yaw": ("vehicle_angular_velocity", "xyz[2]")
+        }
+    },
+    "Raw_Angular_Speed_(Gyroscope)": {
+        "title": "Raw Angular Speed (Gyroscope)",
+        "ylabel": "(deg/s)",
+        "setpoint_style": "step",
+        "series": {
+            "X": ("sensor_combined", "gyro_rad[0]"),
+            "Y": ("sensor_combined", "gyro_rad[1]"),
+            "Z": ("sensor_combined", "gyro_rad[2]")
+        }
+    },
+    "Raw_Magnetic_Field_Strength": {
+        "title": "Raw Magnetic Field Strength",
+        "ylabel": "(gauss)",
+        "setpoint_style": "step",
+        "series": {
+            "X": ("vehicle_magnetometer", "magnetometer_ga[0]"),
+            "Y": ("vehicle_magnetometer", "magnetometer_ga[1]"),
+            "Z": ("vehicle_magnetometer", "magnetometer_ga[2]")
+        }
+    },
+    "Distance_Sensor": {
+        "title": "Distance Sensor",
+        "ylabel": "(m)",
+        "setpoint_style": "step",
+        "series": {
+            "Estimated Distance Bottom": ("vehicle_local_position", "dist_bottom"),
+            "Dist Bottom Valid": ("vehicle_local_position", "dist_bottom_valid")
+        }
+    },
+    "GPS_Uncertainty": {
+        "title": "GPS Uncertainty",
+        "ylabel": "",
+        "setpoint_style": "step",
+        "series": {
+            "Horizontal position accuracy (m)": ("vehicle_gps_position", "eph"),
+            "Vertical position accuracy (m)": ("vehicle_gps_position", "epv"),
+            "Horizontal dilution of precision": ("vehicle_gps_position", "hdop"),
+            "Vertical dilution of precision": ("vehicle_gps_position", "vdop"),
+            "Speed accuracy (m/s)": ("vehicle_gps_position", "s_variance_m_s"),
+            "Num Satellites used": ("vehicle_gps_position", "satellites_used"),
+            "GPS Fix": ("vehicle_gps_position", "fix_type")
+        }
+    },
+    "GPS_Noise_&_Jamming": {
+        "title": "GPS Noise & Jamming",
+        "ylabel": "",
+        "setpoint_style": "step",
+        "series": {
+            "Noise per ms": ("sensor_gps", "noise_per_ms"),
+            "Jamming Indicator": ("sensor_gps", "jamming_indicator")
+        }
+    },
+    "Thrust_and_Magnetic_Feild": {
+        "title": "Thrust and Magnetic Feild",
+        "ylabel": "",
+        "setpoint_style": "step",
+        "series": {
+            "Normal of Magnetic Field": ("vehicle_magnetometer", "norm_magnetometer"),
+            "Thrust": ("actuator_outputs", "thrust_up_calc")
+        }
+    },
+    "Power": {
+        "title": "Power",
+        "ylabel": "",
+        "setpoint_style": "step",
+        "series": {
+            "Battery Voltage (V)": ("battery_status", "voltage_v"),
+            "Battery Current (A)": ("battery_status", "current_a"),
+            "Discharged Amount (mAh / 100)": ("battery_status", "discharged_mah"),
+            "Battery remaining (0=empty, 10=full)": ("battery_status", "remaining"),
+            "5 V": ("system_power", "voltage5v_v")
+        }
+    },
+    "Temperature": {
+        "title": "Temperature",
+        "ylabel": "(C)",
+        "setpoint_style": "step",
+        "series": {
+            "Accel temperature": ("sensor_accel", "mean_temperature"),
+            "Battery temperature": ("battery_status", "temperature")
+        }
+    },
     "Estimator_Flags": {
         "title": "Estimator Flags",
         "ylabel": "",
@@ -272,7 +309,7 @@ PLOTS_CONFIG = {
         "ylabel": "",
         "setpoint_style": "step",
         "series": {
-            "In Failsafe": ("failsafe_flags", "failsafe"),
+            "In Failsafe": ("failsafe_flags", "manual_control_signal_lost"),
             "User Took Over": ("failsafe_flags", "manual_control_signal_lost"),
             "Battery Warning": ("failsafe_flags", "battery_warning")
         }
@@ -294,9 +331,8 @@ PLOTS_CONFIG = {
             "Delta t (btw 2 logged samples)": ("sensor_combined", "delta_t"),
             "Estimator time slip (cumulative)": ("estimator_status", "time_slip")
         }
-    },
-    
-}   
+    }
+}
 
 # Mean Max Min Deviation
 def calculate_statistics(data_points):
@@ -393,12 +429,15 @@ def accel_vibration_metrics(ulog_object):
     try:
         all_dfs = []
         for i in range(3):
-            topic_data = next(d for d in ulog_object.data_list if d.name == 'vehicle_imu_status' and d.multi_id == i)
-            temp_df = pd.DataFrame(topic_data.data)
-            
-            temp_df = temp_df[['timestamp', 'accel_vibration_metric']]
-            temp_df.rename(columns={'accel_vibration_metric': f'accel{i}_vibration'}, inplace=True)
-            all_dfs.append(temp_df)
+            try:
+                topic_data = next(d for d in ulog_object.data_list if d.name == 'vehicle_imu_status' and d.multi_id == i)
+                temp_df = pd.DataFrame(topic_data.data)
+                
+                temp_df = temp_df[['timestamp', 'accel_vibration_metric']]
+                temp_df.rename(columns={'accel_vibration_metric': f'accel{i}_vibration'}, inplace=True)
+                all_dfs.append(temp_df)
+            except StopIteration:
+                continue
 
         df_merged = pd.merge(all_dfs[0], all_dfs[1], on='timestamp', how='outer')
         df_merged = pd.merge(df_merged, all_dfs[2], on='timestamp', how='outer')
@@ -471,22 +510,65 @@ def analyze_sensor_temperature(ulog_object):
         print(f"  - Error calculating mean sensor temperature: {e}")
         return None
 
-def analyze_delta_t(ulog_object):
-    try:
-        topic_data = next(d for d in ulog_object.data_list if d.name == 'sensor_combined')
-        df = pd.DataFrame(topic_data.data)
+# Need to check
+def calculate_fft_from_series(df, time_col, data_col):
+    if df is None or data_col not in df.columns or time_col not in df.columns:
+        return np.array([]), np.array([])
+        
+    signal_df = df[[time_col, data_col]].dropna().copy()
+    
+    signal_df[data_col] = pd.to_numeric(signal_df[data_col], errors='coerce')
+    signal_df.dropna(inplace=True)
 
-        df['delta_t'] = df['timestamp'].diff()
-        
-        df['timestamp_sec'] = df['timestamp'] / 1E6
-        
-        print("    -> Successfully calculated delta_t from sensor_combined.")
-        
-        return df[['timestamp_sec', 'delta_t']]
+    if len(signal_df) < 2:
+        return np.array([]), np.array([])
 
-    except Exception as e:
-        print(f"  - Error calculating delta_t: {e}")
-        return None
+    sampling_period = signal_df[time_col].diff().mean()
+    if pd.isna(sampling_period) or sampling_period <= 0:
+        return np.array([]), np.array([])
+
+    N = len(signal_df[data_col])
+    yf = rfft(signal_df[data_col].values)
+    xf = rfftfreq(N, sampling_period)
+
+    amplitude = (2.0 / N) * np.abs(yf)
+    
+    return xf, amplitude
+
+# Need to check
+def calculate_combined_psd(series_dfs):
+    if not series_dfs:
+        return None, None, None
+
+    combined_df = pd.concat(series_dfs, axis=1, join='outer').interpolate(method='linear').dropna()
+
+    if len(combined_df) < 256:
+        return None, None, None
+
+    sampling_rate = 1.0 / combined_df.index.to_series().diff().mean()
+    if pd.isna(sampling_rate) or sampling_rate <= 0:
+        return None, None, None
+
+    sxx_squared_list = []
+    final_times = None
+    final_freqs = None
+
+    for col in combined_df.columns:
+        freqs, times, Sxx = signal.spectrogram(combined_df[col], fs=sampling_rate, nperseg=256, noverlap=128)
+        sxx_squared_list.append(Sxx**2)
+        if final_times is None: final_times = times
+        if final_freqs is None: final_freqs = freqs
+    
+    if not sxx_squared_list:
+        return None, None, None
+
+    Sxx_magnitude = np.sqrt(sum(sxx_squared_list))
+    Sxx_db = 10 * np.log10(Sxx_magnitude, where=Sxx_magnitude > 0, out=np.full_like(Sxx_magnitude, -100))
+    
+    start_time = combined_df.index[0]
+    times_abs = final_times + start_time
+    
+    return final_freqs, times_abs, Sxx_db
 
 def analyze_log(ulog_object, config):
     all_plots_data = {}
@@ -500,12 +582,21 @@ def analyze_log(ulog_object, config):
     processed_dfs['vehicle_imu_status'] = accel_vibration_metrics(ulog_object)
     processed_dfs['vehicle_magnetometer'] = calculate_magnetometer_norm(ulog_object)
     processed_dfs['sensor_accel'] = analyze_sensor_temperature(ulog_object)
-    processed_dfs['sensor_combined'] = analyze_delta_t(ulog_object)
+    try:
+        sc_data = next(d for d in ulog_object.data_list if d.name == 'sensor_combined')
+        df_sc = pd.DataFrame(sc_data.data)
+        df_sc['timestamp_sec'] = df_sc['timestamp'] / 1E6
+        df_sc['delta_t'] = df_sc['timestamp'].diff()
+        processed_dfs['sensor_combined'] = df_sc
+    except Exception as e:
+        print(f"  - Warning: Could not process 'sensor_combined'. {e}")
+        processed_dfs['sensor_combined'] = None
 
     for plot_key, plot_info in config.items():
         plot_series_data = {}
         print(f"\n* Processing plot: {plot_info['title']}")
-        
+        is_fft_plot = plot_info.get("setpoint_style") == "fft"
+        is_psd_plot = plot_info.get("setpoint_style") == "psd"
         should_convert = plot_info.get("convert_rad_to_deg", False)
 
         for series_name, (topic, field) in plot_info['series'].items():
@@ -516,24 +607,59 @@ def analyze_log(ulog_object, config):
                     topic_data = next(d for d in ulog_object.data_list if d.name == topic)
                     df = pd.DataFrame(topic_data.data)
                     processed_dfs[topic] = df
-
+                
                 if 'timestamp_sec' not in df.columns:
                     df['timestamp_sec'] = df['timestamp'] / 1E6
 
-                series_df = df[['timestamp_sec', field]].copy().dropna()
-                
-                if topic == 'manual_control_switches' and field == 'mode_slot':
-                    series_df[field] = series_df[field] / 6.0
-                    print(f"    -> Scaled {series_name} by a factor of 6.")
+                if is_fft_plot:
+                    source_field = ""
+                    if topic == "actuator_outputs":
+                        source_field = field.replace('_fft', '_calc')
+                    elif topic == "vehicle_angular_velocity":
+                        axis_map = {'rollrate': 'xyz[0]', 'pitchrate': 'xyz[1]', 'yawrate': 'xyz[2]'}
+                        source_field = axis_map.get(field.replace('_fft', ''))
+                    
+                    if not source_field or source_field not in df.columns:
+                         print(f"  - Warning: Could not determine source for FFT field '{field}'.")
+                         plot_series_data[series_name] = {"points": [], "stats": {}}
+                         continue
+                    
+                    freq, ampl = calculate_fft_from_series(df, 'timestamp_sec', source_field)
+                    data_points = list(zip(freq, ampl))
+                    plot_series_data[series_name] = {"points": data_points, "stats": {}}
+                    print(f"  + Successfully calculated FFT for: {series_name} from {source_field}")
+                elif is_psd_plot:
+                    series_to_process = []
+                    for series_name, (topic, field) in plot_info['series'].items():
+                        df['timestamp_sec'] = df['timestamp'] / 1E6
+                        if df is not None and field in df.columns:
+                            series_to_process.append(df[['timestamp_sec', field]].copy().set_index('timestamp_sec'))
+                    
+                    frequencies, times, psd_data = calculate_combined_psd(series_to_process)
 
-                if should_convert:
-                    series_df[field] = np.rad2deg(series_df[field])
-                    print(f"    -> Converted {series_name} from rad/s to deg/s.")
+                    if frequencies is not None:
+                        plot_series_data['combined'] = {
+                            "frequencies": frequencies,
+                            "times": times,
+                            "psd_data": psd_data
+                        }
+                        print(f"  + Successfully calculated combined PSD for: {plot_key}")
+                else:
+                    series_df = df[['timestamp_sec', field]].copy().dropna()
+                    
+                    if topic == 'manual_control_switches' and field == 'mode_slot':
+                        series_df[field] = series_df[field] / 6.0
+                        print(f"    -> Scaled {series_name} by a factor of 6.")
 
-                data_points = series_df.values.tolist()
-                stats = calculate_statistics(data_points)
-                plot_series_data[series_name] = {"points": data_points, "stats": stats}
-                print(f"  + Successfully extracted: {series_name}")
+                    if should_convert:
+                        series_df[field] = np.rad2deg(series_df[field])
+                        print(f"    -> Converted {series_name} from rad/s to deg/s.")
+
+                    data_points = series_df.values.tolist()
+                    stats = calculate_statistics(data_points)
+                    plot_series_data[series_name] = {"points": data_points, "stats": stats}
+                    print(f"  + Successfully extracted: {series_name}")
+
             except (StopIteration, KeyError):
                 print(f"  - Warning: Could not find topic '{topic}' or field '{field}'.")
                 plot_series_data[series_name] = {"points": [], "stats": {}}
@@ -541,46 +667,86 @@ def analyze_log(ulog_object, config):
     return all_plots_data
 
 def generate_interactive_plot_html(ylabel, plot_data, plot_config):
-    """Creates the HTML for an interactive Plotly chart with axis padding."""
     fig = go.Figure()
-    
-    min_time = float('inf')
-    max_time = float('-inf')
     
     setpoint_style = plot_config.get("setpoint_style", "line")
     
-    for series_name, series_data in plot_data.items():
-        data_points = series_data.get("points", [])
-        if not data_points:
-            continue
+    if setpoint_style == 'fft':
+        min_freq = float('inf')
+        max_freq = float('-inf')
         
-        timestamps, values = zip(*data_points)
+        for series_name, series_data in plot_data.items():
+            data_points = series_data.get("points", [])
+            if not data_points:
+                continue
+            frequency, amplitude = zip(*data_points)
+            if frequency:
+                min_freq = min(min_freq, min(frequency))
+                max_freq = max(max_freq, max(frequency))
+            fig.add_trace(go.Scatter(x=frequency, y=amplitude, mode='lines', name=series_name))
+        
+        final_x_range = None
+        if max_freq != float('-inf'):
+            padding = max_freq * 0.02
+            final_x_range = [-padding, max_freq + padding]
+        
+        fig.update_layout(
+            xaxis_title="Frequency (Hz)", 
+            yaxis_title="Amplitude",
+            xaxis=dict(range=final_x_range)
+        )
+    elif setpoint_style == 'psd':
+        psd_data = plot_data.get('combined')
+        if psd_data:
+            fig.add_trace(go.Heatmap(
+                x=psd_data['times'],
+                y=psd_data['frequencies'],
+                z=psd_data['psd_data'],
+                colorscale='Viridis',
+                colorbar=dict(title='[dB]'),
+                zmin=-50,
+                zmax=10
+            ))
+        fig.update_layout(
+            xaxis_title="(sec)",
+            yaxis_title="(Hz)",
+            yaxis=dict(range=[0, 100]),
+        )
+    else:
+        min_time = float('inf')
+        max_time = float('-inf')
+        
+        for series_name, series_data in plot_data.items():
+            data_points = series_data.get("points", [])
+            if not data_points:
+                continue
+            
+            timestamps, values = zip(*data_points)
+            if not timestamps: continue
+            min_time = min(min_time, timestamps[0])
+            max_time = max(max_time, timestamps[-1])
 
-        min_time = min(min_time, timestamps[0])
-        max_time = max(max_time, timestamps[-1])
-
-        if "Setpoint" in series_name:
-            if setpoint_style == 'marker':
-                fig.add_trace(go.Scatter(x=timestamps, y=values, mode='markers', name=series_name, marker=dict(size=5)))
-            elif setpoint_style == 'step':
-                fig.add_trace(go.Scatter(x=timestamps, y=values, mode='lines', name=series_name, line_shape='hv'))
+            if "Setpoint" in series_name:
+                if setpoint_style == 'marker':
+                    fig.add_trace(go.Scatter(x=timestamps, y=values, mode='markers', name=series_name, marker=dict(size=3)))
+                elif setpoint_style == 'step':
+                    fig.add_trace(go.Scatter(x=timestamps, y=values, mode='lines', name=series_name, line_shape='hv'))
+                else:
+                    fig.add_trace(go.Scatter(x=timestamps, y=values, mode='lines', name=series_name))
             else:
                 fig.add_trace(go.Scatter(x=timestamps, y=values, mode='lines', name=series_name))
-        else:
-            fig.add_trace(go.Scatter(x=timestamps, y=values, mode='lines', name=series_name))
 
-    final_x_range = None
-    if min_time != float('inf') and max_time != float('-inf'):
-        duration = max_time - min_time
-        if duration > 0:
-            padding = duration * 0.01
-            final_x_range = [min_time - padding, max_time + padding]
+        final_x_range = None
+        if min_time != float('inf') and max_time != float('-inf'):
+            duration = max_time - min_time
+            if duration > 0:
+                padding = duration * 0.01
+                final_x_range = [min_time - padding, max_time + padding]
+        
+        fig.update_layout(xaxis_title="(sec)", yaxis_title=ylabel, xaxis=dict(range=final_x_range))
 
     fig.update_layout(
         showlegend=True,
-        xaxis_title="(sec)",
-        yaxis_title=ylabel,
-        xaxis=dict(range=final_x_range),
         dragmode='pan',
         margin=dict(l=20, r=20, t=20, b=20),
         legend=dict(yanchor="top", y=0.99, xanchor="right", x=0.99, bgcolor="rgba(255,255,255,0.75)", bordercolor="Black", borderwidth=1)
@@ -615,9 +781,9 @@ def main():
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <style>
             body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; margin: 2em; color: #333; }}
-            h1 {{ color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;}}
+            h1 {{ color: #2c3e50; padding-bottom: 10px;}}
             h2 {{ color: #2c3e50; margin-bottom: 20px;}}
-            h3 {{ color: #34495e; margin-top: 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;}}
+            h3 {{ color: #34495e; margin-top: 0; padding-bottom: 5px;}}
             .report-container {{ max-width: 95%; margin: auto; }}
             .plot-section {{ border-top: 3px solid #3498db; padding-top: 25px; margin-top: 40px; }}
             .flex-container {{ display: flex; flex-direction: row; align-items: flex-start; gap: 30px; flex-wrap: wrap; }}
@@ -629,12 +795,20 @@ def main():
             tr:nth-child(even) {{ background-color: #f9f9f9; }}
             .results-container {{ margin-top: 25px; padding: 15px; background-color: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 5px; overflow-wrap: break-word; }}
             .results-container h3 {{ border-bottom: none; }}
+            
+            /* CSS mới để xếp chồng các mục trong biểu đồ FFT/PSD */
+            .flex-container.vertical {{
+                flex-direction: column;
+            }}
+            .flex-container.vertical .info-column,
+            .flex-container.vertical .plot-column {{
+                width: 100%;
+            }}
         </style>
     </head>
     <body>
         <div class="report-container">
             <h1>Interactive Flight Log Analysis Report</h1>
-            <p><strong>Log File:</strong> {log_basename}</p>
     """]
 
     for plot_key, plot_data in all_data.items():
@@ -644,20 +818,24 @@ def main():
         
         html_parts.append(f'<div class="plot-section"><h2>{plot_title}</h2>')
         
-        html_parts.append('<div class="flex-container">')
+        plot_style = plot_config.get("setpoint_style", "line")
+        container_class = "vertical" if plot_style in ["fft", "psd"] else ""
+        html_parts.append(f'<div class="flex-container {container_class}">')
 
         html_parts.append('<div class="info-column">')
-        html_parts.append("<h3>Statistics</h3>")
-        html_parts.append("<table><tr><th>Series Name</th><th>Mean</th><th>Max</th><th>Min</th><th>Std Dev</th></tr>")
-        for series_name, series_data in plot_data.items():
-            stats = series_data.get("stats", {})
-            mean_val, max_val, min_val, std_dev_val = stats.get('Mean'), stats.get('Max'), stats.get('Min'), stats.get('Std Dev')
-            mean_str = f"{mean_val:.2f}" if isinstance(mean_val, (int, float)) else "N/A"
-            max_str = f"{max_val:.2f}" if isinstance(max_val, (int, float)) else "N/A"
-            min_str = f"{min_val:.2f}" if isinstance(min_val, (int, float)) else "N/A"
-            std_dev_str = f"{std_dev_val:.2f}" if isinstance(std_dev_val, (int, float)) else "N/A"
-            html_parts.append(f"<tr><td>{series_name}</td><td>{mean_str}</td><td>{max_str}</td><td>{min_str}</td><td>{std_dev_str}</td></tr>")
-        html_parts.append("</table>")
+        if plot_style not in ["fft", "psd"]:
+            html_parts.append("<h3>Statistics</h3>")
+            html_parts.append("<table><tr><th>Series Name</th><th>Mean</th><th>Max</th><th>Min</th><th>Std Dev</th></tr>")
+            for series_name, series_data in plot_data.items():
+                stats = series_data.get("stats", {})
+                mean_val, max_val, min_val, std_dev_val = stats.get('Mean'), stats.get('Max'), stats.get('Min'), stats.get('Std Dev')
+                mean_str = f"{mean_val:.2f}" if isinstance(mean_val, (int, float)) else "N/A"
+                max_str = f"{max_val:.2f}" if isinstance(max_val, (int, float)) else "N/A"
+                min_str = f"{min_val:.2f}" if isinstance(min_val, (int, float)) else "N/A"
+                std_dev_str = f"{std_dev_val:.2f}" if isinstance(std_dev_val, (int, float)) else "N/A"
+                html_parts.append(f"<tr><td>{series_name}</td><td>{mean_str}</td><td>{max_str}</td><td>{min_str}</td><td>{std_dev_str}</td></tr>")
+            html_parts.append("</table>")
+        
         html_parts.append("<div class='results-container'><h3>Results</h3><p>Doesn't Analyze Yet!</p></div>")
         html_parts.append('</div>')
 
