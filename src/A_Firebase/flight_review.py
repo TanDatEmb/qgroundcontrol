@@ -795,6 +795,15 @@ def main():
             tr:nth-child(even) {{ background-color: #f9f9f9; }}
             .results-container {{ margin-top: 25px; padding: 15px; background-color: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 5px; overflow-wrap: break-word; }}
             .results-container h3 {{ border-bottom: none; }}
+            
+            /* CSS mới để xếp chồng các mục trong biểu đồ FFT/PSD */
+            .flex-container.vertical {{
+                flex-direction: column;
+            }}
+            .flex-container.vertical .info-column,
+            .flex-container.vertical .plot-column {{
+                width: 100%;
+            }}
         </style>
     </head>
     <body>
@@ -809,10 +818,12 @@ def main():
         
         html_parts.append(f'<div class="plot-section"><h2>{plot_title}</h2>')
         
-        html_parts.append('<div class="flex-container">')
+        plot_style = plot_config.get("setpoint_style", "line")
+        container_class = "vertical" if plot_style in ["fft", "psd"] else ""
+        html_parts.append(f'<div class="flex-container {container_class}">')
 
-        if plot_config.get("setpoint_style") not in ["fft", "psd"]:
-            html_parts.append('<div class="info-column">')
+        html_parts.append('<div class="info-column">')
+        if plot_style not in ["fft", "psd"]:
             html_parts.append("<h3>Statistics</h3>")
             html_parts.append("<table><tr><th>Series Name</th><th>Mean</th><th>Max</th><th>Min</th><th>Std Dev</th></tr>")
             for series_name, series_data in plot_data.items():
@@ -824,8 +835,9 @@ def main():
                 std_dev_str = f"{std_dev_val:.2f}" if isinstance(std_dev_val, (int, float)) else "N/A"
                 html_parts.append(f"<tr><td>{series_name}</td><td>{mean_str}</td><td>{max_str}</td><td>{min_str}</td><td>{std_dev_str}</td></tr>")
             html_parts.append("</table>")
-            html_parts.append("<div class='results-container'><h3>Results</h3><p>Doesn't Analyze Yet!</p></div>")
-            html_parts.append('</div>')
+        
+        html_parts.append("<div class='results-container'><h3>Results</h3><p>Doesn't Analyze Yet!</p></div>")
+        html_parts.append('</div>')
 
         html_parts.append('<div class="plot-column">')
         plot_html_div = generate_interactive_plot_html(plot_ylabel, plot_data, plot_config)

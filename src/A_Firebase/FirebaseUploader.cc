@@ -25,9 +25,9 @@ struct ULogMessageHeader {
 };
 #pragma pack(pop)
 
-const QString FIREBASE_PROJECT_ID      = "turtlebot3-waiter";
-const QString FIREBASE_STORAGE_BUCKET  = "turtlebot3-waiter.firebasestorage.app";
-const QString FIREBASE_API_KEY         = "AIzaSyDJiq1NF1cESp82H3vBZO2kv6RnElqTX4c";
+const QString FIREBASE_PROJECT_ID = "turtlebot3-waiter";
+const QString FIREBASE_STORAGE_BUCKET = "turtlebot3-waiter.firebasestorage.app";
+const QString FIREBASE_API_KEY = "AIzaSyDJiq1NF1cESp82H3vBZO2kv6RnElqTX4c";
 
 FirebaseUploader::FirebaseUploader(const QString& logFilePath, const QString& uniqueKey, QObject *parent)
     : QObject(parent)
