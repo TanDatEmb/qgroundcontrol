@@ -796,7 +796,7 @@ def main():
             .results-container {{ margin-top: 25px; padding: 15px; background-color: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 5px; overflow-wrap: break-word; }}
             .results-container h3 {{ border-bottom: none; }}
             
-            /* CSS mới để xếp chồng các mục trong biểu đồ FFT/PSD */
+            /* FFT, PSD */
             .flex-container.vertical {{
                 flex-direction: column;
             }}
