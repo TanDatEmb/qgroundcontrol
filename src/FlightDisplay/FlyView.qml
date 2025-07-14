@@ -175,11 +175,10 @@ Item {
         FlyViewWidgetLayer {
             id:                     widgetLayer
             anchors.top:            parent.top
-            anchors.topMargin:      70   
             anchors.bottom:         parent.bottom
             anchors.left:           parent.left
             anchors.right:          guidedValueSlider.visible ? guidedValueSlider.left : parent.right
-            z:                      _fullItemZorder + 2 // we need to add one extra layer for map 3d viewer (normally was 1)
+            z:                      9999
             parentToolInsets:       _toolInsets
             mapControl:             _mapControl
             visible:                !QGroundControl.videoManager.fullScreen

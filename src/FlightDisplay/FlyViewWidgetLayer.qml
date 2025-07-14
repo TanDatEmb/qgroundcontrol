@@ -87,7 +87,7 @@ Item {
         id:                 topRightColumnLayout
         anchors.margins:    _layoutMargin
         anchors.top:        parent.top
-        anchors.bottom:     bottomRightRowLayout.top
+        anchors.bottom:      bottomRightRowLayout.top
         anchors.right:      parent.right
         spacing:            _layoutSpacing
         visible:           !topRightPanel.visible
@@ -115,11 +115,13 @@ Item {
         rallyPointController:   _rallyPointController
     }
 
+    // chỗ này là nút trượt để xác nhận hành động
+    // giờ nó là nút nhấn giữ :))
     GuidedActionConfirm {
         anchors.margins:            _toolsMargin
         anchors.top:                parent.top
         anchors.horizontalCenter:   parent.horizontalCenter
-        z:                          QGroundControl.zOrderTopMost
+        z:                          99999
         guidedController:           _guidedController
         guidedValueSlider:          _guidedValueSlider
         utmspSliderTrigger:         utmspActTrigger

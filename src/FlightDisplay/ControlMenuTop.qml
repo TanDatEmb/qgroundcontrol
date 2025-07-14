@@ -21,9 +21,9 @@ Rectangle {
     }
 
     // Cấu hình tỷ lệ chung để auto scale
-    property real buttonWidth: 90
+    property real buttonWidth: 80
     property real buttonHeight: 22
-    property int fontSize: 6
+    property int fontSize: 10
 
     Column {
         spacing: 6
@@ -36,11 +36,11 @@ Rectangle {
                 property string tabId: "DEFAULT"
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
-                width: buttonWidth
-                height: buttonHeight
+                width: _root.buttonWidth
+                height: _root.buttonHeight
                 radius: 6
                 bold: true
-                fontSize: fontSize
+                fontSize: _root.fontSize
                 label: qsTr("DEFAULT")
                 isActive: currentTab === tabId
                 onClicked: tabChanged(tabId)
@@ -51,11 +51,11 @@ Rectangle {
                 property string tabId: "FIRE FIGHTING"
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
-                width: buttonWidth + 20
-                height: buttonHeight
+                width: _root.buttonWidth + 20
+                height: _root.buttonHeight
                 radius: 6
                 bold: true
-                fontSize: fontSize
+                fontSize: _root.fontSize
                 label: qsTr("FIRE FIGHTING")
                 isActive: currentTab === tabId
                 onClicked: tabChanged(tabId)
@@ -66,11 +66,11 @@ Rectangle {
                 property string tabId: "BOMBING"
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
-                width: buttonWidth - 10
-                height: buttonHeight
+                width: _root.buttonWidth - 10
+                height: _root.buttonHeight
                 radius: 6
                 bold: true
-                fontSize: fontSize
+                fontSize: _root.fontSize
                 label: qsTr("BOMBING")
                 isActive: currentTab === tabId
                 onClicked: tabChanged(tabId)

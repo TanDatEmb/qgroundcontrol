@@ -45,7 +45,10 @@ ColumnLayout {
     Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
-
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.topMargin: 50
         Loader {
             id: photoVideoControlLoader
             anchors.verticalCenter: parent.verticalCenter

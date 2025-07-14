@@ -77,6 +77,7 @@
     <qresource prefix="/res">
     
         <file alias="menu_while.svg">resources/menu_while.svg</file>
+        <file alias="Siren.png">resources/Siren.png</file>
         <file alias="settings_while.svg">resources/settings_while.svg</file>
         <file alias="Fire.svg">resources/Fire.svg</file>
 

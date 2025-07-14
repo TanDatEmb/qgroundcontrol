@@ -5386,7 +5386,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
         <location filename="../src/QmlControls/EditPositionDialog.qml" line="51"/>
         <location filename="../src/QmlControls/EditPositionDialog.qml" line="52"/>
         <source>Military Grid Reference</source>
-        <translation>Tài liệu tham khảo lưới quân sự</translation>
+        <translation>Tham khảo lưới quân sự</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/EditPositionDialog.qml" line="51"/>
@@ -7770,7 +7770,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="57"/>
         <source>Set Waypoint</source>
-        <translation>Đặt điểm tham chiếu</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="58"/>
@@ -12922,7 +12922,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="598"/>
         <source>Waypoint</source>
-        <translation>Điểm tham chiếu</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="605"/>
@@ -18597,18 +18597,9 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
         <translation>Định vị</translation>
     </message>
     <message>
-        <location filename="../src/DroneList/DroneList.qml" line="578"/>
-        <source>Location Mode</source>
-        <translation>Định vị</translation>
-    </message>
-
-    <message>
         <location filename="../src/DroneList/DroneList.qml" line="618"/>
         <source>Confirm</source>
         <translation>Xác nhận</translation>
     </message>
-
-
-
 </context>
 </TS>
