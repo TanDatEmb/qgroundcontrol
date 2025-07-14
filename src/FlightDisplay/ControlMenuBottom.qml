@@ -86,8 +86,18 @@ Rectangle {
             Row {
                 spacing: 6
 
+                ItemButton {
+                    id: fireBtnBom
+                    width: 108
+                    height: 28
+                    radius: 4
+                    fontSize: 10
+                    label: qsTr("Drop Water Bombs")
+                    onClicked: sendCustomMavCommand(fireBtnBom, 30022)
+                }
+
                 Repeater {
-                    model: 6
+                    model: 3
                     delegate: ItemButton {
                         id: fireBtn
                         width: 32

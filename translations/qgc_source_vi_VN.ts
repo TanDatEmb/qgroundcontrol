@@ -18424,6 +18424,11 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
         <translation>Bắt Đầu Nhiệm Vụ</translation>
     </message>
     <message>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="95"/>
+        <source>Drop Water Bombs</source>
+        <translation>Thả Bom Nước</translation>
+    </message>
+    <message>
         <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="67"/>
         <source>Siren</source>
         <translation>Còi Báo</translation>

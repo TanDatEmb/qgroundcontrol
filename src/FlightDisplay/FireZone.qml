@@ -85,8 +85,8 @@ MapQuickItem {
             Image {
                 anchors.centerIn: parent
                 source: "qrc:/res/Fire.svg"
-                width: 32
-                height: 32
+                width: 28
+                height: 28
                 fillMode: Image.PreserveAspectFit
             }
 
@@ -132,7 +132,7 @@ MapQuickItem {
                     border.color: "#565656"
                     border.width: 1
 
-                    width: parent.width - deleteButton.width - 24
+                    width: parent.width - deleteButton.width - 36
                     height: parent.height
                     anchors.verticalCenter: parent.verticalCenter
 
@@ -173,11 +173,13 @@ MapQuickItem {
                                 Loader {
                                     active: object.imageUrl && object.imageUrl !== ""
                                     visible: active
-                                    height: active ? parent.width : 0
-                                    width: height
+                                    height: width
+                                    width:  active ? parent.width : 0
 
                                     sourceComponent: Rectangle {
-                                        anchors.fill: parent
+                                        id: imageWrapper
+                                        width: parent.width
+                                        height: width
                                         radius: 8
                                         clip: true
 
@@ -188,6 +190,7 @@ MapQuickItem {
                                             smooth: true
                                         }
                                     }
+
                                 }
 
                                 Text {
