@@ -104,7 +104,7 @@ SettingsPage {
                 LabelledComboBox {
                     id:             baudRateCombo
                     label:          qsTr("Baud Rate")
-                    model:          QGroundControl.linkManager.serialBaudRates
+                    model:          QGroundControl.linkManager.rtkManualBaudRates
                     Component.onCompleted: currentIndex = comboBox.find("38400")
 
                     onCurrentTextChanged: selectedBaud = parseInt(currentText)

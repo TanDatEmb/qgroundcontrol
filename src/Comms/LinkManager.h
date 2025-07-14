@@ -45,8 +45,9 @@ class LinkManager : public QObject
     Q_PROPERTY(QmlObjectListModel *linkConfigurations READ _qmlLinkConfigurations CONSTANT)
     Q_PROPERTY(QStringList linkTypeStrings READ linkTypeStrings CONSTANT)
     Q_PROPERTY(bool mavlinkSupportForwardingEnabled READ mavlinkSupportForwardingEnabled NOTIFY mavlinkSupportForwardingEnabledChanged)
+    Q_PROPERTY(QStringList rtkManualBaudRates READ rtkManualBaudRates CONSTANT)
 
-public:
+   public:
     explicit LinkManager(QObject *parent = nullptr);
     ~LinkManager();
 
@@ -178,6 +179,7 @@ public:
     static QStringList serialBaudRates();
     QStringList serialPortStrings();
     QStringList serialPorts();
+    QStringList rtkManualBaudRates();
 
 signals:
     void commPortStringsChanged();
