@@ -55,16 +55,16 @@ Button {
         spacing:                    ScreenTools.defaultFontPixelWidth
         anchors.margins:            ScreenTools.defaultFontPixelWidth
         anchors.verticalCenter:     button.verticalCenter
-//        QGCColoredImage {
-//            id:                     _icon
-//            height:                 ScreenTools.defaultFontPixelHeight * 1.5
-//            width:                  height
-//            sourceSize.height:      parent.height
-//            fillMode:               Image.PreserveAspectFit
-//            color:                  button.checked ? qgcPal.buttonHighlightText : qgcPal.buttonText
-//            source:                 "/qmlimages/PaperPlane.svg"
-//            anchors.verticalCenter: parent.verticalCenter
-//        }
+       QGCColoredImage {
+           id:                     _icon
+           height:                 ScreenTools.defaultFontPixelHeight * 1.5
+           width:                  height
+           sourceSize.height:      parent.height
+           fillMode:               Image.PreserveAspectFit
+           color:                  button.checked ? qgcPal.buttonHighlightText : qgcPal.buttonText
+           source:                 "/qmlimages/PaperPlane.svg"
+           anchors.verticalCenter: parent.verticalCenter
+       }
         Column {
             id:                     _infoCol
             spacing:                ScreenTools.defaultFontPixelHeight * 0.25

@@ -23,7 +23,7 @@ import QGroundControl.ScreenTools
 Rectangle {
     id:             topRightPanel
     width:          contentWidth
-    // height:         Math.max(contentHeight, minimumHeight)
+    height:         Math.max(contentHeight, minimumHeight)
     Component.onCompleted: {
         height = Math.max(contentHeight, minimumHeight)
     }

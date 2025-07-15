@@ -92,7 +92,8 @@ Rectangle {
 
     Rectangle {
         anchors.centerIn: parent
-
+        border.width: 2
+        border.color:"#9d4e4e4e"
         width: ScreenTools.defaultFontPixelWidth * 35
         height: mainLayout.height + (_margins * 2)
         radius: 8
@@ -101,7 +102,7 @@ Rectangle {
         ColumnLayout {
             id: mainLayout
             anchors.centerIn: parent
-            width: parent.width - (_margins * 2)
+            width: parent.width - (_margins * 3)
             spacing: _margins
 
             QGCLabel {
@@ -118,6 +119,16 @@ Rectangle {
                 Layout.alignment: Qt.AlignHCenter
                 text: ""
                 visible: text !== ""
+            }
+
+            QGCLabel {
+                id: messageActionText
+                text: qsTr("Hold or slide to confirm")
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+                font.pointSize: ScreenTools.defaultFontPointSize * 0.8
+                font.bold: false
             }
 
             SliderSwitch {
@@ -149,4 +160,5 @@ Rectangle {
             }
         }
     }
+
 }

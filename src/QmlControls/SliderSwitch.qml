@@ -21,22 +21,23 @@ Rectangle {
         width: bgCircleSize
         height: bgCircleSize
         radius: width / 2
-        color: "white"
+        color: "#229cff"
         anchors.centerIn: parent
         opacity: 0.3
         z: 0
 
         property real bgCircleSize: 50
 
-        NumberAnimation on bgCircleSize {
+        SequentialAnimation on bgCircleSize {
             id: growAnimation
-            from: 50
-            to: 100
-            duration: 1500
-            onFinished: {
-                if (holdCircle.isHolding) {
-                    _root.accept()
-                    shrinkAnimation.start()
+            running: false
+            NumberAnimation { from: 50; to: 100; duration: 1300 }
+            ScriptAction {
+                script: {
+                    if (holdCircle.isHolding) {
+                        _root.accept()
+                        shrinkAnimation.start()
+                    }
                 }
             }
         }
@@ -64,8 +65,8 @@ Rectangle {
             anchors.centerIn: parent
             width: parent.width * 0.5
             height: parent.height * 0.5
-            source: "/qmlimages/check.svg"
-            color: qgcPal.buttonText
+            source: "/res/point.svg"
+            color: "#fff"//qgcPal.buttonText
         }
 
         MouseArea {

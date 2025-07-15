@@ -70,13 +70,14 @@ Item {
         bottomEdgeRightInset:   virtualJoystickMultiTouch.visible ? virtualJoystickMultiTouch.bottomEdgeRightInset : bottomRightRowLayout.bottomEdgeRightInset
     }
 
+// thanh menu bên phải khi nhiều phương tiện
     FlyViewTopRightPanel {
         id:                     topRightPanel
         anchors.top:            parent.top
         anchors.right:          parent.right
-        anchors.topMargin:      _layoutMargin
+        anchors.topMargin:      _layoutMargin + 56
         anchors.rightMargin:    _layoutMargin
-        maximumHeight:          parent.height - (bottomRightRowLayout.height + _margins * 5)
+        maximumHeight:          parent.height + 56 //- (bottomRightRowLayout.height + _margins * 5)
 
         property real topEdgeRightInset:    height + _layoutMargin
         property real rightEdgeTopInset:    width + _layoutMargin
