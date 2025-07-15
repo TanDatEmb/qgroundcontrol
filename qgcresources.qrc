@@ -63,6 +63,7 @@
         <file alias="7.png">resources/lists/6-Fire_fighting_UAV_parameters/7.png</file>
         <file alias="7.png">resources/lists/6-Fire_fighting_UAV_parameters/8.png</file>
     </qresource>
+
     <qresource prefix="/fonts">
         <file alias="Aldrich-Regular">resources/fonts/Aldrich-Regular.ttf</file>
         <file alias="opensans">resources/fonts/OpenSans-Regular.ttf</file>
@@ -76,7 +77,9 @@
     <qresource prefix="/res">
     
         <file alias="menu_while.svg">resources/menu_while.svg</file>
+        <file alias="Siren.png">resources/Siren.png</file>
         <file alias="settings_while.svg">resources/settings_while.svg</file>
+        <file alias="Fire.svg">resources/Fire.svg</file>
 
         <file alias="Map_White.svg">resources/Map_White.svg</file>
         <file alias="Map_Black.svg">resources/Map_Black.svg</file>
@@ -201,9 +204,9 @@
         <file alias="gcscontrol_gcs.svg">resources/gcscontrolIndicator/gcscontrol_gcs.svg</file>
         <file alias="gcscontrol_line.svg">resources/gcscontrolIndicator/gcscontrol_line.svg</file>
     </qresource>
-    <qresource prefix="/res/model3d">
+    <!-- <qresource prefix="/res/model3d">
         <file alias="scene.gltf">resources/model3d/scene.gltf</file>
-    </qresource>
+    </qresource> -->
     <qresource prefix="/icons">
         <file alias="rocket_while.svg">resources/rocket_while.svg</file>
         <!-- <file alias="rocket_black.svg">resources/rocket_black.svg</file> -->

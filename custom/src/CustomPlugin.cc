@@ -302,22 +302,24 @@ void CustomPlugin::paletteOverride(const QString &colorName, QGCPalette::Palette
         colorInfo[QGCPalette::Light][QGCPalette::ColorGroupDisabled] = QColor("#1a72ff");
     }
     else if (colorName == QStringLiteral("alertBackground")) {
-        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupEnabled]   = QColor("#d4b106");
-        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupDisabled]  = QColor("#d4b106");
-        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupEnabled]  = QColor("#fffb8f");
-        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupDisabled] = QColor("#b45d48");
+        // Xanh đen - đậm cho nền
+        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupEnabled]   = QColor("#222222");  // Xanh đen đậm
+        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupDisabled]  = QColor("#222222");
+        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupEnabled]  = QColor("#ffffff");  // Xanh đen nhạt hơn
+        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupDisabled] = QColor("#ffffff");
     }
     else if (colorName == QStringLiteral("alertBorder")) {
-        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupEnabled]   = QColor("#876800");
-        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupDisabled]  = QColor("#876800");
-        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupEnabled]  = QColor("#808080");
-        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupDisabled] = QColor("#808080");
+        // Xanh cyan/xanh dương nhạt để tạo đường viền nhẹ nhàng nhưng vẫn nổi bật
+        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupEnabled]   = QColor("#801e76db");  // Xanh dương hiện đại
+        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupDisabled]  = QColor("#801e76db");
+        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupEnabled]  = QColor("#801e76db");  // Nhạt hơn một chút cho light mode
+        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupDisabled] = QColor("#801e76db");
     }
     else if (colorName == QStringLiteral("alertText")) {
-        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupEnabled]   = QColor("#000000");
+        colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupEnabled]   = QColor("#fff9ed");
         colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupDisabled]  = QColor("#fff9ed");
         colorInfo[QGCPalette::Light][QGCPalette::ColorGroupEnabled]  = QColor("#001121");
-        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupDisabled] = QColor("#fff9ed");
+        colorInfo[QGCPalette::Light][QGCPalette::ColorGroupDisabled] = QColor("#001121");
     }
     else if (colorName == QStringLiteral("missionItemEditor")) {
         colorInfo[QGCPalette::Dark][QGCPalette::ColorGroupEnabled]   = QColor("#001121");

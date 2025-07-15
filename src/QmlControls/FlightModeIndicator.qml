@@ -42,13 +42,14 @@ RowLayout {
             height:     ScreenTools.defaultFontPixelHeight
             fillMode:   Image.PreserveAspectFit
             mipmap:     true
-            color:      qgcPal.text
+            color:      "#fff"//qgcPal.text
             source:     "/qmlimages/FlightModesComponentIcon.png"
         }
 
         QGCLabel {
             text:               activeVehicle ? activeVehicle.flightMode : qsTr("N/A", "No data to display")
             font.pointSize:     fontPointSize
+            color: "#fff"//qgcPal.text
             Layout.alignment:   Qt.AlignCenter
 
             MouseArea {

@@ -2,9 +2,11 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import Qt5Compat.GraphicalEffects
-
-
+import QGroundControl
+import QGroundControl.Controls
+import QGroundControl.Controllers
 import QGroundControl.Palette
+
 
 
 Rectangle {
@@ -12,7 +14,6 @@ Rectangle {
     color: qgcPal.window
     // color: detailPageLoader.active ? "transparent" : qgcPal.window
 
-    
     property var droneTypes: ["Quadcopter Type", "Hexacopter Type", "Lightshow", "Firefighting"]
     property var droneMap: {
         "Quadcopter Type": [
@@ -252,7 +253,8 @@ Rectangle {
         ],
     }
 
-
+    property int fontSize: 14
+    
     property string selectedType: droneTypes[0]
     property bool isMobile: Screen.width <= 600
 
@@ -261,28 +263,19 @@ Rectangle {
 
     property bool showImageGallery: false
 
+
     function onDroneItemClicked(drone) {
         selectedDrone = drone
         // detailPageLoader.active = true
         showDetailOverlay = true
     }
 
-    // Loader {
-    //     id: detailPageLoader
-    //     active: false
-    //     source: "qrc:/qml/QGroundControl/DroneList/DroneDetail.qml"
-    //     anchors.fill: parent
-    //     onLoaded: {
-    //         item.uavData = selectedDrone
-    //         item.onBack = () => detailPageLoader.active = false
-    //     }
-    // }
-
-
-
     Item {
+        id: droneListWrapper
         anchors.fill: parent
-        visible: !detailPageLoader.active
+        visible: true
+
+        // visible: !detailPageLoader.active
 
         // Row với 3 phần
         Row {
@@ -292,7 +285,7 @@ Rectangle {
 
             // Cột 1 - Danh sách loại drone (1 phần)
             Item {
-                width: parent.width * 0.1 // Tỉ lệ 1
+                width: parent.width * 0.15 // Tỉ lệ 1
                 height: parent.height
 
                 ListView {
@@ -328,7 +321,8 @@ Rectangle {
                             Text {
                                 anchors.centerIn: parent
                                 text: modelData
-                                color: qgcPal.text
+                                color: qgcPal.globalTheme === QGCPalette.Light ? selectedType === modelData ? "#fff" : qgcPal.text : qgcPal.text
+                                font.pixelSize: fontSize * 1.2
                                 font.bold: true
                             }
                         }
@@ -338,12 +332,12 @@ Rectangle {
 
             // Cột 2 - Danh sách drone theo loại (3 phần)
             Item {
-                width: parent.width * 0.9 // Tỉ lệ 3
+                width: parent.width * 0.85 // Tỉ lệ 3
                 height: parent.height
 
                 GridView {
                     anchors.fill: parent
-                    cellWidth: isMobile ? (width / 3) : (width / 6)
+                    cellWidth: isMobile ? (width / 3.2) : (width / 5)
                     cellHeight: cellWidth + 60
                     model: droneMap[selectedType]
 
@@ -387,7 +381,7 @@ Rectangle {
                                     horizontalAlignment: Text.AlignHCenter
                                     wrapMode: Text.WordWrap
                                     text: modelData.name
-                                    font.pointSize: isMobile ? 12 : 16
+                                    font.pixelSize: fontSize * 1.2
                                     color: qgcPal.text
                                 }
                             }
@@ -437,10 +431,10 @@ Rectangle {
             }
             Rectangle {
                 id: detailPanel
-                width: parent.width * 0.4
+                width: parent.width * 0.5
                 height: parent.height
                 color: qgcPal.window
-                border.color: "#3b3b3b"
+                border.color:  "#3b3b3b"
                 border.width: 1
                 radius: 8
                 z: 2
@@ -472,7 +466,7 @@ Rectangle {
                             Row {
                                 spacing: 12
                                 Rectangle {
-                                    width: detailPanel.width * 0.35
+                                    width: detailPanel.width * 0.4
                                     height: width
                                     color: qgcPal.window
                                     radius: 6
@@ -489,51 +483,32 @@ Rectangle {
 
                                     Text {
                                         text: selectedDrone ? selectedDrone.name : ""
-                                        font.pixelSize: 18
+                                        font.pixelSize: fontSize * 2
                                         font.bold: true
                                         color: qgcPal.text
                                         wrapMode: Text.WordWrap
                                     }
 
                                     Text {
-                                        text: selectedDrone ? "Mã: " + selectedDrone.code : ""
-                                        font.pixelSize: 16
+                                        text: selectedDrone ? qsTr("Code: ") + selectedDrone.code : ""
+                                        font.pixelSize: fontSize * 1.2
                                         color: qgcPal.text
                                         wrapMode: Text.WordWrap
                                     }
-                                }
-                            }
-                            Column {
-                                spacing: 4
-
-                                Text {
-                                    text: "Mô tả:"
-                                    font.bold: true
-                                    color: qgcPal.text
-                                    font.pixelSize: 16
-                                }
-
-                                Text {
-                                    text: selectedDrone ? selectedDrone.description : "Không có mô tả"
-                                    wrapMode: Text.WordWrap
-                                    font.pixelSize: 15
-                                    color: qgcPal.text
-
-                                }
-                                Item {
-                                        width: 66
-                                        height: 24
+                                    Item {
+                                        width: 160
+                                        height: 30
 
                                         Rectangle {
                                             anchors.fill: parent
                                             radius: 4
-                                            color: mouseArea1.pressed ? "#444" : (mouseArea1.containsMouse ? "#333" : "#222")
+                                            color: mouseArea1.pressed ? "#444" : (mouseArea1.containsMouse ? "#333" : "#111")
                                             border.color: "#666"
                                             border.width: 1
 
                                             Text {
                                                 anchors.centerIn: parent
-                                                text: "Xem thêm ảnh"
+                                                text: qsTr("See more photos")
                                                 color: "white"
                                                 font.pixelSize: fontSize
                                             }
@@ -551,37 +526,56 @@ Rectangle {
                                             }
                                         }
                                     }
+                                }
+                            }
+                            Column {
+                                spacing: 4
+
+                                Text {
+                                    text: qsTr("Describe:")
+                                    font.bold: true
+                                    color: qgcPal.text
+                                    font.pixelSize: fontSize * 1.2
+                                }
+
+                                Text {
+                                    text: selectedDrone.description ? selectedDrone.description : qsTr("No description available")
+                                    wrapMode: Text.WordWrap
+                                    font.pixelSize: fontSize
+                                    color: qgcPal.text
+
+                                }
                             }
                         }
 
                         Repeater {
                             model: selectedDrone ? [
-                                { label: "Cấu trúc", value: selectedDrone.structure_type },
-                                { label: "Chất liệu", value: selectedDrone.material },
-                                { label: "Kích thước", value: selectedDrone.size },
-                                { label: "Số trục", value: selectedDrone.number_of_axes },
-                                { label: "Chiều dài trục", value: selectedDrone.wheelbase },
-                                { label: "Trọng lượng", value: selectedDrone.weight },
-                                { label: "Tải trọng", value: selectedDrone.loading },
-                                { label: "Tốc độ bay", value: selectedDrone.flightspeed },
-                                { label: "Chiều cao tối đa", value: selectedDrone.Height },
-                                { label: "Tầm điều khiển", value: selectedDrone.max_remote_control },
-                                { label: "Chế độ nguồn", value: selectedDrone.power_mode },
-                                { label: "Nhiệt độ hoạt động", value: selectedDrone.operating_temp },
-                                { label: "Góc nghiêng tối đa", value: selectedDrone.max_tilt_angle },
-                                { label: "Tốc độ lên", value: selectedDrone.max_rising_speed },
-                                { label: "Tốc độ xuống", value: selectedDrone.max_down_speed },
-                                { label: "Chống gió", value: selectedDrone.max_resist_wind_speed },
-                                { label: "Thời gian bay", value: selectedDrone.overing_time },
-                                { label: "Pin", value: selectedDrone.battery },
-                                { label: "Cánh quạt", value: selectedDrone.propeller },
-                                { label: "Camera", value: selectedDrone.camera },
-                                { label: "Màu LED", value: selectedDrone.LED_color },
-                                { label: "Công suất LED", value: selectedDrone.LED_power },
-                                { label: "Loại tải", value: selectedDrone.load_type },
-                                { label: "Giao tiếp", value: selectedDrone.communication_mode },
-                                { label: "Chế độ hoạt động", value: selectedDrone.working_mode },
-                                { label: "Định vị", value: selectedDrone.location_mode }
+                                { label: qsTr("Structure"), value: selectedDrone.structure_type },
+                                { label: qsTr("Material"), value: selectedDrone.material },
+                                { label: qsTr("Size"), value: selectedDrone.size },
+                                { label: qsTr("Number of Axes"), value: selectedDrone.number_of_axes },
+                                { label: qsTr("Wheelbase"), value: selectedDrone.wheelbase },
+                                { label: qsTr("Weight"), value: selectedDrone.weight },
+                                { label: qsTr("Payload"), value: selectedDrone.loading },
+                                { label: qsTr("Flight Speed"), value: selectedDrone.flightspeed },
+                                { label: qsTr("Max Altitude"), value: selectedDrone.Height },
+                                { label: qsTr("Control Range"), value: selectedDrone.max_remote_control },
+                                { label: qsTr("Power Mode"), value: selectedDrone.power_mode },
+                                { label: qsTr("Operating Temperature"), value: selectedDrone.operating_temp },
+                                { label: qsTr("Max Tilt Angle"), value: selectedDrone.max_tilt_angle },
+                                { label: qsTr("Ascending Speed"), value: selectedDrone.max_rising_speed },
+                                { label: qsTr("Descending Speed"), value: selectedDrone.max_down_speed },
+                                { label: qsTr("Wind Resistance"), value: selectedDrone.max_resist_wind_speed },
+                                { label: qsTr("Flight Time"), value: selectedDrone.overing_time },
+                                { label: qsTr("Battery"), value: selectedDrone.battery },
+                                { label: qsTr("Propeller"), value: selectedDrone.propeller },
+                                { label: qsTr("Camera"), value: selectedDrone.camera },
+                                { label: qsTr("LED Color"), value: selectedDrone.LED_color },
+                                { label: qsTr("LED Power"), value: selectedDrone.LED_power },
+                                { label: qsTr("Load Type"), value: selectedDrone.load_type },
+                                { label: qsTr("Communication Mode"), value: selectedDrone.communication_mode },
+                                { label: qsTr("Working Mode"), value: selectedDrone.working_mode },
+                                { label: qsTr("Location Mode"), value: selectedDrone.location_mode }
                             ].filter(entry => entry.value !== undefined) : []
 
                             delegate: Row {
@@ -589,13 +583,15 @@ Rectangle {
                                 Text {
                                     text: modelData.label + ":"
                                     font.bold: true
-                                    width: 180
+                                    font.pixelSize: fontSize
+                                    width: 80
                                     wrapMode: Text.WordWrap
                                     color: qgcPal.text
                                 }
                                 Text {
                                     text: modelData.value
-                                    width: detailPanel.width - 260
+                                    width: detailPanel.width - 170
+                                    font.pixelSize: fontSize
                                     wrapMode: Text.WordWrap
                                     color: qgcPal.text
                                 }
@@ -608,49 +604,20 @@ Rectangle {
                     Layout.alignment: Qt.AlignRight
                     spacing: 8
 
-                    // Item {
-                    //     width: 140
-                    //     height: 40
-
-                    //     Rectangle {
-                    //         anchors.fill: parent
-                    //         radius: 12
-                    //         color:mouseArea2.pressed ? "#0061a2" : "#0070ba"
-
-                    //         Text {
-                    //             anchors.centerIn: parent
-                    //             text: "Thông tin liên hệ"
-                    //             color: "white"
-                    //             font.pixelSize: 14
-                    //         }
-
-                    //         MouseArea {
-                    //             id: mouseArea1
-                    //             anchors.fill: parent
-                    //             onClicked: {
-                    //                 if (selectedDrone && selectedDrone.link)
-                    //                     Qt.openUrlExternally(selectedDrone.link)
-                    //             }
-                    //             hoverEnabled: true
-                    //             cursorShape: Qt.PointingHandCursor
-                    //         }
-                    //     }
-                    // }
-
                     Item {
-                        width: 100
-                        height: 40
+                        width: 80
+                        height: 30
 
                         Rectangle {
                             anchors.fill: parent
-                            radius: 12
-                            color: mouseArea2.pressed ? "#0061a2" : "#0070ba"
+                            radius: 4
+                            color: qgcPal.globalTheme === QGCPalette.Light ?  mouseArea2.pressed ? "#333" : "#222" : mouseArea2.pressed ? "#0061a2" : "#0070ba"
 
                             Text {
                                 anchors.centerIn: parent
-                                text: "Xác nhận"
+                                text: qsTr("Confirm")
                                 color: "white"
-                                font.pixelSize: 14
+                                font.pixelSize: fontSize
                             }
 
                             MouseArea {
@@ -674,10 +641,10 @@ Rectangle {
 
         }
 
-        Rectangle {
+       Rectangle {
             id: imageGalleryOverlay
             anchors.fill: parent
-            color: "#80000000" // nền trong suốt nhẹ
+            color:  "#80000000" 
             visible: showImageGallery
             z: 99
 
@@ -694,10 +661,10 @@ Rectangle {
                 // Nút đóng
                 Rectangle {
                     id: closeButton
-                    width: 26
-                    height: 26
-                    radius: 18
-                    color: "#3d3d3d"
+                    width: 40
+                    height: 40
+                    radius: 14
+                    color: qgcPal.globalTheme === QGCPalette.Light ? "#d3d3d3" : "#3d3d3d"
                     anchors.top: parent.top
                     anchors.right: parent.right
                     anchors.margins: 12
@@ -727,23 +694,23 @@ Rectangle {
                     ListView {
                         id: galleryListView
                         orientation: ListView.Horizontal
-                        height: 320
+                        height: Screen.height * 0.6
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        anchors.topMargin: 42   // Hạ xuống từ trên 80px
+                        anchors.topMargin: Screen.height * 0.125  // Hạ xuống từ trên 80px
                         spacing: 24
                         clip: false  // Cho phép phóng to vượt ra ngoài
                         model: selectedDrone && selectedDrone.gallery ? selectedDrone.gallery : []
                         snapMode: ListView.SnapToItem
-                        preferredHighlightBegin: (width - 400) / 2
-                        preferredHighlightEnd: (width - 400) / 2
+                        preferredHighlightBegin: (width - (Screen.width * 0.6)) / 2
+                        preferredHighlightEnd: (width - (Screen.width * 0.6)) / 2
                         highlightRangeMode: ListView.StrictlyEnforceRange
                         interactive: true
 
                         delegate: Item {
-                            width: 400
-                            height: 240
+                            width: (Screen.width * 0.6)
+                            height: 540
                             property real centerPos: galleryListView.contentX + galleryListView.width / 2
                             property real itemCenter: x + width / 2
                             property real dist: Math.abs(itemCenter - centerPos)
@@ -765,8 +732,8 @@ Rectangle {
                             Rectangle {
                                 anchors.fill: parent
                                 radius: 12
-                                border.color: "#555"
-                                color: "#333"
+                                border.color: qgcPal.globalTheme === QGCPalette.Light ? "#ccc" : "#555"
+                                color: qgcPal.globalTheme === QGCPalette.Light ? "#ddd": "#333"
 
                                 Image {
                                     anchors.fill: parent
@@ -782,7 +749,6 @@ Rectangle {
 
             }
         }
-
     }
 
 }

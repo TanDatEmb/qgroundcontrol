@@ -436,7 +436,7 @@ FontLoader {
                             Layout.fillWidth:   true
                             text:               qsTr("Application Settings")
                             imageResource:      "/res/settings_while.svg"
-                            imageColor:         "transparent"
+                            // imageColor:         "transparent"
                             visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
                             onClicked: {
                                 if (mainWindow.allowViewSwitch()) {
@@ -452,7 +452,7 @@ FontLoader {
                             Layout.fillWidth:   true
                             text:               qsTr("Drone List")
                             imageResource:      "/res/menu_while.svg"
-                            imageColor:         "transparent"
+                            // imageColor:         "transparent"
                             visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
                             onClicked: {
                                 if (mainWindow.allowViewSwitch()) {
@@ -572,9 +572,18 @@ FontLoader {
         }
     }
 
+    // Button {
+    //     id:                 testCriticalMessageButton
+    //     anchors.bottom:       parent.bottom
+
+    //     text: "Test Critical Message"
+    //     onClicked: showCriticalVehicleMessage("Đây là lỗi test của hệ thống UAV")
+    // }
+
+
     Popup {
         id:                 criticalVehicleMessagePopup
-        y:                  ScreenTools.toolbarHeight + ScreenTools.defaultFontPixelHeight
+        y:                  ScreenTools.toolbarHeight + ScreenTools.defaultFontPixelHeight + 24
         x:                  Math.round((mainWindow.width - width) * 0.5)
         width:              mainWindow.width  * 0.55
         height:             criticalVehicleMessageText.contentHeight + ScreenTools.defaultFontPixelHeight * 2
@@ -592,7 +601,8 @@ FontLoader {
             border.width:   2
 
             Rectangle {
-                anchors.horizontalCenter:   parent.horizontalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: ScreenTools.defaultFontPixelHeight
                 anchors.top:                parent.top
                 anchors.topMargin:          -(height / 2)
                 color:                      qgcPal.alertBackground
@@ -602,7 +612,7 @@ FontLoader {
                 width:                      vehicleWarningLabel.contentWidth + _margins
                 height:                     vehicleWarningLabel.contentHeight + _margins
 
-                property real _margins: ScreenTools.defaultFontPixelHeight * 0.25
+                property real _margins: ScreenTools.defaultFontPixelHeight * 0.75
 
                 QGCLabel {
                     id:                 vehicleWarningLabel
@@ -611,6 +621,23 @@ FontLoader {
                     font.pointSize:     ScreenTools.smallFontPointSize
                     color:              qgcPal.alertText
                 }
+            }
+
+            Item {
+                anchors.right: parent.right
+                anchors.rightMargin: ScreenTools.defaultFontPixelHeight
+                anchors.top:                parent.top
+                anchors.topMargin:          -(height - 2)
+                width:                      ScreenTools.defaultFontPixelHeight * 1.05
+                height:                     width
+
+                Image {
+                    id: warningIcon
+                    anchors.fill: parent
+                    source: "qrc:/res/Siren.png"
+                    fillMode: Image.PreserveAspectFit
+                }
+
             }
 
             Rectangle {

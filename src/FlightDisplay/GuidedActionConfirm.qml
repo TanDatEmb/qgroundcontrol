@@ -18,151 +18,136 @@ import QGroundControl.Palette
 import QGroundControl.UTMSP
 
 Rectangle {
-    id:         _root
-   anchors.top: parent.top
-    anchors.topMargin: 50
+    id: _root
+    width: screen.width
+    height: screen.height
+    color: "#9d222222"
+    visible: _utmspEnabled === true ? utmspSliderTrigger : false
+    z:9999
 
-    width:      ScreenTools.defaultFontPixelWidth * 35
-    height:     mainLayout.height + (_margins * 2)
-    radius:     8
-    color:      qgcPal.window
-    visible:    _utmspEnabled === true ? utmspSliderTrigger: false
-
-    property var    guidedController
-    property var    guidedValueSlider
+    property var guidedController
+    property var guidedValueSlider
     property string title                                       // Currently unused
-    property alias  message:            messageText.text
-    property int    action
-    property var    actionData
-    property bool   hideTrigger:        false
-    property var    mapIndicator
-    property alias  optionText:         optionCheckBox.text
-    property alias  optionChecked:      optionCheckBox.checked
+    property alias message: messageText.text
+    property int action
+    property var actionData
+    property bool hideTrigger: false
+    property var mapIndicator
+    property alias optionText: optionCheckBox.text
+    property alias optionChecked: optionCheckBox.checked
 
-    property real _margins:         ScreenTools.defaultFontPixelWidth / 2
+    property real _margins: ScreenTools.defaultFontPixelWidth * 1.75
     property bool _emergencyAction: action === guidedController.actionEmergencyStop
 
     // Properties of UTM adapter
-    property bool   utmspSliderTrigger
-    property bool   _utmspEnabled:                       QGroundControl.utmspSupported
+    property bool utmspSliderTrigger
+    property bool _utmspEnabled: QGroundControl.utmspSupported
 
     Component.onCompleted: guidedController.confirmDialog = this
 
     onVisibleChanged: {
         if (visible) {
-            slider.focus = true
+            slider.focus = true;
         }
     }
 
     onHideTriggerChanged: {
         if (hideTrigger) {
-            confirmCancelled()
+            confirmCancelled();
         }
     }
 
     function show(immediate) {
         if (immediate) {
-            visible = true
+            visible = true;
         } else {
             // We delay showing the confirmation for a small amount in order for any other state
             // changes to propogate through the system. This way only the final state shows up.
-            visibleTimer.restart()
+            visibleTimer.restart();
         }
     }
 
     function confirmCancelled() {
-        guidedValueSlider.visible = false
-        visible = false
-        hideTrigger = false
-        visibleTimer.stop()
+        guidedValueSlider.visible = false;
+        visible = false;
+        hideTrigger = false;
+        visibleTimer.stop();
         if (mapIndicator) {
-            mapIndicator.actionCancelled()
-            mapIndicator = undefined
+            mapIndicator.actionCancelled();
+            mapIndicator = undefined;
         }
     }
-        
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: confirmCancelled()
+    }
+
     Timer {
-        id:             visibleTimer
-        interval:       1000
-        repeat:         false
-        onTriggered:    visible = true
+        id: visibleTimer
+        interval: 1000
+        repeat: false
+        onTriggered: visible = true
     }
 
-    QGCPalette { id: qgcPal }
+    Rectangle {
+        anchors.centerIn: parent
+        border.width: 2
+        border.color:"#9d4e4e4e"
+        width: ScreenTools.defaultFontPixelWidth * 75
+        height: mainLayout.height + (_margins * 2)
+        radius: 8
+        color: qgcPal.window
 
-    ColumnLayout {
-        id:                 mainLayout
-        anchors.centerIn:   parent
-        width:              parent.width - (_margins * 2)
-        spacing:            _margins
+        ColumnLayout {
+            id: mainLayout
+            anchors.centerIn: parent
+            width: parent.width - (_margins * 2)
+            spacing: _margins
 
-        QGCLabel {
-            id:                     messageText
-            Layout.fillWidth:       true
-            horizontalAlignment:    Text.AlignHCenter
-            wrapMode:               Text.WordWrap
-            font.pointSize:         ScreenTools.defaultFontPointSize
-            font.bold:              true
-        }
-
-        QGCCheckBox {
-            id:                 optionCheckBox
-            Layout.alignment:   Qt.AlignHCenter
-            text:               ""
-            visible:            text !== ""
-        }
-
-        RowLayout {
-            Layout.fillWidth:   true
-            spacing:            ScreenTools.defaultFontPixelWidth
-
-            SliderSwitch {
-                id:                 slider
-                confirmText:        ScreenTools.isMobile ? qsTr("Slide to confirm") : qsTr("Slide or hold spacebar")
-                Layout.fillWidth:   true
-                enabled: _utmspEnabled === true? utmspSliderTrigger : true
-                opacity: if(_utmspEnabled){utmspSliderTrigger === true ? 1 : 0.5} else{1}
-
-                onAccept: {
-                    _root.visible = false
-                    var sliderOutputValue = 0
-                    if (guidedValueSlider.visible) {
-                        sliderOutputValue = guidedValueSlider.getOutputValue()
-                        guidedValueSlider.visible = false
-                    }
-                    hideTrigger = false
-                    guidedController.executeAction(_root.action, _root.actionData, sliderOutputValue, _root.optionChecked)
-                    if (mapIndicator) {
-                        mapIndicator.actionConfirmed()
-                        mapIndicator = undefined
-                    }
-
-                    UTMSPStateStorage.indicatorOnMissionStatus = true
-                    UTMSPStateStorage.currentNotificationIndex = 7
-                    UTMSPStateStorage.currentStateIndex = 3
-                }
+            QGCLabel {
+                id: messageText
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+                font.pointSize: ScreenTools.defaultFontPointSize
+                font.bold: true
             }
 
-            Rectangle {
-                height: slider.height * 0.75
-                width:  height
-                radius: height / 2
-                color:  qgcPal.primaryButton
+            QGCCheckBox {
+                id: optionCheckBox
+                Layout.alignment: Qt.AlignHCenter
+                text: ""
+                visible: text !== ""
+            }
 
-                QGCColoredImage {
-                    anchors.margins:    parent.height / 4
-                    anchors.fill:       parent
-                    source:             "/res/XDelete.svg"
-                    fillMode:           Image.PreserveAspectFit
-                    color:              qgcPal.text
-                }
+            SliderSwitch {
+                id: slider
+                // confirmText:        ScreenTools.isMobile ? qsTr("Slide to confirm") : qsTr("Slide or hold spacebar")
+                // Layout.fillWidth:   true
+                // enabled: _utmspEnabled === true? utmspSliderTrigger : true
+                // opacity: if(_utmspEnabled){utmspSliderTrigger === true ? 1 : 0.5} else{1}
+                Layout.alignment: Qt.AlignHCenter
 
-                QGCMouseArea {
-                    fillItem:   parent
-                    onClicked:  confirmCancelled()
+                onAccept: {
+                    _root.visible = false;
+                    var sliderOutputValue = 0;
+                    if (guidedValueSlider.visible) {
+                        sliderOutputValue = guidedValueSlider.getOutputValue();
+                        guidedValueSlider.visible = false;
+                    }
+                    hideTrigger = false;
+                    guidedController.executeAction(_root.action, _root.actionData, sliderOutputValue, _root.optionChecked);
+                    if (mapIndicator) {
+                        mapIndicator.actionConfirmed();
+                        mapIndicator = undefined;
+                    }
+
+                    UTMSPStateStorage.indicatorOnMissionStatus = true;
+                    UTMSPStateStorage.currentNotificationIndex = 7;
+                    UTMSPStateStorage.currentStateIndex = 3;
                 }
             }
         }
     }
 }
-

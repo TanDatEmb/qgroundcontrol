@@ -212,17 +212,17 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraComponent.qml" line="477"/>
         <source>Tilt</source>
-        <translation>Nghiêng</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraComponent.qml" line="495"/>
         <source>Roll</source>
-        <translation>Cuộn</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraComponent.qml" line="513"/>
         <source>Pan</source>
-        <translation>Chảo</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraComponent.h" line="24"/>
@@ -245,17 +245,17 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraComponentSummary.qml" line="32"/>
         <source>Tilt input channel</source>
-        <translation>Kênh đầu vào nghiêng</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraComponentSummary.qml" line="37"/>
         <source>Pan input channel</source>
-        <translation>Kênh đầu vào chảo</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraComponentSummary.qml" line="42"/>
         <source>Roll input channel</source>
-        <translation>Cuộn kênh đầu vào</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -400,17 +400,17 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraSubComponent.qml" line="521"/>
         <source>Tilt</source>
-        <translation>Nghiêng</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraSubComponent.qml" line="541"/>
         <source>Roll</source>
-        <translation>Cuộn</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMCameraSubComponent.qml" line="561"/>
         <source>Pan</source>
-        <translation>Chảo</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -779,17 +779,17 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFlightModesComponentController.h" line="72"/>
         <source>Simple</source>
-        <translation>\</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFlightModesComponentController.h" line="72"/>
         <source>Super-Simple</source>
-        <translation>\</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFlightModesComponentController.h" line="72"/>
         <source>Custom</source>
-        <translation>\</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -835,12 +835,12 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="212"/>
         <source>Waiting for Vehicle to update</source>
-        <translation>Chờ xe cập nhật</translation>
+        <translation>Chờ cập nhật phương tiện</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="224"/>
         <source>The vehicle parameters required for follow me are currently set in a way which is not supported. Using follow with this setup may lead to unpredictable/hazardous results.</source>
-        <translation>Các thông số xe cần thiết cho theo dõi tôi hiện đang được đặt theo cách không được hỗ trợ.Sử dụng theo dõi với thiết lập này có thể dẫn đến kết quả không thể đoán trước/nguy hiểm.</translation>
+        <translation>Các thông số phương tiện cần thiết cho theo dõi tôi hiện đang được đặt theo cách không được hỗ trợ.Sử dụng theo dõi với thiết lập này có thể dẫn đến kết quả không thể đoán trước/nguy hiểm.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="230"/>
@@ -850,7 +850,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="248"/>
         <source>Vehicle Position</source>
-        <translation>Vị trí xe</translation>
+        <translation>Vị trí phương tiện</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="252"/>
@@ -865,12 +865,12 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="265"/>
         <source>Point Vehicle</source>
-        <translation>Xe điểm</translation>
+        <translation>Điểm phương tiện</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="275"/>
         <source>Maintain current vehicle orientation</source>
-        <translation>Duy trì định hướng xe hiện tại</translation>
+        <translation>Duy trì hướng hiện tại của phương tiện</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="275"/>
@@ -885,7 +885,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="288"/>
         <source>Vehicle Offsets</source>
-        <translation>Xe bù đắp</translation>
+        <translation>Phương tiện Offset</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponent.qml" line="291"/>
@@ -923,7 +923,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponentSummary.qml" line="29"/>
         <source>Follow Enabled</source>
-        <translation>Thực hiện theo Bật</translation>
+        <translation>Theo dõi bật</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponentSummary.qml" line="30"/>
@@ -938,22 +938,22 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponentSummary.qml" line="32"/>
         <source>Offset X</source>
-        <translation>Bù x</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponentSummary.qml" line="33"/>
         <source>Offset Y</source>
-        <translation>Offset y</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponentSummary.qml" line="34"/>
         <source>Offset Z</source>
-        <translation>Bù z</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponentSummary.qml" line="35"/>
         <source>Offset Type</source>
-        <translation>Loại bù</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponentSummary.qml" line="36"/>
@@ -963,7 +963,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMFollowComponentSummary.qml" line="37"/>
         <source>Yaw Behavior</source>
-        <translation>Hành vi ngáp</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -996,7 +996,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="92"/>
         <source>Trim</source>
-        <translation>Cắt</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="93"/>
@@ -1056,17 +1056,17 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="388"/>
         <source>Governor Settings</source>
-        <translation>Cài đặt thống đốc</translation>
+        <translation>Cài đặt điều tốc</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="414"/>
         <source>Miscellaneous Settings</source>
-        <translation>Cài đặt linh tinh</translation>
+        <translation>Cài đặt khác</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="419"/>
         <source>* Stabilize Collective Curve *</source>
-        <translation>* Ổn định đường cong tập thể *</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="420"/>
@@ -1076,7 +1076,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.qml" line="434"/>
         <source>* Tail &amp; Gyros *</source>
-        <translation>* Tail &amp; Gyros *</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMHeliComponent.h" line="24"/>
@@ -1119,7 +1119,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMLightsComponent.qml" line="228"/>
         <source>Brightness Steps:</source>
-        <translation>Các bước sáng:</translation>
+        <translation>Các mức độ sáng:</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMLightsComponent.h" line="24"/>
@@ -1210,7 +1210,7 @@
     <message>
         <location filename="../src/UI/toolbar/APMMainStatusIndicatorContentItem.qml" line="32"/>
         <source>Vehicle Action</source>
-        <translation>Hành động xe</translation>
+        <translation>Hành động phương tiện</translation>
     </message>
     <message>
         <location filename="../src/UI/toolbar/APMMainStatusIndicatorContentItem.qml" line="40"/>
@@ -1668,7 +1668,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponentSummary.qml" line="23"/>
         <source>Roll</source>
-        <translation>Roll (trục lăn)</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponentSummary.qml" line="24"/>
@@ -1676,7 +1676,7 @@
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponentSummary.qml" line="34"/>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponentSummary.qml" line="39"/>
         <source>Setup required</source>
-        <translation>Cần thiết lập thiết lập</translation>
+        <translation>Chưa cấu hình</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponentSummary.qml" line="24"/>
@@ -1689,17 +1689,17 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponentSummary.qml" line="28"/>
         <source>Pitch</source>
-        <translation>Sân bóng đá</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponentSummary.qml" line="33"/>
         <source>Yaw</source>
-        <translation>Ngáp</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponentSummary.qml" line="38"/>
         <source>Throttle</source>
-        <translation>Ga</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1707,7 +1707,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRemoteSupportComponent.qml" line="46"/>
         <source>Host name:</source>
-        <translation>Tên chủ nhà:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRemoteSupportComponent.qml" line="54"/>
@@ -1813,7 +1813,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="65"/>
         <source>Requires vehicle reboot</source>
-        <translation>Yêu cầu khởi động lại xe</translation>
+        <translation>Yêu cầu khởi động lại phương tiện</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="78"/>
@@ -1833,7 +1833,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="100"/>
         <source>Critical voltage threshold:</source>
-        <translation>Ngưỡng điện áp quan trọng:</translation>
+        <translation>Ngưỡng điện áp nguy cấp:</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="107"/>
@@ -1848,7 +1848,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="135"/>
         <source>Reboot vehicle</source>
-        <translation>Khởi động lại xe</translation>
+        <translation>Khởi động lại phương tiện</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="146"/>
@@ -1907,12 +1907,12 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="374"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="374"/>
         <source>Always RTL</source>
-        <translation>Luôn luôn RTL</translation>
+        <translation>Luôn quay về điểm cất cánh</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="375"/>
@@ -1922,7 +1922,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="375"/>
         <source>Always Land</source>
-        <translation>Luôn luôn hạ cánh</translation>
+        <translation>Luôn hạ cánh</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="416"/>
@@ -1995,7 +1995,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="724"/>
         <source>Arming Checks</source>
-        <translation>Kiểm tra vũ trang</translation>
+        <translation>Kiểm tra trước khi kích hoạt</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponent.qml" line="755"/>
@@ -2067,17 +2067,17 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="251"/>
         <source>Throttle failsafe:</source>
-        <translation>Bệnh ga không an toàn:</translation>
+        <translation>Bảo vệ mất tín hiệu ga:</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="253"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="253"/>
         <source>Always RTL</source>
-        <translation>Luôn luôn RTL</translation>
+        <translation>Luôn RTL</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="254"/>
@@ -2087,7 +2087,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="254"/>
         <source>Always Land</source>
-        <translation>Luôn luôn hạ cánh</translation>
+        <translation>Luôn hạ cánh</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="261"/>
@@ -2117,7 +2117,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="354"/>
         <source>RTL or Land</source>
-        <translation>Rtl hoặc đất</translation>
+        <translation>RTL hoặc đất</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="365"/>
@@ -2162,12 +2162,12 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="533"/>
         <source>Arming Checks</source>
-        <translation>Kiểm tra vũ trang</translation>
+        <translation>Kiểm tra Arming</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentCopter.qml" line="564"/>
         <source>Warning: Turning off arming checks can lead to loss of Vehicle control.</source>
-        <translation>Cảnh báo: Tắt kiểm tra vũ trang có thể dẫn đến mất kiểm soát xe.</translation>
+        <translation>Cảnh báo: Tắt kiểm tra vũ trang có thể dẫn đến mất kiểm soát phương tiện.</translation>
     </message>
 </context>
 <context>
@@ -2228,7 +2228,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentRover.qml" line="86"/>
         <source>Throttle failsafe:</source>
-        <translation>Bệnh ga không an toàn:</translation>
+        <translation>Chế độ an toàn khi mất tín hiệu ga:</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentRover.qml" line="104"/>
@@ -2243,7 +2243,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentRover.qml" line="130"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentRover.qml" line="130"/>
@@ -2281,7 +2281,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSub.qml" line="114"/>
         <source>Leak:</source>
-        <translation>Hở:</translation>
+        <translation>Rò rỉ:</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSub.qml" line="126"/>
@@ -2291,12 +2291,12 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSub.qml" line="141"/>
         <source>Logic when Dry:</source>
-        <translation>Logic khi khô:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSub.qml" line="164"/>
         <source>Battery:</source>
-        <translation>Ắc quy:</translation>
+        <translation>Pin:</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSub.qml" line="177"/>
@@ -2342,7 +2342,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSub.qml" line="323"/>
         <source>Internal Pressure:</source>
-        <translation>Áp lực bên trong:</translation>
+        <translation>Áp suất bên trong:</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSub.qml" line="356"/>
@@ -2360,7 +2360,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="37"/>
         <source>Arming Checks:</source>
-        <translation>Séc vũ trang:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="38"/>
@@ -2377,7 +2377,7 @@
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="52"/>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="60"/>
         <source>Throttle failsafe:</source>
-        <translation>Bệnh ga không an toàn:</translation>
+        <translation>Chế độ an toàn khi mất tín hiệu ga:</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="68"/>
@@ -2392,22 +2392,22 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="84"/>
         <source>Batt1 low failsafe:</source>
-        <translation>Batt1 Low FailSafe:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="90"/>
         <source>Batt1 critical failsafe:</source>
-        <translation>BATT1 FAILSEFAFEFAFE:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="96"/>
         <source>Batt2 low failsafe:</source>
-        <translation>Batt2 Low FailSafe:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="102"/>
         <source>Batt2 critical failsafe:</source>
-        <translation>BATT2 FAILSEFAFEFAFE:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="108"/>
@@ -2418,7 +2418,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="112"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="115"/>
@@ -2443,7 +2443,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="132"/>
         <source>RTL or Land</source>
-        <translation>Rtl hoặc đất</translation>
+        <translation>RTL hoặc đất</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="132"/>
@@ -2454,7 +2454,7 @@
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="137"/>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="145"/>
         <source>RTL min alt:</source>
-        <translation>RTL Min Alt:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummary.qml" line="138"/>
@@ -2468,7 +2468,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="41"/>
         <source>Arming Checks:</source>
-        <translation>Séc vũ trang:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="42"/>
@@ -2488,22 +2488,22 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="51"/>
         <source>Batt1 low failsafe:</source>
-        <translation>Batt1 Low FailSafe:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="57"/>
         <source>Batt1 critical failsafe:</source>
-        <translation>BATT1 FAILSEFAFEFAFE:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="63"/>
         <source>Batt2 low failsafe:</source>
-        <translation>Batt2 Low FailSafe:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="69"/>
         <source>Batt2 critical failsafe:</source>
-        <translation>BATT2 FAILSEFAFEFAFE:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="75"/>
@@ -2514,7 +2514,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="77"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryCopter.qml" line="79"/>
@@ -2599,7 +2599,7 @@
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryRover.qml" line="70"/>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryRover.qml" line="93"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSafetyComponentSummaryRover.qml" line="57"/>
@@ -4070,7 +4070,7 @@ Vui lòng đặt xe của bạn vào nước, nhấp vào nút và chờ đợi.
     <message>
         <location filename="../src/QmlControls/AppMessages.qml" line="115"/>
         <source>GStreamer Debug Level</source>
-        <translation>Mức gỡ lỗi GSTREAMER</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/AppMessages.qml" line="134"/>
@@ -4753,7 +4753,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/CameraSection.qml" line="87"/>
         <source>Mode</source>
-        <translation>Cách thức</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/CameraSection.qml" line="106"/>
@@ -4763,12 +4763,12 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/CameraSection.qml" line="107"/>
         <source>Pitch</source>
-        <translation>Sân bóng đá</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/CameraSection.qml" line="108"/>
         <source>Yaw</source>
-        <translation>Ngáp</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -4806,12 +4806,12 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightMap/Widgets/CenterMapDropButton.qml" line="222"/>
         <source>Vehicle</source>
-        <translation>Phương tiện giao thông</translation>
+        <translation>Phương tiện</translation>
     </message>
     <message>
         <location filename="../src/FlightMap/Widgets/CenterMapDropButton.qml" line="234"/>
         <source>Follow Vehicle</source>
-        <translation>Theo dõi xe</translation>
+        <translation>Theo dõi phương tiện</translation>
     </message>
 </context>
 <context>
@@ -4839,7 +4839,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightMap/Widgets/CenterMapDropPanel.qml" line="64"/>
         <source>Vehicle</source>
-        <translation>Phương tiện giao thông</translation>
+        <translation>Phương tiện</translation>
     </message>
     <message>
         <location filename="../src/FlightMap/Widgets/CenterMapDropPanel.qml" line="75"/>
@@ -5201,37 +5201,37 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="143"/>
         <source>WiFi Mode</source>
-        <translation>Chế độ WiFi</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="159"/>
         <source>WiFi Channel</source>
-        <translation>Kênh WiFi</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="176"/>
         <source>WiFi AP SSID</source>
-        <translation>WiFi AP SSID</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="192"/>
         <source>WiFi AP Password</source>
-        <translation>Mật khẩu WiFi AP</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="208"/>
         <source>WiFi STA SSID</source>
-        <translation>Wifi sta ssid</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="225"/>
         <source>WiFi STA Password</source>
-        <translation>Mật khẩu WiFi STA</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="242"/>
         <source>UART Baud Rate</source>
-        <translation>Tốc độ baud uart</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="258"/>
@@ -5270,7 +5270,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="360"/>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="374"/>
         <source>Messages Lost</source>
-        <translation>Tin nhắn bị mất</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.qml" line="388"/>
@@ -5307,7 +5307,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.cc" line="14"/>
         <source>WiFi Bridge</source>
-        <translation>Cầu Wifi</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/ESP8266Component.h" line="23"/>
@@ -5386,7 +5386,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
         <location filename="../src/QmlControls/EditPositionDialog.qml" line="51"/>
         <location filename="../src/QmlControls/EditPositionDialog.qml" line="52"/>
         <source>Military Grid Reference</source>
-        <translation>Tài liệu tham khảo lưới quân sự</translation>
+        <translation>Tham khảo lưới quân sự</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/EditPositionDialog.qml" line="51"/>
@@ -7519,12 +7519,12 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/toolbar/GimbalIndicator.qml" line="66"/>
         <source>Yaw &lt;br&gt; Follow</source>
-        <translation>Yaw &lt;br&gt; theo sau</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/toolbar/GimbalIndicator.qml" line="66"/>
         <source>Yaw &lt;br&gt; Lock</source>
-        <translation>Yaw &lt;br&gt; khóa</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/toolbar/GimbalIndicator.qml" line="67"/>
@@ -7584,7 +7584,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/toolbar/GimbalIndicator.qml" line="273"/>
         <source>Vertical FOV</source>
-        <translation>FOV dọc</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/toolbar/GimbalIndicator.qml" line="282"/>
@@ -7619,12 +7619,12 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/toolbar/GimbalIndicator.qml" line="389"/>
         <source>Yaw locked</source>
-        <translation>Ngáp bị khóa</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/toolbar/GimbalIndicator.qml" line="389"/>
         <source>Yaw follow</source>
-        <translation>Ngáp theo sau</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/toolbar/GimbalIndicator.qml" line="395"/>
@@ -7770,7 +7770,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="57"/>
         <source>Set Waypoint</source>
-        <translation>Đặt điểm tham chiếu</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="58"/>
@@ -8781,7 +8781,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/AppSettings/LinkSettings.qml" line="71"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/LinkSettings.qml" line="72"/>
@@ -9435,7 +9435,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/AnalyzeView/MAVLinkInspectorPage.qml" line="199"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AnalyzeView/MAVLinkInspectorPage.qml" line="200"/>
@@ -9576,7 +9576,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="49"/>
         <source>Armed</source>
-        <translation>Vũ trang</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="50"/>
@@ -9591,17 +9591,17 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="153"/>
         <source>FW(vtol)</source>
-        <translation>FW (VTOL)</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="153"/>
         <source>MR(vtol)</source>
-        <translation>Mr (VTOL)</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="194"/>
         <source>Disarm</source>
-        <translation>Giải giáp</translation>
+        <translation>Vô hiệu hóa động cơ</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="194"/>
@@ -9611,7 +9611,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="194"/>
         <source>Arm</source>
-        <translation>Cánh tay</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="218"/>
@@ -10647,7 +10647,7 @@ Bạn có muốn tiến hành không?</translation>
         <location filename="../src/UI/toolbar/MultiVehicleSelector.qml" line="52"/>
         <location filename="../src/UI/toolbar/MultiVehicleSelector.qml" line="113"/>
         <source>Vehicle</source>
-        <translation>Phương tiện giao thông</translation>
+        <translation>Phương tiện</translation>
     </message>
     <message>
         <location filename="../src/UI/toolbar/MultiVehicleSelector.qml" line="52"/>
@@ -11488,7 +11488,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/FirmwarePlugin/PX4/PX4ParameterMetaData.cc" line="339"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
 </context>
 <context>
@@ -11509,7 +11509,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="26"/>
         <source>Roll</source>
-        <translation>Cuộn</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="27"/>
@@ -11522,12 +11522,12 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="31"/>
         <source>Pitch</source>
-        <translation>Sân bóng đá</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="36"/>
         <source>Yaw</source>
-        <translation>Ngáp</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="41"/>
@@ -11537,24 +11537,24 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="46"/>
         <source>Flaps</source>
-        <translation>Vạt</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="47"/>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="53"/>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="58"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="52"/>
         <source>Aux1</source>
-        <translation>AUX1</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponentSummary.qml" line="57"/>
         <source>Aux2</source>
-        <translation>AUX2</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -11621,7 +11621,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterAttitude.qml" line="31"/>
         <source>Roll</source>
-        <translation>Cuộn</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterAttitude.qml" line="38"/>
@@ -11637,7 +11637,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterAttitude.qml" line="48"/>
         <source>Pitch</source>
-        <translation>Sân bóng đá</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterAttitude.qml" line="55"/>
@@ -11647,7 +11647,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterAttitude.qml" line="65"/>
         <source>Yaw</source>
-        <translation>Ngáp</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterAttitude.qml" line="72"/>
@@ -11714,7 +11714,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterRate.qml" line="63"/>
         <source>Rate</source>
-        <translation>Tỷ lệ</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterRate.qml" line="65"/>
@@ -11724,7 +11724,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterRate.qml" line="72"/>
         <source>Roll</source>
-        <translation>Cuộn</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterRate.qml" line="79"/>
@@ -11764,7 +11764,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterRate.qml" line="105"/>
         <source>Pitch</source>
-        <translation>Sân bóng đá</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterRate.qml" line="112"/>
@@ -11784,7 +11784,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterRate.qml" line="138"/>
         <source>Yaw</source>
-        <translation>Ngáp</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentCopterRate.qml" line="145"/>
@@ -11886,7 +11886,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneAttitude.qml" line="31"/>
         <source>Roll</source>
-        <translation>Cuộn</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneAttitude.qml" line="38"/>
@@ -11901,7 +11901,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneAttitude.qml" line="48"/>
         <source>Pitch</source>
-        <translation>Sân bóng đá</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneAttitude.qml" line="55"/>
@@ -11919,7 +11919,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneRate.qml" line="31"/>
         <source>Roll</source>
-        <translation>Cuộn</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneRate.qml" line="38"/>
@@ -11970,7 +11970,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneRate.qml" line="72"/>
         <source>Pitch</source>
-        <translation>Sân bóng đá</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneRate.qml" line="79"/>
@@ -12001,7 +12001,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneRate.qml" line="113"/>
         <source>Yaw</source>
-        <translation>Ngáp</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4TuningComponentPlaneRate.qml" line="120"/>
@@ -12922,7 +12922,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="598"/>
         <source>Waypoint</source>
-        <translation>Điểm tham chiếu</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="605"/>
@@ -13477,12 +13477,12 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/FlightDisplay/PreFlightCheckList.qml" line="134"/>
         <source>(Passed)</source>
-        <translation>(Đi qua)</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/PreFlightCheckList.qml" line="134"/>
         <source>In Progress</source>
-        <translation>Trong tiến trình</translation>
+        <translation>Trong tiến hành</translation>
     </message>
 </context>
 <context>
@@ -14601,7 +14601,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
         <location filename="../src/AutoPilotPlugins/Common/RadioComponent.qml" line="60"/>
         <location filename="../src/AutoPilotPlugins/Common/RadioComponent.qml" line="387"/>
         <source>Spektrum Bind</source>
-        <translation>SPEKTRUM BIND</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/RadioComponent.qml" line="72"/>
@@ -14646,22 +14646,22 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/RadioComponent.qml" line="213"/>
         <source>Pitch</source>
-        <translation>Sân bóng đá</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/RadioComponent.qml" line="242"/>
         <source>Yaw</source>
-        <translation>Ngáp</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/RadioComponent.qml" line="271"/>
         <source>Throttle</source>
-        <translation>Ga</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/RadioComponent.qml" line="299"/>
         <source>Skip</source>
-        <translation>Nhảy</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/Common/RadioComponent.qml" line="305"/>
@@ -14949,12 +14949,12 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/QmlControls/RemoteIDIndicatorPage.qml" line="181"/>
         <source>BASIC ID</source>
-        <translation>ID cơ bản</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/RemoteIDIndicatorPage.qml" line="206"/>
         <source>OPERATOR ID</source>
-        <translation>ID toán tử</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/RemoteIDIndicatorPage.qml" line="232"/>
@@ -14984,7 +14984,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/QmlControls/RemoteIDIndicatorPage.qml" line="342"/>
         <source>Self ID</source>
-        <translation>Tự ID</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/RemoteIDIndicatorPage.qml" line="343"/>
@@ -15004,7 +15004,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/QmlControls/RemoteIDIndicatorPage.qml" line="412"/>
         <source>Remote ID</source>
-        <translation>ID từ xa</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/RemoteIDIndicatorPage.qml" line="414"/>
@@ -15032,7 +15032,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="199"/>
         <source>GCS GPS</source>
-        <translation>GPS GCS</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="217"/>
@@ -15042,7 +15042,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="235"/>
         <source>OPERATOR ID</source>
-        <translation>ID toán tử</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="281"/>
@@ -15068,7 +15068,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="343"/>
         <source>Operator ID</source>
-        <translation>ID toán tử</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="347"/>
@@ -15083,12 +15083,12 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="388"/>
         <source>Invalid Operator ID</source>
-        <translation>ID toán tử không hợp lệ</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="415"/>
         <source>Self ID</source>
-        <translation>Tự ID</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="416"/>
@@ -15123,7 +15123,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="603"/>
         <source>EU Vehicle Info</source>
-        <translation>Thông tin xe EU</translation>
+        <translation>Thông tin phương tiện EU</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/RemoteIDSettings.qml" line="609"/>
@@ -15229,7 +15229,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/Utilities/Shape/SHPFileHelper.cc" line="101"/>
         <source>SHPOpen failed.</source>
-        <translation>Shpopen thất bại.</translation>
+        <translation>Mở tệp SHP thất bại.</translation>
     </message>
     <message>
         <location filename="../src/Utilities/Shape/SHPFileHelper.cc" line="125"/>
@@ -15324,7 +15324,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
         <location filename="../src/AutoPilotPlugins/PX4/SafetyComponent.qml" line="187"/>
         <location filename="../src/AutoPilotPlugins/PX4/SafetyComponent.qml" line="608"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SafetyComponent.qml" line="168"/>
@@ -17278,7 +17278,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
         <location filename="../src/UTMSP/UTMSPAdapterEditor.qml" line="130"/>
         <location filename="../src/UTMSP/UTMSPAdapterEditor.qml" line="421"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Không khả dụng</translation>
     </message>
     <message>
         <location filename="../src/UTMSP/UTMSPAdapterEditor.qml" line="163"/>
@@ -18080,7 +18080,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/FlightMap/MapItems/VehicleMapItem.qml" line="147"/>
         <source>Vehicle %1</source>
-        <translation>Xe %1</translation>
+        <translation>Phương tiện %1</translation>
     </message>
 </context>
 <context>
@@ -18396,6 +18396,210 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
         <location filename="../src/QmlControls/PipView.qml" line="247"/>
         <source>Map</source>
         <translation>Bản đồ</translation>
+    </message>
+</context>
+<context>
+    <name>ControlMenuTop</name>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuTop.qml" line="44"/>
+        <source>DEFAULT</source>
+        <translation>MẶC ĐỊNH</translation>
+    </message>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuTop.qml" line="59"/>
+        <source>FIRE FIGHTING</source>
+        <translation>CHỮA CHÁY</translation>
+    </message>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuTop.qml" line="74"/>
+        <source>BOMBING</source>
+        <translation>ĐÁNH BOM</translation>
+    </message>
+</context>
+<context>
+    <name>ControlMenuBottom</name>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="57"/>
+        <source>Start Mission</source>
+        <translation>Bắt Đầu Nhiệm Vụ</translation>
+    </message>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="95"/>
+        <source>Drop Water Bombs</source>
+        <translation>Thả Bom Nước</translation>
+    </message>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="67"/>
+        <source>Siren</source>
+        <translation>Còi Báo</translation>
+    </message>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="122"/>
+        <source>Tracking Mod</source>
+        <translation>Chế độ theo dõi</translation>
+    </message>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="133"/>
+        <source>Attack</source>
+        <translation>Tấn công</translation>
+    </message>
+</context>
+<context>
+    <name>DroneList</name>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="493"/>
+        <source>Code: </source>
+        <translation>Mã: </translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="511"/>
+        <source>See more photos</source>
+        <translation>Xem thêm ảnh</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="511"/>
+        <source>Describe:</source>
+        <translation>Mô tả:</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="542"/>
+        <source>No description available</source>
+        <translation>Không có mô tả</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="553"/>
+        <source>Structure</source>
+        <translation>Cấu trúc</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="554"/>
+        <source>Material</source>
+        <translation>Chất liệu</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="555"/>
+        <source>Size</source>
+        <translation>Kích thước</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="556"/>
+        <source>Number of Axes</source>
+        <translation>Số trục</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="557"/>
+        <source>Wheelbase</source>
+        <translation>Chiều dài trục</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="558"/>
+        <source>Weight</source>
+        <translation>Trọng lượng</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="559"/>
+        <source>Payload</source>
+        <translation>Tải trọng</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="560"/>
+        <source>Flight Speed</source>
+        <translation>Tốc độ bay</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="561"/>
+        <source>Max Altitude</source>
+        <translation>Chiều cao tối đa</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="562"/>
+        <source>Control Range</source>
+        <translation>Tầm điều khiển</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="563"/>
+        <source>Power Mode</source>
+        <translation>Chế độ nguồn</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="564"/>
+        <source>Operating Temperature</source>
+        <translation>Nhiệt độ hoạt động</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="565"/>
+        <source>Max Tilt Angle</source>
+        <translation>Góc nghiêng tối đa</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="566"/>
+        <source>Ascending Speed</source>
+        <translation>Tốc độ lên</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="567"/>
+        <source>Descending Speed</source>
+        <translation>Tốc độ xuống</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="568"/>
+        <source>Wind Resistance</source>
+        <translation>Chống gió</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="569"/>
+        <source>Flight Time</source>
+        <translation>Thời gian bay</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="570"/>
+        <source>Battery</source>
+        <translation>Pin</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="571"/>
+        <source>Propeller</source>
+        <translation>Cánh quạt</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="572"/>
+        <source>Camera</source>
+        <translation>Camera</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="573"/>
+        <source>LED Color</source>
+        <translation>Màu LED</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="574"/>
+        <source>LED Power</source>
+        <translation>Công suất LED</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="575"/>
+        <source>Load Type</source>
+        <translation>Loại tải</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="576"/>
+        <source>Communication Mode</source>
+        <translation>Giao tiếp</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="577"/>
+        <source>Working Mode</source>
+        <translation>Chế độ hoạt động</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="578"/>
+        <source>Location Mode</source>
+        <translation>Định vị</translation>
+    </message>
+    <message>
+        <location filename="../src/DroneList/DroneList.qml" line="618"/>
+        <source>Confirm</source>
+        <translation>Xác nhận</translation>
     </message>
 </context>
 </TS>

@@ -26,7 +26,7 @@ import QGroundControl.FlightMap
 import QGroundControl.Palette
 import QGroundControl.ScreenTools
 import QGroundControl.Vehicle
-
+import QGroundControl.Fire 
 // 3D Viewer modules
 import Viewer3D
 
@@ -37,6 +37,9 @@ Item {
     property var planController:    _planController
     property var guidedController:  _guidedController
 
+    property string currentTab: ""
+
+
     // Properties of UTM adapter
     property bool utmspSendActTrigger: false
 
@@ -44,6 +47,9 @@ Item {
         id:                     _planController
         flyView:                true
         Component.onCompleted:  start()
+    }
+    FireZoneManager {
+        id: fireManager  // Khởi tạo ở cấp cao nhất
     }
 
     property bool   _mainWindowIsMap:       mapControl.pipState.state === mapControl.pipState.fullState
@@ -71,6 +77,42 @@ Item {
 
     function dropMainStatusIndicatorTool() {
         toolbar.dropMainStatusIndicatorTool();
+    }
+
+    Row {
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.margins: 10
+        spacing: 10
+        visible: false // Tính năng development, không cần thiết
+        z: 100
+
+        QGCButton {
+            text: "Tạo vùng cháy"
+            onClicked: {
+                if (_activeVehicle && _activeVehicle.coordinate.isValid) {
+                    const coord = fireManager.generateRandomFireZone(_activeVehicle.coordinate, 20, 50)
+                    fireManager.createFireZone(
+                        coord,
+                        50,
+                        "Khu vực Tây Nguyên",
+                        "Đang cháy",
+                        5,
+                        "https://hocviendrone.vn/wp-content/uploads/2021/07/Drone-tren-cao.jpg",
+                        new Date(2025, 6, 11, 8, 30, 0)
+                    )
+                    console.log("🔥 Tạo vùng cháy tại: " + coord.latitude + ", " + coord.longitude)
+                }
+            }
+        }
+
+        QGCButton {
+            text: "Xóa toàn bộ"
+            onClicked: {
+                fireManager.clearAllFireZones()
+                console.log("🧹 Đã xoá toàn bộ vùng cháy.")
+            }
+        }
     }
 
     QGCToolInsets {
@@ -102,6 +144,8 @@ Item {
             toolInsets:             customOverlay.totalToolInsets
             mapName:                "FlightDisplayView"
             enabled:                !viewer3DWindow.isOpen
+
+            fireManager: fireManager
         }
 
         FlyViewVideo {
@@ -115,7 +159,7 @@ Item {
                 anchors.right:          parent.right
                 anchors.top:            parent.top
                 anchors.margins:        _toolsMargin
-                anchors.topMargin:      80
+                anchors.topMargin:      100
                 item1IsFullSettingsKey: "MainFlyWindowIsMap"
                 item1:                  mapControl
                 item2:                  QGroundControl.videoManager.hasVideo ? videoControl : null
@@ -132,11 +176,10 @@ Item {
         FlyViewWidgetLayer {
             id:                     widgetLayer
             anchors.top:            parent.top
-            anchors.topMargin:      70    // Thêm khoảng cách 25px từ trên
             anchors.bottom:         parent.bottom
             anchors.left:           parent.left
             anchors.right:          guidedValueSlider.visible ? guidedValueSlider.left : parent.right
-            z:                      _fullItemZorder + 2 // we need to add one extra layer for map 3d viewer (normally was 1)
+            z:                      9999
             parentToolInsets:       _toolInsets
             mapControl:             _mapControl
             visible:                !QGroundControl.videoManager.fullScreen
@@ -193,11 +236,13 @@ Item {
             anchors.bottom:         parent.bottom
             anchors.left:           parent.left
             anchors.right:          parent.right
-            anchors.bottomMargin:  65
+            anchors.bottomMargin:  56
             anchors.margins:        _margins
             width: parent.width * 0.8
-            height: 100
+            height: 80
             z:                      10
+
+            currentTab: _root.currentTab
         }
 
         ControlMenuTop{
@@ -205,11 +250,16 @@ Item {
             anchors.top:         parent.top
             anchors.left:           parent.left
             anchors.right:          parent.right
-            anchors.topMargin:  28
-            anchors.margins:        _margins
+            anchors.topMargin:  60
             width: parent.width * 0.8
-            height: 100
+            height: 24
             z:                      10
+
+            currentTab: _root.currentTab
+
+            onTabChanged: {
+                _root.currentTab = newTab
+            }
         }
 
         // Rectangle {

@@ -119,7 +119,7 @@ Item {
         anchors.margins:            _toolsMargin
         anchors.top:                parent.top
         anchors.horizontalCenter:   parent.horizontalCenter
-        z:                          QGroundControl.zOrderTopMost
+        z:                          999999
         guidedController:           _guidedController
         guidedValueSlider:          _guidedValueSlider
         utmspSliderTrigger:         utmspActTrigger
