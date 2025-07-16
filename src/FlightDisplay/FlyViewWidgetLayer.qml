@@ -89,7 +89,7 @@ Item {
             anchors.fill: parent
             background: null
             contentItem: Image {
-                source: topRightPanel.userToggleVisible
+                source: topRightPanel.visible
                     ? "/res/arrow_menu_close.svg"
                     : "/res/arrow_menu_open.svg"
                 anchors.centerIn: parent
@@ -97,7 +97,7 @@ Item {
                 height: width
             }
             onClicked: {
-                topRightPanel.userToggleVisible = !topRightPanel.userToggleVisible
+                topRightPanel.visible = !topRightPanel.visible
                 // topRightColumnLayout.visible = false
                 }
         }

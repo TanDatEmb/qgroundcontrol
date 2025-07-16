@@ -23,7 +23,7 @@ import QtQuick.Controls
 
 Rectangle {
     id: topRightPanel
-    width: userToggleVisible ? contentWidth : 0
+    width: topRightPanel.visible ? contentWidth : 0
     height: 280
 
     border.width: 1
@@ -31,7 +31,7 @@ Rectangle {
 
     color: qgcPal.toolbarBackground
     radius: ScreenTools.defaultFontPixelHeight / 2
-    visible: panelVisibleCondition || userToggleVisible
+    visible: panelVisibleCondition 
     clip: true
 
 
@@ -43,7 +43,7 @@ Rectangle {
     }
 
     onWidthChanged: {
-        if (width === 0 && !userToggleVisible) {
+        if (width === 0 && !visible) {
             visible = false
         }
     }
