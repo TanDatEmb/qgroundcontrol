@@ -21,13 +21,13 @@ import QGroundControl.FlightDisplay
 
 Item {
     property real   _margin:              ScreenTools.defaultFontPixelWidth / 2
-    property real   _widgetHeight:        ScreenTools.defaultFontPixelHeight * 2.5
+    property real   _widgetHeight:        ScreenTools.defaultFontPixelHeight * 3
     property var    _guidedController:    globals.guidedControllerFlyView
     property var    _activeVehicleColor:  "green"
     property var    _activeVehicle:       QGroundControl.multiVehicleManager.activeVehicle
     property var    selectedVehicles:     QGroundControl.multiVehicleManager.selectedVehicles
 
-    implicitHeight: vehicleList.contentHeight
+    implicitHeight: vehicleList.contentHeight + 10
 
     function armAvailable() {
         for (var i = 0; i < selectedVehicles.count; i++) {
@@ -154,29 +154,29 @@ Item {
                         id: compassWidget
                         compassRadius:              _widgetHeight / 2 - attitudeSize / 2
                         compassBorder:              0
-                        attitudeSize:               ScreenTools.defaultFontPixelWidth / 2
-                        attitudeSpacing:            attitudeSize / 2
+                        attitudeSize:               ScreenTools.defaultFontPixelWidth / 3.5
+                        attitudeSpacing:            attitudeSize / 3
                         usedByMultipleVehicleList:   true
                         vehicle:                     _vehicle
                     }
 
                     QGCLabel {
-                        text: " | "
-                        font.pointSize:       ScreenTools.largeFontPointSize
+                        text: " "
+                        font.pointSize:       ScreenTools.largeFontPointSize * 0.8
                         color:                qgcPal.text
                         Layout.alignment:     Qt.AlignHCenter
                     }
 
                     QGCLabel {
                         text:                 _vehicle ? _vehicle.id : ""
-                        font.pointSize:       ScreenTools.largeFontPointSize
+                        font.pointSize:       ScreenTools.largeFontPointSize * 0.9
                         color:                qgcPal.text
                         Layout.alignment:     Qt.AlignHCenter
                     }
 
                     QGCLabel {
                         text: " | "
-                        font.pointSize:       ScreenTools.largeFontPointSize
+                        font.pointSize:       ScreenTools.largeFontPointSize 
                         color:                qgcPal.text
                         Layout.alignment:     Qt.AlignHCenter
                     }
@@ -188,7 +188,7 @@ Item {
 
                         FlightModeMenu {
                             Layout.alignment:     Qt.AlignHCenter
-                            font.pointSize:       ScreenTools.largeFontPointSize
+                            font.pointSize:       ScreenTools.largeFontPointSize * 0.8
                             color:                qgcPal.text
                             currentVehicle:       _vehicle
                         }
@@ -197,6 +197,7 @@ Item {
                             Layout.alignment:     Qt.AlignHCenter
                             text:                 _vehicle && _vehicle.armed ? qsTr("Armed") : qsTr("Disarmed")
                             color:                qgcPal.text
+                            font.pointSize: ScreenTools.defaultFontPointSize * 0.6
                         }
                     }
                 }

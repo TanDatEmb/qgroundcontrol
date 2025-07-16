@@ -42,7 +42,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMAirframeComponent.h" line="26"/>
         <source>Frame Setup is used to select the airframe which matches your vehicle.</source>
-        <translation>Thiết lập khung được sử dụng để chọn khung máy bay phù hợp với xe của bạn.</translation>
+        <translation>Thiết lập khung được sử dụng để chọn khung máy bay phù hợp với phương tiện của bạn.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMAirframeComponent.h" line="35"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../src/UI/toolbar/APMBatteryIndicator.qml" line="30"/>
         <source>- disabled</source>
-        <translation>- tàn tật</translation>
+        <translation>- Vô hiệu hóa</translation>
     </message>
     <message>
         <location filename="../src/UI/toolbar/APMBatteryIndicator.qml" line="34"/>
@@ -579,7 +579,7 @@
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="852"/>
         <source>Unable to change altitude, vehicle altitude not known.</source>
-        <translation>Không thể thay đổi độ cao, độ cao của xe không được biết.</translation>
+        <translation>Không thể thay đổi độ cao, độ cao của phương tiện không được biết.</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="857"/>
@@ -589,32 +589,32 @@
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="933"/>
         <source>Vehicle does not support guided rotate</source>
-        <translation>Xe không hỗ trợ xoay vòng có hướng dẫn</translation>
+        <translation>phương tiện không hỗ trợ xoay vòng có hướng dẫn</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="987"/>
         <source>Vehicle does not support guided takeoff</source>
-        <translation>Xe không hỗ trợ cất cánh có hướng dẫn</translation>
+        <translation>phương tiện không hỗ trợ cất cánh có hướng dẫn</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="993"/>
         <source>Unable to takeoff, vehicle position not known.</source>
-        <translation>Không thể cất cánh, vị trí xe không được biết.</translation>
+        <translation>Không thể cất cánh, vị trí phương tiện không được biết.</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1003"/>
         <source>Unable to takeoff: Vehicle failed to change to Guided mode.</source>
-        <translation>Không thể cất cánh: Xe không thay đổi sang chế độ có hướng dẫn.</translation>
+        <translation>Không thể cất cánh: phương tiện không thay đổi sang chế độ có hướng dẫn.</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1008"/>
         <source>Unable to takeoff: Vehicle failed to arm.</source>
-        <translation>Không thể cất cánh: Xe thất bại.</translation>
+        <translation>Không thể cất cánh: phương tiện thất bại.</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1026"/>
         <source>Unable to start takeoff: Vehicle is already in the air.</source>
-        <translation>Không thể bắt đầu cất cánh: Xe đã ở trên không.</translation>
+        <translation>Không thể bắt đầu cất cánh: phương tiện đã ở trên không.</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1032"/>
@@ -624,23 +624,23 @@
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1037"/>
         <source>Unable to start takeoff: Vehicle failed to arm.</source>
-        <translation>Không thể bắt đầu cất cánh: Xe thất bại.</translation>
+        <translation>Không thể bắt đầu cất cánh: phương tiện thất bại.</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1048"/>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1059"/>
         <source>Unable to start mission: Vehicle failed to change to Auto mode.</source>
-        <translation>Không thể bắt đầu nhiệm vụ: Xe không thay đổi sang chế độ tự động.</translation>
+        <translation>Không thể bắt đầu nhiệm vụ: phương tiện không thay đổi sang chế độ tự động.</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1064"/>
         <source>Unable to start mission: Vehicle failed to change to Guided mode.</source>
-        <translation>Không thể bắt đầu nhiệm vụ: Xe không thay đổi sang chế độ có hướng dẫn.</translation>
+        <translation>Không thể bắt đầu nhiệm vụ: phương tiện không thay đổi sang chế độ có hướng dẫn.</translation>
     </message>
     <message>
         <location filename="../src/FirmwarePlugin/APM/APMFirmwarePlugin.cc" line="1070"/>
         <source>Unable to start mission: Vehicle failed to arm.</source>
-        <translation>Không thể bắt đầu nhiệm vụ: Xe không sử dụng.</translation>
+        <translation>Không thể bắt đầu nhiệm vụ: phương tiện không sử dụng.</translation>
     </message>
 </context>
 <context>
@@ -1558,7 +1558,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMPowerComponent.qml" line="510"/>
         <source>If the current draw reported by the vehicle is largely different than the current read externally using a current meter you can adjust the amps per volt value to correct this. Click the Calculate button for help with calculating a new value.</source>
-        <translation>Nếu lần rút hiện tại được báo cáo bởi chiếc xe phần lớn khác với dòng điện được đọc bên ngoài bằng đồng hồ hiện tại, bạn có thể điều chỉnh giá trị ampe trên mỗi volt để điều chỉnh điều này.Nhấp vào nút Tính toán để được trợ giúp với việc tính toán một giá trị mới.</translation>
+        <translation>Nếu lần rút hiện tại được báo cáo bởi chiếc phương tiện phần lớn khác với dòng điện được đọc bên ngoài bằng đồng hồ hiện tại, bạn có thể điều chỉnh giá trị ampe trên mỗi volt để điều chỉnh điều này.Nhấp vào nút Tính toán để được trợ giúp với việc tính toán một giá trị mới.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMPowerComponent.qml" line="515"/>
@@ -1568,7 +1568,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMPowerComponent.qml" line="530"/>
         <source>If the vehicle reports a high current read when there is little or no current going through it, adjust the Amps Offset. It should be equal to the voltage reported by the sensor when the current is zero.</source>
-        <translation>Nếu xe báo cáo mức đọc hiện tại cao khi có ít hoặc không có dòng điện nào đi qua, hãy điều chỉnh độ lệch amps.Nó phải bằng với điện áp được báo cáo bởi cảm biến khi dòng điện bằng không.</translation>
+        <translation>Nếu phương tiện báo cáo mức đọc hiện tại cao khi có ít hoặc không có dòng điện nào đi qua, hãy điều chỉnh độ lệch amps.Nó phải bằng với điện áp được báo cáo bởi cảm biến khi dòng điện bằng không.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMPowerComponent.qml" line="542"/>
@@ -1624,7 +1624,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMPowerComponent.h" line="33"/>
         <source>Power</source>
-        <translation>Quyền lực</translation>
+        <translation>Năng lượng</translation>
     </message>
 </context>
 <context>
@@ -1655,7 +1655,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponent.h" line="26"/>
         <source>The Radio Component is used to setup which channels on your RC Transmitter you will use for each vehicle control such as Roll, Pitch, Yaw and Throttle. It also allows you to assign switches and dials to the various flight modes. Prior to flight you must also calibrate the extents for all of your channels.</source>
-        <translation>Thành phần radio được sử dụng để thiết lập các kênh nào trên máy phát RC của bạn, bạn sẽ sử dụng cho mỗi điều khiển xe như cuộn, sân, ngáp và bướm ga.Nó cũng cho phép bạn gán công tắc và quay số cho các chế độ bay khác nhau.Trước khi bay, bạn cũng phải hiệu chỉnh các phạm vi cho tất cả các kênh của bạn.</translation>
+        <translation>Thành phần radio được sử dụng để thiết lập các kênh nào trên máy phát RC của bạn, bạn sẽ sử dụng cho mỗi điều khiển phương tiện như cuộn, sân, ngáp và bướm ga.Nó cũng cho phép bạn gán công tắc và quay số cho các chế độ bay khác nhau.Trước khi bay, bạn cũng phải hiệu chỉnh các phạm vi cho tất cả các kênh của bạn.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMRadioComponent.h" line="41"/>
@@ -2731,22 +2731,22 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="44"/>
         <source>For Compass calibration you will need to rotate your vehicle through a number of positions.</source>
-        <translation>Để hiệu chuẩn la bàn, bạn sẽ cần xoay xe của bạn thông qua một số vị trí.</translation>
+        <translation>Để hiệu chuẩn la bàn, bạn sẽ cần xoay phương tiện của bạn thông qua một số vị trí.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="45"/>
         <source>For Gyroscope calibration you will need to place your vehicle on a surface and leave it still.</source>
-        <translation>Đối với hiệu chuẩn con quay hồi chuyển, bạn sẽ cần đặt xe của bạn lên bề mặt và để nó yên.</translation>
+        <translation>Đối với hiệu chuẩn con quay hồi chuyển, bạn sẽ cần đặt phương tiện của bạn lên bề mặt và để nó yên.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="46"/>
         <source>For Accelerometer calibration you will need to place your vehicle on all six sides on a perfectly level surface and hold it still in each orientation for a few seconds.</source>
-        <translation>Đối với hiệu chuẩn gia tốc kế, bạn sẽ cần đặt xe của bạn ở tất cả sáu phía trên một bề mặt cấp hoàn hảo và giữ nó vẫn ở mỗi hướng trong vài giây.</translation>
+        <translation>Đối với hiệu chuẩn gia tốc kế, bạn sẽ cần đặt phương tiện của bạn ở tất cả sáu phía trên một bề mặt cấp hoàn hảo và giữ nó vẫn ở mỗi hướng trong vài giây.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="47"/>
         <source>To level the horizon you need to place the vehicle in its level flight position and press OK.</source>
-        <translation>Để san bằng đường chân trời, bạn cần đặt chiếc xe vào vị trí bay cấp của nó và nhấn OK.</translation>
+        <translation>Để san bằng đường chân trời, bạn cần đặt chiếc phương tiện vào vị trí bay cấp của nó và nhấn OK.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="49"/>
@@ -2761,7 +2761,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="58"/>
         <source>Check the compass position within your vehicle and re-do the calibration.</source>
-        <translation>Kiểm tra vị trí la bàn trong xe của bạn và làm lại hiệu chuẩn.</translation>
+        <translation>Kiểm tra vị trí la bàn trong phương tiện của bạn và làm lại hiệu chuẩn.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="99"/>
@@ -2818,7 +2818,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="189"/>
         <source>Waiting for Vehicle to response to Cancel. This may take a few seconds.</source>
-        <translation>Đang chờ xe phản hồi để hủy bỏ.Điều này có thể mất vài giây.</translation>
+        <translation>Đang chờ phương tiện phản hồi để hủy bỏ.Điều này có thể mất vài giây.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="272"/>
@@ -2862,7 +2862,7 @@
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="292"/>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="321"/>
         <source>YOU MUST REBOOT YOUR VEHICLE AFTER EACH CALIBRATION.</source>
-        <translation>Bạn phải khởi động lại xe của bạn sau mỗi hiệu chuẩn.</translation>
+        <translation>Bạn phải khởi động lại phương tiện của bạn sau mỗi hiệu chuẩn.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="296"/>
@@ -2908,7 +2908,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="476"/>
         <source>Simple accelerometer calibration is less precise but allows calibrating without rotating the vehicle. Check this if you have a large/heavy vehicle.</source>
-        <translation>Hiệu chuẩn gia tốc đơn giản là ít chính xác hơn nhưng cho phép hiệu chỉnh mà không cần xoay xe.Kiểm tra điều này nếu bạn có một chiếc xe lớn/nặng.</translation>
+        <translation>Hiệu chuẩn gia tốc đơn giản là ít chính xác hơn nhưng cho phép hiệu chỉnh mà không cần xoay xe.Kiểm tra điều này nếu bạn có một chiếc phương tiện lớn/nặng.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="494"/>
@@ -2923,7 +2923,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="528"/>
         <source>Fast compass calibration given vehicle position and yaw. This </source>
-        <translation>Hiệu chỉnh la bàn nhanh cho vị trí xe và ngáp.Cái này </translation>
+        <translation>Hiệu chỉnh la bàn nhanh cho vị trí phương tiện và ngáp.Cái này </translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="529"/>
@@ -2953,7 +2953,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="553"/>
         <source>Vehicle has no Valid positon, please provide it</source>
-        <translation>Xe không có positon hợp lệ, vui lòng cung cấp nó</translation>
+        <translation>phương tiện không có positon hợp lệ, vui lòng cung cấp nó</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="559"/>
@@ -3043,7 +3043,7 @@
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="700"/>
         <source>To level the horizon you need to place the vehicle in its level flight position and press Ok.</source>
-        <translation>Để san bằng đường chân trời, bạn cần đặt chiếc xe vào vị trí bay cấp của nó và nhấn OK.</translation>
+        <translation>Để san bằng đường chân trời, bạn cần đặt chiếc phương tiện vào vị trí bay cấp của nó và nhấn OK.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.qml" line="709"/>
@@ -3130,7 +3130,7 @@ Click Ok to start calibration.</source>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.h" line="27"/>
         <source>Sensors Setup is used to calibrate the sensors within your vehicle.</source>
-        <translation>Thiết lập cảm biến được sử dụng để hiệu chỉnh các cảm biến trong xe của bạn.</translation>
+        <translation>Thiết lập cảm biến được sử dụng để hiệu chỉnh các cảm biến trong phương tiện của bạn.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponent.h" line="35"/>
@@ -3153,7 +3153,7 @@ Click Ok to start calibration.</source>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponentController.cc" line="222"/>
         <source>Rotate the vehicle randomly around all axes until the progress bar fills all the way to the right .</source>
-        <translation>Xoay xe ngẫu nhiên xung quanh tất cả các trục cho đến khi thanh tiến trình lấp đầy ở bên phải.</translation>
+        <translation>Xoay phương tiện ngẫu nhiên xung quanh tất cả các trục cho đến khi thanh tiến trình lấp đầy ở bên phải.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponentController.cc" line="243"/>
@@ -3190,7 +3190,7 @@ Click Ok to start calibration.</source>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponentController.cc" line="340"/>
         <source>Hold the vehicle in its level flight position.</source>
-        <translation>Giữ chiếc xe ở vị trí bay cấp của nó.</translation>
+        <translation>Giữ chiếc phương tiện ở vị trí bay cấp của nó.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponentController.cc" line="349"/>
@@ -3225,7 +3225,7 @@ Click Ok to start calibration.</source>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponentController.cc" line="567"/>
         <source>YOU MUST REBOOT YOUR VEHICLE NOW FOR NEW SETTINGS TO TAKE AFFECT</source>
-        <translation>Bạn phải khởi động lại xe của bạn ngay bây giờ để có các cài đặt mới để ảnh hưởng</translation>
+        <translation>Bạn phải khởi động lại phương tiện của bạn ngay bây giờ để có các cài đặt mới để ảnh hưởng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponentController.cc" line="570"/>
@@ -3235,7 +3235,7 @@ Click Ok to start calibration.</source>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponentController.cc" line="571"/>
         <source>YOU MUST REBOOT YOUR VEHICLE NOW AND RETRY COMPASS CALIBRATION PRIOR TO FLIGHT</source>
-        <translation>Bạn phải khởi động lại xe của bạn ngay bây giờ và thử lại hiệu chuẩn la bàn trước khi bay</translation>
+        <translation>Bạn phải khởi động lại phương tiện của bạn ngay bây giờ và thử lại hiệu chuẩn la bàn trước khi bay</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSensorsComponentController.cc" line="575"/>
@@ -3429,7 +3429,7 @@ Blue Robotics thrusters are lubricated by water and are not designed to be run i
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSubMotorComponent.qml" line="207"/>
         <source>Slide this switch to arm the vehicle and enable the motor test (CAUTION!)</source>
-        <translation>Trượt công tắc này để trang bị xe và cho phép thử nghiệm động cơ (thận trọng!)</translation>
+        <translation>Trượt công tắc này để trang bị phương tiện và cho phép thử nghiệm động cơ (thận trọng!)</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMSubMotorComponent.qml" line="217"/>
@@ -3441,7 +3441,7 @@ Blue Robotics thrusters are lubricated by water and are not designed to be run i
         <source>This will attempt to automatically detect the direction (normal/reversed) of your thrusters.
 Please place your vehicle in water, click the button, and wait. Note that the thrusters still need to be connected to the correct outputs (thrusters 2 and 3 can&apos;t be swapped, for example).</source>
         <translation>Điều này sẽ cố gắng tự động phát hiện hướng (bình thường/đảo ngược) của bộ đẩy của bạn.
-Vui lòng đặt xe của bạn vào nước, nhấp vào nút và chờ đợi.Lưu ý rằng các bộ đẩy vẫn cần được kết nối với các đầu ra chính xác (ví dụ như bộ đẩy 2 và 3 không thể hoán đổi).</translation>
+Vui lòng đặt phương tiện của bạn vào nước, nhấp vào nút và chờ đợi.Lưu ý rằng các bộ đẩy vẫn cần được kết nối với các đầu ra chính xác (ví dụ như bộ đẩy 2 và 3 không thể hoán đổi).</translation>
     </message>
 </context>
 <context>
@@ -3525,7 +3525,7 @@ Vui lòng đặt xe của bạn vào nước, nhấp vào nút và chờ đợi.
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMTuningComponentCopter.qml" line="282"/>
         <source>Adjust the minimum amount of thrust require for the vehicle to move</source>
-        <translation>Điều chỉnh lượng lực đẩy tối thiểu yêu cầu cho xe di chuyển</translation>
+        <translation>Điều chỉnh lượng lực đẩy tối thiểu yêu cầu cho phương tiện di chuyển</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/APM/APMTuningComponentCopter.qml" line="286"/>
@@ -3937,7 +3937,7 @@ Vui lòng đặt xe của bạn vào nước, nhấp vào nút và chờ đợi.
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/AirframeComponent.cc" line="32"/>
         <source>Airframe Setup is used to select the airframe that matches your vehicle. This will in turn set up the various tuning values for flight parameters.</source>
-        <translation>Thiết lập khung máy bay được sử dụng để chọn khung máy bay phù hợp với xe của bạn.Điều này sẽ lần lượt thiết lập các giá trị điều chỉnh khác nhau cho các tham số chuyến bay.</translation>
+        <translation>Thiết lập khung máy bay được sử dụng để chọn khung máy bay phù hợp với phương tiện của bạn.Điều này sẽ lần lượt thiết lập các giá trị điều chỉnh khác nhau cho các tham số chuyến bay.</translation>
     </message>
 </context>
 <context>
@@ -4022,7 +4022,7 @@ Vui lòng đặt xe của bạn vào nước, nhấp vào nút và chờ đợi.
     <message>
         <location filename="../src/QmlControls/AltModeDialog.qml" line="62"/>
         <source>Specified altitudes are distance above terrain. Actual altitudes sent to vehicle are calculated from terrain data and sent as AMSL values.</source>
-        <translation>Độ cao được chỉ định là khoảng cách trên địa hình.Độ cao thực tế được gửi đến xe được tính toán từ dữ liệu địa hình và được gửi dưới dạng giá trị AMSL.</translation>
+        <translation>Độ cao được chỉ định là khoảng cách trên địa hình.Độ cao thực tế được gửi đến phương tiện được tính toán từ dữ liệu địa hình và được gửi dưới dạng giá trị AMSL.</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/AltModeDialog.qml" line="66"/>
@@ -4032,7 +4032,7 @@ Vui lòng đặt xe của bạn vào nước, nhấp vào nút và chờ đợi.
     <message>
         <location filename="../src/QmlControls/AltModeDialog.qml" line="67"/>
         <source>Specified altitudes are distance above terrain. The actual altitude flown is controlled by the vehicle either from terrain height maps being sent to vehicle or a distance sensor.</source>
-        <translation>Độ cao được chỉ định là khoảng cách trên địa hình.Độ cao thực tế bay được điều khiển bởi xe hoặc từ các bản đồ chiều cao địa hình được gửi đến xe hoặc cảm biến khoảng cách.</translation>
+        <translation>Độ cao được chỉ định là khoảng cách trên địa hình.Độ cao thực tế bay được điều khiển bởi phương tiện hoặc từ các bản đồ chiều cao địa hình được gửi đến phương tiện hoặc cảm biến khoảng cách.</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/AltModeDialog.qml" line="71"/>
@@ -4095,7 +4095,7 @@ Vui lòng đặt xe của bạn vào nước, nhấp vào nút và chờ đợi.
     <message>
         <location filename="../src/QmlControls/AppMessages.qml" line="208"/>
         <source>Clear</source>
-        <translation>Thông thoáng</translation>
+        <translation>Xóa sạch</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/AppMessages.qml" line="231"/>
@@ -4202,7 +4202,7 @@ Vui lòng đặt xe của bạn vào nước, nhấp vào nút và chờ đợi.
     <message>
         <location filename="../src/AutoPilotPlugins/AutoPilotPlugin.cc" line="74"/>
         <source>One or more vehicle components require setup prior to flight.</source>
-        <translation>Một hoặc nhiều thành phần xe yêu cầu thiết lập trước khi bay.</translation>
+        <translation>Một hoặc nhiều thành phần phương tiện yêu cầu thiết lập trước khi bay.</translation>
     </message>
 </context>
 <context>
@@ -4300,7 +4300,7 @@ Click Ok to start the auto-tuning process.
 </source>
         <translation>CẢNH BÁO!        
 
-Quy trình điều chỉnh tự động nên được thực hiện một cách thận trọng và yêu cầu chiếc xe bay đủ ổn định trước khi thử thủ tục!         
+Quy trình điều chỉnh tự động nên được thực hiện một cách thận trọng và yêu cầu chiếc phương tiện bay đủ ổn định trước khi thử thủ tục!         
 
 Trước khi bắt đầu quá trình điều chỉnh tự động, hãy đảm bảo rằng:         
 1. Bạn đã đọc hướng dẫn điều chỉnh tự động và đã làm theo các bước sơ bộ         
@@ -5113,7 +5113,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/DefaultChecklist.qml" line="50"/>
         <source>Please arm the vehicle here</source>
-        <translation>Hãy trang bị chiếc xe ở đây</translation>
+        <translation>Hãy trang bị chiếc phương tiện ở đây</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/DefaultChecklist.qml" line="53"/>
@@ -5869,7 +5869,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FirmwarePlugin/FirmwarePlugin.cc" line="379"/>
         <source>Vehicle is not running latest stable firmware! Running %1, latest stable is %2.</source>
-        <translation>Xe không chạy phần sụn ổn định mới nhất!Chạy %1, ổn định mới nhất là %2.</translation>
+        <translation>phương tiện không chạy phần sụn ổn định mới nhất!Chạy %1, ổn định mới nhất là %2.</translation>
     </message>
 </context>
 <context>
@@ -6050,7 +6050,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/Vehicle/VehicleSetup/FirmwareUpgrade.qml" line="279"/>
         <source>Press Ok to upgrade your vehicle.</source>
-        <translation>Nhấn OK để nâng cấp xe của bạn.</translation>
+        <translation>Nhấn OK để nâng cấp phương tiện của bạn.</translation>
     </message>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/FirmwareUpgrade.qml" line="309"/>
@@ -6246,7 +6246,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/FixedWingChecklist.qml" line="50"/>
         <source>Please arm the vehicle here</source>
-        <translation>Hãy trang bị chiếc xe ở đây</translation>
+        <translation>Hãy trang bị chiếc phương tiện ở đây</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/FixedWingChecklist.qml" line="53"/>
@@ -6561,7 +6561,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/FlyViewMissionCompleteDialog.qml" line="126"/>
         <source>Resume Mission will rebuild the current mission from the last flown waypoint and upload it to the vehicle for the next flight.</source>
-        <translation>Sơ yếu lý lịch Mission sẽ xây dựng lại nhiệm vụ hiện tại từ điểm bay cuối cùng và tải nó lên xe cho chuyến bay tiếp theo.</translation>
+        <translation>Sơ yếu lý lịch Mission sẽ xây dựng lại nhiệm vụ hiện tại từ điểm bay cuối cùng và tải nó lên phương tiện cho chuyến bay tiếp theo.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/FlyViewMissionCompleteDialog.qml" line="134"/>
@@ -6723,7 +6723,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/AppSettings/FlyViewSettings.qml" line="287"/>
         <source>Clear</source>
-        <translation>Thông thoáng</translation>
+        <translation>Xóa sạch</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/FlyViewSettings.qml" line="296"/>
@@ -6808,17 +6808,17 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/FlyViewTopRightPanel.qml" line="162"/>
         <source>Multi Vehicle Actions</source>
-        <translation>Hành động đa xe</translation>
+        <translation>Hành động đa phương tiện</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/FlyViewTopRightPanel.qml" line="171"/>
         <source>Arm</source>
-        <translation>Cánh tay</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/FlyViewTopRightPanel.qml" line="180"/>
         <source>Disarm</source>
-        <translation>Giải giáp</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/FlyViewTopRightPanel.qml" line="189"/>
@@ -7074,7 +7074,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/GPSIndicatorPage.qml" line="166"/>
         <source>Save</source>
-        <translation>Cứu</translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/GPSIndicatorPage.qml" line="166"/>
@@ -7216,7 +7216,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/GeoFenceEditor.qml" line="66"/>
         <source>This vehicle does not support GeoFence.</source>
-        <translation>Chiếc xe này không hỗ trợ Geofence.</translation>
+        <translation>Phương tiện này không hỗ trợ Geofence.</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/GeoFenceEditor.qml" line="116"/>
@@ -7650,6 +7650,11 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
         <translation>Trượt để xác nhận</translation>
     </message>
     <message>
+        <location filename="../src/FlightDisplay/GuidedActionConfirm.qml" line="126"/>
+        <source>Hold or slide to confirm</source>
+        <translation>Nhấn giữ để xác nhận</translation>
+    </message>
+    <message>
         <location filename="../src/FlightDisplay/GuidedActionConfirm.qml" line="118"/>
         <source>Slide or hold spacebar</source>
         <translation>Trượt hoặc giữ vũ trụ</translation>
@@ -7810,87 +7815,88 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="66"/>
         <source>Arm the vehicle.</source>
-        <translation>Vũ khí xe.</translation>
+        <translation>Kích hoạt thiết bị bay.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="67"/>
         <source>Arm selected vehicles.</source>
-        <translation>Xe được chọn phương tiện.</translation>
+        <translation>Kích hoạt các thiết bị bay đã chọn.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="68"/>
         <source>WARNING: This will force arming of the vehicle bypassing any safety checks.</source>
-        <translation>CẢNH BÁO: Điều này sẽ buộc vũ khí của chiếc xe bỏ qua mọi kiểm tra an toàn.</translation>
+        <translation>CẢNH BÁO: Thao tác này sẽ buộc kích hoạt thiết bị bay và bỏ qua mọi kiểm tra an toàn.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="69"/>
         <source>Disarm the vehicle</source>
-        <translation>Giải giáp chiếc xe</translation>
+        <translation>Ngắt kích hoạt thiết bị bay</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="70"/>
         <source>Disarm selected vehicles.</source>
-        <translation>Giải vô tay các phương tiện được chọn.</translation>
+        <translation>Ngắt kích hoạt các thiết bị bay đã chọn.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="71"/>
         <source>WARNING: THIS WILL STOP ALL MOTORS. IF VEHICLE IS CURRENTLY IN THE AIR IT WILL CRASH.</source>
-        <translation>Cảnh báo: Điều này sẽ ngăn chặn tất cả các động cơ.Nếu xe hiện đang ở trên không, nó sẽ bị sập.</translation>
+        <translation>CẢNH BÁO: Thao tác này sẽ tắt toàn bộ động cơ. Nếu thiết bị bay đang ở trên không, nó sẽ rơi.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="72"/>
         <source>Takeoff from ground and hold position.</source>
-        <translation>Takeoff từ mặt đất và giữ vị trí.</translation>
+        <translation>Cất cánh từ mặt đất và giữ vị trí.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="73"/>
         <source>Grab or Release the cargo</source>
-        <translation>Lấy hoặc giải phóng hàng hóa</translation>
+        <translation>Gắp hoặc thả hàng hóa</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="74"/>
         <source>Takeoff from ground and start the current mission.</source>
-        <translation>Takeoff từ mặt đất và bắt đầu nhiệm vụ hiện tại.</translation>
+        <translation>Cất cánh từ mặt đất và bắt đầu nhiệm vụ hiện tại.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="75"/>
         <source>Takeoff from ground and start the current mission for selected vehicles.</source>
-        <translation>Takeoff từ mặt đất và bắt đầu nhiệm vụ hiện tại cho các phương tiện được chọn.</translation>
+        <translation>Cất cánh từ mặt đất và bắt đầu nhiệm vụ hiện tại cho các thiết bị bay được chọn.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="76"/>
         <source>Continue the mission from the current waypoint.</source>
-        <translation>Tiếp tục nhiệm vụ từ điểm hiện tại.</translation>
+        <translation>Tiếp tục nhiệm vụ từ điểm waypoint hiện tại.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="77"/>
         <source>Upload of resume mission failed. Confirm to retry upload</source>
-        <translation>Tải lên Sơ yếu lý lịch Nhiệm vụ thất bại.Xác nhận để thử lại tải lên</translation>
+        <translation>Tải lên dữ liệu tiếp tục nhiệm vụ thất bại. Xác nhận để thử lại.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="78"/>
         <source>Land the vehicle at the current position.</source>
-        <translation>Hạ cánh xe ở vị trí hiện tại.</translation>
+        <translation>Hạ cánh thiết bị bay tại vị trí hiện tại.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="79"/>
         <source>Return to the launch position of the vehicle.</source>
-        <translation>Quay trở lại vị trí ra mắt của chiếc xe.</translation>
+        <translation>Quay về vị trí cất cánh ban đầu của thiết bị bay.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="80"/>
         <source>Change the altitude of the vehicle up or down.</source>
-        <translation>Thay đổi độ cao của xe lên hoặc xuống.</translation>
+        <translation>Thay đổi độ cao của thiết bị bay lên hoặc xuống.</translation>
     </message>
+
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="81"/>
         <source>Change the forward flight loiter radius.</source>
-        <translation>Thay đổi bán kính Looter bay phía trước.</translation>
+        <translation>Thay đổi bán kính bay lượn khi bay về phía trước.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="82"/>
         <source>Change the maximum horizontal cruise speed.</source>
-        <translation>Thay đổi tốc độ hành trình ngang tối đa.</translation>
+        <translation>Thay đổi tốc độ bay hành trình ngang tối đa.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="83"/>
@@ -7900,68 +7906,71 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="84"/>
         <source>Move the vehicle to the specified location.</source>
-        <translation>Di chuyển xe đến vị trí được chỉ định.</translation>
+        <translation>Di chuyển thiết bị bay đến vị trí được chỉ định.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="85"/>
         <source>Adjust current waypoint to %1.</source>
-        <translation>Điều chỉnh điểm hiện tại thành %1.</translation>
+        <translation>Điều chỉnh waypoint hiện tại đến %1.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="86"/>
         <source>Orbit the vehicle around the specified location.</source>
-        <translation>Quỹ đạo xe xung quanh vị trí được chỉ định.</translation>
+        <translation>Cho thiết bị bay bay vòng quanh vị trí được chỉ định.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="87"/>
         <source>Abort the landing sequence.</source>
-        <translation>Hủy bỏ trình tự hạ cánh.</translation>
+        <translation>Hủy trình tự hạ cánh.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="88"/>
         <source>Pause the vehicle at it&apos;s current position, adjusting altitude up or down as needed.</source>
-        <translation>Tạm dừng xe ở vị trí hiện tại của nó, điều chỉnh độ cao lên hoặc xuống khi cần thiết.</translation>
+        <translation>Tạm dừng thiết bị bay tại vị trí hiện tại, điều chỉnh độ cao lên hoặc xuống nếu cần.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="89"/>
         <source>Pause selected vehicles at their current position.</source>
-        <translation>Tạm dừng các phương tiện được chọn ở vị trí hiện tại của họ.</translation>
+        <translation>Tạm dừng các thiết bị bay được chọn tại vị trí hiện tại.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="90"/>
         <source>Transition VTOL to fixed wing flight.</source>
-        <translation>Chuyển tiếp vtol sang chuyến bay cố định.</translation>
+        <translation>Chuyển VTOL sang chế độ bay cánh cố định.</translation>
     </message>
+
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="91"/>
         <source>Transition VTOL to multi-rotor flight.</source>
-        <translation>Chuyển tiếp vtol sang chuyến bay đa cánh quạt.</translation>
+        <translation>Chuyển VTOL sang chế độ bay đa cánh quạt.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="92"/>
         <source>Make the specified location a Region Of Interest.</source>
-        <translation>Làm cho vị trí được chỉ định thành một khu vực quan tâm.</translation>
+        <translation>Đặt vị trí được chỉ định làm khu vực quan tâm (ROI).</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="93"/>
         <source>Set vehicle home as the specified location. This will affect Return to Home position</source>
-        <translation>Đặt xe về nhà làm địa điểm được chỉ định.Điều này sẽ ảnh hưởng đến trở về vị trí nhà</translation>
+        <translation>Đặt vị trí "về nhà" của thiết bị bay là vị trí được chỉ định. Điều này sẽ ảnh hưởng đến vị trí quay về (Return to Home).</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="94"/>
         <source>Make the specified location the estimator origin.</source>
-        <translation>Làm cho vị trí được chỉ định là nguồn gốc ước tính.</translation>
+        <translation>Đặt vị trí được chỉ định làm gốc tọa độ cho bộ ước lượng (estimator).</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="95"/>
         <source>Set the vehicle flight mode to %1</source>
-        <translation>Đặt chế độ bay xe thành %1</translation>
+        <translation>Đặt chế độ bay của thiết bị bay thành %1</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="96"/>
         <source>Set the vehicle heading towards the specified location.</source>
-        <translation>Đặt hướng đi về phía vị trí được chỉ định.</translation>
+        <translation>Đặt hướng bay của thiết bị về phía vị trí được chỉ định.</translation>
     </message>
+
+
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="221"/>
         <source>_activeVehicle(%1) _vehicleArmed(%2) guidedModeSupported(%3) _vehicleFlying(%4) _vehicleWasFlying(%5) _vehicleInRTLMode(%6) pauseVehicleSupported(%7) _vehiclePaused(%8) _flightMode(%9) _missionItemCount(%10) roiSupported(%11) orbitSupported(%12) _missionActive(%13) _hideROI(%14) _hideOrbit(%15)</source>
@@ -7975,7 +7984,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="240"/>
         <source>Airspeed</source>
-        <translation>Tốc độ không khí</translation>
+        <translation>Tốc độ gió</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/GuidedActionsController.qml" line="247"/>
@@ -8010,8 +8019,8 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <name>HelpSettings</name>
     <message>
         <location filename="../src/UI/AppSettings/HelpSettings.qml" line="37"/>
-        <source>QGroundControl User Guide</source>
-        <translation>Hướng dẫn sử dụng QgroundControl</translation>
+        <source>GroundControl User Guide</source>
+        <translation>Hướng dẫn sử dụng GroundControl</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/HelpSettings.qml" line="44"/>
@@ -8074,11 +8083,12 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
         <source>Telemetry Display</source>
         <translation>Hiển thị từ xa</translation>
     </message>
-    <message>
+   <message>
         <location filename="../src/QmlControls/InstrumentValueEditDialog.qml" line="41"/>
         <source>Valuec requires a connected vehicle for setup.</source>
-        <translation>Valuec yêu cầu một chiếc xe được kết nối để thiết lập.</translation>
+        <translation>Giá trị này yêu cầu một thiết bị bay đã được kết nối để thiết lập.</translation>
     </message>
+
     <message>
         <location filename="../src/QmlControls/InstrumentValueEditDialog.qml" line="55"/>
         <source>Telemetry</source>
@@ -8355,8 +8365,9 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfig.qml" line="86"/>
         <source>Calibration</source>
-        <translation>Sự định cỡ</translation>
+        <translation>Hiệu chuẩn</translation>
     </message>
+
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfig.qml" line="90"/>
         <source>Advanced</source>
@@ -8368,18 +8379,21 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfigAdvanced.qml" line="36"/>
         <source>Full down stick is zero throttle</source>
-        <translation>Full Down Stick bằng không</translation>
+        <translation>Đẩy cần ga xuống hết sẽ bằng mức ga 0</translation>
     </message>
+
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfigAdvanced.qml" line="42"/>
         <source>Center stick is zero throttle</source>
-        <translation>Center Stick bằng không</translation>
+        <translation>Giữ cần ga ở giữa sẽ bằng mức ga 0</translation>
     </message>
+
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfigAdvanced.qml" line="49"/>
         <source>Spring loaded throttle smoothing</source>
-        <translation>Mùa xuân tải van tiết lưu</translation>
+        <translation>Làm mượt ga với cần điều khiển có lò xo hồi</translation>
     </message>
+
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfigAdvanced.qml" line="61"/>
         <source>Allow negative Thrust</source>
@@ -8423,18 +8437,21 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfigAdvanced.qml" line="181"/>
         <source>step of calibration by gently wiggling each axis. </source>
-        <translation>Bước hiệu chuẩn bằng cách nhẹ nhàng ngọ nguậy mỗi trục. </translation>
+        <translation>bước hiệu chuẩn bằng cách nhẹ nhàng di chuyển từng trục. </translation>
     </message>
+
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfigAdvanced.qml" line="182"/>
         <source>Deadband can also be adjusted by clicking and </source>
-        <translation>Deadband cũng có thể được điều chỉnh bằng cách nhấp và </translation>
+        <translation>Vùng chết cũng có thể được điều chỉnh bằng cách nhấp chuột và </translation>
     </message>
+
     <message>
         <location filename="../src/Vehicle/VehicleSetup/JoystickConfigAdvanced.qml" line="183"/>
         <source>dragging vertically on the corresponding axis monitor.</source>
-        <translation>Kéo theo chiều dọc trên màn hình trục tương ứng.</translation>
+        <translation>kéo theo chiều dọc trên biểu đồ trục tương ứng.</translation>
     </message>
+
 </context>
 <context>
     <name>JoystickConfigButtons</name>
@@ -8904,12 +8921,13 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/AnalyzeView/LogDownloadPage.qml" line="23"/>
         <source>Log Download allows you to download binary log files from your vehicle. Click Refresh to get list of available logs.</source>
-        <translation>Tải xuống nhật ký cho phép bạn tải xuống các tệp nhật ký nhị phân từ xe của bạn.Nhấp vào Làm mới để có được danh sách các nhật ký có sẵn.</translation>
+        <translation>Tính năng Tải nhật ký cho phép bạn tải các tệp nhật ký nhị phân từ thiết bị bay. Nhấn Làm mới để lấy danh sách các nhật ký có sẵn.</translation>
     </message>
+
     <message>
         <location filename="../src/AnalyzeView/LogDownloadPage.qml" line="63"/>
         <source>Id</source>
-        <translation>Nhận dạng</translation>
+        <translation>Id</translation>
     </message>
     <message>
         <location filename="../src/AnalyzeView/LogDownloadPage.qml" line="71"/>
@@ -8931,21 +8949,22 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
         <source>Status</source>
         <translation>Trạng thái</translation>
     </message>
-    <message>
+   <message>
         <location filename="../src/AnalyzeView/LogDownloadPage.qml" line="117"/>
         <source>Refresh</source>
-        <translation>Làm cho khỏe lại</translation>
+        <translation>Làm mới</translation>
     </message>
     <message>
         <location filename="../src/AnalyzeView/LogDownloadPage.qml" line="121"/>
         <source>Log Refresh</source>
-        <translation>Đăng nhập làm mới</translation>
+        <translation>Làm mới nhật ký</translation>
     </message>
     <message>
         <location filename="../src/AnalyzeView/LogDownloadPage.qml" line="121"/>
         <source>You must be connected to a vehicle in order to download logs.</source>
-        <translation>Bạn phải được kết nối với một chiếc xe để tải xuống nhật ký.</translation>
+        <translation>Để tải xuống nhật ký, bạn cần kết nối với thiết bị bay.</translation>
     </message>
+
     <message>
         <location filename="../src/AnalyzeView/LogDownloadPage.qml" line="132"/>
         <source>Download</source>
@@ -9636,7 +9655,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="360"/>
         <source>Vehicle Parameters</source>
-        <translation>Thông số xe</translation>
+        <translation>Thông số phương tiện</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="362"/>
@@ -9647,7 +9666,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="369"/>
         <source>Vehicle Configuration</source>
-        <translation>Cấu hình xe</translation>
+        <translation>Cấu hình phương tiện</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MainStatusIndicator.qml" line="388"/>
@@ -9762,28 +9781,33 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/MainWindow.qml" line="229"/>
         <source>You have a mission edit in progress which has not been saved/sent. If you close you will lose changes. Are you sure you want to close?</source>
-        <translation>Bạn có một bản chỉnh sửa nhiệm vụ trong tiến trình chưa được lưu/gửi.Nếu bạn đóng cửa, bạn sẽ mất thay đổi.Bạn có chắc là bạn muốn đóng?</translation>
+        <translation>Bạn đang chỉnh sửa nhiệm vụ nhưng chưa lưu hoặc gửi. Nếu bạn đóng lại, các thay đổi sẽ bị mất. Bạn có chắc muốn đóng không?</translation>
     </message>
+
     <message>
         <location filename="../src/UI/MainWindow.qml" line="242"/>
         <source>You have pending parameter updates to a vehicle. If you close you will lose changes. Are you sure you want to close?</source>
-        <translation>Bạn có cập nhật tham số đang chờ xử lý cho một chiếc xe.Nếu bạn đóng cửa, bạn sẽ mất thay đổi.Bạn có chắc là bạn muốn đóng?</translation>
+        <translation>Bạn có các cập nhật tham số đang chờ gửi tới thiết bị bay. Nếu đóng lại, các thay đổi sẽ bị mất. Bạn có chắc muốn đóng không?</translation>
     </message>
+
     <message>
         <location filename="../src/UI/MainWindow.qml" line="254"/>
         <source>There are still active connections to vehicles. Are you sure you want to exit?</source>
-        <translation>Vẫn còn kết nối tích cực với xe.Bạn có chắc là bạn muốn thoát?</translation>
+        <translation>Vẫn còn kết nối đang hoạt động với thiết bị bay. Bạn có chắc muốn thoát không?</translation>
     </message>
+
     <message>
         <location filename="../src/UI/MainWindow.qml" line="293"/>
         <source>Debug Touch Areas</source>
-        <translation>Gỡ lỗi các khu vực cảm ứng</translation>
+        <translation>Gỡ lỗi khu vực cảm ứng</translation>
     </message>
+
     <message>
         <location filename="../src/UI/MainWindow.qml" line="294"/>
         <source>Touch Area display toggled</source>
-        <translation>Hiển thị khu vực cảm ứng được bật tắt</translation>
+        <translation>Đã chuyển trạng thái hiển thị khu vực cảm ứng</translation>
     </message>
+
     <message>
         <location filename="../src/UI/MainWindow.qml" line="300"/>
         <location filename="../src/UI/MainWindow.qml" line="312"/>
@@ -9803,19 +9827,20 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/MainWindow.qml" line="517"/>
         <source>Exit</source>
-        <translation>Ra</translation>
+        <translation>Thoát</translation>
     </message>
     <message>
         <location filename="../src/UI/MainWindow.qml" line="598"/>
         <source>Vehicle Error</source>
-        <translation>Lỗi xe</translation>
+        <translation>Lỗi phương tiện</translation>
     </message>
     <message>
         <location filename="../src/UI/MainWindow.qml" line="622"/>
         <source>Additional errors received</source>
-        <translation>Lỗi bổ sung nhận được</translation>
+        <translation>Đã nhận thêm lỗi</translation>
     </message>
 </context>
+
 <context>
     <name>MapScale</name>
     <message>
@@ -9861,76 +9886,91 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
         <source>Provider</source>
         <translation>Nhà cung cấp</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="78"/>
         <source>Type</source>
-        <translation>Kiểu</translation>
+        <translation>Loại</translation> <!-- “Loại” thường dùng trong UI hơn “Kiểu” -->
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="91"/>
         <source>Elevation Provider</source>
-        <translation>Nhà cung cấp độ cao</translation>
+        <translation>Nhà cung cấp dữ liệu độ cao</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="106"/>
         <source>Offline Maps</source>
         <translation>Bản đồ ngoại tuyến</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="107"/>
         <source>Download map tiles for use when offline</source>
-        <translation>Tải xuống Gạch bản đồ để sử dụng khi ngoại tuyến</translation>
+        <translation>Tải xuống các mảnh bản đồ để sử dụng khi không có kết nối</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="120"/>
         <source>Add New Set</source>
-        <translation>Thêm bộ mới</translation>
+        <translation>Thêm bộ bản đồ mới</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="121"/>
         <source>Add</source>
-        <translation>Thêm vào</translation>
+        <translation>Thêm</translation> <!-- “Thêm vào” là thừa từ -->
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="127"/>
         <source>Import Map Tiles</source>
-        <translation>Nhập gạch bản đồ</translation>
+        <translation>Nhập mảnh bản đồ</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="128"/>
         <source>Import</source>
-        <translation>Nhập khẩu</translation>
+        <translation>Nhập</translation> <!-- "Nhập khẩu" là ngữ cảnh kinh tế, không phù hợp ở đây -->
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="138"/>
         <source>Export Map Tiles</source>
-        <translation>Xuất gạch bản đồ</translation>
+        <translation>Xuất mảnh bản đồ</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="139"/>
         <source>Export</source>
-        <translation>Xuất khẩu</translation>
+        <translation>Xuất</translation> <!-- Giống như trên -->
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="151"/>
         <source>Exporting</source>
-        <translation>Xuất khẩu</translation>
+        <translation>Đang xuất</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="151"/>
         <source>Importing</source>
-        <translation>Nhập khẩu</translation>
+        <translation>Đang nhập</translation>
     </message>
-    <message>
+
+   <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="165"/>
         <source>Tokens</source>
-        <translation>Mã thông báo</translation>
+        <translation>Mã truy cập</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="166"/>
         <source>Allows access to additional providers</source>
         <translation>Cho phép truy cập vào các nhà cung cấp bổ sung</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="170"/>
         <source>Mapbox</source>
@@ -9986,41 +10026,49 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
         <source>Tile Sets (*.%1)</source>
         <translation>Bộ gạch (*. %1)</translation>
     </message>
+    
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="250"/>
         <source>Export Selected Tile Sets</source>
-        <translation>Xuất các bộ gạch đã chọn</translation>
+        <translation>Xuất các bộ mảnh bản đồ đã chọn</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="255"/>
         <source>Export Tiles</source>
-        <translation>Xuất gạch</translation>
+        <translation>Xuất mảnh bản đồ</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="279"/>
         <source>Import TileSets</source>
-        <translation>Nhập gạch</translation>
+        <translation>Nhập bộ mảnh bản đồ</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="284"/>
         <source>Import Tiles</source>
-        <translation>Nhập gạch</translation>
+        <translation>Nhập mảnh bản đồ</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="292"/>
         <source>Append to existing sets</source>
-        <translation>Nối vào các bộ hiện có</translation>
+        <translation>Thêm vào các bộ hiện có</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="297"/>
         <source>Replace existing sets</source>
         <translation>Thay thế các bộ hiện có</translation>
     </message>
+
     <message>
         <location filename="../src/UI/AppSettings/MapSettings.qml" line="309"/>
         <source>Error Message</source>
         <translation>Thông báo lỗi</translation>
     </message>
+
 </context>
 <context>
     <name>MavlinkActionManager</name>
@@ -10144,13 +10192,15 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MissionItemEditor.qml" line="196"/>
         <source>Move to vehicle position</source>
-        <translation>Di chuyển đến vị trí xe</translation>
+        <translation>Di chuyển đến vị trí của phương tiện</translation>
     </message>
+
     <message>
         <location filename="../src/QmlControls/MissionItemEditor.qml" line="209"/>
         <source>Move to previous item position</source>
-        <translation>Di chuyển đến vị trí mục trước</translation>
+        <translation>Di chuyển đến vị trí của mục trước</translation>
     </message>
+
     <message>
         <location filename="../src/QmlControls/MissionItemEditor.qml" line="219"/>
         <source>Edit position...</source>
@@ -10164,12 +10214,13 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MissionItemEditor.qml" line="245"/>
         <source>Mission Edit</source>
-        <translation>Nhiệm vụ chỉnh sửa</translation>
+        <translation>Chỉnh sửa nhiệm vụ</translation>
     </message>
+
     <message>
         <location filename="../src/QmlControls/MissionItemEditor.qml" line="245"/>
         <source>You have made changes to the mission item which cannot be shown in Simple Mode</source>
-        <translation>Bạn đã thực hiện các thay đổi đối với mục nhiệm vụ không thể hiển thị ở chế độ đơn giản</translation>
+        <translation>Bạn đã chỉnh sửa mục nhiệm vụ không thể hiển thị trong Chế độ Đơn giản</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MissionItemEditor.qml" line="258"/>
@@ -10190,7 +10241,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/MissionManager/MissionManager.cc" line="112"/>
         <source>Unable to generate resume mission due to MAV_CMD_DO_JUMP command.</source>
-        <translation>Không thể tạo ra nhiệm vụ tiếp tục do lệnh mav_cmd_do_jump.</translation>
+        <translation>Không thể tạo nhiệm vụ tiếp tục do lệnh MAV_CMD_DO_JUMP.</translation>
     </message>
 </context>
 <context>
@@ -10203,7 +10254,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="43"/>
         <source>Vehicle</source>
-        <translation>Phương tiện giao thông</translation>
+        <translation>Phương tiện</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="68"/>
@@ -10213,8 +10264,9 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="115"/>
         <source>Initial Waypoint Alt</source>
-        <translation>Điểm số ban đầu Alt</translation>
+        <translation>Độ cao điểm waypoint ban đầu</translation>
     </message>
+
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="131"/>
         <source>Flight speed</source>
@@ -10228,13 +10280,15 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="169"/>
         <source>Vehicle Info</source>
-        <translation>Thông tin xe</translation>
+        <translation>Thông tin phương tiện</translation>
     </message>
+
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="220"/>
         <source>The following speed values are used to calculate total mission time. They do not affect the flight speed for the mission.</source>
-        <translation>Các giá trị tốc độ sau được sử dụng để tính tổng thời gian nhiệm vụ.Chúng không ảnh hưởng đến tốc độ bay cho nhiệm vụ.</translation>
+        <translation>Các giá trị tốc độ sau được dùng để tính tổng thời gian thực hiện nhiệm vụ. Chúng không ảnh hưởng đến tốc độ bay trong nhiệm vụ.</translation>
     </message>
+
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="225"/>
         <source>Cruise speed</source>
@@ -10258,7 +10312,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="282"/>
         <source>Actual position set by vehicle at flight time.</source>
-        <translation>Vị trí thực tế được đặt bằng xe vào thời gian bay.</translation>
+        <translation>Vị trí thực tế được đặt bằng phương tiện vào thời gian bay.</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/MissionSettingsEditor.qml" line="287"/>
@@ -10290,7 +10344,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/Vehicle/Actuators/Mixer.cc" line="111"/>
         <source>Custom</source>
-        <translation>Phong tục</translation>
+        <translation>Tùy chỉnh</translation>
     </message>
     <message>
         <location filename="../src/Vehicle/Actuators/Mixer.cc" line="111"/>
@@ -10349,32 +10403,32 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/AppSettings/MockLink.qml" line="46"/>
         <source>PX4 Vehicle</source>
-        <translation>Xe PX4</translation>
+        <translation>Phương tiện PX4</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/MockLink.qml" line="51"/>
         <source>APM ArduCopter Vehicle</source>
-        <translation>Xe APM Arducopter</translation>
+        <translation>Phương tiện APM Arducopter</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/MockLink.qml" line="57"/>
         <source>APM ArduPlane Vehicle</source>
-        <translation>Xe APM Arduplane</translation>
+        <translation>Phương tiện APM Arduplane</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/MockLink.qml" line="63"/>
         <source>APM ArduSub Vehicle</source>
-        <translation>Xe APM Ardusub</translation>
+        <translation>Phương tiện APM Ardusub</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/MockLink.qml" line="69"/>
         <source>APM ArduRover Vehicle</source>
-        <translation>Xe APM Ardurover</translation>
+        <translation>Phương tiện APM Ardurover</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/MockLink.qml" line="75"/>
         <source>Generic Vehicle</source>
-        <translation>Xe chung</translation>
+        <translation>Phương tiện chung</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/MockLink.qml" line="80"/>
@@ -10392,7 +10446,8 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/AppSettings/MockLinkSettings.qml" line="80"/>
         <source>Increment Vehicle Id</source>
-        <translation>ID xe tăng</translation>
+        <translation>Tăng ID phương tiện</translation>
+
     </message>
     <message>
         <location filename="../src/UI/AppSettings/MockLinkSettings.qml" line="84"/>
@@ -10417,7 +10472,7 @@ Bấm OK để bắt đầu quá trình tự động điều chỉnh.
     <message>
         <location filename="../src/UI/AppSettings/MockLinkSettings.qml" line="94"/>
         <source>Vehicle Type</source>
-        <translation>Loại xe</translation>
+        <translation>Loại Phương Tiện</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/MockLinkSettings.qml" line="100"/>
@@ -10542,7 +10597,7 @@ Bạn có muốn tiến hành không?</translation>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="25"/>
         <source>Multirotor Initial Checks</source>
-        <translation>Kiểm tra ban đầu đa lực</translation>
+        <translation>Kiểm tra ban đầu cho máy bay đa cánh quạt</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="28"/>
@@ -10552,12 +10607,12 @@ Bạn có muốn tiến hành không?</translation>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="29"/>
         <source>Props mounted and secured?</source>
-        <translation>Đạo cụ gắn kết và bảo đảm?</translation>
+        <translation>Cánh quạt đã lắp đúng và cố định chắc chắn?</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="50"/>
         <source>Please arm the vehicle here</source>
-        <translation>Hãy trang bị chiếc xe ở đây</translation>
+        <translation>Vui lòng bật chế độ bay tại đây</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="53"/>
@@ -10567,7 +10622,7 @@ Bạn có muốn tiến hành không?</translation>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="54"/>
         <source>Propellers free? Then throttle up gently. Working properly?</source>
-        <translation>Cánh quạt miễn phí?Sau đó, điều tiết lên nhẹ nhàng.Làm việc bình thường?</translation>
+        <translation>Cánh quạt quay tự do? Hãy thử tăng ga nhẹ nhàng. Động cơ hoạt động bình thường chứ?</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="58"/>
@@ -10577,12 +10632,12 @@ Bạn có muốn tiến hành không?</translation>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="59"/>
         <source>Please confirm mission is valid (waypoints valid, no terrain collision).</source>
-        <translation>Vui lòng xác nhận Nhiệm vụ là hợp lệ (các điểm hợp lệ, không va chạm địa hình).</translation>
+        <translation>Vui lòng xác nhận nhiệm vụ hợp lệ (các điểm waypoint hợp lệ, không va chạm địa hình).</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="67"/>
         <source>Last preparations before launch</source>
-        <translation>Chuẩn bị cuối cùng trước khi ra mắt</translation>
+        <translation>Các bước chuẩn bị cuối cùng trước khi cất cánh</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="71"/>
@@ -10592,8 +10647,9 @@ Bạn có muốn tiến hành không?</translation>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="72"/>
         <source>Configured and started? Payload lid closed?</source>
-        <translation>Cấu hình và bắt đầu?Nắp tải trọng đóng?</translation>
+        <translation>Đã cấu hình và khởi động? Nắp tải trọng đã đóng chưa?</translation>
     </message>
+
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="76"/>
         <source>Wind &amp; weather</source>
@@ -10602,7 +10658,7 @@ Bạn có muốn tiến hành không?</translation>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="77"/>
         <source>OK for your platform?</source>
-        <translation>Ok cho nền tảng của bạn?</translation>
+        <translation>Phù hợp với nền tảng của bạn chứ?</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/MultiRotorChecklist.qml" line="81"/>
@@ -10633,12 +10689,12 @@ Bạn có muốn tiến hành không?</translation>
     <message>
         <location filename="../src/Vehicle/MultiVehicleManager.cc" line="141"/>
         <source>Warning: A vehicle is using the same system id as %1: %2</source>
-        <translation>CẢNH BÁO: Một chiếc xe đang sử dụng cùng một ID hệ thống như %1: %2</translation>
+        <translation>CẢNH BÁO: Một chiếc phương tiện đang sử dụng cùng một ID hệ thống như %1: %2</translation>
     </message>
     <message>
         <location filename="../src/Vehicle/MultiVehicleManager.cc" line="159"/>
         <source>Connected to Vehicle %1</source>
-        <translation>Kết nối với xe %1</translation>
+        <translation>Kết nối với phương tiện %1</translation>
     </message>
 </context>
 <context>
@@ -10721,7 +10777,7 @@ Bạn có muốn tiến hành không?</translation>
     <message>
         <location filename="../src/QmlControls/OfflineMapEditor.qml" line="340"/>
         <source>Ok</source>
-        <translation>Được rồi</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/OfflineMapEditor.qml" line="352"/>
@@ -10831,12 +10887,13 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/FirstRunPromptDialogs/OfflineVehicleFirstRunPrompt.qml" line="21"/>
         <source>Vehicle Information</source>
-        <translation>Thông tin xe</translation>
+        <translation>Thông tin phương tiện</translation>
     </message>
     <message>
         <location filename="../src/FirstRunPromptDialogs/OfflineVehicleFirstRunPrompt.qml" line="36"/>
         <source>Specify information about the vehicle you plan to fly. If you are unsure of the correct values leave them as is.</source>
-        <translation>Chỉ định thông tin về chiếc xe bạn dự định bay.Nếu bạn không chắc chắn về các giá trị chính xác, hãy để chúng như vậy.</translation>
+        <translation>Chỉ định thông tin về phương tiện bay mà bạn dự định sử dụng. Nếu bạn không chắc chắn về các giá trị chính xác, hãy giữ nguyên như mặc định.</translation>
+
     </message>
     <message>
         <location filename="../src/FirstRunPromptDialogs/OfflineVehicleFirstRunPrompt.qml" line="56"/>
@@ -10846,7 +10903,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/FirstRunPromptDialogs/OfflineVehicleFirstRunPrompt.qml" line="68"/>
         <source>Vehicle</source>
-        <translation>Phương tiện giao thông</translation>
+        <translation>Phương tiện</translation>
     </message>
 </context>
 <context>
@@ -10867,7 +10924,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/QmlControls/PIDTuning.qml" line="251"/>
         <source>Clear</source>
-        <translation>Thông thoáng</translation>
+        <translation>Xóa sạch</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/PIDTuning.qml" line="256"/>
@@ -10930,7 +10987,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4AutoPilotPlugin.cc" line="147"/>
         <source>Warning: Hardware In The Loop (HITL) simulation is enabled for this vehicle.</source>
-        <translation>Cảnh báo: Phần cứng trong mô phỏng vòng lặp (HITL) được kích hoạt cho chiếc xe này.</translation>
+        <translation>Cảnh báo: Phần cứng trong mô phỏng vòng lặp (HITL) được kích hoạt cho phương tiện này.</translation>
     </message>
 </context>
 <context>
@@ -11175,12 +11232,12 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4FlightBehaviorCopter.qml" line="69"/>
         <source>A higher value makes the vehicle react faster. Be aware that this affects braking as well, and a combination of slow responsiveness with high maximum velocity will lead to long braking distances.</source>
-        <translation>Một giá trị cao hơn làm cho xe phản ứng nhanh hơn.Xin lưu ý rằng điều này cũng ảnh hưởng đến phanh và sự kết hợp của khả năng đáp ứng chậm với vận tốc tối đa cao sẽ dẫn đến khoảng cách phanh dài.</translation>
+        <translation>Một giá trị cao hơn làm cho phương tiện phản ứng nhanh hơn.Xin lưu ý rằng điều này cũng ảnh hưởng đến phanh và sự kết hợp của khả năng đáp ứng chậm với vận tốc tối đa cao sẽ dẫn đến khoảng cách phanh dài.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4FlightBehaviorCopter.qml" line="80"/>
         <source>Warning: a high responsiveness requires a vehicle with large thrust-to-weight ratio. The vehicle might lose altitude otherwise.</source>
-        <translation>CẢNH BÁO: Khả năng đáp ứng cao đòi hỏi một chiếc xe có tỷ lệ lực đẩy trên trọng lượng lớn.Chiếc xe có thể mất độ cao nếu không.</translation>
+        <translation>CẢNH BÁO: Khả năng đáp ứng cao đòi hỏi một chiếc phương tiện có tỷ lệ lực đẩy trên trọng lượng lớn.Chiếc phương tiện có thể mất độ cao nếu không.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4FlightBehaviorCopter.qml" line="89"/>
@@ -11501,7 +11558,7 @@ Is this really what you want?</source>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PX4RadioComponent.cc" line="28"/>
         <source>Radio Setup is used to calibrate your transmitter. It also assign channels for Roll, Pitch, Yaw and Throttle vehicle control as well as determining whether they are reversed.</source>
-        <translation>Thiết lập radio được sử dụng để hiệu chỉnh máy phát của bạn.Nó cũng chỉ định các kênh cho điều khiển xe cuộn, sân, ngáp và ga cũng như xác định xem chúng có bị đảo ngược hay không.</translation>
+        <translation>Thiết lập radio được sử dụng để hiệu chỉnh máy phát của bạn.Nó cũng chỉ định các kênh cho điều khiển phương tiện cuộn, sân, ngáp và ga cũng như xác định xem chúng có bị đảo ngược hay không.</translation>
     </message>
 </context>
 <context>
@@ -12194,7 +12251,7 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/QmlControls/ParameterEditor.qml" line="155"/>
         <source>Clear</source>
-        <translation>Thông thoáng</translation>
+        <translation>Xóa sạch</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/ParameterEditor.qml" line="165"/>
@@ -12250,7 +12307,7 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/QmlControls/ParameterEditorDialog.qml" line="210"/>
         <source>Vehicle reboot required after change</source>
-        <translation>Yêu cầu khởi động lại xe sau khi thay đổi</translation>
+        <translation>Yêu cầu khởi động lại phương tiện sau khi thay đổi</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/ParameterEditorDialog.qml" line="215"/>
@@ -12260,7 +12317,7 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/QmlControls/ParameterEditorDialog.qml" line="221"/>
         <source>Warning: Modifying values while vehicle is in flight can lead to vehicle instability and possible vehicle loss. </source>
-        <translation>CẢNH BÁO: Sửa đổi giá trị trong khi xe đang ở trong chuyến bay có thể dẫn đến mất ổn định xe và mất xe. </translation>
+        <translation>CẢNH BÁO: Sửa đổi giá trị trong khi phương tiện đang ở trong chuyến bay có thể dẫn đến mất ổn định phương tiện và mất xe. </translation>
     </message>
     <message>
         <location filename="../src/QmlControls/ParameterEditorDialog.qml" line="222"/>
@@ -12320,12 +12377,12 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/FactSystem/ParameterManager.cc" line="1133"/>
         <source>%1 was unable to retrieve the full set of parameters from vehicle %2. This will cause %1 to be unable to display its full user interface. If you are using modified firmware, you may need to resolve any vehicle startup errors to resolve the issue. If you are using standard firmware, you may need to upgrade to a newer version to resolve the issue.</source>
-        <translation>%1 không thể truy xuất toàn bộ các tham số từ xe %2.Điều này sẽ khiến %1 không thể hiển thị giao diện người dùng đầy đủ của nó.Nếu bạn đang sử dụng phần sụn đã được sửa đổi, bạn có thể cần giải quyết bất kỳ lỗi khởi động xe nào để giải quyết vấn đề.Nếu bạn đang sử dụng phần sụn tiêu chuẩn, bạn có thể cần nâng cấp lên phiên bản mới hơn để giải quyết vấn đề.</translation>
+        <translation>%1 không thể truy xuất toàn bộ các tham số từ phương tiện %2.Điều này sẽ khiến %1 không thể hiển thị giao diện người dùng đầy đủ của nó.Nếu bạn đang sử dụng phần sụn đã được sửa đổi, bạn có thể cần giải quyết bất kỳ lỗi khởi động phương tiện nào để giải quyết vấn đề.Nếu bạn đang sử dụng phần sụn tiêu chuẩn, bạn có thể cần nâng cấp lên phiên bản mới hơn để giải quyết vấn đề.</translation>
     </message>
     <message>
         <location filename="../src/FactSystem/ParameterManager.cc" line="1158"/>
         <source>Vehicle %1 did not respond to request for parameters. This will cause %2 to be unable to display its full user interface.</source>
-        <translation>Xe %1 đã không trả lời yêu cầu cho các tham số.Điều này sẽ khiến %2 không thể hiển thị giao diện người dùng đầy đủ của nó.</translation>
+        <translation>phương tiện %1 đã không trả lời yêu cầu cho các tham số.Điều này sẽ khiến %2 không thể hiển thị giao diện người dùng đầy đủ của nó.</translation>
     </message>
 </context>
 <context>
@@ -12506,7 +12563,7 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/MissionManager/PlanManager.cc" line="225"/>
         <source>Vehicle did not request all items from ground station: %1</source>
-        <translation>Xe không yêu cầu tất cả các mặt hàng từ trạm mặt đất: %1</translation>
+        <translation>phương tiện không yêu cầu tất cả các mặt hàng từ trạm mặt đất: %1</translation>
     </message>
     <message>
         <location filename="../src/MissionManager/PlanManager.cc" line="233"/>
@@ -12521,27 +12578,27 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/MissionManager/PlanManager.cc" line="244"/>
         <source>Vehicle did not respond to mission item communication: %1</source>
-        <translation>Xe đã không phản hồi với giao tiếp mục nhiệm vụ: %1</translation>
+        <translation>phương tiện đã không phản hồi với giao tiếp mục nhiệm vụ: %1</translation>
     </message>
     <message>
         <location filename="../src/MissionManager/PlanManager.cc" line="357"/>
         <source>Internal Error: Call to Vehicle _requestNextMissionItem with no more indices to read</source>
-        <translation>Lỗi nội bộ: Gọi cho xe _RequestNextMSItem mà không có thêm chỉ số để đọc</translation>
+        <translation>Lỗi nội bộ: Gọi cho phương tiện _RequestNextMSItem mà không có thêm chỉ số để đọc</translation>
     </message>
     <message>
         <location filename="../src/MissionManager/PlanManager.cc" line="515"/>
         <source>Vehicle requested item outside range, count:request %1:%2. Send to Vehicle failed.</source>
-        <translation>Vật phẩm được yêu cầu xe bên ngoài phạm vi, Đếm: Yêu cầu %1:%2.Gửi cho xe không thành công.</translation>
+        <translation>Vật phẩm được yêu cầu phương tiện bên ngoài phạm vi, Đếm: Yêu cầu %1:%2.Gửi cho phương tiện không thành công.</translation>
     </message>
     <message>
         <location filename="../src/MissionManager/PlanManager.cc" line="629"/>
         <source>Vehicle remove all failed. Error: %1</source>
-        <translation>Xe loại bỏ tất cả không thành công.Lỗi: %1</translation>
+        <translation>phương tiện loại bỏ tất cả không thành công.Lỗi: %1</translation>
     </message>
     <message>
         <location filename="../src/MissionManager/PlanManager.cc" line="640"/>
         <source>Vehicle returned error: %1. %2Vehicle did not accept guided item.</source>
-        <translation>Lỗi trả về xe: %1.%2 Xe không chấp nhận mặt hàng có hướng dẫn.</translation>
+        <translation>Lỗi trả về xe: %1.%2 phương tiện không chấp nhận mặt hàng có hướng dẫn.</translation>
     </message>
     <message>
         <location filename="../src/MissionManager/PlanManager.cc" line="704"/>
@@ -12778,7 +12835,7 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="70"/>
         <source>Vehicle is currently armed. Do you want to upload the mission to the vehicle?</source>
-        <translation>Xe hiện đang được vũ trang.Bạn có muốn tải nhiệm vụ lên xe không?</translation>
+        <translation>phương tiện hiện đang được vũ trang.Bạn có muốn tải nhiệm vụ lên phương tiện không?</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="107"/>
@@ -12885,7 +12942,7 @@ Lưu ý rằng điều này cũng sẽ thiết lập lại hoàn toàn mọi th�
         <source>This Plan was created for a different firmware or vehicle type than the firmware/vehicle type of vehicle you are uploading to. This can lead to errors or incorrect behavior. It is recommended to recreate the Plan for the correct firmware/vehicle type.
 
 Click &apos;Ok&apos; to upload the Plan anyway.</source>
-        <translation>Kế hoạch này được tạo ra cho một phần sụn hoặc loại xe khác với loại phương tiện/phương tiện mà bạn đang tải lên.Điều này có thể dẫn đến lỗi hoặc hành vi không chính xác.Nên tái tạo kế hoạch cho loại phần sụn/xe chính xác.
+        <translation>Kế hoạch này được tạo ra cho một phần sụn hoặc loại phương tiện khác với loại phương tiện/phương tiện mà bạn đang tải lên.Điều này có thể dẫn đến lỗi hoặc hành vi không chính xác.Nên tái tạo kế hoạch cho loại phần sụn/phương tiện chính xác.
 
 Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     </message>
@@ -13011,7 +13068,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="899"/>
         <source>Are you sure you want to remove all mission items and clear the mission from the vehicle?</source>
-        <translation>Bạn có chắc là bạn muốn loại bỏ tất cả các mặt hàng nhiệm vụ và xóa nhiệm vụ khỏi chiếc xe?</translation>
+        <translation>Bạn có chắc là bạn muốn loại bỏ tất cả các mặt hàng nhiệm vụ và xóa nhiệm vụ khỏi chiếc phương tiện?</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="933"/>
@@ -13021,7 +13078,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="954"/>
         <source>You have unsaved/unsent changes. Loading from the Vehicle will lose these changes. Are you sure you want to load from the Vehicle?</source>
-        <translation>Bạn có những thay đổi chưa được lưu/không có.Tải từ xe sẽ mất những thay đổi này.Bạn có chắc là bạn muốn tải từ chiếc xe?</translation>
+        <translation>Bạn có những thay đổi chưa được lưu/không có.Tải từ phương tiện sẽ mất những thay đổi này.Bạn có chắc là bạn muốn tải từ chiếc phương tiện?</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="969"/>
@@ -13031,7 +13088,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="976"/>
         <source>You have unsaved changes. You should upload to your vehicle, or save to a file.</source>
-        <translation>Bạn có những thay đổi chưa được lưu.Bạn nên tải lên xe của bạn hoặc lưu vào một tập tin.</translation>
+        <translation>Bạn có những thay đổi chưa được lưu.Bạn nên tải lên phương tiện của bạn hoặc lưu vào một tập tin.</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/PlanView.qml" line="977"/>
@@ -13167,7 +13224,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="120"/>
         <source>WARNING: Propellers must be removed from vehicle prior to performing ESC calibration.</source>
-        <translation>CẢNH BÁO: Cánh quạt phải được gỡ bỏ khỏi xe trước khi thực hiện hiệu chuẩn ESC.</translation>
+        <translation>CẢNH BÁO: Cánh quạt phải được gỡ bỏ khỏi phương tiện trước khi thực hiện hiệu chuẩn ESC.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="125"/>
@@ -13187,7 +13244,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="144"/>
         <source>UAVCAN Bus Configuration</source>
-        <translation>Cấu hình xe buýt Uavcan</translation>
+        <translation>Cấu hình phương tiện buýt Uavcan</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="160"/>
@@ -13202,7 +13259,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="178"/>
         <source>WARNING: Propellers must be removed from vehicle prior to performing UAVCAN ESC configuration.</source>
-        <translation>CẢNH BÁO: Các cánh quạt phải được gỡ bỏ khỏi xe trước khi thực hiện cấu hình UAVCAN ESC.</translation>
+        <translation>CẢNH BÁO: Các cánh quạt phải được gỡ bỏ khỏi phương tiện trước khi thực hiện cấu hình UAVCAN ESC.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="184"/>
@@ -13276,7 +13333,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="340"/>
         <source>If the battery voltage reported by the vehicle is largely different than the voltage read externally using a voltmeter you can adjust the voltage multiplier value to correct this. </source>
-        <translation>Nếu điện áp pin được báo cáo bởi xe phần lớn khác với điện áp được đọc bên ngoài bằng cách sử dụng vôn kế, bạn có thể điều chỉnh giá trị hệ số nhân điện áp để điều chỉnh điều này. </translation>
+        <translation>Nếu điện áp pin được báo cáo bởi phương tiện phần lớn khác với điện áp được đọc bên ngoài bằng cách sử dụng vôn kế, bạn có thể điều chỉnh giá trị hệ số nhân điện áp để điều chỉnh điều này. </translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="341"/>
@@ -13292,7 +13349,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="364"/>
         <source>If the current draw reported by the vehicle is largely different than the current read externally using a current meter you can adjust the amps per volt value to correct this. </source>
-        <translation>Nếu lần rút hiện tại được báo cáo bởi chiếc xe phần lớn khác với dòng điện được đọc bên ngoài bằng đồng hồ hiện tại, bạn có thể điều chỉnh giá trị ampe trên mỗi volt để điều chỉnh điều này. </translation>
+        <translation>Nếu lần rút hiện tại được báo cáo bởi chiếc phương tiện phần lớn khác với dòng điện được đọc bên ngoài bằng đồng hồ hiện tại, bạn có thể điều chỉnh giá trị ampe trên mỗi volt để điều chỉnh điều này. </translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.qml" line="372"/>
@@ -13407,7 +13464,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.cc" line="20"/>
         <source>Power</source>
-        <translation>Quyền lực</translation>
+        <translation>Năng lượng</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/PowerComponent.cc" line="31"/>
@@ -13677,7 +13734,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/API/QGCCorePlugin.cc" line="152"/>
         <source>WARNING: You are about to enter Advanced Mode. If used incorrectly, this may cause your vehicle to malfunction thus voiding your warranty. You should do so only if instructed by customer support. Are you sure you want to enable Advanced Mode?</source>
-        <translation>CẢNH BÁO: Bạn sắp vào chế độ nâng cao.Nếu được sử dụng không chính xác, điều này có thể khiến xe của bạn bị trục trặc do đó làm mất hiệu lực bảo hành của bạn.Bạn chỉ nên làm như vậy nếu được hướng dẫn bởi hỗ trợ khách hàng.Bạn có chắc là bạn muốn kích hoạt chế độ nâng cao?</translation>
+        <translation>CẢNH BÁO: Bạn sắp vào chế độ nâng cao.Nếu được sử dụng không chính xác, điều này có thể khiến phương tiện của bạn bị trục trặc do đó làm mất hiệu lực bảo hành của bạn.Bạn chỉ nên làm như vậy nếu được hướng dẫn bởi hỗ trợ khách hàng.Bạn có chắc là bạn muốn kích hoạt chế độ nâng cao?</translation>
     </message>
 </context>
 <context>
@@ -14057,7 +14114,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/QGCPopupDialog.qml" line="131"/>
         <source>Ok</source>
-        <translation>Được rồi</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/QmlControls/QGCPopupDialog.qml" line="134"/>
@@ -14068,7 +14125,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/QGCPopupDialog.qml" line="137"/>
         <source>Save</source>
-        <translation>Cứu</translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/QGCPopupDialog.qml" line="140"/>
@@ -14078,7 +14135,7 @@ Nhấp vào &apos;OK&apos; để tải lên kế hoạch.</translation>
     <message>
         <location filename="../src/QmlControls/QGCPopupDialog.qml" line="146"/>
         <source>Save All</source>
-        <translation></translation>
+        <translation>Lưu tất cả</translation>
     </message>
     <message>
         <location filename="../src/QmlControls/QGCPopupDialog.qml" line="149"/>
@@ -15151,7 +15208,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/FlightDisplay/RoverChecklist.qml" line="50"/>
         <source>Please arm the vehicle here</source>
-        <translation>Hãy trang bị chiếc xe ở đây</translation>
+        <translation>Hãy trang bị chiếc phương tiện ở đây</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/RoverChecklist.qml" line="53"/>
@@ -15537,7 +15594,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsComponent.cc" line="37"/>
         <source>Sensors Setup is used to calibrate the sensors within your vehicle.</source>
-        <translation>Thiết lập cảm biến được sử dụng để hiệu chỉnh các cảm biến trong xe của bạn.</translation>
+        <translation>Thiết lập cảm biến được sử dụng để hiệu chỉnh các cảm biến trong phương tiện của bạn.</translation>
     </message>
 </context>
 <context>
@@ -15560,12 +15617,12 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsComponentController.cc" line="306"/>
         <source>Place your vehicle into one of the Incomplete orientations shown below and hold it still</source>
-        <translation>Đặt xe của bạn vào một trong những hướng không hoàn chỉnh được hiển thị bên dưới và giữ nó vẫn</translation>
+        <translation>Đặt phương tiện của bạn vào một trong những hướng không hoàn chỉnh được hiển thị bên dưới và giữ nó vẫn</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsComponentController.cc" line="391"/>
         <source>Rotate the vehicle continuously as shown in the diagram until marked as Completed</source>
-        <translation>Xoay xe liên tục như thể hiện trong sơ đồ cho đến khi được đánh dấu là hoàn thành</translation>
+        <translation>Xoay phương tiện liên tục như thể hiện trong sơ đồ cho đến khi được đánh dấu là hoàn thành</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsComponentController.cc" line="393"/>
@@ -15575,12 +15632,12 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsComponentController.cc" line="431"/>
         <source>Place you vehicle into one of the orientations shown below and hold it still</source>
-        <translation>Đặt xe của bạn vào một trong những hướng được hiển thị bên dưới và giữ nó vẫn</translation>
+        <translation>Đặt phương tiện của bạn vào một trong những hướng được hiển thị bên dưới và giữ nó vẫn</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsComponentController.cc" line="440"/>
         <source>Orientation already completed, place you vehicle into one of the incomplete orientations shown below and hold it still</source>
-        <translation>Định hướng đã hoàn thành, đặt xe của bạn vào một trong những hướng không hoàn chỉnh được hiển thị bên dưới và giữ nó vẫn</translation>
+        <translation>Định hướng đã hoàn thành, đặt phương tiện của bạn vào một trong những hướng không hoàn chỉnh được hiển thị bên dưới và giữ nó vẫn</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsComponentController.cc" line="500"/>
@@ -15687,22 +15744,22 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="44"/>
         <source>For Compass calibration you will need to rotate your vehicle through a number of positions.</source>
-        <translation>Để hiệu chuẩn la bàn, bạn sẽ cần xoay xe của bạn thông qua một số vị trí.</translation>
+        <translation>Để hiệu chuẩn la bàn, bạn sẽ cần xoay phương tiện của bạn thông qua một số vị trí.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="45"/>
         <source>For Gyroscope calibration you will need to place your vehicle on a surface and leave it still.</source>
-        <translation>Đối với hiệu chuẩn con quay hồi chuyển, bạn sẽ cần đặt xe của bạn lên bề mặt và để nó yên.</translation>
+        <translation>Đối với hiệu chuẩn con quay hồi chuyển, bạn sẽ cần đặt phương tiện của bạn lên bề mặt và để nó yên.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="46"/>
         <source>For Accelerometer calibration you will need to place your vehicle on all six sides on a perfectly level surface and hold it still in each orientation for a few seconds.</source>
-        <translation>Đối với hiệu chuẩn gia tốc kế, bạn sẽ cần đặt xe của bạn ở tất cả sáu phía trên một bề mặt cấp hoàn hảo và giữ nó vẫn ở mỗi hướng trong vài giây.</translation>
+        <translation>Đối với hiệu chuẩn gia tốc kế, bạn sẽ cần đặt phương tiện của bạn ở tất cả sáu phía trên một bề mặt cấp hoàn hảo và giữ nó vẫn ở mỗi hướng trong vài giây.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="47"/>
         <source>To level the horizon you need to place the vehicle in its level flight position and leave still.</source>
-        <translation>Để san bằng đường chân trời, bạn cần đặt chiếc xe ở vị trí bay cấp độ của nó và để lại.</translation>
+        <translation>Để san bằng đường chân trời, bạn cần đặt chiếc phương tiện ở vị trí bay cấp độ của nó và để lại.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="48"/>
@@ -15737,7 +15794,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="232"/>
         <source>Waiting for Vehicle to response to Cancel. This may take a few seconds.</source>
-        <translation>Đang chờ xe phản hồi để hủy bỏ.Điều này có thể mất vài giây.</translation>
+        <translation>Đang chờ phương tiện phản hồi để hủy bỏ.Điều này có thể mất vài giây.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="285"/>
@@ -15763,7 +15820,7 @@ Nhấp vào nút tiếp theo để tải lên hiệu chuẩn lên bảng.Nhấp 
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="327"/>
         <source>Reboot the vehicle prior to flight.</source>
-        <translation>Khởi động lại xe trước khi bay.</translation>
+        <translation>Khởi động lại phương tiện trước khi bay.</translation>
     </message>
     <message>
         <location filename="../src/AutoPilotPlugins/PX4/SensorsSetup.qml" line="332"/>
@@ -16109,7 +16166,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/SetupView.qml" line="33"/>
         <source>This operation cannot be performed while the vehicle is armed.</source>
-        <translation>Hoạt động này không thể được thực hiện trong khi chiếc xe được vũ trang.</translation>
+        <translation>Hoạt động này không thể được thực hiện trong khi chiếc phương tiện được vũ trang.</translation>
     </message>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/SetupView.qml" line="36"/>
@@ -16124,22 +16181,22 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/SetupView.qml" line="132"/>
         <source>%1 does not currently support setup of your vehicle type. </source>
-        <translation>%1 hiện không hỗ trợ thiết lập loại xe của bạn. </translation>
+        <translation>%1 hiện không hỗ trợ thiết lập loại phương tiện của bạn. </translation>
     </message>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/SetupView.qml" line="150"/>
         <source>Vehicle settings and info will display after connecting your vehicle.</source>
-        <translation>Cài đặt xe và thông tin sẽ hiển thị sau khi kết nối xe của bạn.</translation>
+        <translation>Cài đặt phương tiện và thông tin sẽ hiển thị sau khi kết nối phương tiện của bạn.</translation>
     </message>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/SetupView.qml" line="171"/>
         <source>You are currently connected to a vehicle but it did not return the full parameter list. </source>
-        <translation>Bạn hiện đang được kết nối với một chiếc xe nhưng nó không trả lại danh sách tham số đầy đủ. </translation>
+        <translation>Bạn hiện đang được kết nối với một chiếc phương tiện nhưng nó không trả lại danh sách tham số đầy đủ. </translation>
     </message>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/SetupView.qml" line="172"/>
         <source>As a result, the full set of vehicle setup options are not available.</source>
-        <translation>Do đó, toàn bộ các tùy chọn thiết lập xe không có sẵn.</translation>
+        <translation>Do đó, toàn bộ các tùy chọn thiết lập phương tiện không có sẵn.</translation>
     </message>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/SetupView.qml" line="215"/>
@@ -16543,7 +16600,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/FlightDisplay/SubChecklist.qml" line="50"/>
         <source>Please arm the vehicle here</source>
-        <translation>Hãy trang bị chiếc xe ở đây</translation>
+        <translation>Hãy trang bị chiếc phương tiện ở đây</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/SubChecklist.qml" line="53"/>
@@ -16685,7 +16742,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/MAVLink/SysStatusSensorInfo.cc" line="110"/>
         <source>Disabled</source>
-        <translation>Tàn tật</translation>
+        <translation>Vô hiệu hóa</translation>
     </message>
 </context>
 <context>
@@ -16880,7 +16937,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/UI/AppSettings/TelemetrySettings.qml" line="56"/>
         <source>Signing keys should only be sent to the vehicle over secure links.</source>
-        <translation>Các phím ký kết chỉ nên được gửi đến xe qua các liên kết an toàn.</translation>
+        <translation>Các phím ký kết chỉ nên được gửi đến phương tiện qua các liên kết an toàn.</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/TelemetrySettings.qml" line="72"/>
@@ -16895,7 +16952,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/UI/AppSettings/TelemetrySettings.qml" line="90"/>
         <source>Signing key has changed. Don&apos;t forget to send to Vehicle(s) if needed.</source>
-        <translation>Key Key đã thay đổi.Đừng quên gửi (các) xe nếu cần.</translation>
+        <translation>Key Key đã thay đổi.Đừng quên gửi (các) phương tiện nếu cần.</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/TelemetrySettings.qml" line="97"/>
@@ -16925,7 +16982,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/UI/AppSettings/TelemetrySettings.qml" line="131"/>
         <source>Save logs even if vehicle was not armed</source>
-        <translation>Lưu nhật ký ngay cả khi xe không được trang bị</translation>
+        <translation>Lưu nhật ký ngay cả khi phương tiện không được trang bị</translation>
     </message>
     <message>
         <location filename="../src/UI/AppSettings/TelemetrySettings.qml" line="140"/>
@@ -17631,7 +17688,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/FlightDisplay/VTOLChecklist.qml" line="50"/>
         <source>Please arm the vehicle here</source>
-        <translation>Hãy trang bị chiếc xe ở đây</translation>
+        <translation>Hãy trang bị chiếc phương tiện ở đây</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/VTOLChecklist.qml" line="53"/>
@@ -17944,7 +18001,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/Vehicle/Vehicle.cc" line="3083"/>
         <source>Vehicle reboot failed.</source>
-        <translation>Khởi động lại xe không thành công.</translation>
+        <translation>Khởi động lại phương tiện không thành công.</translation>
     </message>
     <message>
         <location filename="../src/Vehicle/Vehicle.cc" line="3711"/>
@@ -18119,12 +18176,12 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/VehicleSummary.qml" line="88"/>
         <source>Below you will find a summary of the settings for your vehicle. To the left are the setup menus for each component.</source>
-        <translation>Dưới đây bạn sẽ tìm thấy một bản tóm tắt các cài đặt cho xe của bạn.Bên trái là các menu thiết lập cho từng thành phần.</translation>
+        <translation>Dưới đây bạn sẽ tìm thấy một bản tóm tắt các cài đặt cho phương tiện của bạn.Bên trái là các menu thiết lập cho từng thành phần.</translation>
     </message>
     <message>
         <location filename="../src/Vehicle/VehicleSetup/VehicleSummary.qml" line="89"/>
         <source>WARNING: Your vehicle requires setup prior to flight. Please resolve the items marked in red using the menu on the left.</source>
-        <translation>Cảnh báo: Xe của bạn yêu cầu thiết lập trước khi bay.Vui lòng giải quyết các mục được đánh dấu màu đỏ bằng cách sử dụng menu bên trái.</translation>
+        <translation>Cảnh báo: phương tiện của bạn yêu cầu thiết lập trước khi bay.Vui lòng giải quyết các mục được đánh dấu màu đỏ bằng cách sử dụng menu bên trái.</translation>
     </message>
 </context>
 <context>
@@ -18137,7 +18194,7 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     <message>
         <location filename="../src/FlightDisplay/VehicleWarnings.qml" line="56"/>
         <source>The vehicle has failed a pre-arm check. In order to arm the vehicle, resolve the failure.</source>
-        <translation>Chiếc xe đã thất bại trong một kiểm tra trước khi tay.Để trang bị xe, giải quyết sự thất bại.</translation>
+        <translation>Chiếc phương tiện đã thất bại trong một kiểm tra trước khi tay.Để trang bị xe, giải quyết sự thất bại.</translation>
     </message>
 </context>
 <context>
@@ -18412,8 +18469,8 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
     </message>
     <message>
         <location filename="../src/FlightDisplay/ControlMenuTop.qml" line="74"/>
-        <source>BOMBING</source>
-        <translation>ĐÁNH BOM</translation>
+        <source>MAPPING</source>
+        <translation>LẬP BẢN ĐỒ</translation>
     </message>
 </context>
 <context>
@@ -18434,14 +18491,24 @@ Xoay_none chỉ ra các điểm thành phần theo hướng bay.</translation>
         <translation>Còi Báo</translation>
     </message>
     <message>
-        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="122"/>
-        <source>Tracking Mod</source>
-        <translation>Chế độ theo dõi</translation>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="132"/>
+        <source>Define Area</source>
+        <translation>Vẽ vùng bay</translation>
     </message>
     <message>
-        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="133"/>
-        <source>Attack</source>
-        <translation>Tấn công</translation>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="143"/>
+        <source>Generate Grid</source>
+        <translation>Tính lưới bay</translation>
+    </message>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="154"/>
+        <source>Start Mapping</source>
+        <translation>Bắt đầu</translation>
+    </message>
+    <message>
+        <location filename="../src/FlightDisplay/ControlMenuBottom.qml" line="165"/>
+        <source>Cancel Mission</source>
+        <translation>Hủy nhiệm vụ</translation>
     </message>
 </context>
 <context>

@@ -62,8 +62,8 @@ Rectangle {
             }
 
             ItemButton {
-                id: btnBOMBING
-                property string tabId: "BOMBING"
+                id: btnMAPPING
+                property string tabId: "MAPPING"
                 defaultColor: "transparent"
                 activeColor: "#d1222222"
                 width: _root.buttonWidth - 10
@@ -71,7 +71,7 @@ Rectangle {
                 radius: 6
                 bold: true
                 fontSize: _root.fontSize
-                label: qsTr("BOMBING")
+                label: qsTr("MAPPING")
                 isActive: currentTab === tabId
                 onClicked: tabChanged(tabId)
             }

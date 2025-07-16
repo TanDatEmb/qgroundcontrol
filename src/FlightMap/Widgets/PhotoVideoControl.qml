@@ -28,7 +28,11 @@ Rectangle {
     color:      Qt.rgba(qgcPal.window.r, qgcPal.window.g, qgcPal.window.b, 0.5)
     radius:     _margins
 
-    visible:    _camera.capturesVideo || _camera.capturesPhotos
+    visible:    (_camera.capturesVideo || _camera.capturesPhotos) //&& !panelVisibleCondition
+
+    // property bool panelVisibleCondition: !QGroundControl.videoManager.fullScreen && _multipleVehicles && _settingEnableMVPanel
+    // property bool _settingEnableMVPanel: QGroundControl.settingsManager.appSettings.enableMultiVehiclePanel.value
+    // property bool _multipleVehicles: QGroundControl.multiVehicleManager.vehicles.count > 1
 
     property real   _margins:                   ScreenTools.defaultFontPixelHeight / 2
     property real   _smallMargins:              ScreenTools.defaultFontPixelWidth / 2

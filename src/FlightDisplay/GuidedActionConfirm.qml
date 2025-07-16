@@ -125,9 +125,10 @@ Rectangle {
                 id: messageActionText
                 text: qsTr("Hold or slide to confirm")
                 Layout.fillWidth: true
+                Layout.topMargin: 8
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
-                font.pointSize: ScreenTools.defaultFontPointSize * 0.8
+                font.pointSize: ScreenTools.defaultFontPointSize * 0.9
                 font.bold: false
             }
 

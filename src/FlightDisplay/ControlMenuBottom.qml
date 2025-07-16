@@ -33,7 +33,7 @@ Rectangle {
         anchors.centerIn: parent
         sourceComponent: {
             if (currentTab === "FIRE FIGHTING"){ _root.height = 80; return fireFightingUI;}
-            else if (currentTab === "BOMBING") {_root.height = 42; return bombingUI; }
+            else if (currentTab === "MAPPING") {_root.height = 42; return mappingUI; }
             else return null
         }
     }
@@ -115,52 +115,59 @@ Rectangle {
 
     // -------- BOMBING --------
     Component {
-        id: bombingUI
+        id: mappingUI
 
         Column {
-            // spacing: 6
-            spacing: 0
+            spacing: 6
+
             Row {
                 spacing: 6
 
                 ItemButton {
-                    id: bomBtnTracking
-                    width: 108
+                    id: defineAreaBtn
+                    width: 56
                     height: 28
                     radius: 4
                     fontSize: 10
-                    label: qsTr("Tracking Mod")
-                    // iconSource: "/icons/rocket_while.svg"
-                    onClicked: sendCustomMavCommand(bomBtnTracking, 31007)
+                    label: qsTr("Define Area")
+                    // iconSource: "/icons/draw_area.svg"
+                    onClicked: sendCustomMavCommand(defineAreaBtn, 32001) // Command giả lập
                 }
 
                 ItemButton {
-                    id: bomBtnAttack
-                    width: 70
+                    id: calcGridBtn
+                    width: 56
                     height: 28
                     radius: 4
                     fontSize: 10
-                    label: qsTr("Attack")
-                    // iconSource: "/icons/campaign_while.svg"
-                    onClicked: bomBtnAttack.isActive
-                        ? sendCustomMavCommand(bomBtnAttack, 31009)
-                        : sendCustomMavCommand(bomBtnAttack, 31001)
+                    label: qsTr("Generate Grid")
+                    //iconSource: "/icons/grid.svg"
+                    onClicked: sendCustomMavCommand(calcGridBtn, 32002)
                 }
 
-                Repeater {
-                    model: 1
-                    delegate: ItemButton {
-                        id: bombBtn
-                        width: 32
-                        height: 28
-                        radius: 4
-                        fontSize: 10
-                        label: (index + 1).toString()
-                        iconSource: "/icons/rocket_while.svg"
-                        onClicked: sendCustomMavCommand(bombBtn, 31001 + index)
-                    }
+                ItemButton {
+                    id: startMappingBtn
+                    width: 56
+                    height: 28
+                    radius: 4
+                    fontSize: 10
+                    label: qsTr("Start Mapping")
+                    //iconSource: "/icons/play.svg"
+                    onClicked: sendCustomMavCommand(startMappingBtn, 32003)
+                }
+
+                ItemButton {
+                    id: cancelMissionBtn
+                    width: 56
+                    height: 28
+                    radius: 4
+                    fontSize: 10
+                    label: qsTr("Cancel Mission")
+                    //iconSource: "/icons/stop.svg"
+                    onClicked: sendCustomMavCommand(cancelMissionBtn, 32004)
                 }
             }
         }
     }
+
 }

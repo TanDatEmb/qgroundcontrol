@@ -109,6 +109,7 @@ Rectangle {
             radius: 10
             border.color: "#a8616161"
             border.width:  1
+            Layout.leftMargin: 8
             Layout.alignment: Qt.AlignVCenter
             height: viewButtonRow.height * 0.8
             width: currentButton.implicitWidth + 4

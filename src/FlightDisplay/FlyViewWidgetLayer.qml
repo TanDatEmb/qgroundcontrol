@@ -70,14 +70,46 @@ Item {
         bottomEdgeRightInset:   virtualJoystickMultiTouch.visible ? virtualJoystickMultiTouch.bottomEdgeRightInset : bottomRightRowLayout.bottomEdgeRightInset
     }
 
-// thanh menu bên phải khi nhiều phương tiện
+    Rectangle {
+        id: toggleButtonContainer
+        width: 36
+        height: 36
+        anchors.verticalCenter: topRightPanel.verticalCenter  // <-- Căn giữa theo chiều dọc
+        anchors.right: topRightPanel.left
+        anchors.rightMargin: 4
+        border.width:1
+        border.color: qgcPal.globalTheme === QGCPalette.Light ? "#9dffffff": "#9d222222"
+        color: "#026ec7"
+        radius: 12
+        z: 99
+
+        visible: topRightPanel.panelVisibleCondition
+
+        Button {
+            anchors.fill: parent
+            background: null
+            contentItem: Image {
+                source: topRightPanel.userToggleVisible
+                    ? "/res/arrow_menu_close.svg"
+                    : "/res/arrow_menu_open.svg"
+                anchors.centerIn: parent
+                width: toggleButtonContainer.width * 0.5
+                height: width
+            }
+            onClicked: {
+                topRightPanel.userToggleVisible = !topRightPanel.userToggleVisible
+                // topRightColumnLayout.visible = false
+                }
+        }
+    }
+
+    // thanh menu bên phải khi nhiều phương tiện
     FlyViewTopRightPanel {
         id:                     topRightPanel
         anchors.top:            parent.top
         anchors.right:          parent.right
-        anchors.topMargin:      _layoutMargin + 56
-        anchors.rightMargin:    _layoutMargin
-        maximumHeight:          parent.height + 56 //- (bottomRightRowLayout.height + _margins * 5)
+        anchors.topMargin:      _layoutMargin + 58
+        // anchors.rightMargin:    _layoutMargin
 
         property real topEdgeRightInset:    height + _layoutMargin
         property real rightEdgeTopInset:    width + _layoutMargin
@@ -91,7 +123,7 @@ Item {
         anchors.bottom:      bottomRightRowLayout.top
         anchors.right:      parent.right
         spacing:            _layoutSpacing
-        visible:           !topRightPanel.visible
+        visible:           !topRightPanel.panelVisibleCondition
 
         property real topEdgeRightInset:    childrenRect.height + _layoutMargin
         property real rightEdgeTopInset:    width + _layoutMargin

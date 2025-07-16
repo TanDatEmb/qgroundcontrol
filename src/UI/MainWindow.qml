@@ -526,6 +526,7 @@ FontLoader {
                     spacing:            ScreenTools.defaultFontPixelWidth
 
                     QGCLabel {
+                        id:             toolDrawerBackIcon
                         font.pointSize: ScreenTools.largeFontPointSize
                         text:           "<"
                     }
@@ -535,6 +536,16 @@ FontLoader {
                         text:           qsTr("Exit")    // + " " + toolDrawer.toolTitle
                         font.pointSize: ScreenTools.largeFontPointSize
                     }
+                    // Item {
+                    //     Layout.fillWidth: true
+
+                    //     QGCLabel {
+                    //         id: toolDrawerTitle
+                    //         anchors.centerIn: parent
+                    //         text: toolDrawer.toolTitle
+                    //         font.pointSize: ScreenTools.largeFontPointSize
+                    //     }
+                    // }
                 }
 
                 QGCMouseArea {
@@ -544,31 +555,6 @@ FontLoader {
                             toolDrawer.visible = false
                         }
                     }
-                }
-            }
-
-            Rectangle {
-                anchors.left:   parent.left
-                anchors.right:  parent.right
-                anchors.top:    toolDrawerToolbar.bottom
-                height:         ScreenTools.defaultFontPixelHeight * 2
-                color:          qgcPal.toolbarBackground
-
-                RowLayout {
-                    anchors.fill:   parent
-                    spacing:        ScreenTools.defaultFontPixelWidth
-
-                    QGCLabel {
-                        text:           toolDrawer.toolTitle
-                        font.pointSize: ScreenTools.largeFontPointSize
-                        Layout.fillWidth: true
-                    }
-
-                    // Image {
-                    //     source:         toolDrawer.toolIcon
-                    //     width:          ScreenTools.defaultFontPixelHeight * 1.5
-                    //     height:         width
-                    // }
                 }
             }
 

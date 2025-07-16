@@ -31,7 +31,7 @@ Rectangle {
         SequentialAnimation on bgCircleSize {
             id: growAnimation
             running: false
-            NumberAnimation { from: 50; to: 100; duration: 1300 }
+            NumberAnimation { from: 50; to: 100; duration: 1000 }
             ScriptAction {
                 script: {
                     if (holdCircle.isHolding) {
@@ -54,6 +54,8 @@ Rectangle {
         id: holdCircle
         width: 50
         height: 50
+        border.width: 2
+        border.color: "#9d4e4e4e"
         radius: width / 2
         color: qgcPal.primaryButton
         anchors.centerIn: parent
@@ -65,7 +67,7 @@ Rectangle {
             anchors.centerIn: parent
             width: parent.width * 0.5
             height: parent.height * 0.5
-            source: "/res/point.svg"
+            source: "/res/fingerprint.svg"
             color: "#fff"//qgcPal.buttonText
         }
 
