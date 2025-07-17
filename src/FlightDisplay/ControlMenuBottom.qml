@@ -6,11 +6,13 @@ import QGroundControl.Controls
 Rectangle {
     id: _root
     width: 360
-    height: 80
+    height: pixel * 2
     color: "transparent"
     visible: QGroundControl.multiVehicleManager.activeVehicle !== null
 
     property string currentTab: ""
+    property int pixel: 32
+    property int fontSize: 10
 
     function sendCustomMavCommand(btn_id, mavCmdId, param1 = 1) {
         let vehicle = QGroundControl.multiVehicleManager.activeVehicle
@@ -33,11 +35,12 @@ Rectangle {
         anchors.centerIn: parent
         sourceComponent: {
             if (currentTab === "FIRE FIGHTING"){ _root.height = 80; return fireFightingUI;}
-            else if (currentTab === "MAPPING") {_root.height = 42; return mappingUI; }
+            else if (currentTab === "MAPPING") {_root.height = 80; return mappingUI; }
             else return null
         }
     }
 
+    
     // -------- FIRE FIGHTING --------
     Component {
         id: fireFightingUI
@@ -50,20 +53,20 @@ Rectangle {
 
                 ItemButton {
                     id: fireBtnStart
-                    width: 108
-                    height: 28
+                    width: pixel * 3 + 6*2
+                    height: pixel
                     radius: 4
-                    fontSize: 10
+                    fontSize: _root.fontSize
                     label: qsTr("Start Mission")
                     onClicked: sendCustomMavCommand(fireBtnStart, 30000)
                 }
 
                 ItemButton {
                     id: fireBtnCoiBao
-                    width: 70
-                    height: 28
+                    width: pixel * 2 + 6
+                    height: pixel
                     radius: 4
-                    fontSize: 10
+                    fontSize: _root.fontSize
                     label: qsTr("Siren")
                     iconSource: "/icons/campaign_while.svg"
                     onClicked: fireBtnCoiBao.isActive
@@ -73,10 +76,10 @@ Rectangle {
 
                 ItemButton {
                     id: fireBtn7
-                    width: 32
-                    height: 28
+                    width: pixel
+                    height: pixel
                     radius: 4
-                    fontSize: 10
+                    fontSize: _root.fontSize
                     label: "7"
                     iconSource: "/icons/rocket_while.svg"
                     onClicked: sendCustomMavCommand(fireBtn7, 30007)
@@ -88,10 +91,10 @@ Rectangle {
 
                 ItemButton {
                     id: fireBtnBom
-                    width: 108
-                    height: 28
+                    width: pixel * 3 + 6 * 2
+                    height: pixel
                     radius: 4
-                    fontSize: 10
+                    fontSize: _root.fontSize
                     label: qsTr("Drop Water Bombs")
                     onClicked: sendCustomMavCommand(fireBtnBom, 30022)
                 }
@@ -100,10 +103,10 @@ Rectangle {
                     model: 3
                     delegate: ItemButton {
                         id: fireBtn
-                        width: 32
-                        height: 28
+                        width: pixel
+                        height: pixel
                         radius: 4
-                        fontSize: 10
+                        fontSize: _root.fontSize
                         label: (index + 1).toString()
                         iconSource: "/icons/rocket_while.svg"
                         onClicked: sendCustomMavCommand(fireBtn, 30021 + index)
@@ -113,7 +116,7 @@ Rectangle {
         }
     }
 
-    // -------- BOMBING --------
+    // -------- MAPPING --------
     Component {
         id: mappingUI
 
@@ -125,46 +128,49 @@ Rectangle {
 
                 ItemButton {
                     id: defineAreaBtn
-                    width: 56
-                    height: 28
+                    width: pixel * 2 + 6
+                    height: pixel
                     radius: 4
-                    fontSize: 10
+                    fontSize: _root.fontSize
                     label: qsTr("Define Area")
                     // iconSource: "/icons/draw_area.svg"
-                    onClicked: sendCustomMavCommand(defineAreaBtn, 32001) // Command giả lập
+                    onClicked: sendCustomMavCommand(defineAreaBtn, pixel001) // Command giả lập
                 }
 
                 ItemButton {
                     id: calcGridBtn
-                    width: 56
-                    height: 28
+                    width: pixel * 2 + 6
+                    height: pixel
                     radius: 4
-                    fontSize: 10
+                    fontSize: _root.fontSize
                     label: qsTr("Generate Grid")
                     //iconSource: "/icons/grid.svg"
-                    onClicked: sendCustomMavCommand(calcGridBtn, 32002)
+                    onClicked: sendCustomMavCommand(calcGridBtn, pixel002)
                 }
-
+            }
+            
+            Row {
+                spacing: 6
                 ItemButton {
                     id: startMappingBtn
-                    width: 56
-                    height: 28
+                    width: pixel * 2 + 6
+                    height: pixel
                     radius: 4
-                    fontSize: 10
+                    fontSize: _root.fontSize
                     label: qsTr("Start Mapping")
                     //iconSource: "/icons/play.svg"
-                    onClicked: sendCustomMavCommand(startMappingBtn, 32003)
+                    onClicked: sendCustomMavCommand(startMappingBtn, pixel003)
                 }
 
                 ItemButton {
                     id: cancelMissionBtn
-                    width: 56
-                    height: 28
+                    width: pixel * 2 + 6
+                    height: pixel
                     radius: 4
-                    fontSize: 10
+                    fontSize: _root.fontSize
                     label: qsTr("Cancel Mission")
                     //iconSource: "/icons/stop.svg"
-                    onClicked: sendCustomMavCommand(cancelMissionBtn, 32004)
+                    onClicked: sendCustomMavCommand(cancelMissionBtn, pixel004)
                 }
             }
         }

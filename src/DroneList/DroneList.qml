@@ -253,7 +253,7 @@ Rectangle {
         ],
     }
 
-    property int fontSize: 8
+    property int fontSize: 10
     
     property string selectedType: droneTypes[0]
     property bool isMobile: Screen.width <= 600
@@ -285,7 +285,7 @@ Rectangle {
 
             // Cột 1 - Danh sách loại drone (1 phần)
             Item {
-                width: parent.width * 0.15 // Tỉ lệ 1
+                width: parent.width * 0.25 // Tỉ lệ 1
                 height: parent.height
 
                 ListView {
@@ -323,7 +323,7 @@ Rectangle {
                                 text: modelData
                                 color: qgcPal.globalTheme === QGCPalette.Light ? selectedType === modelData ? "#fff" : qgcPal.text : qgcPal.text
                                 font.pixelSize: fontSize * 1.2
-                                font.bold: true
+                                // font.bold: true
                             }
                         }
                     }
@@ -496,8 +496,8 @@ Rectangle {
                                         wrapMode: Text.WordWrap
                                     }
                                     Item {
-                                        width: 66
-                                        height: 24
+                                        width: 80
+                                        height: 26
 
                                         Rectangle {
                                             anchors.fill: parent
@@ -661,8 +661,8 @@ Rectangle {
                 // Nút đóng
                 Rectangle {
                     id: closeButton
-                    width: 26
-                    height: 26
+                    width: 28
+                    height: 28
                     radius: 18
                     color: qgcPal.globalTheme === QGCPalette.Light ? "#d3d3d3" : "#3d3d3d"
                     anchors.top: parent.top
@@ -694,27 +694,27 @@ Rectangle {
                     ListView {
                         id: galleryListView
                         orientation: ListView.Horizontal
-                        height: 320
+                        height: Screen.height * 0.8
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        anchors.topMargin: 42   // Hạ xuống từ trên 80px
+                        anchors.topMargin:  Screen.height * 0.175
                         spacing: 24
                         clip: false  // Cho phép phóng to vượt ra ngoài
                         model: selectedDrone && selectedDrone.gallery ? selectedDrone.gallery : []
                         snapMode: ListView.SnapToItem
-                        preferredHighlightBegin: (width - 400) / 2
-                        preferredHighlightEnd: (width - 400) / 2
+                        preferredHighlightBegin: (width - Screen.width * 0.5) / 2
+                        preferredHighlightEnd: (width - (Screen.width * 0.5)) / 2
                         highlightRangeMode: ListView.StrictlyEnforceRange
                         interactive: true
 
                         delegate: Item {
-                            width: 400
+                            width: (Screen.width * 0.5)
                             height: 240
                             property real centerPos: galleryListView.contentX + galleryListView.width / 2
                             property real itemCenter: x + width / 2
                             property real dist: Math.abs(itemCenter - centerPos)
-                            property real scaleFactor: Math.max(0.8, 1.2 - dist / 400)
+                            property real scaleFactor: Math.max(0.8, 1.2 - dist / (Screen.width * 0.5))
 
                             opacity: dist < 20 ? 1.0 : 0.5
 

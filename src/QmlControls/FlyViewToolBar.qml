@@ -43,34 +43,35 @@ Rectangle {
     }
 
     Rectangle {
-                width: parent.width
-                height: parent.height                   // Mỏng lại, ví dụ 10px
-                anchors.top: parent.top        // Gắn vào phía trên
-                gradient: Gradient {
-                    orientation: Gradient.Vertical
-                    GradientStop {
-                        position: 0.0
-                        color: "#b5000000"
-                    } // Đen với alpha 50%
-                    GradientStop {
-                        position: 1.0
-                        color: "#00000000"
-                    } // Trong suốt
-                }
-            } 
+        // visible: !_activeVehicle
+        width: parent.width
+        height: parent.height                   // Mỏng lại, ví dụ 10px
+        anchors.top: parent.top        // Gắn vào phía trên
+        gradient: Gradient {
+            orientation: Gradient.Vertical
+            GradientStop {
+                position: 0.0
+                color: "#b5000000"
+            } // Đen với alpha 50%
+            GradientStop {
+                position: 1.0
+                color: "#00000000"
+            } // Trong suốt
+        }
+    }
+
     // Main status indicator
     Item {
         id: mainStatusIndicatorItem
         anchors.fill: parent
         visible: !_activeVehicle
-        z:2
+        z: 2
         QGCLabel {
-            id: mainStatusLabel
             horizontalAlignment: Text.AlignHCenter
-            anchors.centerIn: parent 
+            anchors.centerIn: parent
             verticalAlignment: Text.AlignVCenter
             text: mainStatusIndicator.mainStatusText()
-            color: "#ffffff" 
+            color: "#ffffff"
 
             font.pointSize: ScreenTools.largeFontPointSize * 0.8
 
@@ -80,7 +81,7 @@ Rectangle {
                 onClicked: mainStatusIndicator.dropMainStatusIndicator()
             }
         }
-         QGCButton {
+        QGCButton {
             text: qsTr("Disconnect")
             onClicked: _activeVehicle.closeVehicle()
             visible: _activeVehicle && _communicationLost
@@ -99,20 +100,19 @@ Rectangle {
         anchors.bottomMargin: 1
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        anchors.leftMargin: 10
-        spacing:                ScreenTools.defaultFontPixelWidth / 2
+        //anchors.leftMargin: 10
+        spacing: ScreenTools.defaultFontPixelWidth / 2
 
         Rectangle {
             id: buttonContainer
             color: mouseArea.pressed ? "#c80066c5" : (qgcPal.globalTheme === QGCPalette.Light ? "#c8ffffff" : "#c8000000")
             radius: 10
             border.color: "#a8616161"
-            border.width:  1
+            border.width: 1
             Layout.leftMargin: 8
             Layout.alignment: Qt.AlignVCenter
-            height: viewButtonRow.height * 0.8
-            width: currentButton.implicitWidth + 4
-            
+            height: currentButton.implicitHeight * 1.02
+            width: currentButton.implicitWidth * 1.2
 
             QGCToolBarButton {
                 id: currentButton
@@ -121,15 +121,26 @@ Rectangle {
                 logo: true
             }
             Behavior on color {
-                ColorAnimation { duration: 150 }
+                ColorAnimation {
+                    duration: 150
+                }
             }
             MouseArea {
                 id: mouseArea
                 anchors.fill: parent
                 onClicked: {
-                    mainWindow.showToolSelectDialog()
+                    mainWindow.showToolSelectDialog();
                 }
             }
+        }
+        Rectangle{
+            width: parent.width * 0.175
+            height: width
+            border.width: 1
+            border.color: "#88222222"
+            visible: _activeVehicle
+            radius: 100
+            color: _mainStatusBGColor
         }
 
         MainStatusIndicator {
@@ -138,10 +149,9 @@ Rectangle {
         }
 
         QGCButton {
-            id:                 disconnectButton
-            text:               qsTr("Disconnect")
-            onClicked:          _activeVehicle.closeVehicle()
-            visible:            _communicationLost && _activeVehicle
+            text: qsTr("Disconnect")
+            onClicked: _activeVehicle.closeVehicle()
+            visible: _activeVehicle && _communicationLost
         }
     }
 
@@ -173,7 +183,8 @@ Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.margins: ScreenTools.defaultFontPixelHeight * 0.66
-        visible: false //_activeVehicle && !_communicationLost && x > (toolsFlickable.x + toolsFlickable.contentWidth + ScreenTools.defaultFontPixelWidth)
+        // thay tu an thanh hien thi
+        visible: false // _activeVehicle && !_communicationLost && x > (toolsFlickable.x + toolsFlickable.contentWidth + ScreenTools.defaultFontPixelWidth)
         fillMode: Image.PreserveAspectFit
         source: _outdoorPalette ? _brandImageOutdoor : _brandImageIndoor
         mipmap: true

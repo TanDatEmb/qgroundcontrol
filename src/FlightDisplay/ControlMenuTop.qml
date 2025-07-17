@@ -22,7 +22,7 @@ Rectangle {
 
     // Cấu hình tỷ lệ chung để auto scale
     property real buttonWidth: 80
-    property real buttonHeight: 22
+    property real buttonHeight: 28
     property int fontSize: 10
 
     Column {

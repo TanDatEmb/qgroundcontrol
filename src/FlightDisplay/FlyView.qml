@@ -159,7 +159,7 @@ Item {
                 anchors.right:          parent.right
                 anchors.top:            parent.top
                 anchors.margins:        _toolsMargin
-                anchors.topMargin:      60
+                anchors.topMargin:      toolbar.height + 15
                 item1IsFullSettingsKey: "MainFlyWindowIsMap"
                 item1:                  mapControl
                 item2:                  QGroundControl.videoManager.hasVideo ? videoControl : null
@@ -236,10 +236,9 @@ Item {
             anchors.bottom:         parent.bottom
             anchors.left:           parent.left
             anchors.right:          parent.right
-            anchors.bottomMargin:  30
-            anchors.margins:        _margins
+            anchors.bottomMargin:  toolbar.height - 2 
+
             width: parent.width * 0.8
-            height: 80
             z:                      10
 
             currentTab: _root.currentTab
@@ -250,7 +249,7 @@ Item {
             anchors.top:         parent.top
             anchors.left:           parent.left
             anchors.right:          parent.right
-            anchors.topMargin:  40
+            anchors.topMargin: toolbar.height + 1
             width: parent.width * 0.8
             height: 24
             z:                      10
