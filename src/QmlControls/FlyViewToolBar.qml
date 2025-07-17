@@ -81,7 +81,6 @@ Rectangle {
             }
         }
          QGCButton {
-            id: disconnectButton
             text: qsTr("Disconnect")
             onClicked: _activeVehicle.closeVehicle()
             visible: _activeVehicle && _communicationLost
@@ -136,6 +135,13 @@ Rectangle {
         MainStatusIndicator {
             id: mainStatusIndicator
             Layout.preferredHeight: viewButtonRow.height
+        }
+
+        QGCButton {
+            id:                 disconnectButton
+            text:               qsTr("Disconnect")
+            onClicked:          _activeVehicle.closeVehicle()
+            visible:            _communicationLost && _activeVehicle
         }
     }
 

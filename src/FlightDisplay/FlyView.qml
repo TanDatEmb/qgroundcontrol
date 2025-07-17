@@ -79,40 +79,41 @@ Item {
         toolbar.dropMainStatusIndicatorTool();
     }
 
-    Row {
-        anchors.left: parent.left
-        anchors.bottom: parent.bottom
-        anchors.margins: 10
-        spacing: 10
-        z: 100
+// test tạo vùng cháy
+    // Row {
+    //     anchors.left: parent.left
+    //     anchors.bottom: parent.bottom
+    //     anchors.margins: 10
+    //     spacing: 10
+    //     z: 100
 
-        QGCButton {
-            text: "Tạo vùng cháy"
-            onClicked: {
-                if (_activeVehicle && _activeVehicle.coordinate.isValid) {
-                    const coord = fireManager.generateRandomFireZone(_activeVehicle.coordinate, 20, 50)
-                    fireManager.createFireZone(
-                        coord,
-                        50,
-                        "Khu vực Tây Nguyên",
-                        "Đang cháy",
-                        5,
-                        "https://hocviendrone.vn/wp-content/uploads/2021/07/Drone-tren-cao.jpg",
-                        new Date(2025, 6, 11, 8, 30, 0)
-                    )
-                    console.log("🔥 Tạo vùng cháy tại: " + coord.latitude + ", " + coord.longitude)
-                }
-            }
-        }
+    //     QGCButton {
+    //         text: "Tạo vùng cháy"
+    //         onClicked: {
+    //             if (_activeVehicle && _activeVehicle.coordinate.isValid) {
+    //                 const coord = fireManager.generateRandomFireZone(_activeVehicle.coordinate, 20, 50)
+    //                 fireManager.createFireZone(
+    //                     coord,
+    //                     50,
+    //                     "Khu vực Tây Nguyên",
+    //                     "Đang cháy",
+    //                     5,
+    //                     "https://hocviendrone.vn/wp-content/uploads/2021/07/Drone-tren-cao.jpg",
+    //                     new Date(2025, 6, 11, 8, 30, 0)
+    //                 )
+    //                 console.log("🔥 Tạo vùng cháy tại: " + coord.latitude + ", " + coord.longitude)
+    //             }
+    //         }
+    //     }
 
-        QGCButton {
-            text: "Xóa toàn bộ"
-            onClicked: {
-                fireManager.clearAllFireZones()
-                console.log("🧹 Đã xoá toàn bộ vùng cháy.")
-            }
-        }
-    }
+    //     QGCButton {
+    //         text: "Xóa toàn bộ"
+    //         onClicked: {
+    //             fireManager.clearAllFireZones()
+    //             console.log("🧹 Đã xoá toàn bộ vùng cháy.")
+    //         }
+    //     }
+    // }
 
     QGCToolInsets {
         id:                     _toolInsets
