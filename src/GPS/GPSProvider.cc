@@ -27,10 +27,11 @@
 QGC_LOGGING_CATEGORY(GPSProviderLog, "qgc.gps.gpsprovider")
 QGC_LOGGING_CATEGORY(GPSDriversLog, "qgc.gps.drivers")
 
-GPSProvider::GPSProvider(const QString &device, GPSType type, const rtk_data_s &rtkData, const std::atomic_bool &requestStop, QObject *parent)
+GPSProvider::GPSProvider(const QString &device, GPSType type, int baudRate, const rtk_data_s &rtkData, const std::atomic_bool &requestStop, QObject *parent)
     : QThread(parent)
     , _device(device)
     , _type(type)
+    , _baudRate(baudRate)
     , _requestStop(requestStop)
     , _rtkData(rtkData)
 {
@@ -77,22 +78,13 @@ int GPSProvider::callback(GPSCallbackType type, void *data1, int data2)
 {
     switch (type) {
     case GPSCallbackType::readDeviceData:
-        {
-            if (_serial->bytesAvailable() == 0) {
-                const int timeout = *(reinterpret_cast<int*>(data1));
-                if (!_serial->waitForReadyRead(timeout)) {
-                    return 0;
-                }
+        if (_serial->bytesAvailable() == 0) {
+            const int timeout = *(reinterpret_cast<int*>(data1));
+            if (!_serial->waitForReadyRead(timeout)) {
+                return 0;
             }
-
-            const int bytesRead = _serial->read(reinterpret_cast<char*>(data1), data2);
-            if (bytesRead > 0) {
-                QByteArray rawData(reinterpret_cast<const char*>(data1), bytesRead);
-                qCDebug(GPSDriversLog) << "Raw GPS Data:" << rawData.toHex(' ').toUpper();
-            }
-            return bytesRead;
         }
-
+        return _serial->read(reinterpret_cast<char*>(data1), data2);
     case GPSCallbackType::writeDeviceData:
         if (_serial->write(reinterpret_cast<char*>(data1), data2) >= 0) {
             if (_serial->waitForBytesWritten(-1)) {
@@ -205,6 +197,11 @@ bool GPSProvider::_connectSerial()
             return false;
         }
     }
+
+    if (_baudRate > 0)
+        _serial->setBaudRate(_baudRate);
+    else
+        _serial->setBaudRate(QSerialPort::Baud9600);
 
     (void) _serial->setBaudRate(QSerialPort::Baud9600);
     (void) _serial->setDataBits(QSerialPort::Data8);

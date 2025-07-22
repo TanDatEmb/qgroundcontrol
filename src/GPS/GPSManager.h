@@ -11,14 +11,16 @@
 
 #include <QtCore/QLoggingCategory>
 #include <QtCore/QObject>
+#include "GPSRtk.h"
 
 Q_DECLARE_LOGGING_CATEGORY(GPSManagerLog)
 
-class GPSRtk;
+// class GPSRtk;
 
 class GPSManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(GPSRtk* gpsRtk READ gpsRtk CONSTANT)
 
 public:
     GPSManager(QObject *parent = nullptr);

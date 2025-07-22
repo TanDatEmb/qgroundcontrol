@@ -7,6 +7,7 @@
  *
  ****************************************************************************/
 
+#include <QtQml/qqml.h>
 #include "GPSRtk.h"
 #include "GPSProvider.h"
 #include "GPSRTKFactGroup.h"
@@ -33,6 +34,8 @@ GPSRtk::~GPSRtk()
 
 void GPSRtk::registerQmlTypes()
 {
+    (void)qmlRegisterUncreatableType<GPSRtk>("QGroundControl.GPS", 1, 0, "GPSRtk", "Uncreatable");
+
     (void) qRegisterMetaType<satellite_info_s>("satellite_info_s");
     (void) qRegisterMetaType<sensor_gnss_relative_s>("sensor_gnss_relative_s");
     (void) qRegisterMetaType<sensor_gps_s>("sensor_gps_s");
@@ -59,7 +62,7 @@ void GPSRtk::_onGPSSurveyInStatus(float duration, float accuracyMM,  double lati
     _gpsRtkFactGroup->active()->setRawValue(active);
 }
 
-void GPSRtk::connectGPS(const QString &device, QStringView gps_type)
+void GPSRtk::connectGPS(const QString &device, QStringView gps_type, int baudRate)
 {
     GPSProvider::GPSType type;
     if (gps_type.contains(QStringLiteral("trimble"), Qt::CaseInsensitive)) {
@@ -92,6 +95,7 @@ void GPSRtk::connectGPS(const QString &device, QStringView gps_type)
     _gpsProvider = new GPSProvider(
         device,
         type,
+        baudRate,
         rtkData,
         _requestGpsStop,
         this

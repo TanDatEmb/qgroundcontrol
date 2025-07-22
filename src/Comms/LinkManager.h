@@ -45,8 +45,9 @@ class LinkManager : public QObject
     Q_PROPERTY(QmlObjectListModel *linkConfigurations READ _qmlLinkConfigurations CONSTANT)
     Q_PROPERTY(QStringList linkTypeStrings READ linkTypeStrings CONSTANT)
     Q_PROPERTY(bool mavlinkSupportForwardingEnabled READ mavlinkSupportForwardingEnabled NOTIFY mavlinkSupportForwardingEnabledChanged)
+    Q_PROPERTY(QStringList rtkManualBaudRates READ rtkManualBaudRates CONSTANT)
 
-public:
+   public:
     explicit LinkManager(QObject *parent = nullptr);
     ~LinkManager();
 
@@ -68,6 +69,9 @@ public:
     /// Called to signal app shutdown. Disconnects all links while turning off auto-connect.
     Q_INVOKABLE void shutdown();
     Q_INVOKABLE LogReplayLink *startLogReplay(const QString &logFile);
+
+    // Connect Manual RTK
+    Q_INVOKABLE void connectManualRTK(const QString &portName, int baudRate);
 
     QList<SharedLinkInterfacePtr> links() { return _rgLinks; }
     QStringList linkTypeStrings() const;
@@ -175,6 +179,7 @@ public:
     static QStringList serialBaudRates();
     QStringList serialPortStrings();
     QStringList serialPorts();
+    QStringList rtkManualBaudRates();
 
 signals:
     void commPortStringsChanged();
