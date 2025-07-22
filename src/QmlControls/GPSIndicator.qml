@@ -40,7 +40,7 @@ Item {
 
             QGCLabel {
                 id:                     gpsLabel
-                rotation:               90
+                rotation:               0
                 text:                   qsTr("RTK")
                 color:                  "#fff"//qgcPal.buttonText
                 anchors.verticalCenter: parent.verticalCenter
@@ -56,7 +56,7 @@ Item {
                 fillMode:           Image.PreserveAspectFit
                 sourceSize.height:  height
                 opacity:            (_activeVehicle && _activeVehicle.gps.count.value >= 0) ? 1 : 0.5
-                color:              "#fff" //qgcPal.buttonText
+                color:             "#fff"// qgcPal.buttonText
             }
         }
 
@@ -68,7 +68,7 @@ Item {
 
             QGCLabel {
                 anchors.horizontalCenter:   hdopValue.horizontalCenter
-                color:             "#fff"// qgcPal.buttonText
+                color:              "#fff"//qgcPal.buttonText
                 text:               _activeVehicle ? _activeVehicle.gps.count.valueString : ""
             }
 

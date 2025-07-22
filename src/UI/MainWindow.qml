@@ -283,6 +283,7 @@ FontLoader {
 
     FlyView {
         id:                     flyView
+        
         anchors.fill:           parent
         utmspSendActTrigger:    _utmspSendActTrigger
     }
@@ -527,6 +528,16 @@ FontLoader {
                         text:           qsTr("Exit") + " " + toolDrawer.toolTitle
                         font.pointSize: ScreenTools.largeFontPointSize
                     }
+                    // Item {
+                    //     Layout.fillWidth: true
+
+                    //     QGCLabel {
+                    //         id: toolDrawerTitle
+                    //         anchors.centerIn: parent
+                    //         text: toolDrawer.toolTitle
+                    //         font.pointSize: ScreenTools.largeFontPointSize
+                    //     }
+                    // }
                 }
 
                 QGCMouseArea {

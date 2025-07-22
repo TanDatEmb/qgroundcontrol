@@ -900,7 +900,7 @@ void LinkManager::_addSerialAutoConnectLink()
                 case QGCSerialPortInfo::BoardTypeRTKGPS:
                     qCDebug(LinkManagerLog) << "RTK GPS auto-connected" << portInfo.portName().trimmed();
                     _autoConnectRTKPort = portInfo.systemLocation();
-                    GPSManager::instance()->gpsRtk()->connectGPS(portInfo.systemLocation(), boardName);
+                    GPSManager::instance()->gpsRtk()->connectGPS(portInfo.systemLocation(), boardName, 0);
                     break;
                 default:
                     qCWarning(LinkManagerLog) << "Internal error: Unknown board type" << boardType;
@@ -1018,6 +1018,30 @@ bool LinkManager::_isSerialPortConnected() const
     }
 
     return false;
+}
+
+void LinkManager::connectManualRTK(const QString &portName, int baudRate)
+{
+    qCDebug(LinkManagerLog) << "Manual RTK GPS connection requested:" << portName << "with baud rate:" << baudRate;
+    GPSManager::instance()->gpsRtk()->connectGPS(portName, QStringLiteral("u-blox"), baudRate);
+}
+
+QStringList LinkManager::rtkManualBaudRates()
+{
+    const QStringList allBauds = SerialConfiguration::supportedBaudRates();
+    QStringList filteredBauds;
+
+    const int minBaud = 2400;
+    const int maxBaud = 256000;
+
+    for (const QString &baudStr : allBauds)
+    {
+        bool ok;
+        const int baudInt = baudStr.toInt(&ok);
+        if (ok && baudInt >= minBaud && baudInt <= maxBaud)
+            filteredBauds.append(baudStr);
+    }
+    return filteredBauds;
 }
 
 #endif // QGC_NO_SERIAL_LINK

@@ -106,7 +106,46 @@ RowLayout {
                     return control._disconnectedText;
                 }
             }
+    QGCLabel {
+        id:                 mainStatusLabel
+        Layout.fillHeight:  true
+        Layout.preferredWidth: contentWidth + vehicleMessagesIcon.width + control.spacing
+        verticalAlignment:  Text.AlignVCenter
+        text:               control.mainStatusText()
+        font.pointSize:     ScreenTools.largeFontPointSize
+        visible: _activeVehicle
+        
 
+        QGCColoredImage {
+            id:                     vehicleMessagesIcon
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right:          parent.right
+            width:                  ScreenTools.defaultFontPixelWidth * 2.5
+            height:                 width
+            source:                 "/res/VehicleMessages.png"
+            color:                  getIconColor()
+            sourceSize.width:       width
+            fillMode:               Image.PreserveAspectFit
+            //visible:                _activeVehicle && _activeVehicle.messageCount > 0
+
+            function getIconColor() {
+                let iconColor = qgcPal.text
+                if (_activeVehicle) {
+                    if (_activeVehicle.messageTypeWarning) {
+                        iconColor = qgcPal.colorOrange
+                    } else if (_activeVehicle.messageTypeError) {
+                        iconColor = qgcPal.colorRed
+                    }
+                }
+                return iconColor
+            }
+        }
+
+        QGCMouseArea {
+            anchors.fill:   parent
+            onClicked:      dropMainStatusIndicator()
+        }
+    }
     QGCLabel {
         id: vtolModeLabel
         Layout.fillHeight: true

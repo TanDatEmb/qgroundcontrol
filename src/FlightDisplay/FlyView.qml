@@ -238,7 +238,7 @@ Item {
             anchors.right:          parent.right
             anchors.bottomMargin:  56
             anchors.margins:        _margins
-            width: parent.width * 0.8
+            width: parent.width * 0.9
             height: 80
             z:                      10
 

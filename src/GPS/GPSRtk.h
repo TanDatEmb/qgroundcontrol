@@ -13,6 +13,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
+#include "FactGroup.h"
 #include "satellite_info.h"
 #include "sensor_gnss_relative.h"
 #include "sensor_gps.h"
@@ -20,13 +21,14 @@
 Q_DECLARE_LOGGING_CATEGORY(GPSRtkLog)
 
 class GPSRTKFactGroup;
-class FactGroup;
+// class FactGroup;
 class RTCMMavlink;
 class GPSProvider;
 
 class GPSRtk : public QObject
 {
     Q_OBJECT
+     Q_PROPERTY(FactGroup* gpsRtkFactGroup READ gpsRtkFactGroup CONSTANT)
 
 public:
     GPSRtk(QObject *parent = nullptr);
@@ -34,8 +36,8 @@ public:
 
     static void registerQmlTypes();
 
-    void connectGPS(const QString &device, QStringView gps_type);
-    void disconnectGPS();
+    void connectGPS(const QString &device, QStringView gps_type, int baudRate);
+    Q_INVOKABLE void disconnectGPS();
     bool connected() const;
     FactGroup *gpsRtkFactGroup();
 

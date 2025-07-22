@@ -126,7 +126,7 @@ Item {
         property real _cacheBuffer:     height * 2
 
         delegate: Rectangle {
-            width:          vehicleList.width
+            width:          vehicleList.width 
             height:         innerColumn.height + _margin * 2
             color:          QGroundControl.multiVehicleManager.activeVehicle == _vehicle ? _activeVehicleColor : qgcPal.button
             radius:         _margin

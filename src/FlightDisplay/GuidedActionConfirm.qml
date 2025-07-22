@@ -102,7 +102,7 @@ Rectangle {
         ColumnLayout {
             id: mainLayout
             anchors.centerIn: parent
-            width: parent.width - (_margins * 2)
+            width: parent.width - (_margins * 3)
             spacing: _margins
 
             QGCLabel {
@@ -119,6 +119,17 @@ Rectangle {
                 Layout.alignment: Qt.AlignHCenter
                 text: ""
                 visible: text !== ""
+            }
+
+            QGCLabel {
+                id: messageActionText
+                text: qsTr("Hold or slide to confirm")
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+                font.pointSize: ScreenTools.defaultFontPointSize 
+                font.bold: false
             }
 
             SliderSwitch {
