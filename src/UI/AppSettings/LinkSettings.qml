@@ -79,7 +79,7 @@ SettingsPage {
             id:         rtkManualConnectDialog
             title:      qsTr("Manual RTK Connection")
             buttons:    Dialog.Ok | Dialog.Cancel
-            acceptButtonEnabled: serialPortCombo.currentIndex > 0 
+            acceptButtonEnabled: serialPortCombo.currentIndex > - 1
 
             property string selectedPort: ""
             property int    selectedBaud: 38400 
