@@ -96,4 +96,7 @@ private:
 
     static constexpr uint32_t kGPSReceiveTimeout = 1200;
     static constexpr float kGPSHeadingOffset = 5.f;
+
+    GPSBaseStationSupport *_gpsDriver = nullptr;
+    bool _surveyInComplete = false;
 };

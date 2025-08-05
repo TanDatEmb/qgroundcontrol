@@ -107,6 +107,16 @@ int GPSProvider::callback(GPSCallbackType type, void *data1, int data2)
 
         qCDebug(GPSProviderLog) << QString("Survey-in status: %1s cur accuracy: %2mm valid: %3 active: %4").arg(status->duration).arg(status->mean_accuracy).arg(valid).arg(active);
         emit surveyInStatus(status->duration, status->mean_accuracy, status->latitude, status->longitude, status->altitude, valid, active);
+
+        if (valid && _gpsDriver && !_surveyInComplete) {
+            qCDebug(GPSProviderLog) << "Survey-in complete. Switching to fixed base mode.";
+
+            _surveyInComplete = true;
+
+            _gpsDriver->setBasePosition(status->latitude, status->longitude, status->altitude,
+                                        status->mean_accuracy / 1000.0f);
+        }
+
         break;
     }
     case GPSCallbackType::setClock:
@@ -135,6 +145,8 @@ void GPSProvider::run()
             gpsDriver = nullptr;
         }
 
+        _surveyInComplete = false;
+        
         gpsDriver = _connectGPS();
         if (gpsDriver) {
             (void) memset(&_sensorGps, 0, sizeof(_sensorGps));
